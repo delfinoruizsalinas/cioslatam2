@@ -16,8 +16,7 @@ class MailController extends Controller
             'perfil' => 'Administrador'
         ];
        //dd($mailData); 
-        Mail::to('delfinoruizsalinas@gmail.com')->send(new ContactanosMail($mailData));
-
-        dd("Email is sent successfully.");
+        Mail::to('contacto@ciosmexicanos.com')->send(new ContactanosMail($mailData));
+        return "Email is sent successfully."; 
     }
 }
