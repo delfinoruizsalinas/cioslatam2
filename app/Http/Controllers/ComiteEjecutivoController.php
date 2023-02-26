@@ -22,7 +22,7 @@ class ComiteEjecutivoController extends Controller
                                 'tw' => $valuecomite->attributes->twt,
                                 'titulo' => $valuecomite->attributes->titulo,
                                 'cargo' => $valuecomite->attributes->cargo, 
-                                'imagen' => $urlPresenc.$urlImg,           
+                                'imagen' => $urlImg,           
                             );
         }
         return view('layouts.comite_ejecutivo', compact('title','comite'));
