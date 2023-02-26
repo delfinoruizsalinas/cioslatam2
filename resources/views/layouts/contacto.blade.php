@@ -68,7 +68,7 @@ Insurgentes San Borja, Ciudad de México, CDMX</a></h4>
                 <div class="box-icon-inner decorate-rectangle decorate-color-primary"><span class="icon-xl linearicons-paper-plane icon-gradient-3"></span></div>
                 <div class="box-icon-caption">
                   <h4><a href="mailto:#">contacto@ciosmexicanos.com</a></h4>
-                  <p>No dude en enviarnos un correo electrónico con sus preguntas</p>
+                  <p>No dudes en enviarnos un correo electrónico con tus preguntas</p>
                 </div>
               </div>
             </div>
