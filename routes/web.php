@@ -13,8 +13,7 @@ use App\Http\Controllers\PostnewsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\EventosController;
-
-
+use App\Http\Controllers\MailController;
 
 
 /*
@@ -60,6 +59,7 @@ Route::controller(EventosController::class)->group(function(){
     Route::GET('cios-master-class', 'getClass');    
 });
 
+Route::get('send-mail', [MailController::class, 'index']);
 
 Route::controller(PartnersController::class)->group(function(){
     Route::GET('partners-registro', 'index');
@@ -68,6 +68,7 @@ Route::controller(PartnersController::class)->group(function(){
     Route::GET('partners-detalle/{id}', 'detalle');
     Route::GET('partners-detalle-contenido/{id}', 'detalleContenido');
 });
+
 
 Route::GET('/login', [App\Http\Controllers\HomeController::class, 'index'])->name('login');
 Auth::routes();
