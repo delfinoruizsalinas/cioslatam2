@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('nom_empresa');
             $table->string('website');
-            $table->string('curriculum');
+            $table->string('curriculum')->nullable();
             $table->integer('estatus')->default(0);
             //SE COMPLETAN SI SE APRUEBA AL PARTNER
             $table->longText('resumen')->nullable();
