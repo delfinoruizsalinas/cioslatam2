@@ -12,8 +12,8 @@ class MailController extends Controller
     public function index()
     {
         $mailData = [
-            'title' => 'Mail test cioslatam',
-            'body' => 'Mensaje Del formulario de Contacto.'
+            'miembro' => 'Partner',
+            'perfil' => 'Administrador'
         ];
        //dd($mailData); 
         Mail::to('delfinoruizsalinas@gmail.com')->send(new ContactanosMail($mailData));
