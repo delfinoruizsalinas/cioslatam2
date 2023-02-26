@@ -62,7 +62,8 @@ class PartnersController extends Controller
                 'editor' => $request->editor,
                 'curriculum' => $nombreFile
             ]);
-            mailPartner();
+
+            app(MailController::class)->mailPartner();
            // return back()->with('success', 'Se guardó correctamente la publicación');
             return back()->with('Listo','El registro se actualizo correctamente');
         }
