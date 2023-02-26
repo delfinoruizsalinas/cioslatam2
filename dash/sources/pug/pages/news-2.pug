@@ -1,0 +1,86 @@
+extends  ../_skeleton
+
+include ../components/_ui-posts
+include ../components/_ui-pagination
+
+block variables
+	- pageName = 'News 2'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({ img: 'images/icon-lists-title-bg.jpg' })
+
+
+	section.section.section-lg.bg-gray-1
+		.container
+			.row.row-50
+				.col-md-6.col-lg-4
+					+post-modern({
+						img: 'post-modern-1-370x255',
+						badgeMod: 'badge-primary',
+						badge: 'sales',
+						date: 'May 11, 2019',
+						title: '10 Sales Workshops of Eventy that You Must Visit'
+					})
+				.col-md-6.col-lg-4
+					+post-modern({
+						classMod: 'post-modern-reverse',
+						img: 'post-modern-2-370x255',
+						badgeMod: 'badge-secondary',
+						badge: 'news',
+						date: 'April 25, 2019',
+						title: 'How to Register for the Nearest Eventy Conference'
+					})
+				.col-md-6.col-lg-4
+					+post-modern-text({
+						badge: 'conference',
+						date: 'July 02, 2019',
+						title: 'How Your Business Can Benefit from Eventy'
+					})
+						p Eabitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. 
+	
+				.col-md-6.col-lg-4
+					+post-modern({
+						classMod: 'post-modern-reverse',
+						img: 'post-modern-3-370x255',
+						badgeMod: 'badge-secondary',
+						badge: 'news',
+						date: 'April 25, 2019',
+						title: 'Full Lineup of Eventy 2019 is Finally Here!'
+					})
+				.col-md-6.col-lg-4
+					+post-modern({
+						img: 'post-modern-4-370x255',
+						badgeMod: 'badge-secondary',
+						badge: 'news',
+						date: 'May 11, 2019',
+						title: 'Top 5 Artists to Listen to Before Visiting Eventy'
+					})
+				.col-md-6.col-lg-4
+					+post-modern({
+						classMod: 'post-modern-reverse',
+						img: 'post-modern-5-370x255',
+						badgeMod: 'badge-secondary',
+						badge: 'news',
+						date: 'April 25, 2019',
+						title: 'How to Easily Reach the Venue of Our Event'
+					})
+				.col-md-6.col-lg-4
+					+post-modern({
+						img: 'post-modern-6-370x255',
+						badgeMod: 'badge-primary',
+						badge: 'sales',
+						date: 'May 11, 2019',
+						title: '10 Reasons Why Eventy is Worth Visiting This Year'
+					})
+				.col-md-6.col-lg-4
+					+post-modern-text({
+						badge: 'conference',
+						date: 'July 02, 2019',
+						title: 'Top 8 Email Marketing Tips from Our Speakers'
+					})
+						p Eabitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est.
+	// Page Footer
+	include ../sections/_footer-classic

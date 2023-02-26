@@ -1,0 +1,174 @@
+extends  ../_skeleton
+
+block variables
+	- pageName = 'Pricing'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({ img: 'images/speakers-title-bg.jpg' })
+
+	
+	
+	section.section.section-lg.bg-default.text-center
+		.container
+			h3 Tickets
+			.row.row-50
+				// Owl Carousel
+				.owl-carousel(data-items='1', data-md-items='2' data-lg-items='3' data-dots='true' data-nav='false' data-stage-padding='15', data-loop='false', data-margin='30', data-mouse-drag="false")
+					.pricing-corporate
+						h5.pricing-corporate-title Standard pass
+						.pricing-corporate-price
+							span.heading-4 $
+							p.text-accent-2 15
+						ul.pricing-corporate-list
+							li 1-Day Entrance
+							li Basic Access
+							li 1 Stage
+							li Free Lunch
+						a(href='#').button.button-default-outline.button-lg Buy Now
+					.pricing-corporate.box-pricing-selected
+						h5.pricing-corporate-title Premium Pass
+						.pricing-corporate-price
+							span.heading-4 $
+							p.text-accent-2 49
+							.pricing-corporate-bonus
+								p bonus
+						ul.pricing-corporate-list
+							li 3-Day Entrance
+							li Extended Access
+							li 3 Stages
+							li Free Lunch & Merch
+						a(href='#').button.button-gradient-secondary-2.button-lg.button-shadow Buy Now
+					.pricing-corporate
+						h5.pricing-corporate-title Gold Pass
+						.pricing-corporate-price
+							span.heading-4 $
+							p.text-accent-2 70
+						ul.pricing-corporate-list
+							li 4-Day Entrance
+							li Ultimate Access
+							li 5 Stages
+							li Free Accommodation
+						a(href='#').button.button-default-outline.button-lg Buy Now
+						
+	section.section.section-lg.bg-gray-600.text-center
+		.container
+			h3.title-decorate.title-decorate-center Ticket Packages
+			// Owl Carousel
+			.row
+				.col-12
+					.owl-carousel(data-items='1', data-lg-items='3' data-dots='true' data-nav='false' data-stage-padding='0', data-loop='false', data-margin='0', data-mouse-drag="false")
+						.box-pricing-classic
+							svg.pricing-border( fill='none', xmlns='http://www.w3.org/2000/svg')
+								rect(x='0', y='0', stroke='url(#paint0_linear_2)', stroke-width='4', width="100%", height="100%")
+								defs
+									lineargradient#paint0_linear_1(x1='337.205', y1='224.516', x2='-4.05043', y2='263.393', gradientUnits='userSpaceOnUse')
+										stop(offset='0.362588', stop-color='#FFD541')
+										stop(offset='0.967271', stop-color='#F73CA1')
+							h4.pricing-classic-title Basic
+							ul.pricing-classic-list
+								li 1-Day Entrance
+								li Essential Access
+								li 1 Guest Ticket
+								li 1 Workshop
+								li Free Coffee Break
+							h3.pricing-classic-price
+								span $
+								| 25
+							a(href='#').button.button-lg.button-gradient Buy Now
+						.box-pricing-classic.box-pricing-selected
+							svg.pricing-border( fill='none', xmlns='http://www.w3.org/2000/svg')
+								rect(x='0', y='0', stroke='url(#paint0_linear_2)', stroke-width='4', width="100%", height="100%")
+								defs
+									lineargradient#paint0_linear_2(x1='337.205', y1='224.516', x2='-4.05043', y2='263.393', gradientUnits='userSpaceOnUse')
+										stop(offset='0.362588', stop-color='#FFD541')
+										stop(offset='0.967271', stop-color='#F73CA1')
+
+							h4.pricing-classic-title Standard
+							ul.pricing-classic-list
+								li 3-Day Entrance
+								li Extended Access
+								li 3 Guest Tickets
+								li 3 Workshops
+								li Free Lunch & Merch
+							h3.pricing-classic-price
+								span $
+								| 45
+							a(href='#').button.button-lg.button-gradient Buy Now
+						.box-pricing-classic
+							svg.pricing-border( fill='none', xmlns='http://www.w3.org/2000/svg')
+								rect(x='1', y='1', stroke='url(#paint0_linear_3)', stroke-width='2' width='338px' height='484px')
+								defs
+									lineargradient#paint0_linear_3(x1='337.205', y1='224.516', x2='-4.05043', y2='263.393', gradientUnits='userSpaceOnUse')
+										stop(offset='0.362588', stop-color='#FFD541')
+										stop(offset='0.967271', stop-color='#F73CA1')
+							h4.pricing-classic-title Premium
+							ul.pricing-classic-list
+								li 4-Day Entrance
+								li Ultimate Access
+								li 5 Guest Tickets
+								li 7 Workshops
+								li Free Entertainment
+							h3.pricing-classic-price
+								span $
+								| 70
+							a(href='#').button.button-lg.button-gradient Buy Now
+
+
+
+
+
+	section.section.section-xl.bg-gray-700.bg-decorate.bg-decorate-reverse
+		.container
+			.row
+				.col-12.text-center
+					h3.title-decorate.title-decorate-center Ticket Packages
+			.row.row-50.align-items-lg-center
+				.col-lg-4
+					.box-pricing-modern
+						.box-pricing-modern-inner
+							h4.pricing-modern-title Basic Pass
+							.pricing-modern-price
+								span $
+								p 20
+							ul.list-marked.pricing-modern-list
+								li 1-Day Entrance
+								li Essential Access
+								li 1 Guest Ticket
+								li 1 Workshop
+								li Free Coffee Break
+							a(href='#').button.button-lg.button-default-outline Buy Now
+				.col-lg-4
+					.box-pricing-modern.box-pricing-selected
+						.box-pricing-modern-inner
+							h4.pricing-modern-title Standard Pass
+							.pricing-modern-price
+								span $
+								p 45
+							ul.list-marked.pricing-modern-list
+								li 3-Day Entrance
+								li Extended Access
+								li 3 Guest Tickets
+								li 3 Workshops
+								li Free Lunch & Merch
+							a(href='#').button.button-lg.button-gradient Buy Now
+				.col-lg-4
+					.box-pricing-modern
+						.box-pricing-modern-inner
+							h4.pricing-modern-title Premium Pass
+							.pricing-modern-price
+								span $
+								p 98
+							ul.list-marked.pricing-modern-list
+								li 4-Day Entrance
+								li Ultimate Access
+								li 5 Guest Tickets
+								li 7 Workshops
+								li Free Entertainment
+							a(href='#').button.button-lg.button-gradient-secondary Buy Now
+
+
+	// Page Footer
+	include ../sections/_footer-classic

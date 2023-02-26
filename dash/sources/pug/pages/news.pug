@@ -1,0 +1,114 @@
+extends  ../_skeleton
+
+include ../components/_ui-posts
+include ../components/_ui-pagination
+
+block variables
+	- pageName = 'News'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({ img: 'images/icon-lists-title-bg.jpg' })
+
+
+	section.section.section-lg.bg-default
+		.container
+			.row.row-70.justify-content-xl-between
+				.col-lg-8
+					.row.row-50.justify-content-center
+						.col-md-6
+							+post-classic({
+								img: 'post-classic-4-370x255',
+								title: '10 Reasons Why Eventy is Worth Visiting This Year',
+								date: 'April 25, 2019',
+								tagMod: 'post-classic-tag-secondary',
+								tag: 'News'
+							})
+						.col-md-6
+							+post-classic({
+								img: 'post-classic-2-370x255',
+								title: 'How Your Business Can Benefit from Eventy',
+								date: 'April 25, 2019',
+								tagMod: 'post-classic-tag-secondary',
+								tag: 'News'
+							})
+						.col-md-6
+							+post-classic({
+								img: 'post-classic-5-370x255',
+								title: 'Full Lineup of Eventy 2019 is Finally Here!',
+								date: 'April 25, 2019',
+								tagMod: 'post-classic-tag-secondary',
+								tag: 'News'
+							})
+						.col-md-6
+							+post-classic({
+								img: 'post-classic-3-370x255',
+								title: '10 Sales Workshops of Eventy that You Must Visit',
+								date: 'April 25, 2019',
+								tag: 'Sales'
+							})
+						.col-md-6
+							+post-classic({
+								img: 'post-classic-1-370x255',
+								title: 'Top 8 Email Marketing Tips from Our Speakers',
+								date: 'April 25, 2019',
+								tagMod: 'post-classic-tag-secondary-2',
+								tag: 'Marketing'
+							})
+						.col-md-6
+							+post-classic({
+								img: 'post-classic-6-370x255',
+								title: 'How to Easily Reach the Venue of Our Event',
+								date: 'April 25, 2019',
+								tagMod: 'post-classic-tag-secondary',
+								tag: 'News'
+							})
+						+pagination-bootstrap('pagination-classic', 1, 3)
+				.col-lg-4.col-xl-3
+					.block-aside
+						.block-aside-item
+							h5.block-aside-title Categories
+							ul.category-list
+								li.active: a(href='#') All Categories
+									span 12
+								li: a(href='#') Events
+									span 3
+								li: a(href='#') News
+									span 4
+								li: a(href='#') Conference
+									span 6
+								li: a(href='#') People
+									span 2
+						.block-aside-item
+							h5.block-aside-title Search News
+							// RD Search
+							form.rd-search.form-sm(action="search-results.html", method="GET", data-search-live="rd-search-results-live")
+								.form-wrap
+									label(for="rd-search-form-input" class="form-label") Search
+									input(class="form-input" id="rd-search-form-input" type="text" name="s" autocomplete="off")
+									button(type='submit').button-search.icon.linearicons-magnifier
+
+						.block-aside-item
+							h5.block-aside-title Latest News
+							.post-minimal
+								h5.post-minimal-title: a(href='blog-post.html') Why You Should Visit Eventy With Your Friends This Year
+								p.post-minimal-date April 25, 2019
+							.post-minimal
+								h5.post-minimal-title: a(href='blog-post.html') How Your Business Can Benefit From Eventy
+								p.post-minimal-date April 25, 2019
+							
+						.block-aside-item
+							h5.block-aside-title Newsletter
+							// RD Mailform
+							form.rd-mailform.text-left.form-sm(data-form-output="form-output-global", data-form-type='contact', method='post', action='bat/rd-mailform.php')
+								
+								.form-wrap
+									label.form-label(for="contact-email") Enter Your E-mail
+									input#contact-email.form-input(type="email" name="email" data-constraints="@Email @Required")
+								
+								.form-button
+									button(type="submit").button.button-block.button-gradient Subscribe
+	// Page Footer
+	include ../sections/_footer-classic

@@ -1,0 +1,49 @@
+extends  ../_skeleton
+
+include ../components/_ui-box-icon
+
+block variables
+	- pageName = 'Contacts'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({ img: 'images/icon-lists-title-bg.jpg' })
+	
+	section.section.section-lg.text-center.bg-default
+		.container
+			.row.row-50
+				.col-md-6.col-lg-4
+					+box-icon-classic({
+						classMod: 'decorate-triangle decorate-color-secondary',
+						icon: 'linearicons-phone-incoming icon-gradient-1',
+						link: 'tel:#',
+						title: '1-800-123-1234'
+					})
+						p You can call us anytime
+				.col-md-6.col-lg-4
+					+box-icon-classic({
+						classMod: 'decorate-circle decorate-color-secondary-2',
+						icon: 'linearicons-map2 icon-gradient-2',
+						title: '51 Francis Street, Darlinghurst NSW 2010, United States'
+					})
+						
+				.col-md-6.col-lg-4
+					+box-icon-classic({
+						classMod: 'decorate-rectangle decorate-color-primary',
+						icon: 'linearicons-paper-plane icon-gradient-3',
+						link: 'mailto:#',
+						title: 'info@demolink.org'
+					})
+						p Feel free to email us your questions
+
+
+
+
+
+	// Contact us
+	include ../includes/_section-contact-form
+	
+	// Page Footer
+	include ../sections/_footer-classic

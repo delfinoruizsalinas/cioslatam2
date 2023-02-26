@@ -1,0 +1,383 @@
+extends  ../_skeleton
+
+//- Includes
+include ../components/_ui-pagination
+include ../components/_ui-box-icon
+include ../components/_ui-team
+include ../components/_ui-posts
+include ../components/_ui-gallery-item
+include ../components/_ui-event-item
+
+block variables
+	- pageName = 'Home 3'
+
+block page
+	// Page Header
+	include ../sections/_header-sidebar
+
+	// Swiper
+	section.section.section-lg.section-main-bunner.section-main-bunner-filter
+		.main-bunner-img(style='background-image: url("images/bg-bunner-2.jpg"); background-size: cover;')
+		.main-bunner-inner
+			.container
+				.row.row-50.justify-content-lg-center.align-items-lg-center
+					.col-lg-12
+						.bunner-content-modern.text-center
+							p.text-accent-2 Music
+							.box-location
+								h4 Los angeles
+								h5.text-secondary 05-09 july, 2019
+	
+	section.section-transform-top
+		.container
+			.box-countdown-dark
+				.row.row-30.align-items-center.justify-content-xl-between
+					.col-lg-3.col-xl.text-center.text-lg-left
+						h3 Hurry Up!
+						p Our event starts soon, so buy your ticket!
+					.col-lg-6.col-xl-7
+						.countdown(data-type='until', data-time='17 Aug 2020 16:00', data-format='dhms')
+					.col-lg-3.col-xl
+						a(href='#').button.button-secondary.button-lg.button-block Buy Tickets
+								
+	section.section.section-lg.bg-default.pt-lg-0
+		.container
+			.row.row-50.justify-content-xl-between.align-items-lg-center
+				
+				.col-lg-6.wow-outer
+					.wow.slideInLeft
+						.block-decorate-img-modern.block-decorate-img 
+							.block-decorate-inner
+								+jpg('home-3-1-483x327')
+								.block-video-button
+									a(href='https://www.youtube.com/embed/g8LBPCvkagc' data-lightgallery='item')
+										span.icon.fa-play.icon-md
+				.col-lg-6.col-xl-5.wow-outer
+					.wow.slideInRight
+						h3 About Our Event
+						p Eventy Festival gathers world famous groups, DJs, and performers at a single place for you to enjoy the best music.
+						p With 5 stages dedicated to various music genres that include Rock, Indie, Hip-Hop, EDM, and Bass music, our festival can offer you an unprecedented lineup of artists you’ve probably only dreamt of.
+					
+					
+	+parallax({
+		img: 'parallax-img-1.jpg',
+		innerClass: 'section-xl context-dark text-center bg-dark-filter'
+	})
+		.container: .row.justify-content-md-center: .col-md-10.wow-outer
+			.wow.fadeInUp
+				h3 Join our event’s 2019 lineup of more than 50 artists!
+				a(href='speakers.html').button.button-lg.button-white-outline Join now
+					
+	section.section.section-lg.bg-default
+		.container
+			.row.justify-content-center.text-center
+				.col-md-9.col-lg-7.wow-outer
+					.wow.slideInDown
+						h3 Artists & DJ
+						p.text-opacity-80 Each year we invite lots of famous  & talented performers and DJs to our event. Here are just some of the artists who will excite you with their music this year.
+
+			.row.row-15
+				.col-md-6.col-lg-4.wow-outer
+					.wow.fadeInUp
+						+team-minimal({
+							img: 'team-minimal-1-370x395',
+							name: 'Jane Smith',
+							text: 'Indie Rock'
+						})
+				.col-md-6.col-lg-4.wow-outer
+					.wow.fadeInUp
+						+team-minimal({
+							img: 'team-minimal-2-370x395',
+							name: 'DJ Dusk',
+							text: 'Drum & Bass'
+						})
+				.col-md-6.col-lg-4.wow-outer
+					.wow.fadeInUp
+						+team-minimal({
+							img: 'team-minimal-3-370x395',
+							name: 'Kate Wilson',
+							text: 'pop Punk'
+						})
+					
+					
+	section.section.section-xl.bg-gray-700.bg-decorate
+		.container
+			.row.row-50.justify-content-lg-between.align-items-lg-center
+				.col-lg-6
+					.box-img-animate 
+						.box-img-animate-item(data-parallax-scroll='{"y": 0, "x": 140,  "smoothness": 50 }')
+							img(src="images/animate-img-1.jpg",  alt="")
+						.box-img-animate-item(data-parallax-scroll='{"y": 150, "x": 0,  "smoothness": 50 }')
+							img(src="images/animate-img-2.jpg",  alt="")
+						.box-img-animate-item(data-parallax-scroll='{"y":70, "x": -150,  "smoothness": 50 }')
+							img(src="images/animate-img-3.jpg",  alt="")
+						.box-img-animate-item(data-parallax-scroll='{"y":20, "x": 20,  "smoothness": 50 }')
+							img(src="images/animate-img-4.jpg",  alt="")
+						.box-img-animate-item(data-parallax-scroll='{"y":60, "x": 70,  "smoothness": 50 }')
+							img(src="images/animate-img-5.jpg",  alt="")
+						.box-img-animate-item(data-parallax-scroll='{"y":0, "x": 140,  "smoothness": 50 }')
+							img(src="images/animate-img-6.jpg",  alt="")
+				.col-lg-6.col-xl-5
+					h3 What We Can Offer You at Eventy
+					p.text-opacity-80 Besides the great atmosphere, our event offers you lots of fun and benefits, and we are sure you will like them!
+					.row.row-50
+						.col-md-6.col-lg-12
+							+box-icon-modern({
+								classMod: 'decorate-triangle',
+								icon: 'linearicons-bus2 icon-gradient-1',
+								title: 'Free Transfer'
+							})
+								p We offer free transfer from any part of the US via branded bus coaches.
+						.col-md-6.col-lg-12
+							+box-icon-modern({
+								classMod: 'decorate-circle',
+								icon: 'linearicons-hamburger icon-gradient-2',
+								title: 'Tasty Food'
+							})
+								p At Eventy, you can find a wide range of tasty food and beverages.
+						.col-md-6.col-lg-12
+							+box-icon-modern({
+								classMod: 'decorate-rectangle',
+								icon: 'linearicons-music-note2 icon-gradient-4',
+								title: 'Live Music'
+							})
+								p One of the main reasons to visit Eventy is great live music and performances.
+								
+	section.section.section-lg.bg-default
+		.container
+			h3.text-center Schedule
+			.row
+				.col-12
+					#tabs-1.tabs-custom.tabs-horizontal.tabs-classic
+						ul.nav.nav-tabs.nav-tabs-classic
+							li.nav-item(role='presentation'): a.nav-link.active(href='#tabs-1-1' data-toggle='tab') Day 1
+							li.nav-item(role='presentation'): a.nav-link(href='#tabs-1-2' data-toggle='tab') Day 2
+							li.nav-item(role='presentation'): a.nav-link(href='#tabs-1-3' data-toggle='tab') Day 3
+						.tab-content
+							div#tabs-1-1.tab-pane.fade.show.active
+								.box-event-modern
+									+event-item-modern({
+										classMod: 'event-active',
+										time: '2:00 pm - 4:00 pm ',
+										title: 'Kate Wilson & The Punks'
+									}) 
+										p One of the most talented singers of the pop punk scene, Kate Wilson with her group The Punks, will perform her latest songs and widely known hits on the Rock Stage.
+									+event-item-modern({
+										time: '4:00 pm - 7:00 pm ',
+										title: 'Jane Smith & Sam Wilson (Acoustic Concert)'
+									})
+									+event-item-modern({
+										time: '7:00 pm - 11:00 pm ',
+										title: 'DJ Dusk b2b Rage Quit (DJ Set)'
+									})
+									+event-item-modern({
+										time: '11:00 pm - 2:00 am',
+										title: 'Solar Moonz & Basskickers (Live Performance)'
+									})
+							div#tabs-1-2.tab-pane.fade
+								.box-event-modern
+									+event-item-modern({
+										classMod: 'event-active',
+										time: '4:00 pm - 7:00 pm ',
+										title: 'Jane Smith & Sam Wilson (Acoustic Concert)'
+									})
+									+event-item-modern({
+										time: '7:00 pm - 11:00 pm ',
+										title: 'DJ Dusk b2b Rage Quit (DJ Set)'
+									})
+									+event-item-modern({
+										time: '11:00 pm - 2:00 am',
+										title: 'Solar Moonz & Basskickers (Live Performance)'
+									})
+							div#tabs-1-3.tab-pane.fade
+								.box-event-modern
+									+event-item-modern({
+										classMod: 'event-active',
+										time: '7:00 pm - 11:00 pm ',
+										title: 'DJ Dusk b2b Rage Quit (DJ Set)'
+									})
+									+event-item-modern({
+										time: '11:00 pm - 2:00 am',
+										title: 'Solar Moonz & Basskickers (Live Performance)'
+									})
+									
+	section.section-lg.bg-gray-600.text-center
+		.container
+			.wow-outer
+				.wow.slideInDown
+					h3 Sponsors
+			// Owl Carousel
+			.owl-carousel.owl-dots-secondary.dots-offset-lg(data-items='1' data-sm-items='2', data-dots-each="2"  data-lg-items='4' data-dots='true' data-nav='false' data-stage-padding='0', data-loop='false', data-margin='30', data-mouse-drag="false")
+				a(href='#').box-sponsor.box-sponsor-modern.wow-outer
+					.wow.fadeInUp
+						+png('logo-inverse-1-270x121')
+				a(href='#').box-sponsor.box-sponsor-modern.wow-outer
+					.wow.fadeInUp
+						+png('logo-inverse-2-270x121')
+				a(href='#').box-sponsor.box-sponsor-modern.wow-outer
+					.wow.fadeInUp
+						+png('logo-inverse-3-270x121')
+				a(href='#').box-sponsor.box-sponsor-modern.wow-outer
+					.wow.fadeInUp
+						+png('logo-inverse-4-270x121')
+				a(href='#').box-sponsor.box-sponsor-modern.wow-outer
+					.wow.fadeInUp
+						+png('logo-inverse-1-270x121')
+				a(href='#').box-sponsor.box-sponsor-modern.wow-outer
+					.wow.fadeInUp
+						+png('logo-inverse-2-270x121')
+				a(href='#').box-sponsor.box-sponsor-modern.wow-outer
+					.wow.fadeInUp
+						+png('logo-inverse-3-270x121')
+				a(href='#').box-sponsor.box-sponsor-modern.wow-outer
+					.wow.fadeInUp
+						+png('logo-inverse-4-270x121')
+									
+	
+	section.section.section-lg.bg-default.text-center
+		.container
+			h3 Tickets
+			.row.row-50
+				// Owl Carousel
+				.owl-carousel(data-items='1', data-md-items='2' data-lg-items='3' data-dots='true' data-nav='false' data-stage-padding='15', data-loop='false', data-margin='30', data-mouse-drag="false")
+					.wow-outer
+						.wow.slideInLeft
+							.pricing-corporate
+								h5.pricing-corporate-title Standard pass
+								.pricing-corporate-price
+									span.heading-4 $
+									p.text-accent-2 15
+								ul.pricing-corporate-list
+									li 1-Day Entrance
+									li Basic Access
+									li 1 Stage
+									li Free Lunch
+								a(href='#').button.button-default-outline.button-lg Buy Now
+					.pricing-corporate.box-pricing-selected
+						h5.pricing-corporate-title Premium Pass
+						.pricing-corporate-price
+							span.heading-4 $
+							p.text-accent-2 49
+							.pricing-corporate-bonus
+								p bonus
+						ul.pricing-corporate-list
+							li 3-Day Entrance
+							li Extended Access
+							li 3 Stages
+							li Free Lunch & Merch
+						a(href='#').button.button-gradient-secondary-2.button-lg.button-shadow Buy Now
+					.wow-outer
+						.wow.slideInRight
+							.pricing-corporate
+								h5.pricing-corporate-title Gold Pass
+								.pricing-corporate-price
+									span.heading-4 $
+									p.text-accent-2 70
+								ul.pricing-corporate-list
+									li 4-Day Entrance
+									li Ultimate Access
+									li 5 Stages
+									li Free Accommodation
+								a(href='#').button.button-default-outline.button-lg Buy Now
+	section.section
+		.row.isotope-wrap
+			// Isotope Content
+			.col-lg-12
+				.isotope(data-isotope-layout='fitRows', data-isotope-group='gallery' data-lightgallery='group' data-lg-thumbnail='false' )
+					.row.no-gutters.row-condensed
+						.col-12.col-sm-6.col-md-4.isotope-item(data-filter='*').wow-outer
+							.wow.slideInDown
+								+gallery-item-classic({
+									img: 'gallery-masonry-1-640x429',
+									imgOriginal: 'images/gallery-masonry-1-original.jpg'
+								})
+						.col-12.col-sm-6.col-md-4.isotope-item(data-filter='Category 3').wow-outer
+							.wow.slideInDown
+								+gallery-item-classic({
+									img: 'gallery-masonry-2-640x429',
+									imgOriginal: 'images/gallery-masonry-2-original.jpg'
+								})
+						.col-12.col-md-4.isotope-item(data-filter='Category 3').wow-outer
+							.wow.slideInDown
+								+gallery-item-classic({
+									img: 'gallery-masonry-3-640x429',
+									imgOriginal: 'images/gallery-masonry-3-original.jpg'
+								})
+						.col-12.col-sm-6.col-md-6.isotope-item(data-filter='Category 3').wow-outer
+							.wow.fadeInUp
+								+gallery-item-classic({
+									img: 'gallery-masonry-4-960x429',
+									imgOriginal: 'images/gallery-masonry-4-original.jpg'
+								})
+						.col-12.col-sm-6.col-md-6.isotope-item(data-filter='Category 2').wow-outer
+							.wow.fadeInUp
+								+gallery-item-classic({
+									img: 'gallery-masonry-5-960x429',
+									imgOriginal: 'images/gallery-masonry-5-original.jpg'
+								})
+						
+
+
+
+							
+	section.section-lg.bg-default
+		.container.wow-outer
+			h3.text-center.wow.slideInDown Recent News
+			// Owl Carousel
+			.owl-carousel.owl-dots-dark.wow.fadeInUp(data-items='1', data-md-items='2' data-lg-items='3' data-dots='true' data-nav='false' data-stage-padding='15', data-loop='false', data-margin='30', data-mouse-drag="false")
+				+post-corporate({
+					date: 'Jul 02, 2019',
+					title: 'How to Easily Reach the Venue of Our Festival'
+				})
+					p Getting to your favorite festival might be tricky but it is not true if we are talking about Eventy. Here is a short but detailed explanantion on how to get to...
+				
+				+post-corporate({
+					classMod: 'post-corporate-img-bg',
+					imgBg: 'post-corporate-bg-1-370x330',
+					date: 'Jul 16, 2019',
+					title: 'Full Rock Stage Lineup Announced!'
+				})
+					p We have good news for you - the full lineup of our Rock Stage is finally here! It includes many renowned and talented artists as well as...
+				
+				+post-corporate({
+					date: 'aug 02, 2019',
+					title: '5 Reasons to Visit Eventy with Your Friends This Year'
+				})
+					p Eventy is more than just a music festival - it’s a place where all people of various cultures and nations unite. Here are just some of the...
+				+post-corporate({
+					date: 'Jul 02, 2019',
+					title: 'How to Easily Reach the Venue of Our Festival'
+				})
+					p Getting to your favorite festival might be tricky but it is not true if we are talking about Eventy. Here is a short but detailed explanantion on how to get to...
+
+				+post-corporate({
+					classMod: 'post-corporate-img-bg',
+					imgBg: 'post-corporate-bg-1-370x330',
+					date: 'Jul 16, 2019',
+					title: 'Full Rock Stage Lineup Announced!'
+				})
+					p We have good news for you - the full lineup of our Rock Stage is finally here! It includes many renowned and talented artists as well as...
+
+				+post-corporate({
+					date: 'aug 02, 2019',
+					title: '5 Reasons to Visit Eventy with Your Friends This Year'
+				})
+					p Eventy is more than just a music festival - it’s a place where all people of various cultures and nations unite. Here are just some of the...
+					
+	+parallax({
+		img: 'parallax-img-2.jpg',
+		innerClass: 'section-xxl context-dark text-center bg-dark-filter'
+	})
+		.container: .row.justify-content-md-center: .col-md-9.col-lg-8.col-xl-7.wow-outer
+			.wow.slideInDown
+				h3 Subscribe to Stay Informed
+				
+				form.rd-form.rd-mailform.rd-form-inline(data-form-output="form-output-global", data-form-type='subscribe', method='post', action='bat/rd-mailform.php')
+					.form-wrap
+						input.form-input(id="subscribe-form-email" type="email" name="email" data-constraints="@Email @Required")
+						label.form-label(for="subscribe-form-email") Your E-mail
+					.form-button
+						button.button.button-secondary.button-lg(type="submit") Subscribe
+							
+	// Page Footer
+	include ../sections/_footer-minimal

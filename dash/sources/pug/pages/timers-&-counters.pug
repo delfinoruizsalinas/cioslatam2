@@ -1,0 +1,63 @@
+extends  ../_skeleton
+
+block variables
+	- pageName = 'Timers & Counters'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({ img: 'images/form-title-bg.jpg' })
+
+	
+	section.section.section-lg.bg-gray-1.pt-0
+		.container
+			.box-countdown-light.bg-dot
+				.box-countdown-light-inner
+					h3 Hurry Up!
+					p Our event is starting soon so don’t waste your time and book your tickets!
+					
+					.countdown-gradient
+						.countdown(data-type='until', data-time='17 Aug 2020 16:00', data-format='dhms')
+							
+	section.section.section-lg.bg-default
+		.container
+			.box-countdown-dark
+				.row.row-30.align-items-center.justify-content-xl-between
+					.col-lg-3.col-xl.text-center.text-lg-left 
+						h3 Hurry Up!
+						p Our event starts soon, so buy your ticket!
+					.col-lg-6.col-xl-7
+						.countdown(data-type='until', data-time='17 Aug 2020 16:00', data-format='dhms')
+					.col-lg-3.col-xl
+						a(href='#').button.button-secondary.button-lg.button-block Buy Tickets
+						
+	section.section.section-xl.bg-gray-700.bg-dots-light
+		.container
+			.row.row-50
+				.col-sm-6.col-lg-3
+					article.counter-classic
+						.counter-classic-main
+							.counter 50
+							
+						p.counter-classic-title Speakers
+				.col-sm-6.col-lg-3
+					article.counter-classic
+						.counter-classic-main
+							.counter 12
+							
+						p.counter-classic-title Workshops
+				.col-sm-6.col-lg-3
+					article.counter-classic
+						.counter-classic-main
+							.counter 34
+							span.small k
+						p.counter-classic-title Visitors
+				.col-sm-6.col-lg-3
+					article.counter-classic
+						.counter-classic-main
+							.counter 4
+							
+						p.counter-classic-title Days
+	// Page Footer
+	include ../sections/_footer-classic

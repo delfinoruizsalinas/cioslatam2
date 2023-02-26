@@ -1,0 +1,528 @@
+extends  ../_skeleton
+
+//- Includes
+include ../components/_ui-pagination
+include ../components/_ui-box-icon
+include ../components/_ui-team
+include ../components/_ui-posts
+include ../components/_ui-gallery-item
+include ../components/_ui-event-item
+
+block variables
+	- pageName = 'Home 2'
+
+block page
+	// Page Header
+	include ../sections/_header-modern
+
+	// Swiper
+	section.section.section-lg.section-main-bunner
+		.main-bunner-img(style='background-image: url("images/bg-bunner-1.jpg"); background-size: cover;')
+		.main-bunner-inner
+			.container
+				.row.row-50.justify-content-lg-between.align-items-lg-center
+					.col-lg-2.order-lg-2.text-center.text-lg-right.mr-xl-2
+						.block-video-button
+							a(href='https://www.youtube.com/embed/g8LBPCvkagc' data-lightgallery='item')
+								span.icon.fa-play.icon-md
+					.col-lg-9.col-xl-8.order-lg-1
+						h5.bunner-location
+							span.icon.mdi.mdi-map-marker.icon-secondary
+							a(href='#').text-opacity-80 july 05-09 2019,
+								br.d-sm-none
+								| Los angeles, ca
+						h1 Web Design Conference 2019
+						.countdown-gradient
+							.countdown(data-type='until', data-time='17 Aug 2020 16:00', data-format='dhms')
+	
+	section.section.section-lg.bg-gray-1.text-center
+		.container
+			
+			.row.row-50
+				.col-md-6.col-lg-4.wow-outer
+					.wow.slideInLeft
+						+box-icon-classic({
+							classMod: 'decorate-triangle decorate-color-secondary',
+							icon: 'linearicons-lamp icon-gradient-1',
+							title: 'Strong Community'
+						})
+							p Our event unites a friendly and supportive community of web designers and developers.
+				.col-md-6.col-lg-4.wow-outer
+					.wow.slideInDown
+						+box-icon-classic({
+							classMod: 'decorate-circle decorate-color-secondary-2',
+							icon: 'linearicons-radar icon-gradient-2',
+							title: 'Best Location'
+						})
+							p The venue is located not far from the local airport in the downtown and has a comfortable car parking.
+				.col-md-6.col-lg-4.wow-outer
+					.wow.slideInRight
+						+box-icon-classic({
+							classMod: 'decorate-rectangle decorate-color-primary',
+							icon: 'linearicons-teacup icon-gradient-3',
+							title: 'Free Coffee Break'
+						})
+							p Every visitor of our event has access to a free coffee break with lots of snacks and non-alcoholic drinks.
+
+
+
+
+
+						
+	section.section.section-xl.bg-gray-700.bg-decorate
+		.container
+			.row.row-30.justify-content-center.text-center
+				.col-12.wow-outer
+					.wow.slideInDown
+						h3.title-decorate.title-decorate-center Speakers
+				.col-lg-8.wow-outer
+					.wow.fadeInUp
+						p.text-opacity-80 Our event gathers over 50 speakers. They include renowned graphic and UX designers, web developers, and programmers that revolutionized the world of IT. Here are some of them.
+			.row.no-gutters
+				.col-md-6.col-lg-4
+					.wow.fadeInUp.team-classic-wrap
+						+team-classic({
+							img: 'team-classic-1-390x252',
+							name: 'Kate Anderson',
+							text: 'UX Designer, Waves Design'
+						})
+				.col-md-6.col-lg-4
+					.wow.fadeInUp.team-classic-wrap
+						+team-classic({
+							img: 'team-classic-2-390x252',
+							name: 'Max Peterson',
+							text: 'Senior Developer, TechPro'
+						})
+				.col-md-6.col-lg-4
+					.wow.fadeInUp.team-classic-wrap
+						+team-classic({
+							img: 'team-classic-3-390x252',
+							name: 'Helen Williams',
+							text: 'Web Designer, Spark Studio'
+						})
+				.col-md-6.col-lg-4
+					.wow.fadeInUp.team-classic-wrap
+						+team-classic({
+							img: 'team-classic-4-390x252',
+							name: 'Peter McMillan',
+							text: 'product manager, iStep Ltd.'
+						})
+				.col-md-6.col-lg-4
+					.wow.fadeInUp.team-classic-wrap
+						+team-classic({
+							img: 'team-classic-5-390x252',
+							name: 'Caroline Wilson',
+							text: 'usability consultant, K-Tech'
+						})
+				.col-md-6.col-lg-4
+					.wow.fadeInUp.team-classic-wrap
+						+team-classic({
+							img: 'team-classic-6-390x252',
+							name: 'John Clark',
+							text: 'Programmer, EZ App'
+						})
+
+					
+	section.section-lg.section.bg-gray-1
+		.container
+			.row.justify-content-center
+				.col-lg-10.col-xl-9.text-center.wow-outer
+					.wow.slideInLeft
+						h3.title-decorate.title-decorate-center Event Sponsors
+						p Below you can read more about our event schedule, when and where our speakers’ conferences will take place and what they will talk about. Each event includes discussion with the attendees.
+			#tabs-1.tabs-custom.tabs-horizontal.tabs-modern
+				.row.no-gutters
+					.col-lg-4.col-xl-3.order-lg-2.wow-outer
+						.wow.slideInRight
+							ul.nav.nav-tabs.nav-tabs-modern
+								li.nav-item(role='presentation'): a.nav-link.active(href='#tabs-1-1' data-toggle='tab') First Day
+								li.nav-item(role='presentation'): a.nav-link(href='#tabs-1-2' data-toggle='tab') Second day
+								li.nav-item(role='presentation'): a.nav-link(href='#tabs-1-3' data-toggle='tab') third day
+								li.nav-item(role='presentation'): a.nav-link(href='#tabs-1-4' data-toggle='tab') Fourth day
+							a(href='#').button.button-lg.button-gradient.button-tabs-modern Buy Tickets
+					.col-lg-8.col-xl-9.order-lg-1.wow-outer
+						.wow.slideInLeft
+							.tab-content
+								div#tabs-1-1.tab-pane.fade.show.active
+									+event-item-classic({
+										img: 'user-1-109x109',
+										eventTime: '9:00 am - 11:00 am ',
+										title: 'Efficient Business Management Techniques',
+										speaker: 'Jane Smith',
+										speakerText: 'JCole  Co.'
+	
+									})
+									+event-item-classic({
+										img: 'user-2-109x109',
+										eventTime: '11:00 am - 1:00 pm ',
+										title: 'How to Build a Successful Startup in the USA',
+										speaker: 'John Clark',
+										speakerText: 'iStep Ltd.',
+										eventText: true,
+										eventLocation: 'Hall #1'
+									})
+										p John Clark, the founder of iStep, one of the most successful American IT companies, will teach you how to plan the work of your startup the right way and get successful.
+									+event-item-classic({
+										eventColection: true,
+										listImg: [
+											{img: 'user-1-60x60'},
+											{img: 'user-2-60x60'},
+											{img: 'user-3-60x60'}
+										],
+										eventTime: '1:00 pm - 3:00 pm ',
+										title: 'Why Technology has a Great Influence on Your Business',
+										listSpeaker: [
+											{speaker: 'J. Smith'},
+											{speaker: 'C. Wilson'},
+											{speaker: 'J. Clark'}
+										],
+										speakerText: 'US Tech Holding'
+	
+									})
+									+event-item-classic({
+										img: 'user-3-109x109',
+										eventTime: '3:00 pm - 5:00 pm ',
+										title: 'Managing International Enterprises',
+										speaker: 'Peter McMillan',
+										speakerText: 'LTP Group'
+	
+									})
+	
+								div#tabs-1-2.tab-pane.fade
+									+event-item-classic({
+										img: 'user-2-109x109',
+										eventTime: '3:00 pm - 5:00 pm ',
+										title: 'How to Build a Successful Startup in the USA',
+										speaker: 'John Clark',
+										speakerText: 'iStep Ltd.',
+										eventText: true,
+										eventLocation: 'Hall #1'
+									})
+										p John Clark, the founder of iStep, one of the most successful American IT companies, will teach you how to plan the work of your startup the right way and get successful.
+	
+	
+									+event-item-classic({
+										eventColection: true,
+										listImg: [
+											{img: 'user-1-60x60'},
+											{img: 'user-2-60x60'},
+											{img: 'user-3-60x60'}
+										],
+										eventTime: '9:00 am - 11:00 am ',
+										title: 'Why Technology has a Great Influence on Your Business',
+										listSpeaker: [
+											{speaker: 'J. Smith'},
+											{speaker: 'C. Wilson'},
+											{speaker: 'J. Clark'}
+										],
+										speakerText: 'US Tech Holding'
+	
+									})
+									+event-item-classic({
+										img: 'user-3-109x109',
+										eventTime: '11:00 am - 1:00 pm ',
+										title: 'Managing International Enterprises',
+										speaker: 'Peter McMillan',
+										speakerText: 'LTP Group'
+	
+									})
+									+event-item-classic({
+										img: 'user-1-109x109',
+										eventTime: '1:00 pm - 3:00 pm ',
+										title: 'Efficient Business Management Techniques',
+										speaker: 'Jane Smith',
+										speakerText: 'JCole  Co.'
+	
+									})
+								div#tabs-1-3.tab-pane.fade
+									+event-item-classic({
+										eventColection: true,
+										listImg: [
+											{img: 'user-1-60x60'},
+											{img: 'user-2-60x60'},
+											{img: 'user-3-60x60'}
+										],
+										eventTime: '9:00 am - 11:00 am ',
+										title: 'Why Technology has a Great Influence on Your Business',
+										listSpeaker: [
+											{speaker: 'J. Smith'},
+											{speaker: 'C. Wilson'},
+											{speaker: 'J. Clark'}
+										],
+										speakerText: 'US Tech Holding'
+	
+									})
+									+event-item-classic({
+										img: 'user-3-109x109',
+										eventTime: '11:00 am - 1:00 pm ',
+										title: 'Managing International Enterprises',
+										speaker: 'Peter McMillan',
+										speakerText: 'LTP Group'
+	
+									})
+	
+									+event-item-classic({
+										img: 'user-2-109x109',
+										eventTime: '1:00 pm - 3:00 pm ',
+										title: 'How to Build a Successful Startup in the USA',
+										speaker: 'John Clark',
+										speakerText: 'iStep Ltd.',
+										eventText: true,
+										eventLocation: 'Hall #1'
+									})
+										p John Clark, the founder of iStep, one of the most successful American IT companies, will teach you how to plan the work of your startup the right way and get successful.
+	
+	
+								div#tabs-1-4.tab-pane.fade
+	
+									+event-item-classic({
+										img: 'user-3-109x109',
+										eventTime: '9:00 am - 11:00 am ',
+										title: 'Managing International Enterprises',
+										speaker: 'Peter McMillan',
+										speakerText: 'LTP Group'
+	
+									})
+	
+									+event-item-classic({
+										img: 'user-2-109x109',
+										eventTime: '11:00 am - 1:00 pm ',
+										title: 'How to Build a Successful Startup in the USA',
+										speaker: 'John Clark',
+										speakerText: 'iStep Ltd.',
+										eventText: true,
+										eventLocation: 'Hall #1'
+									})
+										p John Clark, the founder of iStep, one of the most successful American IT companies, will teach you how to plan the work of your startup the right way and get successful.
+
+
+
+
+	section.section.section-lg.bg-default.text-center
+		.container
+			.wow-outer
+				.wow.slideInDown
+					h3.title-decorate.title-decorate-center Event Sponsors
+			.row.row-30
+				.col-12.wow-outer
+					.wow.slideInDown
+						h5.gradient-title.text-gradient-2 Golden sponsors
+				.col-sm-6.col-lg-3
+					a(href='#').box-sponsor.wow.fadeInUp
+						+png('logo-1-270x119')
+				.col-sm-6.col-lg-3
+					a(href='#' data-wow-delay='0.3s').box-sponsor.wow.fadeInUp
+						+png('logo-2-270x119')
+				.col-sm-6.col-lg-3
+					a(href='#' data-wow-delay='0.6s').box-sponsor.wow.fadeInUp
+						+png('logo-3-270x119')
+				.col-sm-6.col-lg-3
+					a(href='#' data-wow-delay='0.9s').box-sponsor.wow.fadeInUp
+						+png('logo-4-270x119')
+				.col-12.wow-outer
+					.wow.slideInDown
+						h5.gradient-title.text-gradient-1 Main sponsors
+				.col-sm-6.col-lg-3
+					a(href='#' data-wow-delay='1.2s').box-sponsor.wow.fadeInUp
+						+png('logo-5-267x119')
+				.col-sm-6.col-lg-3
+					a(href='#' data-wow-delay='1.5s').box-sponsor.wow.fadeInUp
+						+png('logo-6-270x119')
+				.col-sm-6.col-lg-3
+					a(href='#' data-wow-delay='1.8s').box-sponsor.wow.fadeInUp
+						+png('logo-7-270x119')
+				.col-sm-6.col-lg-3
+					a(href='#' data-wow-delay='2.1s').box-sponsor.wow.fadeInUp
+						+png('logo-8-270x119')
+
+				.col-12.wow-outer
+					.wow.fadeInUp
+						a(href='#').button.button-lg.button-default-outline become a sponsor
+	
+			
+	section.section.section-lg.bg-gray-600.text-center
+		.container.wow.FadeIn
+			h3.title-decorate.title-decorate-center Ticket Packages
+			// Owl Carousel
+			.row
+				.col-12
+					.owl-carousel(data-items='1', data-lg-items='3' data-dots='true' data-nav='false' data-stage-padding='0', data-loop='false', data-margin='0', data-mouse-drag="false")
+						.box-pricing-classic
+							svg.pricing-border( fill='none', xmlns='http://www.w3.org/2000/svg')
+								rect(x='0', y='0', stroke='url(#paint0_linear_2)', stroke-width='4', width="100%", height="100%")
+								defs
+									lineargradient#paint0_linear_1(x1='337.205', y1='224.516', x2='-4.05043', y2='263.393', gradientUnits='userSpaceOnUse')
+										stop(offset='0.362588', stop-color='#FFD541')
+										stop(offset='0.967271', stop-color='#F73CA1')
+							h4.pricing-classic-title Basic
+							ul.pricing-classic-list
+								li 1-Day Entrance
+								li Essential Access
+								li 1 Guest Ticket
+								li 1 Workshop
+								li Free Coffee Break
+							h3.pricing-classic-price
+								span $
+								| 25
+							a(href='#').button.button-lg.button-gradient Buy Now
+						.box-pricing-classic.box-pricing-selected
+							svg.pricing-border( fill='none', xmlns='http://www.w3.org/2000/svg')
+								rect(x='0', y='0', stroke='url(#paint0_linear_2)', stroke-width='4', width="100%", height="100%")
+								defs
+									lineargradient#paint0_linear_2(x1='337.205', y1='224.516', x2='-4.05043', y2='263.393', gradientUnits='userSpaceOnUse')
+										stop(offset='0.362588', stop-color='#FFD541')
+										stop(offset='0.967271', stop-color='#F73CA1')
+
+							h4.pricing-classic-title Standard
+							ul.pricing-classic-list
+								li 3-Day Entrance
+								li Extended Access
+								li 3 Guest Tickets
+								li 3 Workshops
+								li Free Lunch & Merch
+							h3.pricing-classic-price
+								span $
+								| 45
+							a(href='#').button.button-lg.button-gradient Buy Now
+						.box-pricing-classic
+							svg.pricing-border( fill='none', xmlns='http://www.w3.org/2000/svg')
+								rect(x='1', y='1', stroke='url(#paint0_linear_3)', stroke-width='2' width='338px' height='484px')
+								defs
+									lineargradient#paint0_linear_3(x1='337.205', y1='224.516', x2='-4.05043', y2='263.393', gradientUnits='userSpaceOnUse')
+										stop(offset='0.362588', stop-color='#FFD541')
+										stop(offset='0.967271', stop-color='#F73CA1')
+							h4.pricing-classic-title Premium
+							ul.pricing-classic-list
+								li 4-Day Entrance
+								li Ultimate Access
+								li 5 Guest Tickets
+								li 7 Workshops
+								li Free Entertainment
+							h3.pricing-classic-price
+								span $
+								| 70
+							a(href='#').button.button-lg.button-gradient Buy Now
+
+
+
+
+
+	section.section.section-lg.bg-default.text-center
+		.container
+			.row.justify-content-center
+				.col-lg-8.col-xl-7.wow-outer
+					.wow.slideInDown
+						h3.title-decorate.title-decorate-center Event Highlights
+						p Our event annually features lots of unforgettable moments that are an essential part of any conference taking place at Eventy. You can look at some of the best ones below in our Event Highlights gallery.
+		.row.isotope-wrap
+			// Isotope Content
+			.col-lg-12
+				.isotope(data-isotope-layout='masonry', data-isotope-group='gallery' data-lightgallery='group' data-lg-thumbnail='false' data-column-class='.col-lg-3')
+					.row.no-gutters.row-condensed
+						
+						.col-12.col-sm-6.col-md-4.col-lg-3.isotope-item(data-filter='Category 2').wow-outer
+							.wow.fadeInUp
+								+gallery-item-classic({
+									img: 'gallery-home-2-1-480x339',
+									imgOriginal: 'images/gallery-home-2-1-original.jpg'
+								})
+						.col-12.col-sm-6.col-md-4.col-lg-3.isotope-item(data-filter='Category 1').wow-outer
+							.wow.fadeInUp
+								+gallery-item-classic({
+									img: 'gallery-masonry-10-480x339',
+									imgOriginal: 'images/gallery-masonry-10-original.jpg'
+								})
+						.col-12.col-sm-6.col-md-4.col-lg-3.isotope-item(data-filter='Category 1').wow-outer
+							.wow.fadeInUp
+								+gallery-item-classic({
+									img: 'gallery-masonry-7-480x339',
+									imgOriginal: 'images/gallery-masonry-7-original.jpg'
+								})
+						.col-12.col-sm-6.col-md-4.col-lg-3.isotope-item(data-filter='Category 1').wow-outer
+							.wow.fadeInUp
+								+gallery-item-classic({
+									img: 'gallery-masonry-11-480x445',
+									imgOriginal: 'images/gallery-masonry-11-original.jpg'
+								})
+						.col-12.col-sm-6.col-md-4.col-lg-3.isotope-item(data-filter='Category 1').wow-outer
+							.wow.fadeInUp
+								+gallery-item-classic({
+									img: 'gallery-home-2-2-480x611',
+									imgOriginal: 'images/gallery-home-2-2-original.jpg'
+								})
+						.col-12.col-sm-6.col-md-4.col-lg-3.isotope-item(data-filter='Category 2').wow-outer
+							.wow.fadeInUp
+								+gallery-item-classic({
+									img: 'gallery-home-2-3-480x445',
+									imgOriginal: 'images/gallery-9-original.jpg'
+								})
+						.col-12.col-sm-6.col-md-4.col-lg-3.isotope-item(data-filter='Category 2').wow-outer
+							.wow.fadeInUp
+								+gallery-item-classic({
+									img: 'gallery-home-2-4-480x339',
+									imgOriginal: 'images/gallery-home-2-4-original.jpg'
+								})
+
+
+	section.section.section-xl.bg-gray-700.bg-decorate.text-center
+		.container.wow-outer
+			.wow.fadeInUp
+				h3.title-decorate.title-decorate-center Improve web design and development skills at Eventy!
+				
+				a(href='#').button.button-lg.button-gradient Buy Tickets
+					
+	section.section.section-lg.bg-gray-1
+		.container
+			.row.row-50
+				.col-12.text-center
+					h3.title-decorate.title-decorate-center Latest News
+				.col-md-6.col-lg-4.wow-outer
+					.wow.fadeInUp
+						+post-modern({
+							img: 'post-modern-1-370x255',
+							badgeMod: 'badge-primary',
+							badge: 'Web Design',
+							date: 'May 11, 2019',
+							title: 'Top 10 Web Design Trends You Should Know About'
+						})
+				.col-md-6.col-lg-4.wow-outer
+					.wow.slideInDown
+						+post-modern({
+							classMod: 'post-modern-reverse',
+							img: 'post-modern-2-370x255',
+							badgeMod: 'badge-secondary',
+							badge: 'news',
+							date: 'April 25, 2019',
+							title: 'How to Register for the Nearest Eventy Conference'
+						})
+				.col-md-6.col-lg-4.wow-outer
+					.wow.fadeInUp
+						+post-modern-text({
+							badge: 'Development',
+							date: 'July 02, 2019',
+							title: '10 Things to Consider When Developing a Mobile App'
+						})
+							p The success of your mobile application  depends on many factors. One such factor is the mobile platform that you’ll be focusing on. In the world of mobile devices, Android and iOS are still the most popular operating systems today and the choice boils down to these two. There are also lots of other...
+
+
+
+
+
+	section.section
+		.google-map-container(
+			data-center='9870 St Vincent Place, Glasgow, DC 45 Fr 45.',
+			data-icon='images/gmap_marker.png',
+			data-icon-active='images/gmap_marker.png',
+			data-zoom='5',
+			data-styles='[{"featureType":"water","stylers":[{"saturation":43},{"lightness":-11},{"hue":"#0088ff"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"hue":"#ff0000"},{"saturation":-100},{"lightness":99}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"color":"#808080"},{"lightness":54}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#ece2d9"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#ccdca1"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#767676"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#b8cb93"}]},{"featureType":"poi.park","stylers":[{"visibility":"on"}]},{"featureType":"poi.sports_complex","stylers":[{"visibility":"on"}]},{"featureType":"poi.medical","stylers":[{"visibility":"on"}]},{"featureType":"poi.business","stylers":[{"visibility":"simplified"}]}]'
+		)
+			.google-map
+			ul.google-map-markers
+				li(
+					data-location='9870 St Vincent Place, Glasgow, DC 45 Fr 45.',
+					data-description='9870 St Vincent Place, Glasgow'
+				)
+					
+					
+	// Page Footer
+	include ../sections/_footer-classic

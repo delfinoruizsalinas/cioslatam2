@@ -1,0 +1,132 @@
+extends  ../_skeleton
+
+include ../components/_ui-team
+
+block variables
+	- pageName = 'Speakers'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({ img: 'images/speakers-title-bg.jpg' })
+	
+	section.section.section-lg.bg-gray-1
+		.container
+			.row.no-gutters
+				.col-md-6.col-lg-4
+					+team-classic({
+						img: 'team-classic-1-390x252',
+						name: 'Kate Anderson',
+						text: 'UX Designer, Waves Design'
+					})
+				.col-md-6.col-lg-4
+					+team-classic({
+						img: 'team-classic-2-390x252',
+						name: 'Max Peterson',
+						text: 'Senior Developer, TechPro'
+					})
+				.col-md-6.col-lg-4
+					+team-classic({
+						img: 'team-classic-3-390x252',
+						name: 'Helen Williams',
+						text: 'Web Designer, Spark Studio'
+					})
+				.col-md-6.col-lg-4
+					+team-classic({
+						img: 'team-classic-4-390x252',
+						name: 'Peter McMillan',
+						text: 'product manager, iStep Ltd.'
+					})
+				.col-md-6.col-lg-4
+					+team-classic({
+						img: 'team-classic-5-390x252',
+						name: 'Caroline Wilson',
+						text: 'usability consultant, K-Tech'
+					})
+				.col-md-6.col-lg-4
+					+team-classic({
+						img: 'team-classic-6-390x252',
+						name: 'John Clark',
+						text: 'Programmer, EZ App'
+					})
+
+
+
+
+
+	section.section.section-xl.bg-gray-700.bg-decorate
+		.container
+			.row.row-30.align-items-lg-end
+				.col-lg-4.order-lg-2.text-lg-right
+					h3.title-decorate Speakers #2
+				.col-lg-8.order-lg-1
+					p.text-opacity-80 Morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, tristique senectus et netus et malesuada fames ac turpis egestas 
+			.row.row-30
+				.col-md-6.col-lg-4
+					+team-modern({
+						img: 'team-modern-1-375x290',
+						name: 'John Clark',
+						text: 'CEO, iStep Ltd.'
+					})
+				.col-md-6.col-lg-4
+					+team-modern({
+						img: 'team-modern-2-375x290',
+						name: 'Helen Williams',
+						text: 'CFO, Mountaincast'
+					})
+				.col-md-6.col-lg-4
+					+team-modern({
+						img: 'team-modern-3-375x290',
+						name: 'Peter McMillan',
+						text: 'managing Director, LTP Group'
+					})
+				.col-md-6.col-lg-4
+					+team-modern({
+						img: 'team-modern-4-375x290',
+						name: 'Jack Peterson',
+						text: 'CTO, Wilson’s Tech'
+					})
+				.col-md-6.col-lg-4
+					+team-modern({
+						img: 'team-modern-5-375x290',
+						name: 'Jane Smith',
+						text: 'Head of Marketing, Jcole co.'
+					})
+				.col-md-6.col-lg-4
+					+team-modern({
+						classMod: 'team-modern-no-img',
+
+						name: 'Sam Anderson',
+						text: 'Co-Founder, XFire'
+					})
+
+
+	section.section.section-lg.bg-default
+		.container
+			.row.justify-content-center.text-center
+				.col-md-9.col-lg-7
+					h3 Speakers #3
+					p.text-opacity-80 Morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, tristique senectus et netus et malesuada fames ac turpis egestas 
+
+			.row.row-50
+				.col-md-6.col-lg-4
+					+team-minimal({
+						img: 'team-minimal-1-370x395',
+						name: 'Jane Smith', 
+						text: 'Indie Rock'
+					})
+				.col-md-6.col-lg-4
+					+team-minimal({
+						img: 'team-minimal-2-370x395',
+						name: 'DJ Dusk',
+						text: 'Drum & Bass'
+					})
+				.col-md-6.col-lg-4
+					+team-minimal({
+						img: 'team-minimal-3-370x395',
+						name: 'Kate Wilson',
+						text: 'pop Punk'
+					})
+	// Page Footer
+	include ../sections/_footer-classic

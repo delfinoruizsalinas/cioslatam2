@@ -1,0 +1,40 @@
+extends  ../_skeleton
+
+block variables
+	- pageName = 'Buttons'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({ img: 'images/button-title-bg.jpg' })
+
+	// Button Sizes
+	section.section.section-md.bg-default
+		.container
+			h3 Button Sizes
+			
+			.group-xl.group-middle
+				.button.button-lg.button-gradient Large Size
+				.button.button-gradient Medium size
+				.button.button-sm.button-gradient Small size
+					
+					
+
+	// Buttons with Icons
+	section.section.section-md.bg-default
+		.container
+			h3 Buttons with Icons
+			.group-xl.group-middle
+				.button.button-icon.button-icon-left.button-default-outline.button-lg
+					span.icon.mdi.mdi-chevron-right
+					| Icon left 
+				.button.button-icon.button-icon-right.button-default-outline.button-lg
+					span.icon.mdi.mdi-plus
+					| Icon right
+				
+				
+
+	
+	// Page Footer
+	include ../sections/_footer-classic

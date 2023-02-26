@@ -1,0 +1,102 @@
+extends  ../_skeleton
+
+include ../components/_ui-posts
+
+block variables
+	- pageName = 'Blog Post'
+
+block page
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({
+		title: 'Why you Should visit Eventy With your Friends This Year ',
+		img: 'images/typography-title-bg.jpg'
+	})
+
+	section.section.section-lg.bg-default
+		.container
+			.row.row-50.justify-content-lg-between
+				.col-lg-6
+					ul.blog-post-meta
+						li: a(href='#').badge event
+						li
+							span.icon.mdi.mdi-clock
+							| May 11, 2019
+						li
+							span.icon.mdi.mdi-eye
+							| 345 views
+					h3.blog-post-title 10 Reasons Why Eventy is Worth Visiting This Year
+					.blog-post-content
+						p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+						p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				.col-lg-6.col-xl-5
+					+jpg('blog-post-1-518x569')
+			.row
+				.col-12
+					+jpg('blog-post-2-1170x456') 
+			.row.row-50
+				.col-lg-7.order-lg-2
+					h3.blog-post-title More Entertainment & Music: Only at Eventy 2019!
+					.blog-post-content
+						p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+						article.quote-primary
+							.quote-primary-body
+
+								.quote-primary-text: p.q Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+							.quote-primary-footer
+								.bg-dot
+								p.quote-primary-cite Jane Smith
+						p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+						
+						ul.list-marked
+							li Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? 
+							li Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur
+								
+				.col-lg-5.pr-lg-5
+					.row.row-50
+						.col-sm-6.col-lg-12
+							+jpg('blog-post-3-398x283')
+						.col-sm-6.col-lg-12
+							+jpg('blog-post-4-398x283')
+			.row
+				.col-12
+					.blog-post-share.text-lg-right
+						ul.list-inline
+							li.thin-title Share post
+							li: a(href='#').icon.icon-sm.fa-facebook
+							li: a(href='#').icon.icon-sm.fa-instagram
+							li: a(href='#').icon.icon-sm.fa-twitter
+							li: a(href='#').icon.icon-sm.fa-youtube-play
+							
+	section.section.section-lg.bg-default
+		.container
+			h3.text-center Related Posts
+			.row
+				.col-12
+					// Owl Carousel
+					.owl-carousel(data-items='1', data-md-items='2' data-lg-items='3' data-dots='true' data-nav='false' data-stage-padding='15', data-loop='false', data-margin='30', data-mouse-drag="false")
+						+post-classic({
+							img: 'post-classic-1-370x255',
+							title: 'Top 8 Email Marketing Tips from Our Speakers',
+							date: 'April 25, 2019',
+							tagMod: 'post-classic-tag-secondary-2',
+							tag: 'Marketing'
+						})
+						+post-classic({
+							img: 'post-classic-2-370x255',
+							title: 'How Your Business Can Benefit from Taking Part in Eventy',
+							date: 'April 25, 2019',
+							tagMod: 'post-classic-tag-secondary',
+							tag: 'News'
+						})
+						+post-classic({
+							img: 'post-classic-3-370x255',
+							title: '10 Sales Workshops of Eventy that You Must Visit',
+							date: 'April 25, 2019',
+							tag: 'Sales'
+						})
+						
+						
+	// Page Footer
+	include ../sections/_footer-classic

@@ -1,0 +1,94 @@
+extends  ../_skeleton
+
+include ../components/_ui-box-icon
+
+block variables
+	- pageName = 'Icon Lists'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({ img: 'images/icon-lists-title-bg.jpg' })
+
+	
+	section.section.section-lg.bg-gray-1.text-center
+		.container
+			h3 Icon List #1
+			.row.row-30
+				.col-md-6.col-lg-4
+					+box-icon-classic({
+						classMod: 'decorate-triangle decorate-color-secondary',
+						icon: 'linearicons-mustache-glasses icon-gradient-1',
+						title: 'Community'
+					})
+						p Morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam,
+				.col-md-6.col-lg-4
+					+box-icon-classic({
+						classMod: 'decorate-circle decorate-color-secondary-2',
+						icon: 'linearicons-radar icon-gradient-2',
+						title: 'Best Location'
+					})
+						p Morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam,
+				.col-md-6.col-lg-4
+					+box-icon-classic({
+						classMod: 'decorate-rectangle decorate-color-primary',
+						icon: 'linearicons-teacup icon-gradient-3',
+						title: 'Free Coffee Break'
+					})
+						p Morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam,
+			
+					
+					
+
+	// Buttons with Icons
+	section.section.section-lg.bg-gray-700
+		.container
+			h3.text-center Icon List #2
+			.row.row-30.row-xl-85
+				.col-md-6.col-lg-4
+					+box-icon-modern({
+						classMod: 'decorate-triangle',
+						icon: 'linearicons-bus2 icon-gradient-1',
+						title: 'Free Transfer'
+					})
+						p Morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+				.col-md-6.col-lg-4
+					+box-icon-modern({
+						classMod: 'decorate-circle',
+						icon: 'linearicons-hamburger icon-gradient-2',
+						title: 'Tasty Food'
+					})
+						p Morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+				.col-md-6.col-lg-4
+					+box-icon-modern({
+						classMod: 'decorate-rectangle',
+						icon: 'linearicons-music-note2 icon-gradient-4',
+						title: 'Live Music'
+					})
+						p Morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+				.col-md-6.col-lg-4
+					+box-icon-modern({
+						classMod: 'decorate-circle',
+						icon: 'linearicons-mustache-glasses icon-gradient-3',
+						title: 'Community'
+					})
+						p Morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+				.col-md-6.col-lg-4
+					+box-icon-modern({
+						classMod: 'decorate-triangle',
+						icon: 'linearicons-radar icon-gradient-1',
+						title: 'Best Location'
+					})
+						p Morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+				.col-md-6.col-lg-4
+					+box-icon-modern({
+						classMod: 'decorate-rectangle',
+						icon: 'linearicons-teacup icon-gradient-2',
+						title: 'Free Coffee Break'
+					})
+						p Morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+	
+	// Page Footer
+	include ../sections/_footer-classic

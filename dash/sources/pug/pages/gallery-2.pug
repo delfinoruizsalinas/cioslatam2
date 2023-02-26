@@ -1,0 +1,88 @@
+extends  ../_skeleton
+
+include ../components/_ui-gallery-item
+
+block variables
+	- pageName = 'Gallery 2'
+
+block page
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({
+		img: 'images/speakers-title-bg.jpg',
+		title: 'Gallery #2'
+	})
+
+	section.section.section-lg.bg-default
+		.row.isotope-wrap
+			// Isotope Content
+			.col-lg-12
+				.isotope.row.no-gutters.row-condensed(data-isotope-layout='masonry', data-isotope-group='gallery' data-lightgallery='group' data-lg-thumbnail='false' data-column-class='.col-1' )
+					.col-12.col-sm-6.col-md-4.isotope-item(data-filter='*')
+						+gallery-item-classic({
+							img: 'gallery-masonry-1-640x429',
+							imgOriginal: 'images/gallery-masonry-1-original.jpg'
+						})
+					.col-12.col-sm-6.col-md-4.isotope-item(data-filter='Category 3')
+						+gallery-item-classic({
+							img: 'gallery-masonry-2-640x429',
+							imgOriginal: 'images/gallery-masonry-2-original.jpg'
+						})
+					.col-12.col-sm-6.col-md-4.isotope-item(data-filter='Category 3')
+						+gallery-item-classic({
+							img: 'gallery-masonry-3-640x429',
+							imgOriginal: 'images/gallery-masonry-3-original.jpg'
+						})
+					.col-12.col-sm-6.col-md-12.col-lg-8.col-xl-6.isotope-item(data-filter='Category 3')
+						+gallery-item-classic({
+							img: 'gallery-masonry-4-960x429',
+							imgOriginal: 'images/gallery-masonry-4-original.jpg'
+						})
+					.col-12.col-sm-6.col-md-12.col-lg-8.col-xl-6.isotope-item(data-filter='Category 2')
+						+gallery-item-classic({
+							img: 'gallery-masonry-5-960x429',
+							imgOriginal: 'images/gallery-masonry-5-original.jpg'
+						})
+					.col-12.col-sm-6.col-md-4.col-lg-4.col-xl-3.isotope-item(data-filter='Category 2')
+						+gallery-item-classic({
+							img: 'gallery-masonry-6-480x339',
+							imgOriginal: 'images/gallery-masonry-6-original.jpg'
+						})
+					.col-12.col-sm-6.col-md-4.col-lg-4.col-xl-3.isotope-item(data-filter='Category 1')
+						+gallery-item-classic({
+							img: 'gallery-masonry-7-480x339',
+							imgOriginal: 'images/gallery-masonry-7-original.jpg'
+						})
+					.col-12.col-sm-6.col-md-4.col-lg-4.col-xl-3.isotope-item(data-filter='Category 1')
+						+gallery-item-classic({
+							img: 'gallery-masonry-12-480x339',
+							imgOriginal: 'images/gallery-masonry-12-original.jpg'
+						})
+					.col-12.col-sm-6.col-md-4.col-lg-4.col-xl-3.isotope-item(data-filter='Category 2')
+						+gallery-item-classic({
+							img: 'gallery-masonry-10-480x339',
+							imgOriginal: 'images/gallery-masonry-10-original.jpg'
+						})
+					.col-12.col-sm-6.col-md-4.col-lg-4.col-xl-3.isotope-item(data-filter='Category 1')
+						+gallery-item-classic({
+							img: 'gallery-masonry-8-480x611',
+							imgOriginal: 'images/gallery-masonry-8-original.jpg'
+						})
+					.col-12.col-sm-6.col-md-4.col-lg-4.col-xl-3.isotope-item(data-filter='Category 2')
+						+gallery-item-classic({
+							img: 'gallery-masonry-9-480x445',
+							imgOriginal: 'images/gallery-masonry-9-original.jpg'
+						})
+
+					.col-12.col-sm-6.col-md-4.col-lg-4.col-xl-3.isotope-item(data-filter='Category 1')
+						+gallery-item-classic({
+							img: 'gallery-masonry-11-480x445',
+							imgOriginal: 'images/gallery-masonry-11-original.jpg'
+						})
+					.col-1.isotope-item
+
+
+
+	// Page Footer
+	include ../sections/_footer-classic

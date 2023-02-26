@@ -1,0 +1,98 @@
+-
+	var
+		htmlClass = "wide wow-animation",
+		fonts = "//fonts.googleapis.com/css?family=Poppins:300,300i,400,500,600,700,800,900,900i%7CRoboto:400",
+		subscribeFormCounter = 0,
+		logo = {
+			default: 'logo-default-300x76.png',
+			inverse: 'logo-inverse-300x76.png',
+			name: 'Eventy'
+		},
+		links = {
+			post: 'blog-post.html',
+			getTemplate:'#get-template'
+		},
+		colors = {
+			primary: '#b6c062'
+		},
+		menu = [
+			{
+				title: 'Home',
+				category: 'home',
+				link: 'index.html',
+				dropdown: [
+					{ title: 'Home 2' },
+					{ title: 'Home 3' }
+				]
+			},
+			{
+				title: 'Pages',
+				category: 'pages',
+				link: '#',
+				megamenu: [
+					{
+						title: 'Pages 1',
+						link: null,
+						list: [
+							{ title: 'Typography' },
+							{ title: 'Buttons' },
+							{ title: 'Timers & Counters' },
+							{ title: 'Forms' }
+						]
+					},
+					{
+						title: 'Pages 2',
+						link: null,
+						list: [
+							{ title: 'Grid system' },
+							{ title: 'Icon Lists' },
+							{ title: 'Privacy policy' },
+							{ title: 'Coming Soon' },
+							{ title: 'Search results' }
+						]
+					},
+					{
+						title: 'Pages 3',
+						link: null,
+						list: [
+							{ title: 'Blog Post' },
+							{ title: 'News' },
+							{ title: 'News 2' },
+							{ title: 'About Us' },
+							{ title: 'Speaker Page' }
+						]
+					},
+					{
+						title: 'Pages 4',
+						link: null,
+						list: [
+							{ title: 'Gallery 1' },
+							{ title: 'Gallery 2' },
+							{ title: 'Schedule' },
+							{ title: 'Schedule 2' }
+						]
+					}
+				]
+			},
+			{
+				title: 'Pricing',
+				category: 'pricing'
+			},
+			{
+				title: 'Speakers',
+				category: 'speakers'
+			},
+			{
+				title: 'Sponsors',
+				category: 'sponsors'
+			},
+			
+			{
+				title: 'Contacts',
+				category: 'contacts'
+			}
+		],
+
+		// Predefined variables
+		breadcrumbs = [],
+		pageName = 'Home'

@@ -1,0 +1,47 @@
+extends  ../_skeleton
+
+block variables
+	- pageName = 'Sponsors'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({ img: 'images/form-title-bg.jpg' })
+
+	section.section.section-lg.bg-default.text-center
+		.container
+			.row.row-30
+				.col-12
+					h5.gradient-title.text-gradient-2 Golden sponsors
+				.col-sm-6.col-lg-3
+					a(href='#').box-sponsor
+						+png('logo-1-270x119')
+				.col-sm-6.col-lg-3
+					a(href='#').box-sponsor
+						+png('logo-2-270x119')
+				.col-sm-6.col-lg-3
+					a(href='#').box-sponsor
+						+png('logo-3-270x119')
+				.col-sm-6.col-lg-3
+					a(href='#').box-sponsor
+						+png('logo-4-270x119')
+				.col-12
+					h5.gradient-title.text-gradient-1 Main sponsors
+				.col-sm-6.col-lg-3
+					a(href='#').box-sponsor
+						+png('logo-5-267x119')
+				.col-sm-6.col-lg-3
+					a(href='#').box-sponsor
+						+png('logo-6-270x119')
+				.col-sm-6.col-lg-3
+					a(href='#').box-sponsor
+						+png('logo-7-270x119')
+				.col-sm-6.col-lg-3
+					a(href='#').box-sponsor
+						+png('logo-8-270x119')
+	
+				.col-12
+					a(href='#').button.button-default-outline become a sponsor
+	// Page Footer
+	include ../sections/_footer-classic

@@ -1,0 +1,28 @@
+section.section.section-lg.bg-gray-1.text-center
+   .container
+      .row.justify-content-md-center
+         .col-md-9.col-lg-7
+            h3 Contact Form
+            // RD Mailform
+            form.rd-form.rd-mailform(data-form-output='form-output-global', data-form-type='contact', method='post', action='bat/rd-mailform.php')
+
+               .form-wrap
+                  input#contact-name.form-input(type='text' name='name' data-constraints='@Required')
+                  label.form-label(for='contact-name') Your Name
+
+               .form-wrap
+                  input#contact-email.form-input(type='email' name='email' data-constraints='@Email @Required')
+                  label.form-label(for='contact-email') E-mail
+
+               .form-wrap
+                  input#contact-phone.form-input(type='text' name='phone' data-constraints='@Numeric')
+                  label.form-label(for='contact-phone') Phone
+
+
+               .form-wrap
+                  label.form-label(for='contact-message')  Message
+                  textarea#contact-message.form-input(name='message' data-constraints='@Required')
+
+               .row.justify-content-center
+                  .col-12.col-sm-7.col-lg-5
+                     button.button.button-block.button-lg.button-gradient(type='submit') Send

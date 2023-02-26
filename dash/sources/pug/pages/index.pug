@@ -1,0 +1,578 @@
+extends  ../_skeleton
+
+//- Includes
+include ../components/_ui-team
+include ../components/_ui-gallery-item
+include ../components/_ui-posts
+include ../components/_ui-box-icon
+include ../components/_ui-event-item
+
+block page
+	// Page Header
+	include ../sections/_header-classic
+
+	// Swiper
+	section.section.swiper-container.swiper-slider.swiper-slider-1(data-loop='false' data-autoplay='5000' data-simulate-touch="false")
+		.swiper-wrapper
+			.swiper-slide.context-dark( data-slide-bg='images/swiper-slide-1.jpg' )
+				.swiper-slide-caption.section-lg
+					.container
+						.row.justify-content-md-center
+							.col-md-9
+								h5: span( data-caption-animate='fadeInLeft', data-caption-delay='150' ) july 05-09 2019, Los angeles, ca
+								.divider( data-caption-animate='fadeInLeft', data-caption-delay='350' )
+								h2.text-accent-3: span( data-caption-animate='fadeInLeft', data-caption-delay='250' ) Eventy unites
+								div( data-caption-animate='fadeInLeft', data-caption-delay='350' )
+									h1.icon-gradient-2.text-accent-3 People
+								
+								.button-wrap( data-caption-animate='fadeInLeft', data-caption-delay='450'): a.button.button-lg.button-gradient( href='#' ) Buy Tickets
+
+			.swiper-slide.context-dark( data-slide-bg='images/swiper-slide-2.jpg', style='background-position: 50% 50%' )
+				.swiper-slide-caption.section-lg
+					.container
+						.row.row-30.justify-content-md-center.align-items-md-end
+							.col-md-2.order-md-2
+								.swiper-video-block( data-caption-animate='fadeIn', data-caption-delay='350' )
+									a(href='https://www.youtube.com/embed/g8LBPCvkagc' data-lightgallery='item')
+										span.icon.fa-play.icon-md.icon-secondary
+										span.heading-4 What is 
+											br
+											| Eventy?
+							.col-md-7.order-md-1
+								h5: span( data-caption-animate='fadeInLeft', data-caption-delay='150' ) july 05-09 2019, Los angeles, ca
+								.divider( data-caption-animate='fadeInLeft', data-caption-delay='350' )
+								h2.text-accent-3: span( data-caption-animate='fadeInLeft', data-caption-delay='250' ) Talk about your
+								div( data-caption-animate='fadeInLeft', data-caption-delay='350' )
+									h1.icon-gradient-2.text-accent-3 Idea
+
+								.button-wrap( data-caption-animate='fadeInLeft', data-caption-delay='450'): a.button.button-lg.button-gradient( href='#' ) Buy Tickets
+								
+								
+
+		// Swiper Pagination 
+		.swiper-pagination
+		.swiper-counter
+			
+		// Swiper Navigation
+		.swiper-button-prev.fa-arrow-left
+		.swiper-button-next.fa-arrow-right
+
+	section.section.section-lg.bg-gray-1.pt-0
+		.container
+			.box-countdown-light.bg-dot
+				.box-countdown-light-inner
+					h3 Hurry Up!
+					p Our event is starting soon so don’t waste your time and book your tickets!
+
+					.countdown-gradient
+						.countdown(data-type='until', data-time='17 Aug 2020 16:00', data-format='dhms')
+			
+	section.section.section-lg.bg-default
+		.container
+			.row.row-50
+				.col-lg-6.wow-outer
+					.wow.slideInLeft
+						h3.title-decorate.title-decorate-left Welcome to Eventy
+						.row.row-30
+							.col-sm-4.col-lg-3
+								.box-user-classic
+									+jpg('user-1-129x152')
+									h5: a(href='speaker-page.html') Alice Parker
+									p Founder
+							.col-sm-8
+								p Our event is a place where the best minds of the generation meet and discuss the cutting-edge business ideas, issues, and solutions. Join the community of leaders today! 
+								a(href='about-us.html').button.button-default-outline.button-lg Read more
+								
+				.col-lg-6.wow-outer
+					+jpg('home-1-599x376').wow.slideInRight
+							
+					
+	
+	section.section.section-xl.bg-gray-700.bg-decorate
+		.container
+			.row.row-30.align-items-lg-end
+				.col-lg-4.order-lg-2.text-lg-right.wow-outer
+					.wow.slideInRight
+						h3.title-decorate Speakers 
+				.col-lg-8.order-lg-1.wow-outer
+					.wow.slideInLeft
+						p.text-opacity-80 Our event gathers over 50 speakers. They include international company owners and young entrepreneurs that revolutionized the way of doing business. Here are some of them.
+			.row.row-30
+				.col-md-6.col-lg-4.wow.fadeInUp
+					+team-modern({
+						img: 'team-modern-1-375x290',
+						name: 'John Clark',
+						text: 'CEO, iStep Ltd.'
+					})
+				.col-md-6.col-lg-4.wow.fadeInUp
+					+team-modern({
+						img: 'team-modern-2-375x290',
+						name: 'Helen Williams',
+						text: 'CFO, Mountaincast'
+					})
+				.col-md-6.col-lg-4.wow.fadeInUp
+					+team-modern({
+						img: 'team-modern-3-375x290',
+						name: 'Peter McMillan',
+						text: 'managing Director, LTP Group'
+					})
+				.col-md-6.col-lg-4.wow.fadeInUp
+					+team-modern({
+						img: 'team-modern-4-375x290',
+						name: 'Jack Peterson',
+						text: 'CTO, Wilson’s Tech'
+					})
+				.col-md-6.col-lg-4.wow.fadeInUp
+					+team-modern({
+						img: 'team-modern-5-375x290',
+						name: 'Jane Smith',
+						text: 'Head of Marketing, Jcole co.'
+					})
+				.col-md-6.col-lg-4.wow.fadeInUp
+					+team-modern({
+						classMod: 'team-modern-no-img',
+
+						name: 'Sam Anderson',
+						text: 'Co-Founder, XFire'
+					})
+					
+	section.section#tabs-1.tabs-custom.tabs-horizontal.tabs-creative
+		.container.container-wide
+			.row
+				.col-lg-4.col-xl-5
+					.tabs-creative-title
+						h3.title-decorate.title-decorate-left Event Schedule 
+				.col-lg-8.col-xl-7
+					.nav-tabs-cteative-wrap
+						ul.nav.nav-tabs.nav-tabs-cteative
+							li.nav-item(role='presentation'): a.nav-link.active(href='#tabs-1-1' data-toggle='tab') First Day
+							li.nav-item(role='presentation'): a.nav-link(href='#tabs-1-2' data-toggle='tab') Second day
+							li.nav-item(role='presentation'): a.nav-link(href='#tabs-1-3' data-toggle='tab') third day
+							li.nav-item(role='presentation'): a.nav-link(href='#tabs-1-4' data-toggle='tab') Fourth day
+
+		.section-md.bg-gray-1
+			.container
+				.tab-content
+					div#tabs-1-1.tab-pane.fade.show.active
+						+event-item-classic({
+							classMod: 'wow slideInleft',
+							img: 'user-1-109x109',
+							eventTime: '9:00 am - 11:00 am ',
+							title: 'Efficient Business Management Techniques',
+							speaker: 'Jane Smith',
+							speakerText: 'JCole  Co.'
+
+						})
+						+event-item-classic({
+							classMod: 'wow slideInleft',
+							img: 'user-2-109x109',
+							eventTime: '11:00 am - 1:00 pm ',
+							title: 'How to Build a Successful Startup in the USA',
+							speaker: 'John Clark',
+							speakerText: 'iStep Ltd.',
+							eventText: true,
+							eventLocation: 'Hall #1'
+						})
+							p John Clark, the founder of iStep, one of the most successful American IT companies, will teach you how to plan the work of your startup the right way and get successful.
+						+event-item-classic({
+							classMod: 'wow slideInleft',
+							eventColection: true,
+							listImg: [
+								{img: 'user-1-60x60'},
+								{img: 'user-2-60x60'},
+								{img: 'user-3-60x60'}
+							],
+							eventTime: '1:00 pm - 3:00 pm ',
+							title: 'Why Technology has a Great Influence on Your Business',
+							listSpeaker: [
+								{speaker: 'J. Smith'},
+								{speaker: 'C. Wilson'},
+								{speaker: 'J. Clark'}
+							],
+							speakerText: 'US Tech Holding'
+
+						})
+						+event-item-classic({
+							classMod: 'wow slideInleft',
+							img: 'user-3-109x109',
+							eventTime: '3:00 pm - 5:00 pm ',
+							title: 'Managing International Enterprises',
+							speaker: 'Peter McMillan',
+							speakerText: 'LTP Group'
+
+						})
+
+					div#tabs-1-2.tab-pane.fade
+						+event-item-classic({
+							eventColection: true,
+							listImg: [
+								{img: 'user-1-60x60'},
+								{img: 'user-2-60x60'},
+								{img: 'user-3-60x60'}
+							],
+							eventTime: '9:00 am - 11:00 am ',
+							title: 'Why Technology has a Great Influence on Your Business',
+							listSpeaker: [
+								{speaker: 'J. Smith'},
+								{speaker: 'C. Wilson'},
+								{speaker: 'J. Clark'}
+							],
+							speakerText: 'US Tech Holding'
+
+						})
+						+event-item-classic({
+							img: 'user-3-109x109',
+							eventTime: '11:00 am - 1:00 pm ',
+							title: 'Managing International Enterprises',
+							speaker: 'Peter McMillan',
+							speakerText: 'LTP Group'
+
+						})
+						+event-item-classic({
+							img: 'user-1-109x109',
+							eventTime: '1:00 pm - 3:00 pm ',
+							title: 'Efficient Business Management Techniques',
+							speaker: 'Jane Smith',
+							speakerText: 'JCole  Co.'
+
+						})
+						+event-item-classic({
+							img: 'user-2-109x109',
+							eventTime: '3:00 pm - 5:00 pm ',
+							title: 'How to Build a Successful Startup in the USA',
+							speaker: 'John Clark',
+							speakerText: 'iStep Ltd.',
+							eventText: true,
+							eventLocation: 'Hall #1'
+						})
+							p John Clark, the founder of iStep, one of the most successful American IT companies, will teach you how to plan the work of your startup the right way and get successful.
+
+
+					div#tabs-1-3.tab-pane.fade
+						+event-item-classic({
+							eventColection: true,
+							listImg: [
+								{img: 'user-1-60x60'},
+								{img: 'user-2-60x60'},
+								{img: 'user-3-60x60'}
+							],
+							eventTime: '9:00 am - 11:00 am ',
+							title: 'Why Technology has a Great Influence on Your Business',
+							listSpeaker: [
+								{speaker: 'J. Smith'},
+								{speaker: 'C. Wilson'},
+								{speaker: 'J. Clark'}
+							],
+							speakerText: 'US Tech Holding'
+
+						})
+						+event-item-classic({
+							img: 'user-3-109x109',
+							eventTime: '11:00 am - 1:00 pm ',
+							title: 'Managing International Enterprises',
+							speaker: 'Peter McMillan',
+							speakerText: 'LTP Group'
+
+						})
+
+						+event-item-classic({
+							img: 'user-2-109x109',
+							eventTime: '1:00 pm - 3:00 pm ',
+							title: 'How to Build a Successful Startup in the USA',
+							speaker: 'John Clark',
+							speakerText: 'iStep Ltd.',
+							eventText: true,
+							eventLocation: 'Hall #1'
+						})
+							p John Clark, the founder of iStep, one of the most successful American IT companies, will teach you how to plan the work of your startup the right way and get successful.
+
+
+					div#tabs-1-4.tab-pane.fade
+
+						+event-item-classic({
+							img: 'user-3-109x109',
+							eventTime: '9:00 am - 11:00 am ',
+							title: 'Managing International Enterprises',
+							speaker: 'Peter McMillan',
+							speakerText: 'LTP Group'
+
+						})
+
+						+event-item-classic({
+							img: 'user-2-109x109',
+							eventTime: '11:00 am - 1:00 pm ',
+							title: 'How to Build a Successful Startup in the USA',
+							speaker: 'John Clark',
+							speakerText: 'iStep Ltd.',
+							eventText: true,
+							eventLocation: 'Hall #1'
+						})
+							p John Clark, the founder of iStep, one of the most successful American IT companies, will teach you how to plan the work of your startup the right way and get successful.
+
+
+
+
+	section.section.section-lg.bg-default.text-center
+		.container
+			h3.title-decorate.title-decorate-center Event Sponsors
+			.row.row-30
+				.col-sm-6.col-lg-3
+					a(href='#').box-sponsor.wow.fadeInUp
+						+png('logo-1-270x119')
+				.col-sm-6.col-lg-3
+					a(href='#' data-wow-delay='0.3s').box-sponsor.wow.fadeInUp
+						+png('logo-2-270x119')
+				.col-sm-6.col-lg-3
+					a(href='#' data-wow-delay='0.6s').box-sponsor.wow.fadeInUp
+						+png('logo-3-270x119')
+				.col-sm-6.col-lg-3
+					a(href='#' data-wow-delay='0.9s').box-sponsor.wow.fadeInUp
+						+png('logo-4-270x119')
+				.col-sm-6.col-lg-3
+					a(href='#' data-wow-delay='1.2s').box-sponsor.wow.fadeInUp
+						+png('logo-5-267x119')
+				.col-sm-6.col-lg-3
+					a(href='#' data-wow-delay='1.5s').box-sponsor.wow.fadeInUp
+						+png('logo-6-270x119')
+				.col-sm-6.col-lg-3
+					a(href='#' data-wow-delay='1.8s').box-sponsor.wow.fadeInUp
+						+png('logo-7-270x119')
+				.col-sm-6.col-lg-3
+					a(href='#' data-wow-delay='2.1s').box-sponsor.wow.fadeInUp
+						+png('logo-8-270x119')
+			.row
+				.col-12
+					.wow-outer
+						.wow.slideInDown
+							a(href='#').button.button-lg.button-default-outline become a sponsor
+					
+	section.section.section-xl.bg-gray-700.bg-decorate.bg-decorate-reverse
+		.container
+			.row
+				.col-12.text-center
+					h3.title-decorate.title-decorate-center Ticket Packages
+			.row.row-50.align-items-lg-center
+				.col-lg-4.wow-outer
+					.wow.slideInLeft
+						.box-pricing-modern
+							.box-pricing-modern-inner
+								h4.pricing-modern-title Basic Pass
+								.pricing-modern-price
+									span $
+									p 20
+								ul.list-marked.pricing-modern-list
+									li 1-Day Entrance
+									li Essential Access
+									li 1 Guest Ticket
+									li 1 Workshop
+									li Free Coffee Break
+								a(href='#').button.button-lg.button-default-outline Buy Now
+				.col-lg-4.wow-outer
+					.wow.slideInUp
+						.box-pricing-modern.box-pricing-selected
+							.box-pricing-modern-inner
+								h4.pricing-modern-title Standard Pass
+								.pricing-modern-price
+									span $
+									p 45
+								ul.list-marked.pricing-modern-list
+									li 3-Day Entrance
+									li Extended Access
+									li 3 Guest Tickets
+									li 3 Workshops
+									li Free Lunch & Merch
+								a(href='#').button.button-lg.button-gradient Buy Now
+				.col-lg-4.wow-outer
+					.wow.slideInRight
+						.box-pricing-modern
+							.box-pricing-modern-inner
+								h4.pricing-modern-title Premium Pass
+								.pricing-modern-price
+									span $
+									p 98
+								ul.list-marked.pricing-modern-list
+									li 4-Day Entrance
+									li Ultimate Access
+									li 5 Guest Tickets
+									li 7 Workshops
+									li Free Entertainment
+								a(href='#').button.button-lg.button-gradient-secondary Buy Now
+						
+	section.section.section-lg.bg-default.text-center
+		.container
+			.wow-outer
+				.wow.slideInDown
+					h3 Testimonials
+			// Slick Carousel
+			.slick-slider.carousel-parent(data-arrows="true", data-loop="false", data-dots="false", data-swipe="true", data-items="1" data-child="#child-carousel", data-for="#child-carousel")
+				.item
+					.testimonials-modern
+						.testimonials-modern-text
+							p It was a very useful conference, there were a number of presentations that completely changed my understanding of startups. I look forward to visiting this event again next year, maybe even as a speaker.
+						.testimonials-modern-name Joanna Smith
+				.item
+					.testimonials-modern
+						.testimonials-modern-text
+							p It is an honour to be invited to this event as a speaker and visitor. By attending Eventy everyone here can share their business experiences so we can learn something new and change the industry for the better.
+						.testimonials-modern-name James Williams
+				.item
+					.testimonials-modern
+						.testimonials-modern-text
+							p This venue is an excellent opportunity to share experiences, to gain learning and to establish and enforce connections among executives and business leaders in this industry in the eternal pursuit of maximizing customer experience.
+						.testimonials-modern-name Kate McMillan
+				.item
+					.testimonials-modern
+						.testimonials-modern-text
+							p Very good conference. A unique opportunity to meet with the leading business experts and CEOs  from a variety of companies  to really see the main trends of technological and business startups.
+						.testimonials-modern-name Peter Wilson
+
+			.slick-slider.slider-dots#child-carousel(data-for=".carousel-parent", data-arrows="false",
+			data-loop="false", data-dots="false", data-swipe="true",
+			data-items="4", data-xs-items="4", data-sm-items="4",
+			data-md-items="4", data-lg-items="4", data-xl-items="4" data-slide-to-scroll="1")
+				.item
+					.slick-dot-item
+						+jpg('user-1-60x60')
+				.item
+					.slick-dot-item
+						+jpg('user-2-60x60')
+				.item
+					.slick-dot-item
+						+jpg('user-3-60x60')
+				.item
+					.slick-dot-item
+						+jpg('user-4-60x60')
+
+
+
+	section.section.section-md.bg-gray-700.bg-decorate.text-center
+		.container.wow-outer
+			.wow.slideInDown
+				h3.title-decorate.title-decorate-center Transform your business experience with our event!
+	
+				a(href='#').button.button-lg.button-gradient Buy Tickets 
+					
+					
+					
+			
+	section.section
+		.row.row-30(data-isotope-group='gallery')
+			.col-12.col-sm-6.col-md-4.col-lg-3.wow-outer 
+				.wow.slideInDown
+					+gallery-item-classic({
+						img: 'gallery-1-465x383',
+						imgOriginal: 'images/gallery-1-original.jpg'
+					})
+			.col-12.col-sm-6.col-md-4.col-lg-3.wow-outer
+				.wow.slideInDown
+					+gallery-item-classic({
+						img: 'gallery-2-465x383',
+						imgOriginal: 'images/gallery-2-original.jpg'
+					})
+			.col-12.col-sm-6.col-md-4.col-lg-3.wow-outer
+				.wow.slideInDown
+					+gallery-item-classic({
+						img: 'gallery-3-465x383',
+						imgOriginal: 'images/gallery-3-original.jpg'
+					})
+			.col-12.col-sm-6.col-md-4.col-lg-3.wow-outer
+				.wow.slideInDown
+					+gallery-item-classic({
+						img: 'gallery-12-465x383',
+						imgOriginal: 'images/gallery-12-original.jpg'
+					})
+			.col-12.col-sm-6.col-md-4.col-lg-3.wow-outer
+				.wow.slideInDown
+					+gallery-item-classic({
+						img: 'gallery-9-465x383',
+						imgOriginal: 'images/gallery-9-original.jpg'
+					})
+			.col-12.col-sm-6.col-md-4.col-lg-3.wow-outer
+				.wow.slideInDown
+					+gallery-item-classic({
+						img: 'gallery-13-465x383',
+						imgOriginal: 'images/gallery-13-original.jpg'
+					})
+			.col-12.col-sm-6.col-md-4.col-lg-3.wow-outer
+				.wow.slideInDown
+					+gallery-item-classic({
+						img: 'gallery-11-465x383',
+						imgOriginal: 'images/gallery-11-original.jpg'
+					})
+			.col-12.col-sm-6.col-md-4.col-lg-3.wow-outer
+				.wow.slideInDown
+					+gallery-item-classic({
+						img: 'gallery-8-465x383',
+						imgOriginal: 'images/gallery-8-original.jpg'
+					})
+			
+
+	
+				
+		.section-sm.bg-dot
+				
+	section.section.section-lg.bg-default
+		.container
+			h3.title-decorate.title-decorate-center.text-center Latest News
+			.row
+				.col-12
+					.owl-carousel(data-items='1', data-md-items='2' data-lg-items='3' data-dots='true' data-nav='false' data-stage-padding='15', data-loop='false', data-margin='30', data-mouse-drag="false")
+						.wow.slideInUp
+							+post-classic({
+								img: 'post-classic-1-370x255',
+								title: 'Top 8 Email Marketing Tips from Our Speakers',
+								date: 'April 25, 2019',
+								tagMod: 'post-classic-tag-secondary-2',
+								tag: 'Marketing'
+							})
+						.wow.slideInUp
+							+post-classic({
+								img: 'post-classic-2-370x255',
+								title: 'How Your Business Can Benefit from Taking Part in Eventy',
+								date: 'April 25, 2019',
+								tagMod: 'post-classic-tag-secondary',
+								tag: 'News'
+							})
+						.wow.slideInUp
+							+post-classic({
+								img: 'post-classic-3-370x255',
+								title: '10 Sales Workshops of Eventy that You Must Visit',
+								date: 'April 25, 2019',
+								tag: 'Sales'
+							})
+
+
+						
+	section.section-md.bg-gray-700
+		.container
+			.row.row-50.row-decorate
+				.col-md-6.col-lg-4.wow.slideInUp
+					+box-icon-modern({
+						boxMod: 'align-items-sm-center',
+						classMod: 'decorate-triangle',
+						icon: 'linearicons-lamp icon-gradient-1',
+						title: 'Strong Community'
+					})
+						p Supportive and Friendly
+				.col-md-6.col-lg-4.wow.slideInUp
+					+box-icon-modern({
+						boxMod: 'align-items-sm-center',
+						classMod: 'decorate-triangle',
+						icon: 'linearicons-radar icon-gradient-2',
+						title: 'Best Location'
+					})
+						p Easy to Reach
+				.col-md-6.col-lg-4.wow.slideInUp
+					+box-icon-modern({
+						boxMod: 'align-items-sm-center',
+						classMod: 'decorate-triangle',
+						icon: 'linearicons-teacup icon-gradient-3',
+						title: 'Free Coffee Break'
+					})
+						p Included with Basic Pass
+
+
+
+
+	// Page Footer
+	include ../sections/_footer-modern

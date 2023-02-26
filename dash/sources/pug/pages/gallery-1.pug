@@ -1,0 +1,83 @@
+extends  ../_skeleton
+
+include ../components/_ui-gallery-item
+
+block variables
+	- pageName = 'Gallery 1'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({
+		img: 'images/speakers-title-bg.jpg',
+		title: 'Gallery #1'
+	})
+
+	section.section.section-xl.bg-default
+
+		.row.row-30(data-isotope-group='gallery')
+			.col-12.col-sm-6.col-md-4.col-lg-3
+				+gallery-item-classic({
+					img: 'gallery-1-465x383',
+					imgOriginal: 'images/gallery-1-original.jpg'
+				})
+			.col-12.col-sm-6.col-md-4.col-lg-3
+				+gallery-item-classic({
+					img: 'gallery-2-465x383',
+					imgOriginal: 'images/gallery-2-original.jpg'
+				})
+			.col-12.col-sm-6.col-md-4.col-lg-3
+				+gallery-item-classic({
+					img: 'gallery-3-465x383',
+					imgOriginal: 'images/gallery-3-original.jpg'
+				})
+			.col-12.col-sm-6.col-md-4.col-lg-3
+				+gallery-item-classic({
+					img: 'gallery-4-465x383',
+					imgOriginal: 'images/gallery-4-original.jpg'
+				})
+			.col-12.col-sm-6.col-md-4.col-lg-3
+				+gallery-item-classic({
+					img: 'gallery-5-465x383',
+					imgOriginal: 'images/gallery-5-original.jpg'
+				})
+			.col-12.col-sm-6.col-md-4.col-lg-3
+				+gallery-item-classic({
+					img: 'gallery-6-465x383',
+					imgOriginal: 'images/gallery-6-original.jpg'
+				})
+			.col-12.col-sm-6.col-md-4.col-lg-3
+				+gallery-item-classic({
+					img: 'gallery-7-465x383',
+					imgOriginal: 'images/gallery-7-original.jpg'
+				})
+			.col-12.col-sm-6.col-md-4.col-lg-3
+				+gallery-item-classic({
+					img: 'gallery-8-465x383',
+					imgOriginal: 'images/gallery-8-original.jpg'
+				})
+			.col-12.col-sm-6.col-md-4.col-lg-3
+				+gallery-item-classic({
+					img: 'gallery-9-465x383',
+					imgOriginal: 'images/gallery-9-original.jpg'
+				})
+			.col-12.col-sm-6.col-md-4.col-lg-3
+				+gallery-item-classic({
+					img: 'gallery-10-465x383',
+					imgOriginal: 'images/gallery-10-original.jpg'
+				})
+			.col-12.col-sm-6.col-md-4.col-lg-3
+				+gallery-item-classic({
+					img: 'gallery-11-465x383',
+					imgOriginal: 'images/gallery-11-original.jpg'
+				})
+			.col-12.col-sm-6.col-md-4.col-lg-3
+				+gallery-item-classic({
+					img: 'gallery-8-465x383',
+					imgOriginal: 'images/gallery-8-original.jpg'
+				})
+
+
+	// Page Footer
+	include ../sections/_footer-classic
