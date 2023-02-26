@@ -39,10 +39,15 @@ class PartnersController extends Controller
             ->withInput()
             ->with('ErrorInsert','Favor de llenar todos los campos');
           }else{
-            $curriculum = $request-> file('curriculum');
-            $nombreFile = time().'.'.$curriculum->extension(); //20_12_222
-            $destino = public_path('cvs');
-            $request->curriculum->move($destino,$nombreFile);
+            if($request->hasFile('curriculum')){
+                $curriculum = $request-> file('curriculum');
+                $nombreFile = time().'.'.$curriculum->extension(); //20_12_222
+                $destino = public_path('cvs');
+                $request->curriculum->move($destino,$nombreFile);
+            }else{
+                $nombreFile =null;
+            }
+
             
             $empresa = Free_register_partner::create([
                 'usuario' => $request->usuario,
