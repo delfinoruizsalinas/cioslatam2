@@ -10,6 +10,8 @@ use App\Models\Free_register_partner;
 use App\Models\User;
 use Auth;
 use Carbon\Carbon;
+use App\Http\Controllers\MailController;
+
 
 class PostnewsController extends Controller
 {
@@ -115,8 +117,11 @@ class PostnewsController extends Controller
 
       $register->estatus = $request->act_user;
       $register->id_usuario = $usuario->id;
-
+      
       $register->save();
+      if($request->act_user == 1){
+        app(MailController::class)->mailPartnerActivation();
+      }
       return back()->with('Listo','El registro se actualizo correctamente');
     }
     

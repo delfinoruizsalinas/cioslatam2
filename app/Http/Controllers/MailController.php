@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Mail;
 use App\Mail\ContactanosMail;
+use App\Mail\Activacion_partnerMail;
 
 
 class MailController extends Controller
@@ -13,10 +14,20 @@ class MailController extends Controller
     {
         $mailData = [
             'miembro' => 'Partner',
-            'perfil' => 'Administrador'
+            'perfil' => 'Administrador',
         ];
        //dd($mailData); 
         Mail::to('contacto@ciosmexicanos.com')->send(new ContactanosMail($mailData));
+        return "Email is sent successfully."; 
+    }
+    public function mailPartnerActivation()
+    {
+        $mailData = [
+            'miembro' => 'Partner',
+            'perfil' => 'Partner',
+        ];
+       //dd($mailData); 
+        Mail::to('contacto@ciosmexicanos.com')->send(new Activacion_partnerMail($mailData));
         return "Email is sent successfully."; 
     }
 }

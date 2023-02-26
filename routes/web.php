@@ -59,8 +59,6 @@ Route::controller(EventosController::class)->group(function(){
     Route::GET('cios-master-class', 'getClass');    
 });
 
-Route::get('send-mail', [MailController::class, 'mailPartner']);
-
 Route::controller(PartnersController::class)->group(function(){
     Route::GET('partners-registro', 'index');
     Route::POST('partners-free-registro', 'register');
