@@ -84,7 +84,7 @@ class Controller extends BaseController
                                     'fecha'=> Carbon::parse($valuevlog->attributes->fecha)->translatedFormat('d F, Y'), 
                                     'hora'=> Carbon::parse($valuevlog->attributes->hora)->format('h:m'),                                     
                                     'youtube' => $valuevlog->attributes->youtube,
-                                    'url_img' => $url_site . $urlImg,                                    
+                                    'url_img' => $urlImg,                                    
                                 );
             }
             $i++;

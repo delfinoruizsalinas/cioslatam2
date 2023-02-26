@@ -140,7 +140,7 @@ class PostnewsController extends Controller
             $nombre = $valuepart->attributes->nombre;  
             $partnL[] = array(
                                 'link'=> $link,                                       
-                                'imagen' => $url_site.$urlImg,
+                                'imagen' => $urlImg,
                                 'nombre' => $nombre,           
                             );
         }
