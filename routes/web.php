@@ -12,6 +12,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostnewsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\EventosController;
 
 
 
@@ -50,6 +51,16 @@ Route::controller(PartnerController::class)->group(function(){
     Route::GET('partner-slider', 'index');
 });
 
+Route::controller(EventosController::class)->group(function(){
+    Route::GET('cios-vlog', 'getVlog');
+    Route::GET('cios-connect', 'getConnect');
+    Route::GET('cios-life', 'getLife');
+    Route::GET('cios-entre-amigos', 'getAmigos');
+    Route::GET('cios-mesa-de-debate', 'getDebate');
+    Route::GET('cios-master-class', 'getClass');    
+});
+
+
 Route::controller(PartnersController::class)->group(function(){
     Route::GET('partners-registro', 'index');
     Route::POST('partners-free-registro', 'register');
@@ -57,8 +68,6 @@ Route::controller(PartnersController::class)->group(function(){
     Route::GET('partners-detalle/{id}', 'detalle');
     Route::GET('partners-detalle-contenido/{id}', 'detalleContenido');
 });
-
-
 
 Route::GET('/login', [App\Http\Controllers\HomeController::class, 'index'])->name('login');
 Auth::routes();
