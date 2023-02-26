@@ -9,7 +9,7 @@ use App\Mail\ContactanosMail;
 
 class MailController extends Controller
 {
-    public function index()
+    public function mailPartner()
     {
         $mailData = [
             'miembro' => 'Partner',

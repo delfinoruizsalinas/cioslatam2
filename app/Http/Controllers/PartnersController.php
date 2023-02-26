@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Free_register_partner;
-
+use App\Http\Controllers\MailController;
 
 use Validator;
 use Image;
@@ -62,6 +62,7 @@ class PartnersController extends Controller
                 'editor' => $request->editor,
                 'curriculum' => $nombreFile
             ]);
+            mailPartner();
            // return back()->with('success', 'Se guardó correctamente la publicación');
             return back()->with('Listo','El registro se actualizo correctamente');
         }
