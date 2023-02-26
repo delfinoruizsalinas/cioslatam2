@@ -33,7 +33,7 @@ class Controller extends BaseController
  
              $partn[] = array(
                                  'link'=> $link,                                       
-                                 'imagen' => $url_site.$urlImg,           
+                                 'imagen' => $urlImg,           
                              );
          }
  
