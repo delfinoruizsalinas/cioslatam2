@@ -40,12 +40,14 @@ class PartnersController extends Controller
             ->with('ErrorInsert','Favor de llenar todos los campos');
           }else{
             $curriculum = $request-> file('curriculum');
-            $nombreFile = time().'.'.$curriculum->extension(); //20_12_222
-            $destino = public_path('cvs');
-            $request->curriculum->move($destino,$nombreFile);
+    
 
-            if ($request-> file('curriculum')==null)
+            if ($request-> file('curriculum')!=null)
             {
+                $nombreFile = time().'.'.$curriculum->extension(); //20_12_222
+                $destino = public_path('cvs');
+                $request->curriculum->move($destino,$nombreFile);
+            }else{
                 $nombreFile = null;
             }
  
