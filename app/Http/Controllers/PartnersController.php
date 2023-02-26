@@ -40,18 +40,11 @@ class PartnersController extends Controller
             ->with('ErrorInsert','Favor de llenar todos los campos');
           }else{
             $curriculum = $request-> file('curriculum');
-    
+            $nombreFile = time().'.'.$curriculum->extension(); //20_12_222
+            $destino = public_path('cvs');
+            $request->curriculum->move($destino,$nombreFile);
 
-            if ($request-> file('curriculum')!=null)
-            {
-                $nombreFile = time().'.'.$curriculum->extension(); //20_12_222
-                $destino = public_path('cvs');
-                $request->curriculum->move($destino,$nombreFile);
-            }else{
-                $nombreFile = null;
-            }
- 
-
+            dd($nombreFile);
             $empresa = Free_register_partner::create([
                 'usuario' => $request->usuario,
                 'nom_contacto' => $request->nom_contacto,
@@ -63,7 +56,7 @@ class PartnersController extends Controller
                 'nom_empresa' => $request->nom_empresa,
                 'website' => $request->website,
                 'editor' => $request->editor,
-                'curriculum' => $nombreFile,
+                'curriculum' => $nombreFile
             ]);
            // return back()->with('success', 'Se guardó correctamente la publicación');
             return back()->with('Listo','El registro se actualizo correctamente');
