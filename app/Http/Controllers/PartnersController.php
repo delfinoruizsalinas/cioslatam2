@@ -44,6 +44,12 @@ class PartnersController extends Controller
             $destino = public_path('cvs');
             $request->curriculum->move($destino,$nombreFile);
 
+            if ($request-> file('curriculum')==null)
+            {
+                $nombreFile = null;
+            }
+ 
+
             $empresa = Free_register_partner::create([
                 'usuario' => $request->usuario,
                 'nom_contacto' => $request->nom_contacto,
@@ -55,7 +61,7 @@ class PartnersController extends Controller
                 'nom_empresa' => $request->nom_empresa,
                 'website' => $request->website,
                 'editor' => $request->editor,
-                'curriculum' => $nombreFile
+                'curriculum' => $nombreFile,
             ]);
            // return back()->with('success', 'Se guardó correctamente la publicación');
             return back()->with('Listo','El registro se actualizo correctamente');
