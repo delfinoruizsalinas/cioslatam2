@@ -43,8 +43,7 @@ class PartnersController extends Controller
             $nombreFile = time().'.'.$curriculum->extension(); //20_12_222
             $destino = public_path('cvs');
             $request->curriculum->move($destino,$nombreFile);
-
-            dd($nombreFile);
+            
             $empresa = Free_register_partner::create([
                 'usuario' => $request->usuario,
                 'nom_contacto' => $request->nom_contacto,
