@@ -48,7 +48,7 @@
                 <div class="box-icon-inner decorate-triangle decorate-color-secondary"><img src="/dash/images/cios/icon-vector.jpg" width="95"/></div>
                 <div class="box-icon-caption">
                   <h4><a href="tel:#">+52 55 7225 6615</a></h4>
-                  <p>Puedes llamarnos en cualquier momento</p>
+                  <p>Puedes mandarnos un whatsapp en cualquier momento.</p>
                 </div>
               </div>
             </div>
