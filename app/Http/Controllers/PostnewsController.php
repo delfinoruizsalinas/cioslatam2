@@ -113,10 +113,12 @@ class PostnewsController extends Controller
           'rol' => 'partner',
           'partner' => $request->imagen_user,
         ]);
+        $register->id_usuario = 0;
+      }else{
+        $register->id_usuario = $usuario->id;
       }
 
       $register->estatus = $request->act_user;
-      $register->id_usuario = $usuario->id;
       
       if($request->act_user == 1){
         app(MailController::class)->mailPartnerActivation($register->correo_empresarial);
