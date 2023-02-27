@@ -20,14 +20,14 @@ class MailController extends Controller
         Mail::to('contacto@ciosmexicanos.com')->send(new ContactanosMail($mailData));
         return "Email is sent successfully."; 
     }
-    public function mailPartnerActivation()
+    public function mailPartnerActivation($mail_partner)
     {
         $mailData = [
             'miembro' => 'Partner',
             'perfil' => 'Partner',
         ];
        //dd($mailData); 
-        Mail::to('contacto@ciosmexicanos.com')->send(new Activacion_partnerMail($mailData));
+        Mail::to($mail_partner)->send(new Activacion_partnerMail($mailData));
         return "Email is sent successfully."; 
     }
 }

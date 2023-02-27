@@ -120,7 +120,7 @@ class PostnewsController extends Controller
       
       $register->save();
       if($request->act_user == 1){
-        app(MailController::class)->mailPartnerActivation();
+        app(MailController::class)->mailPartnerActivation($register->correo_empresarial);
       }
       return back()->with('Listo','El registro se actualizo correctamente');
     }
