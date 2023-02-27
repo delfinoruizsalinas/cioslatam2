@@ -50,7 +50,7 @@
               <div class="pricing-corporate">
                 <h5 class="pricing-corporate-title">Nuestra Misión</h5>
                 <ul class="pricing-corporate-list">
-                  <li>Fomentar el desarrollo y promover el uso y aprovechamiento de las Tecnologías de la Información y las Comunicaciones en México, tomando como base el intercambio de experiencia y conocimiento de nuestros asociados.</li>
+                  <li>Fomentar el desarrollo y promover el uso y aprovechamiento de las Tecnologías de la Información y las Comunicaciones en México, tomando como base En Mexico y LATAM experiencia y conocimiento de nuestros asociados.</li>
                 </ul>
               </div>
               <div class="pricing-corporate box-pricing-selected">
@@ -81,7 +81,7 @@
                 <div class="divider"></div>
                 <h4>CIO's LATAM es una comunidad inspiradora que fomenta la unión y el apoyo entre sus asociados basados en sus propias experiencias</h4>
               </div>
-              <p>Somos una Asociación Civil fundada en diciembre del 2012. Se crea como un espacio de participación e intercambio de experiencias, conocimientos y visiones para los responsables de encausar y dar sentido al uso y aprovechamiento de las Tecnologías de Información y Comunicaciones (TIC), en las Organizaciones. La participación de los CIOs de los distintos sectores y regiones del país le permitirá a la asociación consolidarse como un grupo que influya de manera positiva y responsable en la toma de decisiones sobre TICs, en beneficio del país.</p>
+              <p>Somos una Asociación Civil fundada en diciembre del 2012. Se crea como un espacio de participación e intercambio de experiencias, conocimientos y visiones para los responsables de encausar y dar sentido al uso y aprovechamiento de las Tecnologías de Información y Comunicaciones (TIC), en las Organizaciones. La participación de los CIOs de los distintos sectores y regiones del país le permitirá a la asociación consolidarse como un grupo que influya de manera positiva y responsable en la toma de decisiones sobre TICs, en beneficio de Mexico & LATAM.</p>
             </div>
           </div>
         </div>

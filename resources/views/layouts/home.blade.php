@@ -336,7 +336,7 @@
             </div>
             <div class="col-lg-6 col-xl-5">
               <h3>Únete a Nuestra Comunidad</h3>
-              <p class="text-opacity-80">CIO's Mexicanos & Latam es una asociación sin fines de lucro conformada por directores de TI de diferentes industrias en nuestro país. Siendo esta, una red de colaboración, integración y crecimiento de nuestros asociados. Es un privilegio poder ser parte de esta gran comunidad donde trabajamos conjuntamente para darle la fuerza y el soporte que requieren los CIO's en nuestro país y en el mundo. Hoy sabemos la importancia que tiene el rol de CIO en las Industrias. Si eres CIO activo o fuiste CIO en cualquier institución pública o privada te invito a sumarte a este gran equipo.</p>
+              <p class="text-opacity-80">CIO's LATAM es una asociación sin fines de lucro conformada por directores de TI de diferentes industrias en LATAM. Siendo esta, una red de colaboración, integración y crecimiento de nuestros asociados. Es un privilegio poder ser parte de esta gran comunidad donde trabajamos conjuntamente para darle la fuerza y el soporte que requieren los CIO's en LATAM y en el mundo. Hoy sabemos la importancia que tiene el rol de CIO en las Industrias. Si eres CIO activo o fuiste CIO en cualquier institución pública o privada te invito a sumarte a este gran equipo.</p>
    
               <div class="row row-50">
                 <div class="col-md-6 col-lg-12">
@@ -351,7 +351,7 @@
                   <div class="box-icon-modern">
                     <div class="box-icon-inner decorate-triangle"><span class="icon-xl linearicons-mustache-glasses icon-gradient-1"></span></div>
                     <div class="box-icon-caption">
-                      <h4><a href="contacto.php">Hablemos</a></h4>
+                      <h4><a href="{{ url('/contacto') }}">Hablemos</a></h4>
                       <p>¿Eres CIO, CTO, CDO o CISO y te interesa sumarte a nuestra comunidad ?
 Escríbenos y en breve nos pondremos en contacto contigo.</p>
                     </div>

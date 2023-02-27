@@ -53,7 +53,7 @@
             </div>
             <div class="col-lg-8 order-lg-1 wow-outer">
             <div class="wow slideInLeft" style="visibility: visible; animation-name: slideInLeft;">
-                <p class="text-opacity-80">CIO's Mexicanos & Latam es una comunidad inspiradora que fomenta la unión y el apoyo entre sus asociados basados en sus propias experiencias</p>
+                <p class="text-opacity-80">CIO's LATAM es una comunidad inspiradora que fomenta la unión y el apoyo entre sus asociados basados en sus propias experiencias</p>
             </div>
             </div>
         </div>
