@@ -58,7 +58,7 @@
         <div class="container">
           <div class="row justify-content-md-center">
             <div class="col-md-9 col-lg-7">
-            <h3>Actualizar Resumen</h3>
+            <h3>Actualizar Información General</h3>
               <!-- RD Mailform-->
               <form class="rd-form rd-form-centered" action="/actualizar-informacion-general" method="post">
                   @csrf
