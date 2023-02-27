@@ -11,6 +11,12 @@
             background-attachment: unset;
         }
       }
+      .sizeImage{
+        padding: 0.25rem;
+        background-color: #fff;
+        border-radius: 0.25rem;
+        max-height: 200px;
+      }
     </style>
   </head>
   <body>
@@ -45,7 +51,7 @@
         <div class="container">
           <div class="row row-50 justify-content-lg-between">
             <div class="col-lg-6 col-xl-5">
-              <img src="{{ $detalle_contenido[0]->partner }}" class="rounded float-left">
+              <img src="{{ $detalle_contenido[0]->partner }}" class="float-left sizeImage">
               <ul class="blog-post-meta">
                 <li>
                   

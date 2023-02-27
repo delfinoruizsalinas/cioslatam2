@@ -1,3 +1,10 @@
+<style>
+    .button-secondary, .button-secondary:focus {
+    color: #000;
+    background-color: #ffffff;
+    /* border-color: #FFD541; */
+    }
+</style>
 <header class="section page-header">
     <!-- RD Navbar-->
     <div class="rd-navbar-wrap">
@@ -34,9 +41,9 @@
                     </div>
                 </div>
                 @if(Auth::user()->rol == "partner")
-                    <a class="button button-secondary button-sm" href="#"><img src="{{ Auth::user()->partner }}" alt="" width="250" /></a>
+                    <span><img src="{{ Auth::user()->partner }}" alt="" style="max-width: 160px;" /></span>
                 @elseif( Auth::user()->rol == "admin")
-                    <a class="button button-secondary button-sm" href="#">{{ Auth::user()->partner }}</a>
+                    <span>{{ Auth::user()->partner }}</span>
                 @endif
                 
 
