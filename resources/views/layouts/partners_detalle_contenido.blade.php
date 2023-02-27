@@ -51,7 +51,7 @@
         <div class="container">
           <div class="row row-50 justify-content-lg-between">
             <div class="col-lg-6 col-xl-5">
-              <img src="{{ $detalle_contenido[0]->partner }}" class="float-left sizeImage">
+              <img src="{{ $detalle_contenido[0]->partner }}" class="sizeImage">
               <ul class="blog-post-meta">
                 <li>
                   
