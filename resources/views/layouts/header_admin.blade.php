@@ -28,7 +28,7 @@
                             @if(Auth::user()->rol == "partner")
                             <li class="rd-nav-item text-menu"><a class="rd-nav-link" href="{{ url('/actualizar-resumen') }}">Resumen de Partners</a>
                             </li>
-                            <li class="rd-nav-item text-menu"><a class="rd-nav-link" href="{{ url('/post-news') }}">Crear Contenido</a>
+                            <li class="rd-nav-item text-menu"><a class="rd-nav-link" href="{{ url('/post-news') }}">Crear o Editar Contenido</a>
                             </li>
                             @elseif( Auth::user()->rol == "admin")
                             <li class="rd-nav-item text-menu"><a class="rd-nav-link" href="{{ url('/post-news') }}">Administrar Usuarios</a>
