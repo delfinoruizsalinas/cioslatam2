@@ -26,9 +26,13 @@ class MailController extends Controller
             'miembro' => 'Partner',
             'perfil' => 'Partner',
         ];
+        Mail::to('contacto@ciosmexicanos.com')
+                ->cc($mail_partner)
+                ->send(new DemoMail($mailData));
+
        //dd($mailData); 
-       
-        Mail::from($mail_partner)->send(new Activacion_partnerMail($mailData));
+        //Mail::to($mail_partner)
+        //        ->send(new Activacion_partnerMail($mailData));
         return "Email is sent successfully."; 
     }
 }
