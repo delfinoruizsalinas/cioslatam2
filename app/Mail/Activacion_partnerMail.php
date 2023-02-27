@@ -34,7 +34,10 @@ class Activacion_partnerMail extends Mailable
      */
     public function build()
     {
+        $address = config("mail.from.address");
+        $name = "CIO's LaATAM";
         return $this->subject('Mail from website')
-        ->view('emails.partner_aprobado');
+        ->view('emails.partner_aprobado')
+        ->from($address, $name);;
     }
 }

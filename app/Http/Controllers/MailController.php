@@ -27,7 +27,8 @@ class MailController extends Controller
             'perfil' => 'Partner',
         ];
        //dd($mailData); 
-        Mail::to($mail_partner)->send(new Activacion_partnerMail($mailData));
+       
+        Mail::from($mail_partner)->send(new Activacion_partnerMail($mailData));
         return "Email is sent successfully."; 
     }
 }
