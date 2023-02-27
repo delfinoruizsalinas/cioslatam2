@@ -10,10 +10,10 @@
         </div>
         <div class="col-12">
         <ul class="footer-minimal-nav">
-            <li><a href="noticias">Noticias</a></li>
-            <li><a href="conocenos.php">Conocenos</a></li>
-            <li><a href="comite-ejecutivo.php">Comite ejecutivo</a></li>
-            <li><a href="contacto.php">Contacto </a></li>
+            <li><a href="{{ url('/noticias') }}">Noticias</a></li>
+            <li><a href="{{ url('/conocenos') }}">Conocenos</a></li>
+            <li><a href="{{ url('/comite-ejecutivo') }}">Comite ejecutivo</a></li>
+            <li><a href="{{ url('/contacto') }}">Contacto </a></li>
         </ul>
         </div>
         <div class="col-12">
@@ -28,7 +28,7 @@
         </ul>
         </div>
     </div>
-    <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span>CIO’s Mexicanos & Latam.</span><span>  Todos los derechos reservados.</span><span>&nbsp;</span><a href="#" target="_blank">&nbsp;Politica de Privacidad</a></p>
+    <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span>CIO’s LATAM.</span><span>  Todos los derechos reservados.</span><span>&nbsp;</span><a href="#" target="_blank">&nbsp;Politica de Privacidad</a></p>
     </div>
 </div>
 </footer>
