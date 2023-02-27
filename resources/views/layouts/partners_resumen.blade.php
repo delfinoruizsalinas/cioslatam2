@@ -49,7 +49,7 @@
               
               <div class="col-sm-6 col-lg-3">
                 <a class="box-sponsor wow fadeInUp" href="partners-detalle/{{ $pres->id_resumen }}" target="_blank" data-wow-delay="{{ $key }}s">
-                <h2 class="heading-font text-accent-3"><img src="{{ $pres->partner }}" /></h2>
+                <h2 class="heading-font text-accent-3"><img src="{{ $pres->partner }}" style="height: 121px;" /></h2>
                 </a>
               </div>
             @endforeach  

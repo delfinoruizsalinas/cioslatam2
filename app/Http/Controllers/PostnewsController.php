@@ -105,15 +105,15 @@ class PostnewsController extends Controller
     {
       $register = Free_register_partner::find($request->id_user);
       
-      //dd($request);
-      $usuario = User::create([
-        'name' => $register->nom_contacto,
-        'password' => $register->password,
-        'email' => $register->correo_empresarial,
-        'rol' => 'partner',
-        'partner' => $request->imagen_user,
-      ]);
-      //$usuario();
+      if($request->act_user == 0){ // si va a desactivar un usuario no crea el user
+        $usuario = User::create([
+          'name' => $register->nom_contacto,
+          'password' => $register->password,
+          'email' => $register->correo_empresarial,
+          'rol' => 'partner',
+          'partner' => $request->imagen_user,
+        ]);
+      }
 
       $register->estatus = $request->act_user;
       $register->id_usuario = $usuario->id;
@@ -121,8 +121,8 @@ class PostnewsController extends Controller
       if($request->act_user == 1){
         app(MailController::class)->mailPartnerActivation($register->correo_empresarial);
       }
-
       $register->save();
+      
       return back()->with('Listo','El registro se actualizo correctamente');
     }
     
