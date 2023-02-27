@@ -66,7 +66,7 @@ class PartnersController extends Controller
 
             app(MailController::class)->mailPartner();
            // return back()->with('success', 'Se guardó correctamente la publicación');
-            return back()->with('Listo','El registro se actualizo correctamente');
+            return back()->with('Listo','El registro se actualizo correctamente, recibiras un correo de confirmación.');
         }
 
     }
