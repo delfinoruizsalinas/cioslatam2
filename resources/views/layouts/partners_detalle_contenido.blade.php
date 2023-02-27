@@ -46,6 +46,7 @@
           <div class="row row-50 justify-content-lg-between">
             <div class="col-lg-6">
               <img src="{{ $detalle_contenido[0]->partner }}" alt="" class="rounded float-left" />
+              <br>
               <ul class="blog-post-meta">
                                
                 <li><span class="icon mdi mdi-clock"></span>
