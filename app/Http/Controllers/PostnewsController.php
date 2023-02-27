@@ -102,6 +102,37 @@ class PostnewsController extends Controller
         return view('layouts.partners_resumen_admin', compact('title','info_partner'));   
     }
 
+    public function resumeninfGeneralAdmin()
+    {   
+        $title = "CIO's LATAM - ACTUALIZAR INFORMACIÓN GENERAL";
+
+        $info_partner = \DB::table('free_register_partner')
+        ->select('free_register_partner.*')
+        ->where('id_usuario', '=', Auth::user()->id)
+        ->get();
+        //dd($info_partner);
+        $info_partner = json_decode($info_partner);
+
+        return view('layouts.partners_informacion_general_admin', compact('title','info_partner'));   
+    }
+
+    public function updateInfGeneralAdmin(Request $request)
+    {
+        
+        $resumen = Free_register_partner::find($request->id_resumen);
+        
+        $resumen->nom_contacto = $request->nom_contacto;
+        $resumen->ap_contacto = $request->ap_contacto;
+        $resumen->num_contacto = $request->num_contacto;
+        $resumen->num_sec = $request->num_sec;
+        $resumen->correo_empresarial = $request->correo_empresarial;
+        $resumen->nom_empresa = $request->nom_empresa;
+        $resumen->website = $request->website;
+
+        $resumen->save();
+        return back()->with('Listo','El registro se actualizo correctamente');
+    }
+
     public function editarResumen(Request $request)
     {
         $resumen = Free_register_partner::find($request->id_resumen);
@@ -113,6 +144,7 @@ class PostnewsController extends Controller
         $resumen->save();
         return back()->with('Listo','El registro se actualizo correctamente');
     }
+
     public function editUser(Request $request)
     {
       $register = Free_register_partner::find($request->id_user);

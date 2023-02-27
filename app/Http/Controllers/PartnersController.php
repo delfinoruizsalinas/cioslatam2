@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Free_register_partner;
 use App\Http\Controllers\MailController;
+use App\Models\User;
 
 use Validator;
 use Image;
@@ -80,8 +81,10 @@ class PartnersController extends Controller
         ->where('id', '=', $id)
         ->get();
 
+        $users = User::find($info_partner[0]->id_usuario);
+        $ruta_partner = $users->partner;
         $info_partner = json_decode($info_partner);                         
-        return view('layouts.partners_detalle', compact('title','info_partner'));   
+        return view('layouts.partners_detalle', compact('title','info_partner','ruta_partner'));   
     }
 
 

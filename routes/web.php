@@ -85,6 +85,9 @@ Route::group(['middleware'=>'auth'],function(){
         Route::POST('/update-user', 'editUser');
         Route::POST('/post-partner', 'store');
         Route::GET('/actualizar-resumen', 'resumenAdmin');
+        Route::GET('/informacion-general', 'resumeninfGeneralAdmin');
+        Route::POST('/actualizar-informacion-general', 'updateInfGeneralAdmin');        
+        
         Route::POST('/update-resumen', 'editarResumen');
         
     });  

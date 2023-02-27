@@ -55,7 +55,7 @@
                   <li><span class="icon mdi mdi-account"></span>{{ $info_partner[0]->nom_contacto }}</li>
                   <li><span class="icon mdi mdi-phone"></span><a href="tel:#">{{ $info_partner[0]->num_sec }}</a></li>
                   <li><span class="icon mdi mdi-email-outline"></span><a href="mailto:#">{{ $info_partner[0]->correo_empresarial }}</a></li>
-                  <li><span class="icon mdi mdi-web"></span><a href="" target="_blank">{{ $info_partner[0]->website }}</a></li>
+                  <li><span class="icon mdi mdi-web"></span><a href="{{ $info_partner[0]->website }}" target="_blank">{{ $info_partner[0]->website }}</a></li>
                 </ul>
                 <br>
                 <h5>Resumen</h5>
@@ -74,7 +74,7 @@
             </div>
             <div class="col-lg-4">
               <div class="block-decorate-img">
-                <div class="block-decorate-inner"><img src="" />
+                <div class="block-decorate-inner"><img src="{{ $ruta_partner }}" />
                 </div>
               </div>
                

@@ -26,6 +26,8 @@
                     <div class="rd-navbar-nav-wrap">
                         <ul class="rd-navbar-nav">
                             @if(Auth::user()->rol == "partner")
+                            <li class="rd-nav-item text-menu"><a class="rd-nav-link" href="{{ url('/informacion-general') }}">Información General</a>
+                            </li>
                             <li class="rd-nav-item text-menu"><a class="rd-nav-link" href="{{ url('/actualizar-resumen') }}">Resumen de Partners</a>
                             </li>
                             <li class="rd-nav-item text-menu"><a class="rd-nav-link" href="{{ url('/post-news') }}">Crear o Editar Contenido</a>
