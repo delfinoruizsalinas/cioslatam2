@@ -84,6 +84,8 @@ Route::group(['middleware'=>'auth'],function(){
         Route::GET('/get-list-partner', 'getList');
         Route::POST('/update-user', 'editUser');
         Route::POST('/post-partner', 'store');
+        Route::GET('/post-partner-get', 'getPartner');  
+        Route::POST('/post-partner-update', 'updatePostPartner');        
         Route::GET('/actualizar-resumen', 'resumenAdmin');
         Route::GET('/informacion-general', 'resumeninfGeneralAdmin');
         Route::POST('/actualizar-informacion-general', 'updateInfGeneralAdmin');        

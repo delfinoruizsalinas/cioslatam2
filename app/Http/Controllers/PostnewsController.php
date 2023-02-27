@@ -59,6 +59,48 @@ class PostnewsController extends Controller
       return response(json_encode($users),200)->header('Content-type','text/plain'); 
     }
     
+    public function getPartner(Request $request)
+    {
+      $post_partner = Post_partner::find($request->id);
+      return response(json_encode($post_partner),200)->header('Content-type','text/plain');     
+    }
+
+    public function updatePostPartner(Request $request)
+    {
+      $validator = Validator::make($request->all(),[
+        'titulo_up' => 'required',
+        'editor_up' => 'required',
+      ]);
+
+      if($validator ->fails()){
+        return back()
+        ->withErrors($validator)
+        ->withInput()
+        ->with('ErrorInsert','Favor de llenar todos los campos');
+      }else{
+        $post_partner = Post_partner::find($request->id_post);
+        $imagen = $request-> file('imagen_up');
+        if ($imagen == null) {
+          $post_partner->titulo = $request->titulo_up;
+          $post_partner->resumen = $request->editor_up;
+          $post_partner->save();
+        }else{
+          
+          $imagen = $request-> file('imagen_up');
+          $nombreImg = time().'.'.$imagen->getClientOriginalExtension(); //20_12_222
+          Image::make($imagen)->resize(360, 290)->save(public_path().'/news/'.$nombreImg);
+
+          $post_partner->titulo = $request->titulo_up;
+          $post_partner->resumen = $request->editor_up;
+          $post_partner->imagen = $nombreImg;        
+          
+          $post_partner->save();
+        }
+
+       // return back()->with('success', 'Se guardó correctamente la publicación');
+        return back()->with('Listo','El registro se actualizo correctamente');
+      }
+    }
     public function store(Request $request)
     {
       //dd($request);
@@ -118,9 +160,7 @@ class PostnewsController extends Controller
 
     public function updateInfGeneralAdmin(Request $request)
     {
-        
-       
-        
+
       $validator = Validator::make($request->all(),[
         "nom_contacto" => "required",
         "ap_contacto" => "required",
@@ -130,7 +170,6 @@ class PostnewsController extends Controller
         "nom_empresa" => "required",
         "website" => "required"
       ]);
-      
 
       if($validator ->fails()){
         return back()

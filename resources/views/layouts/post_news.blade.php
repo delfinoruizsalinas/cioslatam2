@@ -49,7 +49,7 @@
         <div class="col-1"></div>
         <div class="col-10">
           <div class="group-xl">
-            <div class="button button-icon button-icon-right button-default-outline button-lg"  data-toggle="modal" data-target="#modalCrearnoticia"><span class="icon mdi mdi-plus"></span>Crear Contenido</div>
+            <div class="button button-icon button-icon-right button-default-outline button-lg" data-toggle="modal" data-target="#modalCrearnoticia"><span class="icon mdi mdi-plus"></span>Crear Contenido</div>
           </div>
         </div>
       </div>
@@ -64,6 +64,7 @@
                 <tr>
                   <th>Titulo</th>
                   <th>Update</th>
+                  <th>Editar</th> 
                   <th>Borrar</th>    
                 </tr>
               </thead>
@@ -72,6 +73,9 @@
                   <tr>  
                     <td>{{ $now->titulo }}</td>
                     <td>{{ $now->updated_at }}</td>
+                    <td>
+                      <button type="button" class="btn btn-info"  data-toggle="modal" data-target="#modalModificarnoticia" onClick="modificarNota('{{ $now->id }}')">Editar</button>
+                    </td>                                                                
                     <td>
                       <button type="button" class="btn btn-danger" onClick="borrarNota('{{ $now->id }}')">Borrar</button>
                     </td>                                                                
@@ -109,7 +113,63 @@
     </div>
     <div class="snackbars" id="form-output-global"></div>
 
-    <!-- modal consultar detalle de  ficha -->
+    
+     <!-- modal crear noticia -->
+     <div class="modal" id="modalModificarnoticia" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-10 offset-md-1">  
+                <div class="card mb-1">
+                  <div class="card-header">
+                    <h6 class="m-0 font-weight-bold text-primary">Editar Contenido</h6> 
+                  </div>
+                  <div class="card-body">
+
+                    <!-- RD Mailform-->
+                    <form class="rd-form rd-form-centered" action="/post-partner-update" method="post" enctype="multipart/form-data">
+                      @csrf
+                      <input class="form-input" id="id_post" type="hidden" name="id_post" value="{{ old('id_post') }}">
+                      <div class="form-wrap">
+                        <label for="titulo_up">Titulo de Contenido * </label>
+                        <input class="form-input" id="titulo_up" type="text" name="titulo_up" value="{{ old('titulo_up') }}">
+                      </div>
+
+                      <div class="form-wrap">
+                        <label for="imagen_up">Imagen de Contenido * </label>
+                          <input type="file" class="form-control" id="imagen_up" name="imagen_up">
+                      </div>
+                      <div class="form-wrap">
+                        <label for="editor_up">Resumen de Contenido * </label>
+                        <textarea id="editor_up" name="editor_up"></textarea>
+                      </div>  
+                      
+                        <div class="form-wrap">
+                          <button class="button button-block button-gradient button-lg" type="submit">Enviar</button>
+                        </div>
+                      
+                    </form>
+                  </div>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal crear noticia -->
     <div class="modal" id="modalCrearnoticia" tabindex="-1" role="dialog">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -141,7 +201,7 @@
                           <input type="file" class="form-control" id="imagen" name="imagen">
                       </div>
                       <div class="form-wrap">
-                        <label for="imagen">Resumen de Contenido * </label>
+                        <label for="editor">Resumen de Contenido * </label>
                         <textarea id="editor" name="editor" value="{{ old('editor') }}"></textarea>
                       </div>  
                       
@@ -229,7 +289,7 @@
 
     <script type="text/javascript">
       function borrarNota(id){
-        //alert('borrar' + id);
+       
         $.ajax({
           url:'/post-news-borrar',
           method:'POST',
@@ -244,23 +304,44 @@
             location.reload();
           }
         });
-
       }
       
+      let YourEditor;
+      ClassicEditor
+        .create(document.querySelector('#editor_up'))
+        .then(editor => {
+          window.editor = editor;
+          YourEditor = editor;
+      });
+        
       function modificarNota(id){
-        alert('modificar' + id);
+        $.ajax({
+          url:'/post-partner-get',
+          method:'GET',
+          data:{
+              id:id,
+              _token:$('input[name="_token"]').val()
+          }
+        }).done(function(res){
+          var arreglo = JSON.parse(res); 
+          //console.log(arreglo.resumen);
+          $('#titulo_up').val(arreglo.titulo);
+          YourEditor.setData(arreglo.resumen);    
+          $('#id_post').val(id);
+        });
         
       }
 
-      ClassicEditor
-        .create( document.querySelector( '#editor'),{
-          removePlugins: [ 'Heading', 'Link', 'CKFinder' ],
-          toolbar: [ 'bold', 'italic', 'bulletedList', 'numberedList', 'blockQuote' , 'link' ]
-        })
-        .catch( error => {
-        //console.error( error );
-      } );
-
+    //ckeditor nuevo
+    ClassicEditor
+      .create( document.querySelector( '#editor'),{
+        removePlugins: [ 'Heading', 'Link', 'CKFinder' ],
+        toolbar: [ 'bold', 'italic', 'bulletedList', 'numberedList', 'blockQuote' , 'link' ]
+      })
+      .catch( error => {
+      //console.error( error );
+    } );
+      
     $.noConflict();
       jQuery( document ).ready(function( $ ) {
         $('#table-news').DataTable();
