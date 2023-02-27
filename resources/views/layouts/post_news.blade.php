@@ -64,8 +64,7 @@
                 <tr>
                   <th>Titulo</th>
                   <th>Update</th>
-                  <th>Estatus</th>                    
-                  
+                  <th>Borrar</th>    
                 </tr>
               </thead>
               <tbody>
@@ -74,9 +73,8 @@
                     <td>{{ $now->titulo }}</td>
                     <td>{{ $now->updated_at }}</td>
                     <td>
-                    {{ $now->estatus==0 ? 'Despublicada' : 'Publicada' }}
-                    </td>
-                                                                
+                      <button type="button" class="btn btn-danger" onClick="borrarNota('{{ $now->id }}')">Borrar</button>
+                    </td>                                                                
                   </tr>
                 @endforeach
               </tbody>
@@ -230,6 +228,30 @@
     <script src="{{ asset('js/plugins/dataTables/dataTables.bootstrap4.min.js') }}"></script>
 
     <script type="text/javascript">
+      function borrarNota(id){
+        //alert('borrar' + id);
+        $.ajax({
+          url:'/post-news-borrar',
+          method:'POST',
+          data:{
+              id:id,
+              _token:$('input[name="_token"]').val()
+          }
+        }).done(function(res){
+          
+          if(res == "ok"){
+            alert("El registro se eliminó correctamente");
+            location.reload();
+          }
+        });
+
+      }
+      
+      function modificarNota(id){
+        alert('modificar' + id);
+        
+      }
+
       ClassicEditor
         .create( document.querySelector( '#editor'),{
           removePlugins: [ 'Heading', 'Link', 'CKFinder' ],

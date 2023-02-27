@@ -38,6 +38,18 @@ class PostnewsController extends Controller
       return view('layouts.post_news',compact('title','post'));
     }
 
+    public function borrarPostPartner(Request $request)
+    {
+
+      $post_partner = Post_partner::find($request->id);
+      $post_partner->delete();
+      
+      return response()->json('ok');
+      //return response(json_encode($post_partner),200)->header('Content-type','text/plain'); 
+      //return back()->with('Listo', 'El registro se eliminó correctamente');
+    }
+    
+
     public function getUsers()
     {
       $users = \DB::table('free_register_partner')

@@ -79,6 +79,7 @@ Route::group(['middleware'=>'auth'],function(){
         
         Route::GET('/partners', 'index');
         Route::GET('/post-news', 'getPostPartner');
+        Route::POST('/post-news-borrar', 'borrarPostPartner');
         Route::GET('/get-users', 'getUsers');
         Route::GET('/get-list-partner', 'getList');
         Route::POST('/update-user', 'editUser');
