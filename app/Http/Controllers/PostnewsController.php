@@ -118,10 +118,11 @@ class PostnewsController extends Controller
       $register->estatus = $request->act_user;
       $register->id_usuario = $usuario->id;
       
-      $register->save();
       if($request->act_user == 1){
         app(MailController::class)->mailPartnerActivation($register->correo_empresarial);
       }
+
+      $register->save();
       return back()->with('Listo','El registro se actualizo correctamente');
     }
     
