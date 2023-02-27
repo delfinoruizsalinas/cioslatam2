@@ -85,6 +85,7 @@ class PartnersController extends Controller
         $ruta_partner = $users->partner;
         $info_partner = json_decode($info_partner);                         
         return view('layouts.partners_detalle', compact('title','info_partner','ruta_partner'));   
+        
     }
 
 

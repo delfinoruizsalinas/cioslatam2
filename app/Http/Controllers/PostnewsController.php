@@ -119,8 +119,27 @@ class PostnewsController extends Controller
     public function updateInfGeneralAdmin(Request $request)
     {
         
-        $resumen = Free_register_partner::find($request->id_resumen);
+       
         
+      $validator = Validator::make($request->all(),[
+        "nom_contacto" => "required",
+        "ap_contacto" => "required",
+        "num_contacto" => "required",
+        "num_sec" => "required",
+        "correo_empresarial" => 'required|min:3|email',
+        "nom_empresa" => "required",
+        "website" => "required"
+      ]);
+      
+
+      if($validator ->fails()){
+        return back()
+            ->withErrors($validator)
+            ->withInput()
+            ->with('ErrorInsert','Favor de llenar todos los campos');
+      }else{
+        $resumen = Free_register_partner::find($request->id_resumen);
+
         $resumen->nom_contacto = $request->nom_contacto;
         $resumen->ap_contacto = $request->ap_contacto;
         $resumen->num_contacto = $request->num_contacto;
@@ -131,6 +150,8 @@ class PostnewsController extends Controller
 
         $resumen->save();
         return back()->with('Listo','El registro se actualizo correctamente');
+      }
+
     }
 
     public function editarResumen(Request $request)
