@@ -45,9 +45,9 @@
         <div class="container">
           <div class="row row-50 justify-content-lg-between">
             <div class="col-lg-6">
+              <img src="{{ $detalle_contenido[0]->partner }}" alt="" class="rounded float-left" />
               <ul class="blog-post-meta">
-                <li><a class="badge" href="#"> {{ $detalle_contenido[0]->partner }}</a></created_at>
-                
+                               
                 <li><span class="icon mdi mdi-clock"></span>
                   {{ \Carbon\Carbon::parse($detalle_contenido[0]->updated_at)->translatedFormat('d F, Y') }}
                 </li>
