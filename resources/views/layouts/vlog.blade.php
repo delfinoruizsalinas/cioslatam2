@@ -41,7 +41,7 @@ $url_site = 'http://188.166.16.108:1337';
       <!-- Page Header-->
       @include('layouts.header')
       <!-- Swiper-->
-      <section class="parallax-container" id="portada" data-parallax-img="images/cios/pexels-helena-lopes-705792.jpg">
+      <section class="parallax-container" id="portada" data-parallax-img="/dash/images/cios/pexels-helena-lopes-705792.jpg">
         <div class="parallax-content breadcrumbs-custom context-dark"> 
           <div class="container">
             <div class="row justify-content-center">

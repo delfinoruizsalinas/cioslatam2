@@ -36,7 +36,7 @@
                         <li class="rd-megamenu-item">
                         <h6 class="rd-megamenu-title"></h6>
                         <ul class="rd-megamenu-list">
-                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="#">CIO’s Vlog</a></li>
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="{{ url('/cios-vlog') }}">CIO’s Vlog</a></li>
                             <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="#">CIO's Connect</a></li>
                         </ul>
                         </li>
