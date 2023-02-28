@@ -206,26 +206,45 @@ class PostnewsController extends Controller
 
     public function editUser(Request $request)
     {
-      $register = Free_register_partner::find($request->id_user);
-      
-      if($request->act_user == 1){ // si va a desactivar un usuario no crea el user
-        $usuario = User::create([
-          'name' => $register->nom_contacto,
-          'password' => $register->password,
-          'email' => $register->correo_empresarial,
-          'rol' => 'partner',
-          'partner' => $request->imagen_user,
-        ]);
-        $register->id_usuario = 0;
-        $register->estatus = 1;
-        app(MailController::class)->mailPartnerActivation($register->correo_empresarial);
-        $register->save();
-      }else{
-        $register->estatus = 0;
-        $register->save();
-      }
+      $validator = Validator::make($request->all(),[
+        "partner" => "required",
+        "aprobar_cuenta" => 'required',
+      ]);
+      if($validator ->fails()){
+        return back()
+            ->withErrors($validator)
+            ->withInput()
+            ->with('ErrorInsert','Favor de llenar todos los campos');
 
-      return back()->with('Listo','El registro se actualizo correctamente');
+      }else{
+        $register = Free_register_partner::find($request->id_registro_partner);
+        //id_registro_partner
+        //imagen_user
+        //dd($register->id_usuario);
+        if($register->id_usuario == 0){ //Se activa cuenta y No existe un usuario creado
+          $usuario = User::create([
+            'name' => $register->nom_contacto,
+            'password' => $register->password,
+            'email' => $register->correo_empresarial,
+            'rol' => 'partner',
+            'partner' => $request->imagen_user,
+          ]);
+          $id_user_user_create = User::latest('id')->first(); //Se retornan los datos del nuevo usuario en la tabla Users
+
+          $register->id_usuario = $id_user_user_create->id;
+          $register->estatus = 1;
+          $register->save();
+
+          if($register->wasChanged() == 1){ //si se actualizó se envía mail
+            app(MailController::class)->mailPartnerActivation($register->correo_empresarial);
+            return back()->with('Listo','El registro se actualizo correctamente');
+          }
+
+        }else{
+            return back()->with('ErrorInsert','El partner ya tiene una usuario creado');
+        }
+        
+      }
     }
     
     public function getList()

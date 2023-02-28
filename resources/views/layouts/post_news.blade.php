@@ -43,7 +43,7 @@
           </div>
         </div>
       </section>
-      @include('layouts.alert');
+      @include('layouts.alert')
       @if(Auth::user()->rol == "partner")
       <div class="row">
         <div class="col-1"></div>
@@ -87,23 +87,39 @@
         </div>
       </div>
       @elseif( Auth::user()->rol == "admin")
-      <div class="row">
-        <div class="col-1"></div>
-        <div class="col-10">
-            <table class="table table-bordered" >
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Email</th>
-                  <th>Empresa</th>  
-                  <th>Estatus</th>                                      
-                  <th>Activar Usuario</th>
-                </tr>
-              </thead>
-              <tbody id="table-users">
-              </tbody>
-            </table>
-
+      <br>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+          <h3>Administrar Usuarios</h3>
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Registros de Partners</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Usuarios del Sistema</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contenidos de Partners</a>
+              </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="row">
+                  <table class="table table-bordered" >
+                    <thead>
+                      <tr>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Empresa</th>      
+                        <th>Aprobar Partner y dar Acceso al sistema</th>
+                      </tr>
+                    </thead>
+                    <tbody id="table-users">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"><h6>En desarrollo</h6></div>
+              <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"><h6>En desarrollo</h6></div>
+            </div>
+          </div>
         </div>
       </div>
       @endif
@@ -194,7 +210,6 @@
                       <div class="form-wrap">
                         <label for="titulo">Titulo de Contenido * </label>
                         <input class="form-input" id="titulo" type="text" name="titulo" value="{{ old('titulo') }}">
-  
                       </div>
                       <div class="form-wrap">
                         <label for="imagen">Imagen de Contenido * </label>
@@ -238,7 +253,7 @@
               <div class="col-md-10 offset-md-1">  
                 <div class="card mb-1">
                   <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-primary">Activar Partner</h6> 
+                    <h6 class="m-0 font-weight-bold text-primary">Aprobar Partner</h6> 
                   </div>
                   <div class="card-body">
 
@@ -247,19 +262,14 @@
                       @csrf
                       <div class="form-wrap">
                         <label for="titulo">Elegir Partner a asociar a ésta cuenta. </label>
-                        <select class="form-control" name="list_partner" id="list_partner">
+                        <select class="form-control" name="partner" id="partner">
                         </select>
                         <br>
-                        <input type="hidden" name="id_user" id="id_user">
+                        <input type="hidden" name="id_registro_partner" id="id_registro_partner">
                         <input type="hidden" name="imagen_user" id="imagen_user">                                                
-                        <label for="titulo"> Activar Cuenta </label>
-                        <select class="form-control" name="act_user" id="act_user">
-                          <option value="0">No</option>
-                          <option value="1">Si</option>
-                        </select>
-
+                        <input type="hidden" name="aprobar_cuenta" id="aprobar_cuenta" value="1">
                       </div>
-
+                      <h2 class="text-center">APROBAR PARTNER Y DAR ACCESO AL SISTEMA</h2>
                       <div class="form-wrap">
                         <button class="button button-block button-gradient button-lg" type="submit">Enviar</button>
                       </div>
@@ -288,6 +298,27 @@
     <script src="{{ asset('js/plugins/dataTables/dataTables.bootstrap4.min.js') }}"></script>
 
     <script type="text/javascript">
+        $.ajax({
+            url:'/get-list-partner',
+            method:'GET',
+            data:{
+                id:1,
+                _token:$('input[name="_token"]').val()
+            }
+        }).done(function(res){
+         
+          //console.log(res);
+          let arreglo = JSON.parse(res);
+          let todo = '<option value="" data-img="">Seleccionar una Opción</option>'; 
+          
+          for(var x=0; x<arreglo.length; x++ ){
+
+            todo += '<option value="'+arreglo[x].nombre+'" data-img="'+arreglo[x].imagen+'">' + arreglo[x].nombre + '</option>';
+           
+          }
+          $('#partner').append(todo);
+        });
+
       function borrarNota(id){
        
         $.ajax({
@@ -360,50 +391,31 @@
        
         var arreglo = JSON.parse(res);
         for(var x=0; x<arreglo.length; x++ ){
-          let estatus = "";
+          let aprobar = null;
           if(arreglo[x].estatus == 0){
-            estatus = '<p class="text-danger">Inactico</p>';            
+            aprobar = '<button type="button" class="btn btn-outline-primary" onClick="reqClass('+arreglo[x].id+');" data-nombre="'+arreglo[x].nom_contacto+'" data-toggle="modal" data-target="#modalUpdateUser">Aprobar</button>';
+            
           }else{
-            estatus = '<p class="text-success">Activo</p>';
+            
+            aprobar = '<button type="button" class="btn btn-outline-success disabled">Aprobado</button>';
           }
 
-          var todo = '<tr><td>'+arreglo[x].nom_contacto+'</td><td>'+arreglo[x].correo_empresarial+'</td><td>'+arreglo[x].nom_empresa+'</td><td>'+estatus+'</td><td><button class="btn" onClick="reqClass('+arreglo[x].id+');" data-nombre="'+arreglo[x].nom_contacto+'" data-toggle="modal" data-target="#modalUpdateUser"><i class="fa fa-edit"></i></button></td></tr>';
+          var todo = '<tr><td>'+arreglo[x].nom_contacto+'</td><td>'+arreglo[x].correo_empresarial+'</td><td>'+arreglo[x].nom_empresa+'</td><td>'+aprobar+'</td></tr>';
           $('#table-users').append(todo);
         }
       });
 
-      $('#list_partner').change(function(){
+      $('#partner').change(function(){
           let imagen = $(this).find(':selected').attr('data-img');
           
           $("#imagen_user").val(imagen); 
       });
       
     });
-      function reqClass(id){
+      function reqClass(id_registro_partner){
         //console.log(id);
-        $("#id_user").val(id);
-               
-          
-          $.ajax({
-            url:'/get-list-partner',
-            method:'GET',
-            data:{
-                id:1,
-                _token:$('input[name="_token"]').val()
-            }
-        }).done(function(res){
-         
-          //console.log(res);
-          var arreglo = JSON.parse(res);
-          for(var x=0; x<arreglo.length; x++ ){
-
-            todo = '<option value="'+arreglo[x].nombre+'" data-img="'+arreglo[x].imagen+'">' + arreglo[x].nombre + '</option>';
-            $('#list_partner').append(todo);
-          }
-        });
+        $("#id_registro_partner").val(id_registro_partner);
       }
-
-
     </script>
   </body>
 </html>
