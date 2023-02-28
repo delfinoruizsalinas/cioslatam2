@@ -43,7 +43,7 @@
                         <li class="rd-megamenu-item">
                         <h6 class="rd-megamenu-title"></h6>
                         <ul class="rd-megamenu-list">
-                        <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="#">CIO’s Presenciales</a></li>
+                        <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="{{ url('/cios-presenciales') }}">CIO’s Presenciales</a></li>
                         <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="{{ url('/cios-mesa-de-debate') }}">Mesa de Debate</a></li>                        
                         </ul>
                         </li>

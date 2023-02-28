@@ -31,15 +31,24 @@ class EventosController extends Controller
         $title="CIO's LATAM - Mesa de Debate"; 
         return view('layouts.debate', compact('title'));
     }
-    public function getClass()
+    public function getPresenciales()
     {
-        $title="CIO's Master Class"; 
-        return view('layouts.class', compact('title'));
+        $title="CIO's LATAM - Presenciales"; 
+        return view('layouts.presenciales', compact('title'));
     }
+    public function getPresencialesDetalle($id)
+    {
+        $title="CIO's LATAM - Presenciales Detalle"; 
+        
+     
+        $url = 'http://188.166.16.108:1337';
     
-    
-    
-    
-    
+       
+                                                                                
+          $json = file_get_contents($url.'/api/evento-presencials/'.$id.'?populate=imagen');
+          $presenciales = json_decode($json);
+          //dd($presenciales);
+        return view('layouts.presenciales_detalle', compact('title','presenciales'));
+    }
     
 }

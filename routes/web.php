@@ -56,7 +56,9 @@ Route::controller(EventosController::class)->group(function(){
     Route::GET('cios-life', 'getLife');
     Route::GET('cios-entre-amigos', 'getAmigos');
     Route::GET('cios-mesa-de-debate', 'getDebate');
-    Route::GET('cios-master-class', 'getClass');    
+    Route::GET('cios-presenciales', 'getPresenciales'); 
+    Route::GET('cios-presenciales-detalle/{id}', 'getPresencialesDetalle'); 
+       
 });
 
 Route::controller(PartnersController::class)->group(function(){
