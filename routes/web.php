@@ -52,12 +52,12 @@ Route::controller(PartnerController::class)->group(function(){
 
 Route::controller(EventosController::class)->group(function(){
     Route::GET('cios-vlog', 'getVlog');
-    Route::GET('cios-connect', 'getConnect');
+    Route::GET('cios-master-class', 'getMaster');
     Route::GET('cios-life', 'getLife');
     Route::GET('cios-entre-amigos', 'getAmigos');
     Route::GET('cios-mesa-de-debate', 'getDebate');
-    Route::GET('cios-presenciales', 'getPresenciales'); 
-    Route::GET('cios-presenciales-detalle/{id}', 'getPresencialesDetalle'); 
+    Route::GET('cios-connect', 'getConnect'); 
+    Route::GET('cios-connect-detalle/{id}', 'getConnectDetalle'); 
        
 });
 

@@ -103,7 +103,8 @@ class Controller extends BaseController
                     $urlImg = $valuepres->attributes->imagen->data->attributes->formats->small->url;
                 }
 
-                $dataPres[] = array('titulo'=>$valuepres->attributes->titulo,
+                $dataPres[] = array('id'=> $valuepres->id,
+                                    'titulo'=>$valuepres->attributes->titulo,
                                     'fecha'=> Carbon::parse($valuepres->attributes->fecha)->translatedFormat('d F, Y'),                                      
                                     'ubicacion' => $valuepres->attributes->ubicacion,
                                     'url_img' => $urlImg,                                    

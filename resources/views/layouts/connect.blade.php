@@ -6,11 +6,10 @@ $url_site = 'http://188.166.16.108:1337';
   <head>
     <title>{{  $title }}</title>
     @include('layouts.css')
-    <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
     <style>
       @media (max-width: 400px) {
         #portada {
-            background-image: url(images/cios/pexels-helena-lopes-705792-mobile.jpg) !important;
+            background-image: url(/dash/images/cios/pexels-helena-lopes-705792-mobile.jpg) !important;
             background-attachment: unset;
         }
         .event-item-classic{
@@ -43,86 +42,57 @@ $url_site = 'http://188.166.16.108:1337';
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-12 col-lg-9">
-                <h2 class="breadcrumbs-custom-title">CIO’s Connect</h2>
+                <h2 class="breadcrumbs-custom-title">CIO’s LATAM - CIO's Connect</h2>
                 <ul class="breadcrumbs-custom-path">
                   <li><a href="/">Inicio</a></li>
-                  <li class="active">CIO’s Connect</li>
+                  <li class="active">CIO’s LATAM - CIO's Connect</li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <!-- EVENTOS MASTER CLASS-->
+     
+      <!-- EVENTOS PRESENCIALES-->
+      <section class="section section-lg bg-default">
+          <div class="container">
+              <h3 class="title-decorate title-decorate-center text-center"><!--CIO’s Presenciales--></h3>
+              <div class="row">
+              <div class="col-12">
+                  <div class="owl-carousel" data-items="1" data-md-items="2" data-lg-items="3" data-autoplay="true" data-dots="true" data-nav="false" data-stage-padding="15" data-loop="true" data-margin="30" data-mouse-drag="false">
+                  
+                      <?php 
+                          //url api eventos-virtuales                                                                           
+                          $json = file_get_contents($url_site.'/api/evento-presencials?populate=imagen&sort[6]=fecha%3Adesc');
+                          // Decode the JSON string into an object
+                          $obj = json_decode($json);
+                          // In the case of this input, do key and array lookups to get the values
+                          foreach ($obj->data as $key => $value) {
+                              
+                              foreach($value->attributes->imagen as $item){
 
-      <section class="section section-lg bg-gray-1">
-      <div class="container">
-      <div class="wow-outer">
-        <div class="wow slideInDown text-center">
-            <!-- <h3 class="title-decorate title-decorate-center">CIO’s Master Class</h3>-->
+                                      $url = $item->attributes->url;
+                              }
+                            
+                              //comite-ejecutivo-biografia.php?id='.$value->id.'
+                              echo '<div class="wow slideInUp">
+                                      <div class="post-classic">
+                                      <div class="post-classic-figure"><a href="cios-connect-detalle/'.$value->id.'"><img src="'.$url.'" style="width: 370px; height: 255px;"/></a></div>
+                                      <div class="post-classic-caption">
+                                          <h4 class="post-classic-title"><a href="cios-connect-detalle/'.$value->id.'">'.$value->attributes->titulo.'</a></h4>
+                                          <ul class="post-classic-meta">
+                                          <li>'.$value->attributes->fecha.'</li>
+                                          <li><a class="post-classic-tag-secondary-2 post-classic-tag" href="#">'.$value->attributes->ubicacion.'</a></li>
+                                          </ul>
+                                      </div>
+                                      </div>
+                                  </div>';
+                          }           
+                      ?>
+                  </div>
+              </div>
+              </div>
           </div>
-        </div>
-        <div class="row row-50">
-          <?php 
-            //url api eventos-virtuales                                                                           
-            $json = file_get_contents($url_site.'/api/master-classes?populate=imagen&sort[2]=fecha%3Adesc');
-            // Decode the JSON string into an object
-            $obj = json_decode($json);
-            // In the case of this input, do key and array lookups to get the values
-            foreach ($obj->data as $key => $value) {
-              
-                $url ="";
-                $link = "";
-                $i = $key;
-                $youtube ="";
-                $fecha ="";
-                $hora ="";
-                $titulo ="";
-
-                if(empty($value->attributes->link_pange)){
-                    $link = '#';
-                }else{
-                    $link = $value->attributes->link_pange;                        
-                }
-
-                if(empty($value->attributes->youtube)){
-                  $youtube = '#';
-                }else{
-                  $youtube = $value->attributes->youtube;                        
-                }
-
-                if(empty($value->attributes->fecha)){
-                  $fecha = '';
-                }else{
-                  $fecha =  date("d-m-Y", strtotime($value->attributes->fecha));                         
-                }
-                
-                if(empty($value->attributes->hora)){
-                  $hora = '';
-                }else{
-                  $hora =  substr ($value->attributes->hora, 0, 5);                       
-                }
-                
-                if(empty($value->attributes->titulo)){
-                  $titulo = '#';
-                }else{
-                  $titulo = $value->attributes->titulo;                        
-                }          
-                
-                foreach($value->attributes->imagen as $item){
-
-                        if(empty($item->attributes->formats->small)){
-                            $url = $item->attributes->url;
-                        }else{
-                            $url = $item->attributes->formats->small->url;                               
-                        }
-                }       
-                echo '<div class="col-md-6 col-lg-4"><div class="post-modern"><div class="post-modern-figure"><a href="'.$youtube.'" target="_blank"><img src="'.$url.'" alt="" width="370" height="255"></a></div><div class="post-modern-caption"><p class="post-modern-date"> <span class="icon mdi mdi-calendar"></span> '.$fecha.' <span class="icon mdi mdi-clock"></span> '.$hora.'</p><h4 class="post-modern-title"><a href="'.$youtube.'" target="_blank">'.$titulo.'</a></h4></div></div></div>';
-              }
-                      
-          ?>
-        </div>
-      </div>
       </section>
       <!-- Sidebar -->
       @include('layouts.footer')

@@ -11,10 +11,10 @@ class EventosController extends Controller
         $title="CIO's LATAM - Vlog";
         return view('layouts.vlog', compact('title'));
     }
-    public function getConnect()
+    public function getMaster()
     {
-        $title="CIO's LATAM - Connect"; 
-        return view('layouts.connect', compact('title'));
+        $title="CIO's LATAM - Master Class"; 
+        return view('layouts.master', compact('title'));
     }
     public function getLife()
     {
@@ -31,14 +31,14 @@ class EventosController extends Controller
         $title="CIO's LATAM - Mesa de Debate"; 
         return view('layouts.debate', compact('title'));
     }
-    public function getPresenciales()
+    public function getConnect()
     {
-        $title="CIO's LATAM - Presenciales"; 
-        return view('layouts.presenciales', compact('title'));
+        $title="CIO's LATAM - Connect"; 
+        return view('layouts.connect', compact('title'));
     }
-    public function getPresencialesDetalle($id)
+    public function getConnectDetalle($id)
     {
-        $title="CIO's LATAM - Presenciales Detalle"; 
+        $title="CIO's LATAM - Connect Detalle"; 
         
      
         $url = 'http://188.166.16.108:1337';
@@ -48,7 +48,7 @@ class EventosController extends Controller
           $json = file_get_contents($url.'/api/evento-presencials/'.$id.'?populate=imagen');
           $presenciales = json_decode($json);
           //dd($presenciales);
-        return view('layouts.presenciales_detalle', compact('title','presenciales'));
+        return view('layouts.connect_detalle', compact('title','presenciales'));
     }
     
 }

@@ -155,11 +155,11 @@
               <div class="nav-tabs-cteative-wrap">
                 <ul class="nav nav-tabs nav-tabs-cteative">
                   <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-1-1" data-toggle="tab">CIO’s Vlog</a></li>
-                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2" data-toggle="tab">Eventos Presenciales</a></li>
+                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2" data-toggle="tab">CIO's Connect</a></li>
                   <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3" data-toggle="tab">CIO’s Life</a></li>
                   <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-4" data-toggle="tab">Programa “Entre Amigos”</a></li>
                   <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-5" data-toggle="tab">Mesa de Debate</a></li>
-                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-6" data-toggle="tab">CIO's Connect</a></li>                                    
+                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-6" data-toggle="tab">Master class</a></li>                                    
                 </ul>
               </div>
             </div>
@@ -201,7 +201,7 @@
               <div class="tab-pane fade" id="tabs-1-2">
               <div class="wow-outer">
                 <div class="wow slideInDown text-center" style="visibility: visible; animation-name: slideInDown;">
-                  <h3 class="title-decorate title-decorate-center"><a href="{{ url('/cios-presenciales') }}">Eventos Presenciales</a></h3>
+                  <h3 class="title-decorate title-decorate-center"><a href="{{ url('/cios-connect') }}">CIO's Connect</a></h3>
                 </div>
               </div>
                 <div class="event-item-classic wow slideInleft">
@@ -209,7 +209,7 @@
                   <div class="col-md-6 col-lg-4">
                     <div class="post-modern">
                       <div class="post-modern-figure">
-                        <a href="#" target="_blank">
+                        <a href="cios-connect-detalle/{{ $pres['id'] }}" target="_blank">
                           <img src="{{ $pres['url_img'] }}" alt="" width="370" height="255">
                         </a>
                       </div>
@@ -218,7 +218,7 @@
                           <span class="icon mdi mdi-calendar"></span> {{ $pres['fecha'] }}
                         </p>
                         <h4 class="post-modern-title">
-                          <a href="#" target="_blank">{{ $pres['titulo'] }}</a>
+                        <a href="cios-connect-detalle/{{ $pres['id'] }}" target="_blank">{{ $pres['titulo'] }}</a>
                         </h4>
                         <span class="location">{{ $pres['ubicacion'] }}</span>
                       </div>
@@ -316,7 +316,7 @@
               <div class="tab-pane fade" id="tabs-1-6">
               <div class="wow-outer">
                 <div class="wow slideInDown text-center" style="visibility: visible; animation-name: slideInDown;">
-                  <h3 class="title-decorate title-decorate-center"><a href="{{ url('/cios-connect') }}">CIO's Connect</a></h3>
+                  <h3 class="title-decorate title-decorate-center"><a href="{{ url('/cios-master-class') }}">Master class</a></h3>
                 </div>
               </div>                 
                 <div class="event-item-classic wow slideInleft">

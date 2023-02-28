@@ -44,7 +44,7 @@ $url_site = 'http://188.166.16.108:1337';
               <div class="col-12 col-lg-9">
                 <h2 class="breadcrumbs-custom-title">Acerca de</h2>
                 <ul class="breadcrumbs-custom-path">
-                  <li><a href="{{ url('/cios-presenciales') }}">Eventos Presenciales</a></li>
+                  <li><a href="{{ url('/cios-connect') }}">CIO´s Connect</a></li>
                   <li class="active">ACERCA DE</li>
                 </ul>
               </div>
