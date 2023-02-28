@@ -22,7 +22,6 @@ class PartnersController extends Controller
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            "usuario" => "required",
             "nom_contacto" => "required",
             "ap_contacto" => "required",
             "num_contacto" => "required",
@@ -50,7 +49,6 @@ class PartnersController extends Controller
 
             
             $empresa = Free_register_partner::create([
-                'usuario' => $request->usuario,
                 'nom_contacto' => $request->nom_contacto,
                 'ap_contacto' => $request->ap_contacto,
                 'num_contacto' => $request->num_contacto,

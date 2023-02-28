@@ -63,10 +63,6 @@
               <form class="rd-form rd-form-centered" action="/partners-free-registro" method="post" enctype="multipart/form-data">
                       @csrf
                 <div class="form-wrap">
-                  <input class="form-input" id="usuario" type="text" name="usuario" value="{{ old('usuario') }}">
-                  <label class="form-label" for="usuario">Usuario *</label>
-                </div>
-                <div class="form-wrap">
                   <input class="form-input" id="nom_contacto" type="text" name="nom_contacto" value="{{ old('nom_contacto') }}">
                   <label class="form-label" for="nom_contacto">Nombre Contacto Principal *</label>
                 </div>

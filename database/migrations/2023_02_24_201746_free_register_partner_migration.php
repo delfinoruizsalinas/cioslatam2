@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('free_register_partner', function (Blueprint $table) {
             $table->id();
-            $table->string('usuario');
+            $table->string('usuario')->nullable();
             $table->string('nom_contacto');
             $table->string('ap_contacto');
             $table->string('num_contacto');
