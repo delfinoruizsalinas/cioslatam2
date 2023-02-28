@@ -38,7 +38,7 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-2">BIENVENIDO</h1>
-                                        <p class="mb-4">Escribe Usuario y Contraseña para Ingresar</p>
+                                        <p class="mb-4">Escribe Correo Electrónico y Contraseña para Ingresar</p>
                                     </div>
                                     <form class="user" method="POST" action="{{ route('login') }}">
                                         @csrf
