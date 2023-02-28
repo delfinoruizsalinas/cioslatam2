@@ -88,11 +88,11 @@
                 </div>                                
                 <div class="form-wrap">
                   <input class="form-input" id="password" type="password" name="password" value="{{ old('password') }}">
-                  <label class="form-label" for="password">Contraseña de Acceso *</label>
+                  <label class="form-label" for="password">Contraseña de Acceso * minimo 8 digitos *</label>
                 </div>  
                 <div class="form-wrap">
                   <input class="form-input" id="password2" type="password" name="password2" value="{{ old('password2') }}">
-                  <label class="form-label" for="password2">Confirmar Contraseña * min. 8 digitos</label>
+                  <label class="form-label" for="password2">Confirmar Contraseña * minimo 8 digitos</label>
                 </div>      
                 <div class="form-wrap">
                   <input class="form-input" id="nom_empresa" type="text" name="nom_empresa" value="{{ old('nom_empresa') }}">
@@ -103,7 +103,7 @@
                   <label class="form-label" for="website">Website *</label>
                 </div>
                 <div class="form-wrap">
-                    <label for="curriculum">Curriculum: Formato PDF</label>
+                    <label for="curriculum">Company Profile</label>
                     <input type="file" class="form-control" id="curriculum" name="curriculum"  value="{{ old('curriculum') }}">
                 </div> 
                 
