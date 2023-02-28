@@ -38,12 +38,12 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-2">BIENVENIDO</h1>
-                                        <p class="mb-4">Escribe Correo Electrónico y Contraseña para Ingresar</p>
+                                        <p class="mb-4">Escribe Usuario y Contraseña para Ingresar</p>
                                     </div>
                                     <form class="user" method="POST" action="{{ route('login') }}">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user @error('email') is-invalid @enderror" id="email"  aria-describedby="emailHelp" placeholder="Usuario"  name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                            <input type="email" class="form-control form-control-user @error('email') is-invalid @enderror" id="email"  aria-describedby="emailHelp" placeholder="Correo  Electrónico"  name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
