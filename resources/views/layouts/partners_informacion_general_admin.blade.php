@@ -77,7 +77,7 @@
                   <input class="form-input" id="num_contacto" type="text" name="num_contacto" value="{{$info_partner[0]->num_contacto}}">
                 </div>
                 <div class="form-wrap">
-                  <label for="num_sec">Número Secundario de Contacto *</label>                  
+                  <label for="num_sec">Número Secundario de Contacto</label>                  
                   <input class="form-input" id="num_sec" type="text" name="num_sec" value="{{$info_partner[0]->num_sec}}">
                 </div>    
                 <div class="form-wrap">

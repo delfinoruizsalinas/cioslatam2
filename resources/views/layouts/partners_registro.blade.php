@@ -80,7 +80,7 @@
                 </div>
                 <div class="form-wrap">
                   <input class="form-input" id="num_sec" type="text" name="num_sec" value="{{ old('num_sec') }}">
-                  <label class="form-label" for="num_sec">Número Secundario de Contacto *</label>
+                  <label class="form-label" for="num_sec">Número Secundario de Contacto</label>
                 </div>    
                 <div class="form-wrap">
                   <input class="form-input" id="correo_empresarial" type="mail" name="correo_empresarial" value="{{ old('correo_empresarial') }}">

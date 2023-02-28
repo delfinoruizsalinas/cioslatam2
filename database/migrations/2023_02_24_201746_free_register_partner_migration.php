@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('nom_contacto');
             $table->string('ap_contacto');
             $table->string('num_contacto');
-            $table->string('num_sec');
+            $table->string('num_sec')->nullable();
             $table->string('correo_empresarial');
             $table->string('password');
             $table->string('nom_empresa');

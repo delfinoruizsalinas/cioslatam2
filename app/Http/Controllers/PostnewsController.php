@@ -165,7 +165,6 @@ class PostnewsController extends Controller
         "nom_contacto" => "required",
         "ap_contacto" => "required",
         "num_contacto" => "required",
-        "num_sec" => "required",
         "correo_empresarial" => 'required|min:3|email',
         "nom_empresa" => "required",
         "website" => "required"

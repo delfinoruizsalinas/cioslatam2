@@ -26,7 +26,6 @@ class PartnersController extends Controller
             "nom_contacto" => "required",
             "ap_contacto" => "required",
             "num_contacto" => "required",
-            "num_sec" => "required",
             "correo_empresarial" => 'required|min:3|email',
             "password" => "required|min:8|required_with:password2|same:password2",
             "password2" => "required|min:8",
