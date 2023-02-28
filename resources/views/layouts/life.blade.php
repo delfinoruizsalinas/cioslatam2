@@ -1,5 +1,5 @@
 <?php 
-  $url_site = 'http://188.166.16.108:1337';
+$url_site = 'http://188.166.16.108:1337';
 ?>
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en">
@@ -43,28 +43,30 @@
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-12 col-lg-9">
-                <h2 class="breadcrumbs-custom-title">CIO’s LATAM - Vlog</h2>
+                <h2 class="breadcrumbs-custom-title">CIO’s LATAM - Life</h2>
                 <ul class="breadcrumbs-custom-path">
                   <li><a href="/">Inicio</a></li>
-                  <li class="active">CIO’s LATAM - Vlog</li>
+                  <li class="active">CIO’s LATAM - Life</li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <!-- EVENTOS CIOSVLOG-->
+     
+      <!-- EVENTOS CIOS LIFES-->
+
       <section class="section section-lg bg-gray-1">
       <div class="container">
       <div class="wow-outer">
         <div class="wow slideInDown text-center">
-          <!--  <h3 class="title-decorate title-decorate-center">CIO’s Vlog</h3>-->
+          <!-- <h3 class="title-decorate title-decorate-center">CIO’s Life</h3>-->
           </div>
         </div>
         <div class="row row-50">
           <?php 
-            //url api eventos-virtuales                                                                           
-            $json = file_get_contents($url_site.'/api/evento-virtuals?populate=imagen&sort[5]=fecha%3Adesc');
+            //url api eventos-virtuales                                                   
+            $json = file_get_contents($url_site.'/api/evento-cio-lives?populate=imagen&sort[1]=fecha%3Adesc');
             // Decode the JSON string into an object
             $obj = json_decode($json);
             // In the case of this input, do key and array lookups to get the values
@@ -92,7 +94,7 @@
                 if(empty($value->attributes->fecha)){
                   $fecha = '';
                 }else{
-                  $fecha = date("d-m-Y", strtotime($value->attributes->fecha));                        
+                  $fecha =date("d-m-Y", strtotime($value->attributes->fecha));                        
                 }
                 
                 if(empty($value->attributes->hora)){
@@ -114,8 +116,18 @@
                         }else{
                             $url = $item->attributes->formats->small->url;                               
                         }
-                }       
-                echo '<div class="col-md-6 col-lg-4"><div class="post-modern"><div class="post-modern-figure"><a href="'.$youtube.'" target="_blank"><img src="'.$url.'" width="370" height="255"></a></div><div class="post-modern-caption"><p class="post-modern-date"> <span class="icon mdi mdi-calendar"></span> '.$fecha.' <span class="icon mdi mdi-clock"></span> '.$hora.'</p><h4 class="post-modern-title"><a href="'.$youtube.'" target="_blank">'.$titulo.'</a></h4></div></div></div>';
+                }      
+                echo '<div class="col-md-6 col-lg-4">
+                <div class="wow slideInDown" style="visibility: visible; animation-name: slideInDown;">
+                  <div class="post-modern post-modern-reverse">
+                    <div class="post-modern-figure"><a href="'.$youtube.'" target="_blank"><img src="'.$url.'" width="370" height="255"></a></div>
+                    <div class="post-modern-caption">
+                      <p class="post-modern-date"> <span class="icon mdi mdi-calendar"></span> '.$fecha.' <span class="icon mdi mdi-clock"></span> '.$hora.'</p>
+                      <h4 class="post-modern-title"><a href="'.$youtube.'" target="_blank">'.$titulo.'</a></h4>
+                    </div>
+                  </div>
+                </div>
+              </div>';
             }           
           ?>
         </div>

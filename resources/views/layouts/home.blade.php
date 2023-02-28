@@ -155,11 +155,11 @@
               <div class="nav-tabs-cteative-wrap">
                 <ul class="nav nav-tabs nav-tabs-cteative">
                   <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-1-1" data-toggle="tab">CIO’s Vlog</a></li>
-                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2" data-toggle="tab">CIO's Connect</a></li>
+                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2" data-toggle="tab">Eventos Presenciales</a></li>
                   <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3" data-toggle="tab">CIO’s Life</a></li>
                   <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-4" data-toggle="tab">Programa “Entre Amigos”</a></li>
                   <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-5" data-toggle="tab">Mesa de Debate</a></li>
-                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-6" data-toggle="tab">CIO’s Master Class</a></li>                                    
+                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-6" data-toggle="tab">CIO's Connect</a></li>                                    
                 </ul>
               </div>
             </div>
