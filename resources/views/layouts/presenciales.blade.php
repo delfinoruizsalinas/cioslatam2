@@ -59,7 +59,7 @@ $url_site = 'http://188.166.16.108:1337';
               <h3 class="title-decorate title-decorate-center text-center"><!--CIO’s Presenciales--></h3>
               <div class="row">
               <div class="col-12">
-                  <div class="owl-carousel" data-items="1" data-md-items="2" data-lg-items="3" data-dots="true" data-nav="false" data-stage-padding="15" data-loop="false" data-margin="30" data-mouse-drag="false">
+                  <div class="owl-carousel" data-items="1" data-md-items="2" data-lg-items="3" data-autoplay="true" data-dots="true" data-nav="false" data-stage-padding="15" data-loop="true" data-margin="30" data-mouse-drag="false">
                   
                       <?php 
                           //url api eventos-virtuales                                                                           
