@@ -71,8 +71,11 @@ Route::controller(PartnersController::class)->group(function(){
 
 
 Route::GET('/login', [App\Http\Controllers\HomeController::class, 'index'])->name('login');
-Auth::routes();
-
+Auth::routes([
+    'register' => false, // Registration Routes...
+    'reset' => true, // Password Reset Routes...
+    'verify' => true, // Email Verification Routes...
+]);
 Route::GET('logout', [HomeController::class, 'logout'])->name('logout');
 
 Route::group(['middleware'=>'auth'],function(){
