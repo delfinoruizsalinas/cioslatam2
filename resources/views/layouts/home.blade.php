@@ -168,7 +168,13 @@
         <div class="section-md bg-gray-1">
           <div class="container">
             <div class="tab-content">
+
               <div class="tab-pane fade show active" id="tabs-1-1">
+              <div class="wow-outer">
+              <div class="wow slideInDown text-center" style="visibility: visible; animation-name: slideInDown;">
+                <h3 class="title-decorate title-decorate-center"><a href="{{ url('/cios-vlog') }}">CIO’s Vlog</a></h3>
+              </div>
+            </div>
                 <div class="event-item-classic wow slideInleft">
                   @foreach($dataVlog as $vlog)
                   <div class="col-md-6 col-lg-4">
@@ -191,7 +197,13 @@
                   @endforeach 
                 </div>   
               </div>
+
               <div class="tab-pane fade" id="tabs-1-2">
+              <div class="wow-outer">
+                <div class="wow slideInDown text-center" style="visibility: visible; animation-name: slideInDown;">
+                  <h3 class="title-decorate title-decorate-center"><a href="{{ url('/cios-presenciales') }}">Eventos Presenciales</a></h3>
+                </div>
+              </div>
                 <div class="event-item-classic wow slideInleft">
                   @foreach($dataPres as $pres)
                   <div class="col-md-6 col-lg-4">
@@ -216,6 +228,11 @@
                 </div>  
               </div>
               <div class="tab-pane fade" id="tabs-1-3">
+              <div class="wow-outer">
+                <div class="wow slideInDown text-center" style="visibility: visible; animation-name: slideInDown;">
+                  <h3 class="title-decorate title-decorate-center"><a href="{{ url('/cios-life') }}">CIO’s Life</a></h3>
+                </div>
+              </div>
                 <div class="event-item-classic wow slideInleft">
                   @foreach($dataLife as $life)
                   <div class="col-md-6 col-lg-4">
@@ -239,6 +256,11 @@
                 </div> 
               </div>
               <div class="tab-pane fade" id="tabs-1-4">
+              <div class="wow-outer">
+                <div class="wow slideInDown text-center" style="visibility: visible; animation-name: slideInDown;">
+                  <h3 class="title-decorate title-decorate-center"><a href="{{ url('/cios-entre-amigos') }}">Programa “Entre Amigos”</a></h3>
+                </div>
+              </div>                
                 <div class="event-item-classic wow slideInleft">
                   @foreach($dataAmigos as $amigos)
                   <div class="col-md-6 col-lg-4">
@@ -263,6 +285,11 @@
               </div>
            
               <div class="tab-pane fade" id="tabs-1-5">
+              <div class="wow-outer">
+                <div class="wow slideInDown text-center" style="visibility: visible; animation-name: slideInDown;">
+                  <h3 class="title-decorate title-decorate-center"><a href="{{ url('/cios-mesa-de-debate') }}">Mesa de Debate</a></h3>
+                </div>
+              </div>                 
                 <div class="event-item-classic wow slideInleft">
                   @foreach($dataDebate as $debate)
                   <div class="col-md-6 col-lg-4">
@@ -287,6 +314,11 @@
               </div>
 
               <div class="tab-pane fade" id="tabs-1-6">
+              <div class="wow-outer">
+                <div class="wow slideInDown text-center" style="visibility: visible; animation-name: slideInDown;">
+                  <h3 class="title-decorate title-decorate-center"><a href="{{ url('/cios-connect') }}">CIO's Connect</a></h3>
+                </div>
+              </div>                 
                 <div class="event-item-classic wow slideInleft">
                   @foreach($dataMaster as $master)
                   <div class="col-md-6 col-lg-4">
