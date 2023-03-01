@@ -74,10 +74,10 @@
                     <td>{{ $now->titulo }}</td>
                     <td>{{ $now->updated_at }}</td>
                     <td>
-                      <button type="button" class="btn btn-info"  data-toggle="modal" data-target="#modalModificarnoticia" onClick="modificarNota('{{ $now->id }}')">Editar</button>
+                      <button type="button" class="btn btn-outline-info"  data-toggle="modal" data-target="#modalModificarnoticia" onClick="modificarNota('{{ $now->id }}')">Editar</button>
                     </td>                                                                
                     <td>
-                      <button type="button" class="btn btn-danger" onClick="borrarNota('{{ $now->id }}')">Borrar</button>
+                      <button type="button" class="btn btn-outline-danger" onClick="borrarNota('{{ $now->id }}')">Borrar</button>
                     </td>                                                                
                   </tr>
                 @endforeach
@@ -95,7 +95,6 @@
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Registros de Partners</a>
-                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Usuarios del Sistema</a>
                 <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contenidos de Partners</a>
               </div>
             </nav>
@@ -116,8 +115,40 @@
                   </table>
                 </div>
               </div>
-              <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"><h6>En desarrollo</h6></div>
-              <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"><h6>En desarrollo</h6></div>
+              <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+              <div class="row">
+                
+                <div class="col-12">
+                    <table class="table table-bordered" id="table-news-admin">
+                      <thead>
+                        <tr>
+                          <th>Partner</th>
+                          <th>Titulo</th>
+                          <th>Update</th>
+                          <th>Editar</th> 
+                          <th>Borrar</th>    
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach($post as $now)
+                          <tr>  
+                            <td>{{ $now->nom_empresa }}</td>
+                            <td>{{ $now->titulo }}</td>
+                            <td>{{ $now->updated_at }}</td>
+                            <td>
+                              <button type="button" class="btn btn-info"  data-toggle="modal" data-target="#modalModificarnoticia" onClick="modificarNota('{{ $now->id }}')">Editar</button>
+                            </td>                                                                
+                            <td>
+                              <button type="button" class="btn btn-danger" onClick="borrarNota('{{ $now->id }}')">Borrar</button>
+                            </td>                                                                
+                          </tr>
+                        @endforeach
+                      </tbody>
+                    </table>
+
+                </div>
+              </div>
+              </div>
             </div>
           </div>
         </div>
@@ -346,6 +377,7 @@
       });
         
       function modificarNota(id){
+        //alert(id);
         $.ajax({
           url:'/post-partner-get',
           method:'GET',
@@ -355,12 +387,11 @@
           }
         }).done(function(res){
           var arreglo = JSON.parse(res); 
-          //console.log(arreglo.resumen);
+          //console.log(arreglo);
           $('#titulo_up').val(arreglo.titulo);
           YourEditor.setData(arreglo.resumen);    
           $('#id_post').val(id);
         });
-        
       }
 
     //ckeditor nuevo
@@ -376,7 +407,7 @@
     $.noConflict();
       jQuery( document ).ready(function( $ ) {
         $('#table-news').DataTable();
-        //$('#table-users').DataTable();
+        $('#table-news-admin').DataTable();
 
  
       //USUARIOS
