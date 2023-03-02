@@ -55,7 +55,7 @@
                   <li><span class="icon mdi mdi-account"></span>{{ $info_partner[0]->nom_contacto }}</li>
                   <li><span class="icon mdi mdi-phone"></span><a href="tel:#">{{ $info_partner[0]->num_sec }}</a></li>
                   <li><span class="icon mdi mdi-email-outline"></span><a href="mailto:#">{{ $info_partner[0]->correo_empresarial }}</a></li>
-                  <li><span class="icon mdi mdi-web"></span><a href="{{ $info_partner[0]->website }}" target="_blank">{{ $info_partner[0]->website }}</a></li>
+                  <li><span class="icon mdi mdi-web"></span><span id="getUrl" style="cursor:pointer;">{{ $info_partner[0]->website }}</span></li>
                 </ul>
                 <br>
                 <h5>Resumen</h5>
@@ -89,5 +89,28 @@
     </div>
     <div class="snackbars" id="form-output-global"></div>
     @extends('layouts.js')
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script>
+
+    function validateURL(url) {
+      if(/^(http(s):\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/g.test(url)) {
+        return 1;
+      } else {
+        return 0;
+      }
+    }
+      $(document).ready(function(){
+        
+        $("#getUrl").click(function(){
+          
+          if (validateURL($(this).text()) == 1) {
+            open($(this).text());
+          }else{
+            open('https://'+$(this).text());
+          }
+        });
+      
+      });
+    </script>
   </body>
 </html>
