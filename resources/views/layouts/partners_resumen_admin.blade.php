@@ -60,8 +60,8 @@
             <div class="col-md-9 col-lg-7">
             <h3>Actualizar Resumen</h3>
               <!-- RD Mailform-->
-              <form class="rd-form rd-form-centered" action="update-resumen" method="post">
-                      @csrf
+              <form class="rd-form rd-form-centered" action="{{ url('update-resumen') }}" method="POST">
+                {{ csrf_field() }}
                 <input type="hidden" id="id_resumen" name="id_resumen" value="{{ $info_partner[0]->id }}">
                 <div class="form-wrap">
                   <label for="resumen">Resumen </label>
