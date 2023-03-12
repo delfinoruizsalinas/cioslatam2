@@ -216,6 +216,7 @@ class Controller extends BaseController
         $publicacion = \DB::table('post_partner')
         ->join('users', 'post_partner.id_usuario', '=', 'users.id')
         ->select('post_partner.*','users.partner')
+        ->where('post_partner.estatus','=',1)
         ->orderBy('updated_at','DESC')
         ->get();
         $dataPost = json_decode($publicacion);

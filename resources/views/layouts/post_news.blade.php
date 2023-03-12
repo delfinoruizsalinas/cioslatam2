@@ -96,6 +96,7 @@
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Registros de Partners</a>
                 <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contenidos de Partners</a>
+                <a class="nav-item nav-link" id="nav-user-tab" data-toggle="tab" href="#nav-user" role="tab" aria-controls="nav-user" aria-selected="false">Usuarios del Sistema</a>                
               </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
@@ -116,39 +117,76 @@
                 </div>
               </div>
               <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-              <div class="row">
-                
-                <div class="col-12">
-                    <table class="table table-bordered" id="table-news-admin">
-                      <thead>
-                        <tr>
-                          <th>Partner</th>
-                          <th>Titulo</th>
-                          <th>Update</th>
-                          <th>Editar</th> 
-                          <th>Borrar</th>    
-                        </tr>
-                      </thead>
-                      <tbody>
-                        @foreach($post as $now)
-                          <tr>  
-                            <td>{{ $now->nom_empresa }}</td>
-                            <td>{{ $now->titulo }}</td>
-                            <td>{{ $now->updated_at }}</td>
-                            <td>
-                              <button type="button" class="btn btn-info"  data-toggle="modal" data-target="#modalModificarnoticia" onClick="modificarNota('{{ $now->id }}')">Editar</button>
-                            </td>                                                                
-                            <td>
-                              <button type="button" class="btn btn-danger" onClick="borrarNota('{{ $now->id }}')">Borrar</button>
-                            </td>                                                                
+                <div class="row">
+                  
+                  <div class="col-12">
+                      <table class="table table-bordered" id="table-news-admin">
+                        <thead>
+                          <tr>
+                            <th>Partner</th>
+                            <th>Titulo</th>
+                            <th>Update</th>
+                            <th>Editar</th> 
+                            <th>Borrar</th>    
                           </tr>
-                        @endforeach
-                      </tbody>
-                    </table>
+                        </thead>
+                        <tbody>
+                          @foreach($post as $now)
+                            <tr>  
+                              <td>{{ $now->nom_empresa }}</td>
+                              <td>{{ $now->titulo }}</td>
+                              <td>{{ $now->updated_at }}</td>
+                              <td>
+                                <button type="button" class="btn btn-outline-info"  data-toggle="modal" data-target="#modalModificarnoticia" onClick="modificarNota('{{ $now->id }}')">Editar</button>
+                              </td>                                                                
+                              <td>
+                                <button type="button" class="btn btn-outline-danger" onClick="borrarNota('{{ $now->id }}')">Borrar</button>
+                              </td>                                                                
+                            </tr>
+                          @endforeach
+                        </tbody>
+                      </table>
 
+                  </div>
                 </div>
               </div>
-              </div>
+              <div class="tab-pane fade" id="nav-user" role="tabpanel" aria-labelledby="nav-user-tab">
+                <div class="row">
+                  
+                  <div class="col-12">
+                      <table class="table table-bordered" id="table-news-admin">
+                        <thead>
+                          <tr>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Rol</th>
+                            <th>Partner</th>
+                            <th>Desactivar o Activar Usuario</th>                             
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @foreach($users as $usuarios)
+                            <tr>  
+                              <td>{{ $usuarios->name }}</td>
+                              <td>{{ $usuarios->email }}</td>
+                              <td>{{ $usuarios->rol }}</td>
+                              <td><img src="{{ $usuarios->partner }}" alt="" style="max-width: 160px;"></td>                                                                
+                              <td>
+                                @if($usuarios->status == "active")
+                                <button type="button" class="btn btn-outline-danger" onClick="desactivarUsuario('{{ $usuarios->id }}')">Desactivar Cuenta </button>
+                                @else
+                                <button type="button" class="btn btn-outline-info" onClick="activarUsuario('{{ $usuarios->id }}')">Activar Cuenta </button>                                
+                                @endif
+
+                              </td>                                                                
+                            </tr>
+                          @endforeach
+                        </tbody>
+                      </table>
+
+                  </div>
+                </div>
+              </div>              
             </div>
           </div>
         </div>
@@ -368,6 +406,42 @@
         });
       }
       
+      function desactivarUsuario(id){
+       //console.log(id);
+       $.ajax({
+         url:'/post-desactivar-partners',
+         method:'POST',
+         data:{
+             id:id,
+             _token:$('input[name="_token"]').val()
+         }
+       }).done(function(res){
+         //console.log(res);
+         if(res == "ok"){
+           alert("Usuario bloqueado correctamente");
+           location.reload();
+         }
+       });
+     }
+
+     function activarUsuario(id){
+       //console.log(id);
+       $.ajax({
+         url:'/post-activar-partners',
+         method:'POST',
+         data:{
+             id:id,
+             _token:$('input[name="_token"]').val()
+         }
+       }).done(function(res){
+         //console.log(res);
+         if(res == "ok"){
+           alert("Usuario desbloqueado correctamente");
+           location.reload();
+         }
+       });
+     }
+
       let YourEditor;
       ClassicEditor
         .create(document.querySelector('#editor_up'))
@@ -412,7 +486,7 @@
  
       //USUARIOS
       $.ajax({
-          url:'/get-users',
+          url:'/get-aprobar-users',
           method:'GET',
           data:{
               id:1,

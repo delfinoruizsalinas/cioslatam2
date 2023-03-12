@@ -126,7 +126,11 @@
         <div class="container wow-outer">
           <h3 class="text-center wow slideInDown">Contenido de nuestros Partners</h3>
           <!-- Owl Carousel-->
-          <div class="owl-carousel owl-dots-dark wow fadeInUp" data-items="1" data-md-items="2" data-autoplay="true" data-lg-items="3" data-dots="true" data-nav="false" data-stage-padding="15" data-loop="true" data-margin="30" data-mouse-drag="false">
+          @if(count($dataPost) >=3)
+          <div class="owl-carousel owl-dots-dark wow fadeInUp" data-items="1" data-autoplay="true" data-lg-items="3" data-dots="true" data-nav="false" data-stage-padding="15" data-loop="true" data-margin="30" data-mouse-drag="false">
+          @else
+          <div class="owl-carousel owl-dots-dark wow fadeInUp" data-items="1" data-autoplay="true" data-dots="true" data-nav="false" data-stage-padding="15" data-loop="true" data-margin="30" data-mouse-drag="false">
+          @endif
             @foreach($dataPost as $dataposts)
            
             <div class="post-corporate post-corporate-img-bg">

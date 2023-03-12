@@ -93,6 +93,7 @@ class PartnersController extends Controller
         $publicacion = \DB::table('users')
         ->join('free_register_partner', 'free_register_partner.id_usuario', '=', 'users.id')
         ->where('users.rol', '=', 'partner')
+        ->where('free_register_partner.estatus', '=', 1)
         ->select('users.id', 'users.partner', 'users.rol', 'free_register_partner.id as id_resumen')        
         ->get();
 

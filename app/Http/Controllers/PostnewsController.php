@@ -27,7 +27,7 @@ class PostnewsController extends Controller
     public function getPostPartner(Request $request)
     {
       $title = "CIO's LATAM - News Post";
-      
+      $users = null;
       if(Auth::user()->rol == "partner"){
 
         $publicacion = \DB::table('post_partner')
@@ -36,16 +36,21 @@ class PostnewsController extends Controller
         ->where('id_usuario', '=', Auth::user()->id)
         ->get();
   
-      }else{
+      }elseif(Auth::user()->rol == "admin"){
         $publicacion = \DB::table('post_partner')
         ->select('post_partner.id','post_partner.titulo','post_partner.imagen','post_partner.resumen','post_partner.updated_at','free_register_partner.nom_empresa')
         ->join('free_register_partner', 'free_register_partner.id_usuario', '=', 'post_partner.id_usuario')
         ->orderBy('post_partner.updated_at','DESC')
         ->get();
+        
+        $users = \DB::table('users')
+        ->select('*')
+        ->where('users.rol','=','partner')
+        ->get();
       }
       $post = json_decode($publicacion);
       
-      return view('layouts.post_news',compact('title','post'));
+      return view('layouts.post_news',compact('title','post','users'));
     }
     
     
@@ -58,8 +63,7 @@ class PostnewsController extends Controller
       return response()->json('ok');
       //return response(json_encode($post_partner),200)->header('Content-type','text/plain'); 
       //return back()->with('Listo', 'El registro se eliminó correctamente');
-    }
-    
+    }    
 
     public function getUsers()
     {
@@ -70,6 +74,35 @@ class PostnewsController extends Controller
       return response(json_encode($users),200)->header('Content-type','text/plain'); 
     }
     
+    public function borrarPartners(Request $request)
+    {
+      
+      $Userpartner = User::find($request->id);
+      $Userpartner->status = "inactive"; 
+      $Userpartner->save();
+      if($Userpartner->wasChanged() == 1){
+        $post_partner = Post_partner::where('id_usuario', '=', $request->id)->update(['estatus' => 0]);
+        $resumen = Free_register_partner::where('id_usuario', '=', $request->id)->update(['estatus' => 0]);
+
+      }
+
+      return response()->json('ok');
+    }
+
+    public function activarPartners(Request $request)
+    {
+      
+      $Userpartner = User::find($request->id);
+      $Userpartner->status = "active"; 
+      $Userpartner->save();
+      if($Userpartner->wasChanged() == 1){
+        $post_partner = Post_partner::where('id_usuario', '=', $request->id)->update(['estatus' => 1]);
+        $resumen = Free_register_partner::where('id_usuario', '=', $request->id)->update(['estatus' => 1]);
+      }
+
+      return response()->json('ok');
+    }
+
     public function getPartner(Request $request)
     { 
       $post_partner = Post_partner::find($request->id);
