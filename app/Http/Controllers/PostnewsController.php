@@ -9,6 +9,7 @@ use App\Models\Post_partner;
 use App\Models\Free_register_partner;
 use App\Models\User;
 use Auth;
+use Session;
 use Carbon\Carbon;
 use App\Http\Controllers\MailController;
 
@@ -50,7 +51,16 @@ class PostnewsController extends Controller
       }
       $post = json_decode($publicacion);
       
-      return view('layouts.post_news',compact('title','post','users'));
+      
+      if(Auth::user()->status == 'inactive'){
+        Session::flush();
+        Auth::logout();
+        return redirect('login');
+
+      }else{
+        return view('layouts.post_news',compact('title','post','users'));    
+      }
+    
     }
     
     
