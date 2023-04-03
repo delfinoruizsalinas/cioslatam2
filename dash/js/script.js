@@ -568,7 +568,7 @@
 					thumbnail: $(itemsToInit).attr("data-lg-thumbnail") !== "false",
 					selector:  "[data-lightgallery='item']",
 					autoplay:  $(itemsToInit).attr("data-lg-autoplay") === "true",
-					pause:     parseInt($(itemsToInit).attr("data-lg-autoplay-delay")) || 2000,
+					pause:     parseInt($(itemsToInit).attr("data-lg-autoplay-delay")) || 1900,
 					addClass:  addClass,
 					mode:      $(itemsToInit).attr("data-lg-animation") || "lg-slide",
 					loop:      $(itemsToInit).attr("data-lg-loop") !== "false"
@@ -588,7 +588,7 @@
 						thumbnail: $(itemsToInit).attr("data-lg-thumbnail") !== "false",
 						selector:  "[data-lightgallery='item']",
 						autoplay:  $(itemsToInit).attr("data-lg-autoplay") === "true",
-						pause:     parseInt($(itemsToInit).attr("data-lg-autoplay-delay")) || 2000,
+						pause:     parseInt($(itemsToInit).attr("data-lg-autoplay-delay")) || 1900,
 						addClass:  addClass,
 						mode:      $(itemsToInit).attr("data-lg-animation") || "lg-slide",
 						loop:      $(itemsToInit).attr("data-lg-loop") !== "false",
