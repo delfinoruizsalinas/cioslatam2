@@ -11,7 +11,7 @@
         </div>
         </div>
         <!-- Owl Carousel-->
-        <div class="owl-carousel owl-dots-secondary dots-offset-lg" data-plugin-options="{'autoplayTimeoutgit':7000}" data-items="3" data-autoplay="true" data-dots="true" data-nav="false" data-stage-padding="10" data-loop="true" data-margin="10">
+        <div class="owl-carousel owl-dots-secondary dots-offset-lg" data-plugin-options="{'autoplayTimeoutgit':1000}" data-items="3" data-autoplay="true" data-dots="true" data-nav="false" data-stage-padding="10" data-loop="true" data-margin="10">
 
             @foreach($partner_slider as $partners)
             <a class="box-sponsor box-sponsor-modern wow-outer" href="{{ $partners['link'] }}" target="_blank">
