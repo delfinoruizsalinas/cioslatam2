@@ -11,11 +11,11 @@
         </div>
         </div>
         <!-- Owl Carousel-->
-        <div class="owl-carousel owl-dots-secondary dots-offset-lg" data-plugin-options="{'autoplayTimeoutgit':1000}" data-items="3" data-autoplay="true" data-dots="true" data-nav="false" data-stage-padding="10" data-loop="true" data-margin="10">
+        <div id="owl-partners" class="owl-carousel owl-dots-secondary dots-offset-lg" data-items="3" data-autoplay="true" data-dots="true" data-nav="false" data-stage-padding="10" data-loop="true" data-margin="10">
 
             @foreach($partner_slider as $partners)
             <a class="box-sponsor box-sponsor-modern wow-outer" href="{{ $partners['link'] }}" target="_blank">
-                <div class="wow fadeInUp" data-interval="1000"> <img src="{{ $partners['imagen'] }}" alt="" style="height: 121px;" /> </div>
+                <div class="wow fadeInUp"> <img src="{{ $partners['imagen'] }}" alt="" style="height: 121px;" /> </div>
             </a>
             @endforeach
         </div>
