@@ -1742,7 +1742,7 @@ html:not(.desktop) .gallery-item-classic .gallery-item-classic-caption, .gallery
 
 .box-sponsor.box-sponsor-modern img {
 	opacity: .6;
-	transition: all .3s;
+	transition: all .1s;
 }
 
 .box-sponsor.box-sponsor-modern:hover {
