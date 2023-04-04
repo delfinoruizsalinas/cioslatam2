@@ -21,3 +21,21 @@
         </div>
     </div>
 </section>
+<script>
+    $(document).ready(function(){
+let owl = $(".owl-carousel").owlCarousel({
+    autoplay: false,
+    autoplayTimeout: 2000,
+    dots: true,
+    dotsData:true,
+    loop: true,
+    margin: 30,
+    nav: false,
+    center: false,
+    items: 1
+});
+
+$('.owl-dot').click(function() {
+    $('.owl-dot').trigger('to.owl.carousel', [$(this).index(), 1000]);
+})
+</script>
