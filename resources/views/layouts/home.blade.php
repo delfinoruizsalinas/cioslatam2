@@ -33,6 +33,7 @@
       font-weight: 400;
       color: rgba(0, 0, 0, 0.5);
       font-size: 10px;
+      margin-top: 3px;  
     }
     .post-modern-date {
       font-size: 12px;
@@ -43,6 +44,9 @@
       line-height: 23px;
       font-size: 15px;
       font-weight: 500;
+    }
+    .post-minimal {
+      margin-top: 10px;
     }
     .box-countdown-dark {
 
@@ -70,7 +74,10 @@
     .post-corporate{
       height: 290px;
     }
-
+    .list-opinion__author {
+      color: #d01;
+      font: 400 18px/21px var(--font-sans);
+    }
     </style>
   </head>
   <body>
@@ -105,7 +112,7 @@
         </div>
       </section>
       
-      <section class="section section-lg bg-default">
+      <section class="section-lg bg-gray-200">
         <div class="container">
 
           <div class="row row-70 justify-content-xl-between">
@@ -116,7 +123,7 @@
                   <div class="col-md-6">
                     <div class="post-classic">
                       <a href="{{ $noti['link'] }}">
-                        <img src="{{ $noti['img'] }}" alt="" width="370" height="255">
+                        <img src="{{ $noti['img'] }}" alt="" width="370" style="height: 255px;">
                       </a>
                       <ul class="post-classic-meta">
                         <li>{{ $noti['fecha'] }}</li>
@@ -131,10 +138,10 @@
                 @endforeach  
               </div>
             </div>
-            <div class="col-lg-4 col-xl-3">
+            <div class="col-lg-4 col-xl-4">
               <div class="block-aside">
                 <div class="block-aside-item">
-                  <h3 class="wow slideInDown">La voz de nuestros miembros</h3>
+                  <h3 class="wow slideInDown" style="margin-bottom: 10px;">La voz de nuestros miembros</h3>
 
                   
                   @foreach($dataPostMiembro as $notiMiembro)
@@ -143,7 +150,7 @@
                       <div class="row">
                         <div class="col-lg-4">
                           <a href="miembros-detalle-contenido/{{ $notiMiembro->id }}" target="_blank">  
-                            <img class="rounded" src="news/{{ $notiMiembro->imagen }}" alt="" width="75" height="60">
+                            <img class="rounded" src="news/{{ $notiMiembro->imagen }}" alt="" width="100%">
                           </a>
                           <p class="post-modern-date1">{{ \Carbon\Carbon::parse($notiMiembro->created_at)->translatedFormat('d F, Y') }}</p>
                         </div>
@@ -151,9 +158,10 @@
                         <div class="col-lg-8">
                           <h5 class="post-minimal-title-1">
                             <a href="miembros-detalle-contenido/{{ $notiMiembro->id }}" target="_blank">  
-                              {{ Str::limit($notiMiembro->titulo, 55) }}...
+                              {{ Str::limit($notiMiembro->titulo, 75) }}...
                             </a>
                           </h5>
+                          <h3 class="list-opinion__author">Por {{ $notiMiembro->nom_contacto }} {{ $notiMiembro->ap_contacto }}</h3>
                         </div>
                           
                       </div>

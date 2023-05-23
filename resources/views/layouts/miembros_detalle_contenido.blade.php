@@ -33,6 +33,11 @@
           color: #222;
           background-color: #ccc;
       }
+      .sc__oauthor--name {
+          color: #d01;
+          line-height: 21px;
+          margin: 10px 0;
+      }
       </style>
 
   </head>
@@ -68,16 +73,16 @@
         <div class="container">
           <div class="row row-50 justify-content-lg-between">
             <div class="col-lg-6 col-xl-5">
-              <img src="{{ $detalle_contenido[0]->partner }}" class="sizeImage">
               <ul class="blog-post-meta">
                 <li>
-                  
-                </li>
-                
-                <li><span class="icon mdi mdi-clock"></span>
+                  <span class="icon mdi mdi-clock"></span>
                   {{ \Carbon\Carbon::parse($detalle_contenido[0]->updated_at)->translatedFormat('d F, Y') }}
                 </li>
+                <li>
+                </li>
               </ul>
+              <h4 class="sc__oauthor--name font-semibold text-lg">Por {{ $detalle_contenido[0]->nom_contacto }} {{ $detalle_contenido[0]->ap_contacto }}</h4>
+
               <h3 class="blog-post-title"> {{ $detalle_contenido[0]->titulo }}</h3>
               <div class="blog-post-content">
               {!! html_entity_decode($detalle_contenido[0]->resumen) !!}  

@@ -225,12 +225,12 @@ class Controller extends BaseController
         //MIEMBROS POST
         $dataPostMiembro = \DB::table('post_miembro')
         ->join('users', 'post_miembro.id_usuario', '=', 'users.id')
-        ->select('post_miembro.*','users.partner')
+        ->join('free_register_miembro', 'free_register_miembro.id_usuario', '=', 'users.id')
+        ->select('post_miembro.*','users.partner','free_register_miembro.nom_contacto','free_register_miembro.ap_contacto')
         ->where('post_miembro.estatus','=',1)
         ->orderBy('updated_at','DESC')
         ->get();
         //$dataPostMiembro = json_decode($publicacion_miembro);
-
         //dd($dataPostMiembro);
 
         return view('layouts.home', compact('title','noticias','dataVlog','dataPres','dataLife','dataAmigos','dataDebate','dataMaster','members','dataPostPartner','dataPostMiembro'));

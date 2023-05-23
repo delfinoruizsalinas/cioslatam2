@@ -63,7 +63,8 @@ class MiembrosController extends Controller
 
         $publicacion = \DB::table('post_miembro')
         ->join('users', 'post_miembro.id_usuario', '=', 'users.id')
-        ->select('post_miembro.*','users.partner')
+        ->join('free_register_miembro', 'free_register_miembro.id_usuario', '=', 'users.id')
+        ->select('post_miembro.*','users.partner','free_register_miembro.nom_contacto','free_register_miembro.ap_contacto')
         ->orderBy('updated_at','DESC')
         ->where('post_miembro.id', '=', $id)
         ->where('post_miembro.estatus', '=', 1)
