@@ -81,7 +81,7 @@
                 <li>
                 </li>
               </ul>
-              <h4 class="sc__oauthor--name font-semibold text-lg">Por {{ $detalle_contenido[0]->nom_contacto }} {{ $detalle_contenido[0]->ap_contacto }}</h4>
+              <h6>Por {{ $detalle_contenido[0]->nom_contacto }} {{ $detalle_contenido[0]->ap_contacto }}</h6>
 
               <h3 class="blog-post-title"> {{ $detalle_contenido[0]->titulo }}</h3>
               <div class="blog-post-content">
