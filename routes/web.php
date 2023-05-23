@@ -14,6 +14,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\EventosController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\MiembrosController;
+use App\Http\Controllers\SocialShareButtonsController;
 
 
 /*
@@ -69,6 +71,12 @@ Route::controller(PartnersController::class)->group(function(){
     Route::GET('partners-detalle-contenido/{id}', 'detalleContenido');
 });
 
+Route::controller(MiembrosController::class)->group(function(){
+    Route::GET('miembros-registro', 'index');
+    Route::POST('miembros-free-registro', 'register');
+    Route::GET('miembros-detalle-contenido/{id}', 'detalleContenido');
+});
+
 
 Route::GET('/login', [App\Http\Controllers\HomeController::class, 'index'])->name('login');
 Auth::routes([
@@ -85,19 +93,37 @@ Route::group(['middleware'=>'auth'],function(){
         Route::GET('/partners', 'index');
         Route::GET('/post-news', 'getPostPartner');
         Route::POST('/post-news-borrar', 'borrarPostPartner');
-        Route::GET('/get-aprobar-users', 'getUsers');
+        Route::GET('/get-aprobar-users-partners', 'getUsersPartners');
+        Route::GET('/get-aprobar-users-miembros', 'getUsersMiembros');        
+        
         Route::POST('/post-desactivar-partners', 'borrarPartners');   
-        Route::POST('/post-activar-partners', 'activarPartners');                
+        Route::POST('/post-desactivar-miembros', 'borrarMiembros');   
+        Route::POST('/post-activar-partners', 'activarPartners');    
+        Route::POST('/post-activar-miembros', 'activarMiembros');
+                    
         Route::GET('/get-list-partner', 'getList');
         Route::POST('/update-user', 'editUser');
+
+        Route::POST('/update-user-miembro', 'activeUserMiembro');
+        
+
+        //abc partners
         Route::POST('/post-partner', 'store');
         Route::GET('/post-partner-get', 'getPartner');  
-        Route::POST('/post-partner-update', 'updatePostPartner');        
+        Route::POST('/post-partner-update', 'updatePostPartner'); 
+
+        //abc admin
         Route::GET('/actualizar-resumen', 'resumenAdmin');
         Route::GET('/informacion-general', 'resumeninfGeneralAdmin');
         Route::POST('/actualizar-informacion-general', 'updateInfGeneralAdmin');        
         
         Route::POST('/update-resumen', 'editarResumen');
+        //abc miembros
+        Route::POST('/post-miembro', 'create_post_miembro');
+        Route::GET('/post-miembro-get', 'getMiembro');
+        Route::POST('/post-miembro-update', 'updatePostMiembro'); 
+        Route::POST('/post-news-borrar-miembro', 'borrarPostMiembro');
+
         
     });  
 });

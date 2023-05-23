@@ -28,7 +28,15 @@
                         <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ url('/login') }}" target="_blank">Login</a>
                         </li>                        
                     </ul>
-                    <li class="rd-nav-item text-menu"><a class="rd-nav-link" href="#">Miembros</a>
+
+                    <li class="rd-nav-item active text-menu"><a class="rd-nav-link" href="#">Miembros</a>
+                    <ul class="rd-menu rd-navbar-dropdown">
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ url('/miembros-registro') }}">Registro de Miembros</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ url('/login') }}" target="_blank">Login</a>
+                        </li>                        
+                    </ul>
+   
                     </li>
                     </li>
                     <li class="rd-nav-item text-menu"><a class="rd-nav-link" href="#">Eventos</a>

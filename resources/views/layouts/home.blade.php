@@ -1,4 +1,5 @@
 @inject('carbon', 'Carbon\Carbon')
+{{ \Carbon\Carbon::setLocale("es") }}
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en">
   <head>
@@ -35,6 +36,13 @@
     }
     .post-modern-date {
       font-size: 12px;
+    }
+    .post-minimal-title-1{
+      float: left;
+      width: 100%;
+      line-height: 23px;
+      font-size: 15px;
+      font-weight: 500;
     }
     .box-countdown-dark {
 
@@ -96,29 +104,66 @@
           </div>
         </div>
       </section>
-      <section class="section-transform-top">
+      
+      <section class="section section-lg bg-default">
         <div class="container">
-          <div class="box-countdown-dark">
-            <div class="row row-30 align-items-center justify-content-xl-between">
-              <div class="col-lg-3 col-xl text-center text-lg-left">
-                <h3>Últimas Noticias</h3>
+
+          <div class="row row-70 justify-content-xl-between">
+            <div class="col-lg-8">
+              <h3 class="wow slideInDown"><a href="{{ url('/noticias') }}">Últimas Noticias</a></h3>
+              <div class="row row-50 justify-content-center">
+                @foreach($noticias as $noti)
+                  <div class="col-md-6">
+                    <div class="post-classic">
+                      <a href="{{ $noti['link'] }}">
+                        <img src="{{ $noti['img'] }}" alt="" width="370" height="255">
+                      </a>
+                      <ul class="post-classic-meta">
+                        <li>{{ $noti['fecha'] }}</li>
+                      </ul>
+                    </div>
+
+                    <div class="post-classic-caption">
+                      <h4 class="post-classic-title"><a href="{{ $noti['link'] }}">{{ Str::limit($noti['titulo'], 75) }}...</a></h4>
+                    </div>
+
+                  </div>
+                @endforeach  
               </div>
-              @foreach($noticias as $noti)
-                <div class="col-md-5 col-lg-3 wow-outer">
-                  <div class="wow fadeInUp">
-                    <div class="post-modern">
-                      <div class="post-modern-caption1">                    
-                        <div class="row">
-                          <div class="col-md-6"><span class="post-modern-date1"><span class="icon mdi mdi-calendar"></span>{{ $noti['fecha'] }} <a href="{{ $noti['link'] }}" target="_blank"><img src="{{ $noti['img'] }}" alt="" /></a></div>                                                      
-                          <div class="col-md-6"><p class="post-modern-title1"><a href="{{ $noti['link'] }}" style="color: rgb(8, 71, 90);" target="_blank">{{ Str::limit($noti['titulo'], 75) }}...</a></p></div>                          
+            </div>
+            <div class="col-lg-4 col-xl-3">
+              <div class="block-aside">
+                <div class="block-aside-item">
+                  <h3 class="wow slideInDown">La voz de nuestros miembros</h3>
+
+                  
+                  @foreach($dataPostMiembro as $notiMiembro)
+                    
+                    <div class="post-minimal">
+                      <div class="row">
+                        <div class="col-lg-4">
+                          <a href="miembros-detalle-contenido/{{ $notiMiembro->id }}" target="_blank">  
+                            <img class="rounded" src="news/{{ $notiMiembro->imagen }}" alt="" width="75" height="60">
+                          </a>
+                          <p class="post-modern-date1">{{ \Carbon\Carbon::parse($notiMiembro->created_at)->translatedFormat('d F, Y') }}</p>
                         </div>
+                         
+                        <div class="col-lg-8">
+                          <h5 class="post-minimal-title-1">
+                            <a href="miembros-detalle-contenido/{{ $notiMiembro->id }}" target="_blank">  
+                              {{ Str::limit($notiMiembro->titulo, 55) }}...
+                            </a>
+                          </h5>
+                        </div>
+                          
                       </div>
                     </div>
-                  </div>
+                  @endforeach
+
                 </div>
-              @endforeach  
+              </div>
             </div>
-          </div>
+          <div>
         </div>
       </section>
 
@@ -126,19 +171,18 @@
         <div class="container wow-outer">
           <h3 class="text-center wow slideInDown">Contenido de nuestros Partners</h3>
           <!-- Owl Carousel-->
-          @if(count($dataPost) >=3)
+          @if(count($dataPostPartner) >=3)
           <div class="owl-carousel owl-dots-dark wow fadeInUp" data-items="1" data-autoplay="true" data-lg-items="3" data-dots="true" data-nav="false" data-stage-padding="15" data-loop="true" data-margin="30" data-mouse-drag="false">
           @else
           <div class="owl-carousel owl-dots-dark wow fadeInUp" data-items="1" data-autoplay="true" data-dots="true" data-nav="false" data-stage-padding="15" data-loop="true" data-margin="30" data-mouse-drag="false">
           @endif
-            @foreach($dataPost as $dataposts)
+            @foreach($dataPostPartner as $dataposts)
            
             <div class="post-corporate post-corporate-img-bg">
               <div class="post-corporate-bg" style="background-image: url(news/{{ $dataposts->imagen }} ); background-size: cover;"></div><a class="badge post-corporate-badge" href="partners-detalle-contenido/{{ $dataposts->id }}"><img src="{{ $dataposts->partner }}" style="height: 80px;"></a>
               <h4 class="post-corporate-title"><a href="partners-detalle-contenido/{{ $dataposts->id }}" target="_blank"> {{ Str::limit($dataposts->titulo, 40) }}</a></h4>
               
               <ul class="post-classic-meta">
-                {{ \Carbon\Carbon::setLocale("es") }}
                 <li style="color: #ffffff;font-size: 12px"> {{ \Carbon\Carbon::parse($dataposts->updated_at)->translatedFormat('d F, Y') }}</li>
               </ul>
             </div>

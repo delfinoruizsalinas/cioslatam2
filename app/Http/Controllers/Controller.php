@@ -51,7 +51,7 @@ class Controller extends BaseController
         $newsData = json_decode($response);
         $i=0;
         foreach ($newsData->items as $value) {
-            if($i <=2){
+            if($i <=3){
                 $img = "";
                 if($value->enclosure->link){
                     $img = $value->enclosure->link;
@@ -219,11 +219,20 @@ class Controller extends BaseController
         ->where('post_partner.estatus','=',1)
         ->orderBy('updated_at','DESC')
         ->get();
-        $dataPost = json_decode($publicacion);
+        $dataPostPartner = json_decode($publicacion);
 
-        
-        //dd($dataPost);
 
-        return view('layouts.home', compact('title','noticias','dataVlog','dataPres','dataLife','dataAmigos','dataDebate','dataMaster','members','dataPost'));
+        //MIEMBROS POST
+        $dataPostMiembro = \DB::table('post_miembro')
+        ->join('users', 'post_miembro.id_usuario', '=', 'users.id')
+        ->select('post_miembro.*','users.partner')
+        ->where('post_miembro.estatus','=',1)
+        ->orderBy('updated_at','DESC')
+        ->get();
+        //$dataPostMiembro = json_decode($publicacion_miembro);
+
+        //dd($dataPostMiembro);
+
+        return view('layouts.home', compact('title','noticias','dataVlog','dataPres','dataLife','dataAmigos','dataDebate','dataMaster','members','dataPostPartner','dataPostMiembro'));
     }
 }

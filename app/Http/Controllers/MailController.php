@@ -20,6 +20,7 @@ class MailController extends Controller
         Mail::to('contacto@ciosmexicanos.com')->send(new ContactanosMail($mailData));
         return "Email is sent successfully."; 
     }
+
     public function mailPartnerActivation($mail_partner)
     {
         $mailData = [
@@ -35,4 +36,35 @@ class MailController extends Controller
         //        ->send(new Activacion_partnerMail($mailData));
         return "Email is sent successfully."; 
     }
+
+    public function mailMiembroActivation($mail_partner)
+    {
+        $mailData = [
+            'miembro' => 'Miembro',
+            'perfil' => 'Miembro',
+        ];
+        Mail::to('contacto@ciosmexicanos.com')
+                ->cc($mail_partner)
+                ->send(new Activacion_partnerMail($mailData));
+
+       //dd($mailData); 
+        //Mail::to($mail_partner)
+        //        ->send(new Activacion_partnerMail($mailData));
+        return "Email is sent successfully."; 
+    }
+    
+    public function mailMiembro()
+    {
+        $mailData = [
+            'miembro' => 'Miembro',
+            'perfil' => 'Administrador',
+        ];
+       //dd($mailData); 
+        Mail::to('contacto@ciosmexicanos.com')->send(new ContactanosMail($mailData));
+        //Mail::to('delfinoruizsalinas@gmail.com')->send(new ContactanosMail($mailData));
+        return "Email is sent successfully."; 
+    }
+
+    
+
 }
