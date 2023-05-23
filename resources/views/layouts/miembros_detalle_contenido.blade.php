@@ -33,11 +33,6 @@
           color: #222;
           background-color: #ccc;
       }
-      .sc__oauthor--name {
-          color: #d01;
-          line-height: 21px;
-          margin: 10px 0;
-      }
       </style>
 
   </head>
