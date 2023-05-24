@@ -74,9 +74,13 @@
     .post-corporate{
       height: 290px;
     }
-    .list-opinion__author {
-      color: #d01;
-      font: 400 18px/21px var(--font-sans);
+
+    .post-minimal-title-2{
+      float: left;
+      width: 100%;
+      line-height: 23px;
+      font-size: 12px;
+      /*font-weight: 500; */
     }
     </style>
   </head>
@@ -141,7 +145,7 @@
             <div class="col-lg-4 col-xl-4">
               <div class="block-aside">
                 <div class="block-aside-item">
-                  <h3 class="wow slideInDown" style="margin-bottom: 10px;">La voz de nuestros miembros</h3>
+                  <h3 class="wow slideInDown" style="margin-bottom: 10px;">La voz de nuestros Miembros</h3>
 
                   
                   @foreach($dataPostMiembro as $notiMiembro)
@@ -161,7 +165,7 @@
                               {{ Str::limit($notiMiembro->titulo, 75) }}...
                             </a>
                           </h5>
-                          <h3 class="list-opinion__author">Por {{ $notiMiembro->nom_contacto }} {{ $notiMiembro->ap_contacto }}</h3>
+                          <h6 class="post-minimal-title-2">Por {{ $notiMiembro->nom_contacto }} {{ $notiMiembro->ap_contacto }}</h6>
                         </div>
                           
                       </div>
