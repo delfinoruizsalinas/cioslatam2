@@ -137,7 +137,8 @@
                       <tr>
                         <th>Nombre</th>
                         <th>Email</th>
-                        <th>Número de Contacto</th>      
+                        <th>Número de Contacto</th>   
+                        <th>Empresa</th>      
                         <th>Aprobar Acceso al sistema</th>
                       </tr>
                     </thead>
@@ -900,7 +901,7 @@
             aprobar = '<button type="button" class="btn btn-outline-success disabled">Aprobado</button>';
           }
 
-          var todo = '<tr><td>'+arreglo[x].nom_contacto+'</td><td>'+arreglo[x].correo_personal+'</td><td>'+arreglo[x].num_contacto+'</td><td>'+aprobar+'</td></tr>';
+          var todo = '<tr><td>'+arreglo[x].nom_contacto+'</td><td>'+arreglo[x].correo_personal+'</td><td>'+arreglo[x].num_contacto+'</td><td>'+arreglo[x].nom_empresa+'</td><td>'+aprobar+'</td></tr>';
           $('#table-users-miembros').append(todo);
         }
       });
