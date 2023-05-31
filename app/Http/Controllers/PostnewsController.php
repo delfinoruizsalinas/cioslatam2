@@ -455,6 +455,15 @@ class PostnewsController extends Controller
       }
     }
 
+    public function deleteUserMiembro(Request $request)
+    {
+      $register = Free_register_miembro::find($request->id_registro_miembroD);
+      $register->delete();
+      
+      //return response()->json('ok');
+      return back()->with('Listo','Solicitud borrada correctamente');
+    }
+
     public function activeUserMiembro(Request $request)
     {
       $validator = Validator::make($request->all(),[

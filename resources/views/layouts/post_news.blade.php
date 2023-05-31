@@ -132,14 +132,17 @@
               <div class="tab-pane fade" id="nav-miembro" role="tabpanel" aria-labelledby="nav-miembro-tab">
                 <div class="row mt-3">
                   <h2>Solicitudes de Miembros</h2>
-                  <table class="table table-bordered" >
+                  <table class="table table-bordered">
                     <thead>
                       <tr>
                         <th>Nombre</th>
                         <th>Email</th>
-                        <th>Número de Contacto</th>   
+                        <th>Número de Contacto</th> 
+                        <th>Número Secundario</th>                           
                         <th>Empresa</th>      
                         <th>Aprobar Acceso al sistema</th>
+                        <th>Borrar Solicitud de acceso</th>
+                        <th>Fecha de Solicitud</th>
                       </tr>
                     </thead>
                     <tbody id="table-users-miembros">
@@ -625,7 +628,54 @@
       </div>
     </div>
 
-    
+    <!-- modal DELETE user miembro -->
+    <div class="modal" id="modalDeleteMiembro" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-10 offset-md-1">  
+                <div class="card mb-1">
+                  <div class="card-header">
+                    <h6 class="m-0 font-weight-bold text-primary">Borrar Solicitud de Acceso</h6> 
+                  </div>
+                  <div class="card-body">
+
+                    <!-- RD Mailform-->
+                    <form class="rd-form rd-form-centered" action="delete-user-miembro" method="post">
+                      @csrf
+                      <div class="form-wrap">
+                      
+                        </select>
+                        <br>
+                        <input type="hidden" name="id_registro_miembroD" id="id_registro_miembroD">                                              
+                      </div>
+                      <h2 class="text-center">BORRAR SOLICITUD DE ACCESO A MIEMBROS</h2>
+                      <div class="form-wrap">
+                        <button class="button button-block button-lg" style="background: linear-gradient(228.54deg, #ff0000c2 30.16%, #5656DF 89.45%); color:#fff;" type="submit">Borrar</button>
+                      </div>
+                      
+                    
+                    </form>
+                  </div>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
 
     @extends('layouts.js')
     <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
@@ -851,8 +901,6 @@
         $('#table-news-miembro').DataTable();
         $('#table-news-admin-users').DataTable();
         $('#table-news-admin-miembros').DataTable();
-        
-
  
       //Cargar solicitudes de partners par aprobar 
       $.ajax({
@@ -893,15 +941,34 @@
         var arreglo = JSON.parse(res);
         for(var x=0; x<arreglo.length; x++ ){
           let aprobar = null;
+          let borrar = null;
           if(arreglo[x].estatus == 0){
             aprobar = '<button type="button" class="btn btn-outline-primary" onClick="reqClassM('+arreglo[x].id+');" data-nombre="'+arreglo[x].nom_contacto+'" data-toggle="modal" data-target="#modalActveMiembro">Aprobar</button>';
-            
+            borrar = '<button type="button" class="btn btn-outline-danger" onClick="reqClassD('+arreglo[x].id+');" data-toggle="modal" data-target="#modalDeleteMiembro">Borrar</button>';
           }else{
-            
             aprobar = '<button type="button" class="btn btn-outline-success disabled">Aprobado</button>';
+            borrar = '<button type="button" class="btn btn-outline-danger disabled">Borrar</button>';
           }
-
-          var todo = '<tr><td>'+arreglo[x].nom_contacto+'</td><td>'+arreglo[x].correo_personal+'</td><td>'+arreglo[x].num_contacto+'</td><td>'+arreglo[x].nom_empresa+'</td><td>'+aprobar+'</td></tr>';
+          if(arreglo[x].nom_contacto === undefined){
+            arreglo[x].nom_contacto ="";
+          }
+          if(arreglo[x].ap_contacto === undefined){
+            arreglo[x].ap_contacto ="";
+          } 
+          if(arreglo[x].correo_personal === undefined){
+            arreglo[x].correo_personal ="";
+          }     
+          if(arreglo[x].num_contacto === undefined){
+            arreglo[x].num_contacto ="";
+          } 
+          if(arreglo[x].num_secundario === undefined){
+            arreglo[x].num_secundario ="";
+          }     
+          if(arreglo[x].nom_empresa === undefined){
+            arreglo[x].nom_empresa ="";
+          }               
+                                            
+          var todo = '<tr><td>'+ arreglo[x].nom_contacto +' '+ arreglo[x].ap_contacto+'</td><td>'+arreglo[x].correo_personal+'</td><td>'+arreglo[x].num_contacto+'</td><td>'+arreglo[x].num_sec+'</td><td>'+arreglo[x].nom_empresa+'</td><td>'+aprobar+'</td><td>'+borrar+'</td><td class="small">'+ moment(arreglo[x].created_at).format('LL h:mma')+'</td></tr>';
           $('#table-users-miembros').append(todo);
         }
       });
@@ -924,6 +991,12 @@
       $("#id_registro_miembro").val(id_registro_partner);
     }
 
+    function reqClassD(id_registro_partner){
+      //console.log(id);
+      $("#id_registro_miembroD").val(id_registro_partner);
+    }
+
+    
     
     </script>
   </body>

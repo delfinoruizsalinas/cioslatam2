@@ -105,6 +105,7 @@ Route::group(['middleware'=>'auth'],function(){
         Route::POST('/update-user', 'editUser');
 
         Route::POST('/update-user-miembro', 'activeUserMiembro');
+        Route::POST('/delete-user-miembro', 'deleteUserMiembro');
         
 
         //abc partners
