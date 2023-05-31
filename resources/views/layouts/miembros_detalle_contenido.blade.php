@@ -90,7 +90,7 @@
           <div class="row">
             <div class="col-12">
               <div class="blog-post-share text-lg-right">
-              {!! $shareComponent !!}
+              
               </div>
             </div>
           </div>
