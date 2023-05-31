@@ -74,8 +74,8 @@ class MiembrosController extends Controller
             $detalle_contenido = json_decode($publicacion);
             $imagen = '<img src="https://cioslatam.com/news/'.$detalle_contenido[0]->imagen.'">';
             
-            $shareComponent = \Share::page(url('miembros-detalle-contenido/'.$id), $detalle_contenido[0]->titulo)
-            ->linkedin($detalle_contenido[0]->resumen);
+            $shareComponent = \Share::page(url('miembros-detalle-contenido/'.$id))
+            ->linkedin();
     
             return view('layouts.miembros_detalle_contenido', compact('title','detalle_contenido','shareComponent'));   
         }else{
