@@ -89,9 +89,8 @@
           
           <div class="row">
             <div class="col-12">
-              <div class="blog-post-share text-lg-right">
-              
-              </div>
+              <!-- On https://example.com/index.html -->
+              <iframe allow="web-share" src="https://cioslatam.com/"></iframe>
             </div>
           </div>
 
