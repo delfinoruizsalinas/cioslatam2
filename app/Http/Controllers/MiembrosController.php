@@ -76,7 +76,7 @@ class MiembrosController extends Controller
             //$shareComponent = \Share::page(url('miembros-detalle-contenido/'.$id), $detalle_contenido[0]->titulo)
             //->linkedin($imagen);
 
-            $shareComponent = Share::page(url('miembros-detalle-contenido/'.$id, $detalle_contenido[0]->titulo)->linkedin($imagen));
+            $shareComponent = \Share::page(url('miembros-detalle-contenido/'.$id, $detalle_contenido[0]->titulo)->linkedin($imagen));
     
             return view('layouts.miembros_detalle_contenido', compact('title','detalle_contenido','shareComponent'));   
         }else{
