@@ -90,7 +90,7 @@
           <div class="row">
             <div class="col-12">
               <div class="blog-post-share text-lg-right">
-              
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=<Your URL" >Share on LinkedIn </a>
               </div>
             </div>
           </div>
@@ -105,5 +105,17 @@
     </div>
     <div class="snackbars" id="form-output-global"></div>
     @extends('layouts.js')
+    <script>
+      // Share Url
+    shareUrl = function() {
+      if (!navigator.share) return;
+        navigator.share({
+          url: "https://cioslatam.com/",
+          title: "CIO's LATAM",
+        })
+        .then(() => { console.log("Shared YEEEE!!!!!"); })
+        .catch((error) => { console.log("Sharing Failed") });
+      }
+    </script>
   </body>
 </html>
