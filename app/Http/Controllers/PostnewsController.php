@@ -483,7 +483,7 @@ class PostnewsController extends Controller
         //dd($register->id_usuario);
         if($register->id_usuario == 0){ //Se activa cuenta y No existe un usuario creado
           $usuario = User::create([
-            'name' => $register->nom_contacto,
+            'name' => $register->nom_contacto . ' ' .$register->ap_contacto,
             'password' => $register->password,
             'email' => $register->correo_personal,
             'rol' => 'miembro',
