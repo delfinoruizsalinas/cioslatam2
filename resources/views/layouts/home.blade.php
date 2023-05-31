@@ -80,6 +80,17 @@
       font-size: 12px;
       /*font-weight: 500; */
     }
+ 
+    @media only screen and (max-width: 600px) {
+      .space-mobail{
+        margin-top: 30px;
+        text-align: center;
+      }
+      .mobile-center{
+        text-align: center;
+      }
+    }
+
     </style>
   </head>
   <body>
@@ -120,7 +131,7 @@
 
           <div class="row row-70 justify-content-xl-between">
             <div class="col-lg-8">
-              <h3 class="wow slideInDown"><a href="{{ url('/noticias') }}">Últimas Noticias</a></h3>
+              <h3 class="wow slideInDown mobile-center"><a href="{{ url('/noticias') }}">Últimas Noticias</a></h3>
               <div class="row row-50 justify-content-center">
                 @foreach($noticias as $noti)
                   <div class="col-md-6">
@@ -145,8 +156,7 @@
               <div class="block-aside">
                 <div class="block-aside-item">
                   <h3 class="wow slideInDown" style="margin-bottom: 10px;">La voz de nuestros Miembros</h3>
-
-                  
+                  <div class="space-mobail"></div>
                   @foreach($dataPostMiembro as $notiMiembro)
                     
                     <div class="post-minimal">
