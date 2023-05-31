@@ -43,6 +43,20 @@
           background-color: #ccc;
       }
 
+      .social-toggler {
+        margin-left: 5px;
+        background: rgb(8, 71, 90);
+        transition: .3s;
+        width: 40px;
+        height: 40px;
+        border-radius: 3px;
+        color: #fff;
+        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
       </style>
 
   </head>
@@ -90,8 +104,8 @@
                   <h6>Por {{ $detalle_contenido[0]->nom_contacto }} {{ $detalle_contenido[0]->ap_contacto }}</h6>
                 </li>
                 <li class="float-right">
-                  <div class="share md:flex fixed md:static">
-                    <div onclick="javascript:url=window.document.URL;title=window.document.title;let shareDat={title,url};navigator.share(shareDat)" title="Compartir enlace" style="float:left;height: 32px;width: 32px;cursor:pointer;"><svg xmlns="https://cioslatam.com/" width="32" height="32" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve"><g><path d="M785.8,663.3c-45.4,0-90.7,18.1-118,45.4L368.4,536.3c0-9.1,9.1-27.2,9.1-36.3c0-18.1,0-27.2-9.1-36.3l308.5-172.4c27.2,27.2,72.6,45.4,118,45.4c90.7,0,163.3-72.6,163.3-163.3C958.2,82.6,885.6,10,794.9,10c-90.7,0-172.4,63.5-172.4,154.3c0,18.1,0,27.2,9.1,36.3L323.1,382c-36.3-27.2-72.6-45.4-118-45.4c-90.7,0-163.3,72.6-163.3,163.3c0,90.7,72.6,163.3,163.3,163.3c45.4,0,90.7-18.2,118-45.4l308.5,172.4c0,9.1-9.1,27.2-9.1,36.3c0,90.7,72.6,163.3,163.3,163.3s163.3-72.6,163.3-163.3C949.2,735.9,876.6,663.3,785.8,663.3z"></path></g></svg></div>
+                  <div class="share md:flex fixed md:static social-toggler">
+                    <div onclick="javascript:url=window.document.URL;title=window.document.title;let shareDat={title,url};navigator.share(shareDat)" title="Compartir enlace" style="float:left;height: 32px;width: 32px;cursor:pointer;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path fill="white" d="M384 336a63.78 63.78 0 0 0-46.12 19.7l-148-83.27a63.85 63.85 0 0 0 0-32.86l148-83.27a63.8 63.8 0 1 0-15.73-27.87l-148 83.27a64 64 0 1 0 0 88.6l148 83.27A64 64 0 1 0 384 336Z"/></svg></div>
                   </div>
                 </li>
               </ul>
