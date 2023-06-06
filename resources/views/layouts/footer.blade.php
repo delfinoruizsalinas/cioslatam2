@@ -28,7 +28,7 @@
         </ul>
         </div>
     </div>
-    <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span>CIO’s LATAM.</span><span>  Todos los derechos reservados.</span><span>&nbsp;</span><a href="#" target="_blank">&nbsp;Politica de Privacidad</a></p>
+    <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span>CIO’s LATAM.</span><span>  Todos los derechos reservados.</span><span>&nbsp;</span><a href="{{ url('/aviso-de-privacidad') }}" target="_blank">&nbsp;AVISO DE PRIVACIDAD</a></p>
     </div>
 </div>
 </footer>

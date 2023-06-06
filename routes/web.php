@@ -16,6 +16,7 @@ use App\Http\Controllers\EventosController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\MiembrosController;
 use App\Http\Controllers\SocialShareButtonsController;
+use App\Http\Controllers\AvisoPrivacidadController;
 
 
 /*
@@ -50,6 +51,10 @@ Route::controller(ContactoController::class)->group(function(){
 
 Route::controller(PartnerController::class)->group(function(){
     Route::GET('partner-slider', 'index');
+});
+
+Route::controller(AvisoPrivacidadController::class)->group(function(){
+    Route::GET('aviso-de-privacidad', 'index');
 });
 
 Route::controller(EventosController::class)->group(function(){
