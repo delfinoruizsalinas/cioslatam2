@@ -73,7 +73,7 @@ Route::controller(PartnersController::class)->group(function(){
     Route::POST('partners-free-registro', 'register');
     Route::GET('partners-resumen', 'page_resumen');
     Route::GET('partners-detalle/{id}', 'detalle');
-    Route::GET('partners-detalle-contenido/{id}', 'detalleContenido');
+    Route::GET('partners-detalle-contenido/{titulo}', 'detalleContenido');
 });
 
 Route::controller(MiembrosController::class)->group(function(){

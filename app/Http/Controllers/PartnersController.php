@@ -103,16 +103,20 @@ class PartnersController extends Controller
         return view('layouts.partners_resumen', compact('title','detalle_contenido'));   
     }
     
-    public function detalleContenido($id)
+    public function detalleContenido($titulo)
     {
-        $title = "CIO's LATAM - PARTNERS DETALLE CONTENIDO";
+        $tituloNote = str_replace('-', ' ', $titulo);
+        
+        $title = $tituloNote;
+        //$title = "CIO's LATAM - PARTNERS DETALLE CONTENIDO";
 
         $publicacion = \DB::table('post_partner')
         ->join('users', 'post_partner.id_usuario', '=', 'users.id')
         ->select('post_partner.*','users.partner')
         ->orderBy('updated_at','DESC')
-        ->where('post_partner.id', '=', $id)
+        ->where('post_partner.titulo', '=', $tituloNote)
         ->get();
+       //dd($publicacion);
        
         $detalle_contenido = json_decode($publicacion);
 

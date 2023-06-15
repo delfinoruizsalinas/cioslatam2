@@ -76,7 +76,6 @@ class MiembrosController extends Controller
         ->get();
         
         //dd($publicacion);
-        
         if(sizeof($publicacion) >=1 ){
             $detalle_contenido = json_decode($publicacion);
             $imagen = '<img src="https://cioslatam.com/news/'.$detalle_contenido[0]->imagen.'">';
