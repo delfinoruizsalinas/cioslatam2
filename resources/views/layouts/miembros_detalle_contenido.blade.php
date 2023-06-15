@@ -8,8 +8,8 @@
     <meta property="og:title" content="{{  $title }}"/>
     <meta property="og:url" content="{{ url()->current() }}" />
     <meta name="keywords" content="{{  $title }}"/>
-    <meta property="og:image" content="/news/{{$detalle_contenido[0]->imagen }}">
-    <meta property="og:image:url" content="/news/{{$detalle_contenido[0]->imagen }}">
+    <meta property="og:image" content="https://cioslatam.com/news/{{$detalle_contenido[0]->imagen }}">
+    <meta property="og:image:url" content="https://cioslatam.com/news/{{$detalle_contenido[0]->imagen }}">
     
 
     @include('layouts.css')
