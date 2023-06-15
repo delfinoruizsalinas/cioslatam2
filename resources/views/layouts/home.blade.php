@@ -155,14 +155,14 @@
             <div class="col-lg-4 col-xl-4">
               <div class="block-aside">
                 <div class="block-aside-item">
-                  <h3 class="wow slideInDown" style="margin-bottom: 10px;">La voz de nuestros Miembros</h3>
+                  <h3 class="wow slideInDown" style="margin-bottom: 10px;"><a href="{{ url('/la-voz-de-nuestros-miembros') }}">La voz de nuestros Miembros</a></h3>
                   <div class="space-mobail"></div>
                   @foreach($dataPostMiembro as $notiMiembro)
                     
                     <div class="post-minimal">
                       <div class="row">
                         <div class="col-lg-4">
-                          <a href="miembros-detalle-contenido/{{ $notiMiembro->id }}" target="_blank">  
+                          <a href="miembros-detalle/{{ str_replace(' ', '-', $notiMiembro->titulo) }}" target="_blank">  
                             <img class="rounded" src="news/{{ $notiMiembro->imagen }}" alt="" width="100%">
                           </a>
                           <p class="post-modern-date1">{{ \Carbon\Carbon::parse($notiMiembro->created_at)->translatedFormat('d F, Y') }}</p>
@@ -170,7 +170,7 @@
                          
                         <div class="col-lg-8">
                           <h5 class="post-minimal-title-1">
-                            <a href="miembros-detalle-contenido/{{ $notiMiembro->id }}" target="_blank">  
+                            <a href="miembros-detalle/{{ str_replace(' ', '-', $notiMiembro->titulo) }}" target="_blank">  
                               {{ Str::limit($notiMiembro->titulo, 75) }}...
                             </a>
                           </h5>

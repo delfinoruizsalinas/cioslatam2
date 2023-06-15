@@ -57,33 +57,47 @@ class MiembrosController extends Controller
 
     }
    
-    public function detalleContenido($id)
+    public function detalleContenido($titulo)
     {
         $title = "CIO's LATAM - MIEMBROS DETALLE CONTENIDO";
-
+        
+        $tituloNote = str_replace('-', ' ', $titulo);
+        //dd($titulo);
         $publicacion = \DB::table('post_miembro')
         ->join('users', 'post_miembro.id_usuario', '=', 'users.id')
         ->join('free_register_miembro', 'free_register_miembro.id_usuario', '=', 'users.id')
         ->select('post_miembro.*','users.partner','free_register_miembro.nom_contacto','free_register_miembro.ap_contacto')
         ->orderBy('updated_at','DESC')
-        ->where('post_miembro.id', '=', $id)
+        ->where('post_miembro.titulo', '=', $tituloNote)
         ->where('post_miembro.estatus', '=', 1)
         ->get();
+        
+        //dd($publicacion);
         
         if(sizeof($publicacion) >=1 ){
             $detalle_contenido = json_decode($publicacion);
             $imagen = '<img src="https://cioslatam.com/news/'.$detalle_contenido[0]->imagen.'">';
             
-            $shareComponent = \Share::page(url('miembros-detalle-contenido/'.$id))
+            $shareComponent = \Share::page(url('miembros-detalle/'.$titulo))
             ->linkedin();
     
             return view('layouts.miembros_detalle_contenido', compact('title','detalle_contenido','shareComponent'));   
         }else{
             return redirect('/');
-        }
+        } 
+    }
+    public function showMiembros()
+    {
+        $title = "CIO's LATAM - VOZ DE NUESTROS MIMEBROS";
+        $dataPostMiembro = \DB::table('post_miembro')
+        ->join('users', 'post_miembro.id_usuario', '=', 'users.id')
+        ->join('free_register_miembro', 'free_register_miembro.id_usuario', '=', 'users.id')
+        ->select('post_miembro.*','users.partner','free_register_miembro.nom_contacto','free_register_miembro.ap_contacto')
+        ->where('post_miembro.estatus','=',1)
+        ->orderBy('updated_at','DESC')
+        ->get();
 
-       
 
-       
+        return view('layouts.voz_miembros', compact('title','dataPostMiembro')); 
     }
 }

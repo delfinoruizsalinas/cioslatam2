@@ -79,7 +79,8 @@ Route::controller(PartnersController::class)->group(function(){
 Route::controller(MiembrosController::class)->group(function(){
     Route::GET('miembros-registro', 'index');
     Route::POST('miembros-free-registro', 'register');
-    Route::GET('miembros-detalle-contenido/{id}', 'detalleContenido');
+    Route::GET('la-voz-de-nuestros-miembros', 'showMiembros');    
+    Route::GET('miembros-detalle/{titulo}', 'detalleContenido');
 });
 
 

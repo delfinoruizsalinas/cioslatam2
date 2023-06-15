@@ -19,7 +19,7 @@
                 <div class="rd-navbar-nav-wrap">
                 <ul class="rd-navbar-nav">
         
-                    <li class="rd-nav-item active text-menu"><a class="rd-nav-link" href="#">Partners</a>
+                    <li class="rd-nav-item text-menu"><a class="rd-nav-link" href="#">Partners</a>
                     <ul class="rd-menu rd-navbar-dropdown">
                         <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ url('/partners-resumen') }}">Resumen de Partners</a>
                         </li>
@@ -29,11 +29,13 @@
                         </li>                        
                     </ul>
 
-                    <li class="rd-nav-item active text-menu"><a class="rd-nav-link" href="#">Miembros</a>
+                    <li class="rd-nav-item text-menu"><a class="rd-nav-link" href="#">Miembros</a>
                     <ul class="rd-menu rd-navbar-dropdown">
                         <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ url('/miembros-registro') }}">Registro de Miembros</a>
                         </li>
                         <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ url('/login') }}" target="_blank">Login</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ url('/la-voz-de-nuestros-miembros') }}">La voz de nuestros Miembros</a>
                         </li>                        
                     </ul>
    
