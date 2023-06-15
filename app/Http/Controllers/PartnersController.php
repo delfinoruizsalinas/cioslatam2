@@ -97,10 +97,19 @@ class PartnersController extends Controller
         ->select('users.id', 'users.partner', 'users.rol', 'free_register_partner.id as id_resumen')        
         ->get();
 
-    
-        $detalle_contenido = json_decode($publicacion);
-        //dd($detalle_contenido);
-        return view('layouts.partners_resumen', compact('title','detalle_contenido'));   
+        //dd($publicacion);
+        if(sizeof($publicacion) >=1 ){
+            $detalle_contenido = json_decode($publicacion);
+            $imagen = '<img src="https://cioslatam.com/news/'.$detalle_contenido[0]->imagen.'">';
+            
+            $shareComponent = \Share::page(url('miembros-detalle/'.$titulo))
+            ->linkedin();
+
+            return view('layouts.partners_resumen', compact('title','detalle_contenido','shareComponent'));   
+        }else{
+            return redirect('/');
+        } 
+        
     }
     
     public function detalleContenido($titulo)
