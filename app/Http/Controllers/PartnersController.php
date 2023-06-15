@@ -123,18 +123,14 @@ class PartnersController extends Controller
         ->join('users', 'post_partner.id_usuario', '=', 'users.id')
         ->select('post_partner.*','users.partner')
         ->orderBy('updated_at','DESC')
-        ->where('post_partner.titulo', '=', $tituloNote)
+        ->where('post_partner.titulo', 'like', $tituloNote.'%')
         ->get();
        //dd($publicacion);
        
-       if(sizeof($publicacion) >=1 ){
+       if(sizeof($publicacion) ==1 ){
         $detalle_contenido = json_decode($publicacion);
-        $imagen = '<img src="https://cioslatam.com/news/'.$detalle_contenido[0]->imagen.'">';
-        
-        $shareComponent = \Share::page(url('miembros-detalle/'.$titulo))
-        ->linkedin();
-
-        return view('layouts.partners_detalle_contenido', compact('title','detalle_contenido','shareComponent'));   
+              
+        return view('layouts.partners_detalle_contenido', compact('title','detalle_contenido'));   
         }else{
             return redirect('/');
         }  

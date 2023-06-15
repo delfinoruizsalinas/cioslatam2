@@ -60,30 +60,25 @@ class MiembrosController extends Controller
     public function detalleContenido($titulo)
     {
         
-        
+
         $tituloNote = str_replace('-', ' ', $titulo);
         
         $title = $tituloNote;
 
-        //dd($titulo);
+        
         $publicacion = \DB::table('post_miembro')
         ->join('users', 'post_miembro.id_usuario', '=', 'users.id')
         ->join('free_register_miembro', 'free_register_miembro.id_usuario', '=', 'users.id')
         ->select('post_miembro.*','users.partner','free_register_miembro.nom_contacto','free_register_miembro.ap_contacto')
         ->orderBy('updated_at','DESC')
-        ->where('post_miembro.titulo', '=', $tituloNote)
+        ->where('post_miembro.titulo', 'like', $tituloNote.'%')
         ->where('post_miembro.estatus', '=', 1)
         ->get();
-        
-        //dd($publicacion);
-        if(sizeof($publicacion) >=1 ){
+                
+        if(sizeof($publicacion) ==1 ){
             $detalle_contenido = json_decode($publicacion);
-            $imagen = '<img src="https://cioslatam.com/news/'.$detalle_contenido[0]->imagen.'">';
-            
-            $shareComponent = \Share::page(url('miembros-detalle/'.$titulo))
-            ->linkedin();
-    
-            return view('layouts.miembros_detalle_contenido', compact('title','detalle_contenido','shareComponent'));   
+
+            return view('layouts.miembros_detalle_contenido', compact('title','detalle_contenido'));   
         }else{
             return redirect('/');
         } 
