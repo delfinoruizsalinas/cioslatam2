@@ -229,7 +229,7 @@ class Controller extends BaseController
         ->select('post_miembro.*','users.partner','free_register_miembro.nom_contacto','free_register_miembro.ap_contacto')
         ->where('post_miembro.estatus','=',1)
         ->orderBy('updated_at','DESC')
-        ->take(10)->get();
+        ->take(8)->get();
         //$dataPostMiembro = json_decode($publicacion_miembro);
         //dd($dataPostMiembro);
 
