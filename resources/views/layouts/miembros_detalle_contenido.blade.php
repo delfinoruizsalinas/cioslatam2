@@ -1,8 +1,17 @@
-@inject('carbon', 'Carbon\Carbon')
+
 <!DOCTYPE html>
-<html class="wide wow-animation" lang="en">
+<html class="wide wow-animation" lang="es">
   <head>
     <title>{{  $title }}</title>
+
+    <!-- facebook-->
+    <meta property="og:title" content="{{  $title }}"/>
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta name="keywords" content="{{  $title }}"/>
+    <meta property="og:image" content="/news/{{$detalle_contenido[0]->imagen }}">
+    <meta property="og:image:url" content="/news/{{$detalle_contenido[0]->imagen }}">
+    
+
     @include('layouts.css')
     <style>
       @media (max-width: 600px) {
