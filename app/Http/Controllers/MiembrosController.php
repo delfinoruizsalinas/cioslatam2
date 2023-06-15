@@ -59,9 +59,12 @@ class MiembrosController extends Controller
    
     public function detalleContenido($titulo)
     {
-        $title = "CIO's LATAM - MIEMBROS DETALLE CONTENIDO";
+        
         
         $tituloNote = str_replace('-', ' ', $titulo);
+        
+        $title = $tituloNote;
+
         //dd($titulo);
         $publicacion = \DB::table('post_miembro')
         ->join('users', 'post_miembro.id_usuario', '=', 'users.id')
