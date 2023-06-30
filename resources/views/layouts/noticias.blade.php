@@ -73,7 +73,7 @@
                         <p class="post-modern-date">{{ $noti['fecha'] }}</p>
                         <h4 class="post-modern-title" style="color:rgb(8, 71, 90);"><a href="{{ $noti['link'] }}" target="_blank">{{ $noti['titulo'] }}</h4><img src="{{ $noti['img'] }}" alt="" width="370" height="255" /></a>
                         <div class="post-modern-text">
-                            {!! html_entity_decode(Str::limit($noti['content'], 290)) !!}
+                            {!! html_entity_decode(Str::limit($noti['content'], 190)) !!}
                         </div>
                     </div>
                 </div>
