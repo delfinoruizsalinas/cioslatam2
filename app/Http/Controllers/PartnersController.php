@@ -100,12 +100,10 @@ class PartnersController extends Controller
         //dd($publicacion);
         if(sizeof($publicacion) >=1 ){
             $detalle_contenido = json_decode($publicacion);
-            $imagen = '<img src="https://cioslatam.com/news/'.$detalle_contenido[0]->imagen.'">';
+            //$imagen = '<img src="https://cioslatam.com/news/'.$detalle_contenido[0]->imagen.'">';
             
-            $shareComponent = \Share::page(url('miembros-detalle/'.$titulo))
-            ->linkedin();
 
-            return view('layouts.partners_resumen', compact('title','detalle_contenido','shareComponent'));   
+            return view('layouts.partners_resumen', compact('title','detalle_contenido'));   
         }else{
             return redirect('/');
         } 
