@@ -81,6 +81,8 @@
       /*font-weight: 500; */
     }
  
+    .ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}
+    
     @media only screen and (max-width: 600px) {
       .space-mobail{
         margin-top: 30px;
@@ -90,7 +92,14 @@
         text-align: center;
       }
     }
-
+    
+    .gallery-item-classic-caption1{
+ 
+    transform: translate(-70%, -50%);
+    transition: all .3s;
+    will-change: transform;
+    opacity: 1;
+    }
     </style>
   </head>
   <body>
@@ -126,7 +135,88 @@
         </div>
       </section>
       
-      <section class="section-lg bg-gray-200">
+
+      <section class="section section-lg bg-default">
+        <div class="container">
+          <!-- <h3 class="text-center"></h3> -->
+          <div class="row">
+            <div class="col-12">
+              <div class="tabs-custom tabs-horizontal tabs-classic" id="tabs-1">
+                <ul class="nav nav-tabs nav-tabs-classic">
+                  <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-1-1" data-toggle="tab"> Próximos eventos</a></li>
+                  <!--<li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2" data-toggle="tab"></a></li>
+                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3" data-toggle="tab"></a></li>-->
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane fade show active" id="tabs-1-1">
+                    <div class="box-event-modern">
+                      
+                      <div class="event-item-modern event-active"> <span class="event-dot"></span>
+                        <p class="event-time">11 jul 2023 </p>
+                          <div class="gallery-item-classic">
+                            <h4>
+                              <a href="https://www.youtube.com/watch?v=ETV6oEf6X2c" data-lightgallery="item">
+                              "Habilitadores Tecnológicos para una Data Driven Company – Data Fabric" | Raken Data Group
+                              </a>
+                            </h4>
+                          </div>
+                      </div>
+
+                      <div class="event-item-modern"> <span class="event-dot"></span>
+                        <p class="event-time">7 / 10 Septiembre 2023 </p>
+                        
+                        <div class="gallery-item-classic">
+                          <h4>
+                            <a href="https://www.youtube.com/watch?v=QoqybgRAUeM" data-lightgallery="item">
+                            Technology Retreat 2023 | Promo | Karla Berman
+                            </a>
+                          </h4>
+                        </div>
+                        <div class="event-item-modern-text"> 
+                          <p>CIO's LATAM 2023 en Ixtapa Zihuatanejo.</p>
+                        </div>
+                      </div>
+
+                      <div class="event-item-modern"> <span class="event-dot"></span>
+                        <p class="event-time">1 Octubre 2023 </p>
+                        <h4 class="event-item-modern-title"><a href="#" target="_blank">Evento de Prueba </a></h4>
+                        <div class="event-item-modern-text"> 
+                        </div>
+                      </div>
+
+                      
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="tabs-1-2">
+                    <div class="box-event-modern">
+                      <div class="event-item-modern event-active"> <span class="event-dot"></span>
+                        <p class="event-time">0pm - 0 pm </p>
+                        <h4 class="event-item-modern-title"><a href="#">text</a></h4>
+                        <div class="event-item-modern-text">
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="tabs-1-3">
+                    <div class="box-event-modern">
+                      <div class="event-item-modern event-active"> <span class="event-dot"></span>
+                        <p class="event-time">0 pm - 0 pm </p>
+                        <h4 class="event-item-modern-title"><a href="#">text</a></h4>
+                        <div class="event-item-modern-text">
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-gray-200">
         <div class="container">
 
           <div class="row row-70 justify-content-xl-between">
