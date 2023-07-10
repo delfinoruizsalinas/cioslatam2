@@ -100,6 +100,13 @@
     will-change: transform;
     opacity: 1;
     }
+
+    .box-event-modern {
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     </style>
   </head>
   <body>
@@ -152,38 +159,38 @@
                     <div class="box-event-modern">
                       
                       <div class="event-item-modern event-active"> <span class="event-dot"></span>
-                        <p class="event-time">11 jul 2023 </p>
+                        <p class="event-time">11 de Julio 2023 </p>
                           <div class="gallery-item-classic">
-                            <h4>
-                              <a href="https://www.youtube.com/watch?v=ETV6oEf6X2c" data-lightgallery="item">
+                            <h4 class="event-item-modern-title">
+                              <a href="https://www.youtube.com/watch?v=ETV6oEf6X2c" class="event-click" data-lightgallery="item">
                               "Habilitadores Tecnológicos para una Data Driven Company – Data Fabric" | Raken Data Group
                               </a>
                             </h4>
                           </div>
                       </div>
+                      
+                      <div class="event-item-modern"> <span class="event-dot"></span>
+                        <p class="event-time">29 de Agosto 2023 a las 19 horas </p>
+                        <h4 class="event-item-modern-title">
+                          <a href="#">“Orquestación / Garantizando el valor de la transformación Digital Parte2” | NETjer </a>
+                        </h4>
+                        <div class="event-item-modern-text"> 
+                        </div>
+                      </div>
 
                       <div class="event-item-modern"> <span class="event-dot"></span>
-                        <p class="event-time">7 / 10 Septiembre 2023 </p>
-                        
+                        <p class="event-time">7 / 10 de Septiembre 2023 </p>
                         <div class="gallery-item-classic">
-                          <h4>
+                          <h4 class="event-item-modern-title">
                             <a href="https://www.youtube.com/watch?v=QoqybgRAUeM" data-lightgallery="item">
                             Technology Retreat 2023 | Promo | Karla Berman
                             </a>
                           </h4>
                         </div>
                         <div class="event-item-modern-text"> 
-                          <p>CIO's LATAM 2023 en Ixtapa Zihuatanejo.</p>
+                          <p>CIO's LATAM 2023 en Ixtapa Zihuatanejo</p>
                         </div>
                       </div>
-
-                      <div class="event-item-modern"> <span class="event-dot"></span>
-                        <p class="event-time">1 Octubre 2023 </p>
-                        <h4 class="event-item-modern-title"><a href="#" target="_blank">Evento de Prueba </a></h4>
-                        <div class="event-item-modern-text"> 
-                        </div>
-                      </div>
-
                       
                     </div>
                   </div>
