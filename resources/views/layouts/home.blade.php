@@ -159,7 +159,7 @@
                     <div class="box-event-modern">
                       
                       <div class="event-item-modern event-active"> <span class="event-dot"></span>
-                        <p class="event-time">11 de Julio 2023 </p>
+                        <p class="event-time">11 de Julio 2023 a las 19 horas </p>
                           <div class="gallery-item-classic">
                             <h4 class="event-item-modern-title">
                               <a href="https://www.youtube.com/watch?v=ETV6oEf6X2c" class="event-click" data-lightgallery="item">
