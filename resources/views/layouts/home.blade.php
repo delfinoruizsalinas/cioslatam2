@@ -170,6 +170,15 @@
                       </div>
                       
                       <div class="event-item-modern"> <span class="event-dot"></span>
+                        <p class="event-time">25 de Julio a las 19 horas </p>
+                        <h4 class="event-item-modern-title">
+                          <a href="#">“Observabilidad / Garantizando el valor de la transformación Digital Parte1” | NETjer </a>
+                        </h4>
+                        <div class="event-item-modern-text"> 
+                        </div>
+                      </div>
+                                            
+                      <div class="event-item-modern"> <span class="event-dot"></span>
                         <p class="event-time">29 de Agosto 2023 a las 19 horas </p>
                         <h4 class="event-item-modern-title">
                           <a href="#">“Orquestación / Garantizando el valor de la transformación Digital Parte2” | NETjer </a>
