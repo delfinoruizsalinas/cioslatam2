@@ -148,14 +148,12 @@
           <!-- <h3 class="text-center"></h3> -->
           <div class="row">
             <div class="col-12">
-              <div class="tabs-custom tabs-horizontal tabs-classic" id="tabs-1">
+              <div class="tabs-custom tabs-horizontal tabs-classic" id="tabs-1a">
                 <ul class="nav nav-tabs nav-tabs-classic">
-                  <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-1-1" data-toggle="tab"> Próximos eventos</a></li>
-                  <!--<li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2" data-toggle="tab"></a></li>
-                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3" data-toggle="tab"></a></li>-->
+                  <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-1-1a" data-toggle="tab"> Próximos eventos</a></li>
                 </ul>
                 <div class="tab-content">
-                  <div class="tab-pane fade show active" id="tabs-1-1">
+                  <div class="tab-pane fade show active" id="tabs-1-1a">
                     <div class="box-event-modern">
                       
                       <div class="event-item-modern event-active"> <span class="event-dot"></span>
@@ -192,28 +190,7 @@
                       
                     </div>
                   </div>
-                  <div class="tab-pane fade" id="tabs-1-2">
-                    <div class="box-event-modern">
-                      <div class="event-item-modern event-active"> <span class="event-dot"></span>
-                        <p class="event-time">0pm - 0 pm </p>
-                        <h4 class="event-item-modern-title"><a href="#">text</a></h4>
-                        <div class="event-item-modern-text">
-                        </div>
-                      </div>
-                      
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="tabs-1-3">
-                    <div class="box-event-modern">
-                      <div class="event-item-modern event-active"> <span class="event-dot"></span>
-                        <p class="event-time">0 pm - 0 pm </p>
-                        <h4 class="event-item-modern-title"><a href="#">text</a></h4>
-                        <div class="event-item-modern-text">
-                        </div>
-                      </div>
-                      
-                    </div>
-                  </div>
+                  
                 </div>
               </div>
             </div>
