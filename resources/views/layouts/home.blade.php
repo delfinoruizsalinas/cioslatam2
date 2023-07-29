@@ -156,14 +156,14 @@
                   <div class="tab-pane fade show active" id="tabs-1-1a">
                     <div class="box-event-modern">
                       
-                      <div class="event-item-modern event-active"> <span class="event-dot"></span>
+                      <!-- <div class="event-item-modern event-active"> <span class="event-dot"></span>
                         <p class="event-time">25 de Julio a las 19 horas </p>
                         <h4 class="event-item-modern-title">
                           <a href="https://www.youtube.com/watch?v=LFu8roGtKjI" data-lightgallery="item">"Observabilidad | Garantizando el Valor de la Transformación Digital Primera Parte" | NETjer </a>
                         </h4>
                         <div class="event-item-modern-text"> 
                         </div>
-                      </div>
+                      </div>-->
                                             
                       <div class="event-item-modern"> <span class="event-dot"></span>
                         <p class="event-time">29 de Agosto 2023 a las 19 horas </p>

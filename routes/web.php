@@ -118,6 +118,7 @@ Route::group(['middleware'=>'auth'],function(){
         Route::POST('/post-partner', 'store');
         Route::GET('/post-partner-get', 'getPartner');  
         Route::POST('/post-partner-update', 'updatePostPartner'); 
+        Route::POST('/delete-user-partner', 'deleteUserPartner');
 
         //abc admin
         Route::GET('/actualizar-resumen', 'resumenAdmin');

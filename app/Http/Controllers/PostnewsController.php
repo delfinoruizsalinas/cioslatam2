@@ -464,6 +464,16 @@ class PostnewsController extends Controller
       return back()->with('Listo','Solicitud borrada correctamente');
     }
 
+    public function deleteUserPartner(Request $request)
+    {
+      $register = Free_register_partner::find($request->id_registro_miembroDP);
+      $register->delete();
+      
+      //return response()->json('ok');
+      return back()->with('Listo','Solicitud borrada correctamente');
+    }
+    
+
     public function activeUserMiembro(Request $request)
     {
       $validator = Validator::make($request->all(),[
