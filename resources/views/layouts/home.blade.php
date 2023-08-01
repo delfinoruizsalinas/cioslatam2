@@ -163,7 +163,7 @@
                         </h4>
                         <div class="event-item-modern-text"> 
                         </div>
-                      </div>-->
+                      </div>
                                             
                       <div class="event-item-modern"> <span class="event-dot"></span>
                         <p class="event-time">29 de Agosto 2023 a las 19 horas </p>
@@ -173,7 +173,7 @@
                         <div class="event-item-modern-text"> 
                         </div>
                       </div>
-
+-->
                       <div class="event-item-modern"> <span class="event-dot"></span>
                         <p class="event-time">7 / 10 de Septiembre 2023 </p>
                         <div class="gallery-item-classic">
