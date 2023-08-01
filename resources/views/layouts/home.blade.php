@@ -165,7 +165,7 @@
                         </div>
                       </div>-->
                                             
-                      <div class="event-item-modern"> <span class="event-dot"></span>
+                      <div class="event-item-modern event-active"> <span class="event-dot"></span>
                         <p class="event-time">29 de Agosto 2023 a las 19 horas </p>
                         <h4 class="event-item-modern-title">
                           <a href="https://www.youtube.com/watch?v=3EWIJsT1RlI" data-lightgallery="item">"Orquestación | Garantizando el Valor de la Transformación Digital Segunda Parte" | Netjer </a>
