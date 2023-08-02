@@ -178,8 +178,8 @@
                         <p class="event-time">7 / 10 de Septiembre 2023 </p>
                         <div class="gallery-item-classic">
                           <h4 class="event-item-modern-title">
-                            <a href="https://www.youtube.com/watch?v=QoqybgRAUeM" data-lightgallery="item">
-                            Technology Retreat 2023 | Promo | Karla Berman
+                            <a href="https://www.youtube.com/watch?v=Wej0wMdy3QU" data-lightgallery="item">
+                            Technology Retreat 2023 | Promo | Rodrigo Pacheco
                             </a>
                           </h4>
                         </div>
