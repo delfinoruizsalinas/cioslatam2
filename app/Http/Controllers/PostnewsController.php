@@ -480,6 +480,7 @@ class PostnewsController extends Controller
         "id_registro_miembro" => "required",
         "aprobar_cuenta_miembro" => 'required',
       ]);
+      
       if($validator ->fails()){
         return back()
             ->withErrors($validator)
@@ -487,32 +488,46 @@ class PostnewsController extends Controller
             ->with('ErrorInsert','Favor de llenar todos los campos');
 
       }else{
-        $register = Free_register_miembro::find($request->id_registro_miembro);
-        //id_registro_partner
-        //imagen_user
-        //dd($register->id_usuario);
-        if($register->id_usuario == 0){ //Se activa cuenta y No existe un usuario creado
-          $usuario = User::create([
-            'name' => $register->nom_contacto . ' ' .$register->ap_contacto,
-            'password' => $register->password,
-            'email' => $register->correo_personal,
-            'rol' => 'miembro',
-          ]);
-          $id_user_user_create = User::latest('id')->first(); //Se retornan los datos del nuevo usuario en la tabla Users
-
-          $register->id_usuario = $id_user_user_create->id;
-          $register->estatus = 1;
-          $register->save();
-
-          if($register->wasChanged() == 1){ //si se actualizó se envía mail
-            app(MailController::class)->mailMiembroActivation($register->correo_personal);
-            return back()->with('Listo','El registro se actualizo correctamente');
-          }
-
-        }else{
-            return back()->with('ErrorInsert','El partner ya tiene una usuario creado');
-        }
         
+        $register = Free_register_miembro::find($request->id_registro_miembro);
+        $valid_user_mail = User::where('email', '=', $register->correo_personal)->count();          
+        
+        if($valid_user_mail == 1){
+
+          return back()
+          ->withErrors('Ya hay una cuenta de usuario con el correo: ' . $register->correo_personal)
+          ->withInput()
+          ->with('ErrorInsert','Ya hay una cuenta de usuario con el mismo correo.');
+         
+        }else{
+
+          if($register->id_usuario == 0){ //Se activa cuenta y No existe un usuario creado
+              
+              $usuario = User::create([
+                'name' => $register->nom_contacto . ' ' .$register->ap_contacto,
+                'password' => $register->password,
+                'email' => $register->correo_personal,
+                'rol' => 'miembro',
+              ]);
+              $id_user_user_create = User::latest('id')->first(); //Se retornan los datos del nuevo usuario en la tabla Users
+    
+              $register->id_usuario = $id_user_user_create->id;
+              $register->estatus = 1;
+              $register->save();
+    
+              if($register->wasChanged() == 1){ //si se actualizó se envía mail
+                app(MailController::class)->mailMiembroActivation($register->correo_personal);
+                return back()->with('Listo','El registro se actualizo correctamente');
+              }
+            
+
+          }else{
+              return back()->with('ErrorInsert','El miembro ya tiene un usuario creado');
+          }
+        }
+          
+          
+
       }
     }
     public function getList()
