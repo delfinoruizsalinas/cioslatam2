@@ -17,7 +17,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\MiembrosController;
 use App\Http\Controllers\SocialShareButtonsController;
 use App\Http\Controllers\AvisoPrivacidadController;
-
+use App\Http\Controllers\AgendaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +32,10 @@ use App\Http\Controllers\AvisoPrivacidadController;
 
 
 Route::get('/', [Controller::class, 'index']);
+
+Route::controller(AgendaController::class)->group(function(){
+    Route::GET('agenda-technology-retreat-2023-ixtapa-zihuatanejo', 'index');
+});
 
 Route::controller(NoticiasController::class)->group(function(){
     Route::GET('noticias', 'index');
