@@ -1,7 +1,21 @@
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en">
   <head>
-    <title>{{  $title }}</title>
+  <title>{{  $title }}</title>
+
+  <!-- facebook-->
+  <meta property="og:title" content="{{  $title }}"/>
+  <meta property="og:url" content="{{ url()->current() }}" />
+  <meta name="keywords" content="{{  $title }}"/>
+  <meta property="og:image" content="https://cioslatam.com/dash/images/cios/tr.jpeg">
+  <meta property="og:image:url" content="https://cioslatam.com/dash/images/cios/tr.jpeg">
+  <meta property="og:image:width" content="300" />
+  <meta property="og:image:height" content="300" />
+
+  <link rel="apple-touch-icon" href="https://cioslatam.com/dash/images/cios/tr.jpeg">
+  <meta name="apple-mobile-web-app-title" content="{{ $title }}">
+
+
     @include('layouts.css')
     <style>
       @media (max-width: 400px) {
