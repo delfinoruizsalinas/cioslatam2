@@ -51,7 +51,7 @@
       <section id="portada">
         <div class="parallax-content context-dark"> 
           
-            <img src="/dash/images/cios/trd.jpeg" alt="">
+            <img src="/dash/images/cios/trd.jpeg" alt="CIO's LATAM Technology Retreat 2023 Hotel Las Brisas" class="img-fluid w-100">
 
         </div>
       </section>
