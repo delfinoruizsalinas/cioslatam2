@@ -60,7 +60,7 @@
           <div class="row justify-content-center">
             <div class="col-lg-10 col-xl-9 text-center wow-outer">
               <div class="wow slideInLeft">
-                <h3 class="title-decorate title-decorate-center">Agenda <br>CIO’s LATAM Technology Retreat 2023 Hotel Las Brisas</h3>
+                <h3 class="title-decorate title-decorate-center">Agenda <br>CIO’s LATAM Technology Retreat 2023 <br>Hotel Las Brisas</h3>
                 <p>Ixtapa Zihuatanejo</p>
               </div>
             </div>
