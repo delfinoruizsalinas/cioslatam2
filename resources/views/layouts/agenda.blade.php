@@ -7,12 +7,12 @@
   <meta property="og:title" content="{{  $title }}"/>
   <meta property="og:url" content="{{ url()->current() }}" />
   <meta name="keywords" content="{{  $title }}"/>
-  <meta property="og:image" content="https://cioslatam.com/dash/images/cios/tr.jpeg">
-  <meta property="og:image:url" content="https://cioslatam.com/dash/images/cios/tr.jpeg">
+  <meta property="og:image" content="https://cioslatam.com/dash/images/cios/trd.jpeg">
+  <meta property="og:image:url" content="https://cioslatam.com/dash/images/cios/trd.jpeg">
   <meta property="og:image:width" content="300" />
   <meta property="og:image:height" content="300" />
 
-  <link rel="apple-touch-icon" href="https://cioslatam.com/dash/images/cios/tr.jpeg">
+  <link rel="apple-touch-icon" href="https://cioslatam.com/dash/images/cios/trd.jpeg">
   <meta name="apple-mobile-web-app-title" content="{{ $title }}">
 
 
@@ -20,7 +20,7 @@
     <style>
       @media (max-width: 400px) {
         #portada {
-            background-image: url(/dash/images/cios/tr.jpeg) !important;
+            background-image: url(/dash/images/cios/trd.jpeg) !important;
             background-size: cover;
         }
         .event-item-classic{
@@ -51,7 +51,7 @@
       <section id="portada">
         <div class="parallax-content context-dark"> 
           
-            <img src="/dash/images/cios/tr.jpeg" alt="">
+            <img src="/dash/images/cios/trd.jpeg" alt="">
 
         </div>
       </section>
