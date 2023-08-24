@@ -40,7 +40,7 @@
     .bi-green{
       width: 3em;
       height: 3em;
-      color: #28a745!important;
+      color: #007bff!important;
     }
     .bi-red{
       width: 3em;
@@ -160,7 +160,7 @@
                           </a>
                         </div>
                         <div class="event-item-classic-caption">
-                          <h4 class="event-item-classic-title"><a href="schedule.html">{{  $dia7_name }}</a></h4>
+                          <h4 class="event-item-classic-title"><a href="{{  url($dia7_file) }}">{{  $dia7_name }}</a></h4>
 
                           </h5>
                         </div>
@@ -176,7 +176,7 @@
                           </a>
                         </div>
                         <div class="event-item-classic-caption">
-                          <h4 class="event-item-classic-title"><a href="schedule.html">{{  $dia8_name }}</a></h4>
+                          <h4 class="event-item-classic-title"><a href="{{  url($dia8_file) }}">{{  $dia8_name }}</a></h4>
 
                           </h5>
                         </div>
@@ -193,7 +193,7 @@
                           </a>
                         </div>
                         <div class="event-item-classic-caption">
-                          <h4 class="event-item-classic-title"><a href="schedule.html">{{  $dia9_name }}</a></h4>
+                          <h4 class="event-item-classic-title"><a href="{{  url($dia9_file) }}">{{  $dia9_name }}</a></h4>
 
                           </h5>
                         </div>
