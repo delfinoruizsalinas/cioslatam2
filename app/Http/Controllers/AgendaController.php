@@ -78,10 +78,18 @@ class AgendaController extends Controller
                     $dia9_file = $value->attributes->MESA_DIA_9->data->attributes->url;
                     $dia9_clase = 'bi-green';
                 } 
+                
+                if(empty($value->attributes->ENCUESTA)){
+                    $encuesta = '';
 
+                }else{
+                    $encuesta = $value->attributes->ENCUESTA;
+
+                } 
+                
             }               
 
          
-        return view('layouts.agenda', compact('title','sep7','sep8','sep9','sep10','dia7_file','dia7_name','dia8_file','dia8_name','dia9_file','dia9_name','dia7_clase', 'dia8_clase','dia9_clase'));
+        return view('layouts.agenda', compact('title','sep7','sep8','sep9','sep10','dia7_file','dia7_name','dia8_file','dia8_name','dia9_file','dia9_name','dia7_clase', 'dia8_clase','dia9_clase','encuesta'));
     }
 }
