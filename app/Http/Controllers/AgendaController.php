@@ -86,10 +86,18 @@ class AgendaController extends Controller
                     $encuesta = $value->attributes->ENCUESTA;
 
                 } 
+                if(empty($value->attributes->BOOKING)){
+                    $booking = '';
+
+                }else{
+                    $booking = $value->attributes->BOOKING;
+
+                } 
+                
                 
             }               
 
          
-        return view('layouts.agenda', compact('title','sep7','sep8','sep9','sep10','dia7_file','dia7_name','dia8_file','dia8_name','dia9_file','dia9_name','dia7_clase', 'dia8_clase','dia9_clase','encuesta'));
+        return view('layouts.agenda', compact('title','sep7','sep8','sep9','sep10','dia7_file','dia7_name','dia8_file','dia8_name','dia9_file','dia9_name','dia7_clase', 'dia8_clase','dia9_clase','encuesta','booking'));
     }
 }

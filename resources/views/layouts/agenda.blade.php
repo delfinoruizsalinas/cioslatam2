@@ -89,7 +89,8 @@
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3" data-toggle="tab">9 Septiembre</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-4" data-toggle="tab">10 Septiembre</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-5" data-toggle="tab">Ubica tu mesa</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-6" data-toggle="tab">Encuesta</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-6" data-toggle="tab">Booking List</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-7" data-toggle="tab">Encuesta</a></li>
                   </ul>
                 </div>
               </div>
@@ -167,8 +168,17 @@
                       <div class="event-item-classic">
                         <div class="event-item-classic-caption">
                           
-                          <h4 class="event-item-classic-title"><a href="{{  url($encuesta) }}" target="_blank">{{  $encuesta }}</a></h4> 
+                        <h4 class="event-item-classic-title"><a href="{{  url($booking) }}" target="_blank">{{  $booking }}</a></h4> 
 
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="tabs-1-7">
+                      <div class="event-item-classic">
+                        <div class="event-item-classic-caption">
+                          
+                          <h4 class="event-item-classic-title"><a href="{{  url($encuesta) }}" target="_blank">{{  $encuesta }}</a></h4> 
                         </div>
                       </div>
                     </div>
