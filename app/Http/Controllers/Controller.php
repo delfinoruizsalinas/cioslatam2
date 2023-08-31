@@ -82,7 +82,7 @@ class Controller extends BaseController
                 
                 $dataVlog[] = array('titulo'=>$valuevlog->attributes->titulo,
                                     'fecha'=> Carbon::parse($valuevlog->attributes->fecha)->translatedFormat('d F, Y'), 
-                                    'hora'=> Carbon::parse($valuevlog->attributes->hora)->format('h:m'),                                     
+                                    'hora'=> substr($valuevlog->attributes->hora, 0, 5),                                     
                                     'youtube' => $valuevlog->attributes->youtube,
                                     'url_img' => $urlImg,                                    
                                 );
