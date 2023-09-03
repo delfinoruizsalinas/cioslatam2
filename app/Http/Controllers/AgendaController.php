@@ -84,20 +84,73 @@ class AgendaController extends Controller
 
                 }else{
                     $encuesta = $value->attributes->ENCUESTA;
-
                 } 
                 if(empty($value->attributes->BOOKING)){
                     $booking = '';
-
                 }else{
                     $booking = $value->attributes->BOOKING;
-
                 } 
                 
-                
+                if(empty($value->attributes->BePrime)){
+                    $BePrime = '';
+                }else{
+                    $BePrime = $value->attributes->BePrime;
+                }
+                if(empty($value->attributes->Syniti)){
+                    $Syniti = '';
+                }else{
+                    $Syniti = $value->attributes->Syniti;
+                }
+                if(empty($value->attributes->RakenDataGroup)){
+                    $RakenDataGroup = '';
+                }else{
+                    $RakenDataGroup = $value->attributes->RakenDataGroup;
+                } 
+                if(empty($value->attributes->Nutanix)){
+                    $Nutanix = '';
+                }else{
+                    $Nutanix = $value->attributes->Nutanix;
+                } 
+                if(empty($value->attributes->Appsell)){
+                    $Appsell = '';
+
+                }else{
+                    $Appsell = $value->attributes->Appsell;
+                } 
+                if(empty($value->attributes->C3ntroTelecom)){
+                    $C3ntroTelecom = '';
+
+                }else{
+                    $C3ntroTelecom = $value->attributes->C3ntroTelecom;
+                } 
+                if(empty($value->attributes->Equinix)){
+                    $Equinix = '';
+
+                }else{
+                    $Equinix = $value->attributes->Equinix;
+                } 
+                if(empty($value->attributes->Linko)){
+                    $Linko = '';
+
+                }else{
+                    $Linko = $value->attributes->Linko;
+                } 
+                if(empty($value->attributes->NETjer)){
+                    $NETjer = '';
+
+                }else{
+                    $NETjer = $value->attributes->NETjer;
+                } 
+                if(empty($value->attributes->Digital)){
+                    $Digital = '';
+
+                }else{
+                    $Digital = $value->attributes->Digital;
+                } 
+   
             }               
 
          
-        return view('layouts.agenda', compact('title','sep7','sep8','sep9','sep10','dia7_file','dia7_name','dia8_file','dia8_name','dia9_file','dia9_name','dia7_clase', 'dia8_clase','dia9_clase','encuesta','booking'));
+        return view('layouts.agenda', compact('title','sep7','sep8','sep9','sep10','dia7_file','dia7_name','dia8_file','dia8_name','dia9_file','dia9_name','dia7_clase', 'dia8_clase','dia9_clase','encuesta','booking','BePrime','Syniti','RakenDataGroup','Nutanix','Appsell','C3ntroTelecom','Equinix','Linko','NETjer','Digital'));
     }
 }

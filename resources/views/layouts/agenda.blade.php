@@ -90,7 +90,8 @@
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-4" data-toggle="tab">10 Septiembre</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-5" data-toggle="tab">Ubica tu mesa</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-6" data-toggle="tab">Booking List</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-7" data-toggle="tab">Encuesta</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-7" data-toggle="tab">Encuestas Partners</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-8" data-toggle="tab">Encuesta Final</a></li>                    
                   </ul>
                 </div>
               </div>
@@ -175,6 +176,25 @@
                     </div>
 
                     <div class="tab-pane fade" id="tabs-1-7">
+                      <div class="event-item-classic">
+                        <div class="event-item-classic-caption">
+                          
+                          <h4 class="event-item-classic-title"><a href="{{  url($BePrime) }}" target="_blank">Be Prime</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($Syniti) }}" target="_blank">Syniti</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($RakenDataGroup) }}" target="_blank">Raken Data Group</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($Nutanix) }}" target="_blank">Nutanix</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($Appsell) }}" target="_blank">Appsell</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($C3ntroTelecom) }}" target="_blank">C3ntro Telecom</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($Equinix) }}" target="_blank">Equinix</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($Linko) }}" target="_blank">Linko</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($NETjer) }}" target="_blank">NETjer</a></h4>
+                          <h4 class="event-item-classic-title"><a href="{{  url($Digital) }}" target="_blank">Digital</a></h4>                                                                                                                                                                                       
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="tabs-1-8">
                       <div class="event-item-classic">
                         <div class="event-item-classic-caption">
                           
