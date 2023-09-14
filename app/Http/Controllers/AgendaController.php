@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 class AgendaController extends Controller
 {
     public function index(){
+        return redirect('/');
+        
         $title = "Agenda Technology Retreat 2023 Ixtapa Zihuatanejo";
               
                                                           
