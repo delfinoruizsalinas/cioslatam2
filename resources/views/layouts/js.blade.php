@@ -6,4 +6,5 @@
     moment.locale('es');
 
     $("#date_now").text(moment(Date.now()).format('LL'));
+    
 </script>

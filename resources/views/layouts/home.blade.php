@@ -5,6 +5,9 @@
     @include('layouts.css')
     <style>
 
+    .header-border{
+      border-top: 5px solid #555;
+    }
     .icono_evento{
       bottom: 20px;
       width: 60px;
@@ -45,6 +48,10 @@
     }
     .post-minimal {
       margin-top: 10px;
+      border-bottom: 1px solid #eaeaea;
+      margin-bottom: 10px;
+      display: flex;
+      
     }
     .box-countdown-dark {
 
@@ -123,7 +130,7 @@
       <!-- Page Header-->
         @include('layouts.header')
       <!-- Swiper-->
-      <section class="section section-lg section-main-bunner section-main-bunner-filter">
+      <!--<section class="section section-lg section-main-bunner section-main-bunner-filter">
         <div class="main-bunner-img" style="background-image: url(&quot;/dash/images/cios/transformacion-digital.jpg&quot;); background-size: cover;"></div>
         <div class="main-bunner-inner">
           <div class="container">
@@ -140,9 +147,52 @@
             </div>
           </div>
         </div>
-      </section>
-      
+      </section>-->
+      <!-- End Section single-->
 
+      <!-- Swiper-->
+      <section class="section swiper-container swiper-slider swiper-slider-1 section-main-bunner section-main-bunner-filter" data-loop="false" data-autoplay="5000" data-simulate-touch="false">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide context-dark" style="background-image: url(&quot;/dash/images/cios/transformacion-digital.jpg&quot;); background-size: cover; animation: bunner-img 7s infinite;">
+            <div class="swiper-slide-caption section-lg" style="background: linear-gradient(359.73deg, #50896a 0.9%, rgba(60, 55, 79, 0.45) 107.43%); position: absolute; top: 0; left: 0; bottom: 0; right: 0; content: ''; z-index:1;">
+              <div class="container">
+                <div class="row justify-content-md-center">
+
+                  <div class="col-md-9">
+                    <div class="bunner-content-modern text-center">
+                      <p class="text-accent-2" data-caption-animate="fadeInLeft" data-caption-delay="150">CIO's</p>
+                      <div class="box-location" style="position: initial;">
+                        <h4 class="text-accent-3" data-caption-animate="fadeInLeft" data-caption-delay="250">Latam</h4>
+                        <h5 class="text-secondary" data-caption-animate="fadeInLeft" data-caption-delay="350" id="date_now"></h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide context-dark" style="background-image: url(&quot;/dash/images/cios/IMG_1308_SMALL.JPG&quot;); background-size: cover; background-position: 50% 50%;">
+            <div class="swiper-slide-caption section-lg">
+              <div class="container">
+                <div class="row row-30 justify-content-md-center align-items-md-end">
+                  <div class="col-md-7 order-md-1">
+                    <h5><span data-caption-animate="fadeInLeft" data-caption-delay="150">2023 - 7/10 SEP.</span></h5>
+                    <h2 class="text-accent-3"><span data-caption-animate="fadeInLeft" data-caption-delay="350">TECHNOLOGY RETREAT</span></h2>                  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Swiper Pagination -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-counter"></div>
+        <!-- Swiper Navigation-->
+        <div class="swiper-button-prev fa-arrow-left"></div>
+        <div class="swiper-button-next fa-arrow-right"></div>
+      </section>
+
+      <!-- PROXIMOS EVENTOS -->
       <section class="section section-lg bg-default">
         <div class="container">
           <!-- <h3 class="text-center"></h3> -->
@@ -167,16 +217,16 @@
  
 
                       <div class="event-item-modern event-active"> <span class="event-dot"></span>
-                        <p class="event-time">7 / 10 de Septiembre 2023 </p>
+                        <p class="event-time">Diciembre 9 2023 </p>
                         <div class="gallery-item-classic">
                           <h4 class="event-item-modern-title">
-                            <a href="https://www.youtube.com/watch?v=Wej0wMdy3QU" data-lightgallery="item">
-                            Technology Retreat 2023 | Promo | Rodrigo Pacheco
+                            <a href="https://www.youtube.com/watch?v=nqYEXOIh5jY" data-lightgallery="item">
+                            CHRISTMAS NIGHT CIO's LATAM | CDMX Diciembre 9 2023
                             </a>
                           </h4>
                         </div>
                         <div class="event-item-modern-text"> 
-                          <p>CIO's LATAM 2023 en Ixtapa Zihuatanejo</p>
+                          <p>Promo SANTA "Rubén Cerda" CIO's LATAM Christmas Night el 9 de Diciembre en CDMX</p>
                         </div>
                       </div>
                       
@@ -190,12 +240,51 @@
         </div>
       </section>
 
+      <!-- Lo mas reciente en CIOSLATAM -->
+      <section class="section-lg bg-default">
+        <div class="container wow-outer">
+          <h3 class="text-center wow slideInDown header-border">Lo más reciente en CIOSLATAM</h3>
+          <!-- Owl Carousel-->
+          
+          @if(count($dataCollage) >=3)
+          <div class="owl-carousel owl-dots-dark wow fadeInUp" data-items="1" data-autoplay="true" data-lg-items="3" data-dots="true" data-nav="false" data-stage-padding="15" data-loop="true" data-margin="30" data-mouse-drag="false">
+          @else
+          <div class="owl-carousel owl-dots-dark wow fadeInUp" data-items="1" data-autoplay="true" data-dots="true" data-nav="false" data-stage-padding="15" data-loop="true" data-margin="30" data-mouse-drag="false">
+          @endif
+            @foreach($dataCollage as $dataposts)
+
+              @if(isset($dataposts[0]['id']))
+                <div class="post-corporate post-corporate-img-bg">
+                  <div class="post-corporate-bg" style="background-image: url({{ $dataposts[0]['url_img'] }} ); background-size: cover;"></div><a class="badge post-corporate-badge" href="cios-connect-detalle/{{ $dataposts[0]['id'] }}" target="_blank"><!--<img src="news/{{ json_encode($dataposts[0]['url_img']) }}" style="height: 80px;">--></a>
+                  <h4 class="post-corporate-title"><a href="cios-connect-detalle/{{ $dataposts[0]['id'] }}" target="_blank"> {{ Str::limit($dataposts[0]['titulo'], 40) }}</a></h4>
+                  
+                  <ul class="post-classic-meta">
+                    <li style="color: #ffffff;font-size: 12px"> {{ $dataposts[0]['fecha'] }}</li>
+                  </ul>
+                </div>
+              @else
+                <div class="post-corporate post-corporate-img-bg">
+                  <div class="post-corporate-bg" style="background-image: url({{ $dataposts[0]['url_img'] }} ); background-size: cover;"></div><a class="badge post-corporate-badge" href="{{ $dataposts[0]['youtube'] }}" target="_blank"><!--<img src="news/{{ json_encode($dataposts[0]['url_img']) }}" style="height: 80px;">--></a>
+                  <h4 class="post-corporate-title"><a href="{{ $dataposts[0]['youtube'] }}" target="_blank"> {{ Str::limit($dataposts[0]['titulo'], 40) }} </a></h4>
+                  
+                  <ul class="post-classic-meta">
+                    <li style="color: #ffffff;font-size: 12px"> {{ $dataposts[0]['fecha'] }}</li>
+                  </ul>
+                </div>
+              @endif
+
+                            
+            @endforeach  
+          </div>
+        </div>
+      </section>  
+
       <section class="bg-gray-200">
         <div class="container">
 
           <div class="row row-70 justify-content-xl-between">
             <div class="col-lg-8">
-              <h3 class="wow slideInDown mobile-center"><a href="{{ url('/noticias') }}">Últimas Noticias</a></h3>
+              <h3 class="wow slideInDown mobile-center header-border header-border"><a href="{{ url('/noticias') }}">Últimas Noticias</a></h3>
               <div class="row row-50 justify-content-center">
                 @foreach($noticias as $noti)
                   <div class="col-md-6">
@@ -219,7 +308,7 @@
             <div class="col-lg-4 col-xl-4">
               <div class="block-aside">
                 <div class="block-aside-item">
-                  <h3 class="wow slideInDown" style="margin-bottom: 10px;"><a href="{{ url('/la-voz-de-nuestros-miembros') }}">La voz de nuestros Miembros</a></h3>
+                  <h3 class="wow slideInDown header-border" style="margin-bottom: 10px;"><a href="{{ url('/la-voz-de-nuestros-miembros') }}">La voz de nuestros Miembros</a></h3>
                   <div class="space-mobail"></div>
                   @foreach($dataPostMiembro as $notiMiembro)
                     
@@ -252,9 +341,9 @@
         </div>
       </section>
 
-      <section class="section-lg bg-default" style="padding: 0px 0;">
+      <section class="section-lg bg-default">
         <div class="container wow-outer">
-          <h3 class="text-center wow slideInDown">Contenido de nuestros Partners</h3>
+          <h3 class="text-center wow slideInDown header-border">Contenido de nuestros Partners</h3>
           <!-- Owl Carousel-->
           @if(count($dataPostPartner) >=3)
           <div class="owl-carousel owl-dots-dark wow fadeInUp" data-items="1" data-autoplay="true" data-lg-items="3" data-dots="true" data-nav="false" data-stage-padding="15" data-loop="true" data-margin="30" data-mouse-drag="false">
