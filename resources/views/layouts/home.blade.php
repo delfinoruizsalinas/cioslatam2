@@ -11,6 +11,12 @@
       }
     }
     
+    @media (min-width: 1280px){
+      .bunner-content-modern .text-accent-2{
+        font-size: 300px;
+        margin-top: 100px;
+      }
+    }
 
     .header-border{
       border-top: 5px solid #555;
