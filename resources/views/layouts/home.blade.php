@@ -11,7 +11,7 @@
       }
     }
     
-    @media (min-width: 1280px){
+    @media (min-width: 1799px){
       .bunner-content-modern .text-accent-2{
         font-size: 300px;
         margin-top: 100px;
