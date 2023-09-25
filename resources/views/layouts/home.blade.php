@@ -4,7 +4,12 @@
     <title>{{  $title }}</title>
     @include('layouts.css')
     <style>
-
+    @media (max-width: 400px) {
+      .bunner-content-modern .text-accent-2{
+        font-size: 62px;
+        margin-top: -56px;
+      }
+    }
     @media (min-width: 992px){
       .bunner-content-modern .text-accent-2{
         font-size: 220px;
