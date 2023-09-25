@@ -40,10 +40,10 @@
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-12 col-lg-9">
-                <h2 class="breadcrumbs-custom-title">CIO’s LATAM - La voz de nuestros Miembros</h2>
+                <h2 class="breadcrumbs-custom-title">CIO’s - La voz de nuestros Miembros</h2>
                 <ul class="breadcrumbs-custom-path">
                   <li><a href="/">Inicio</a></li>
-                  <li class="active">CIO’s LATAM - La voz de nuestros Miembros</li>
+                  <li class="active">CIO’s - La voz de nuestros Miembros</li>
                 </ul>
               </div>
             </div>

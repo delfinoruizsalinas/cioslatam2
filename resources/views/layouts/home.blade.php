@@ -5,6 +5,13 @@
     @include('layouts.css')
     <style>
 
+    @media (min-width: 992px){
+      .bunner-content-modern .text-accent-2{
+        font-size: 220px;
+      }
+    }
+    
+
     .header-border{
       border-top: 5px solid #555;
     }
@@ -155,18 +162,21 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide context-dark" style="background-image: url(&quot;/dash/images/cios/transformacion-digital.jpg&quot;); background-size: cover; animation: bunner-img 7s infinite;">
             <div class="swiper-slide-caption section-lg" style="background: linear-gradient(359.73deg, #50896a 0.9%, rgba(60, 55, 79, 0.45) 107.43%); position: absolute; top: 0; left: 0; bottom: 0; right: 0; content: ''; z-index:1;">
-              <div class="container">
-                <div class="row justify-content-md-center">
+              <div class="container" style="overflow: visible;">
+                <div class="row row-50 justify-content-lg-center align-items-lg-center">
+                  <div class="col-md-12" id="cioslatamhome">
+                  </div>
 
-                  <div class="col-md-9">
+                  <div class="col-md-12 order-md-1">
                     <div class="bunner-content-modern text-center">
                       <p class="text-accent-2" data-caption-animate="fadeInLeft" data-caption-delay="150">CIO's</p>
                       <div class="box-location" style="position: initial;">
-                        <h4 class="text-accent-3" data-caption-animate="fadeInLeft" data-caption-delay="250">Latam</h4>
+                        <h4 data-caption-animate="fadeInLeft" data-caption-delay="250">Latam</h4>
                         <h5 class="text-secondary" data-caption-animate="fadeInLeft" data-caption-delay="350" id="date_now"></h5>
                       </div>
                     </div>
                   </div>
+                  
                 </div>
               </div>
             </div>
@@ -387,7 +397,7 @@
           <div class="row">
             <div class="col-lg-1 col-xl-2">
               <div class="tabs-creative-title">
-                <h3 class="title-decorate title-decorate-left">Eventos</h3>
+                <h3 class="title-decorate title-decorate-left">Formatos</h3>
               </div>
             </div>
             <div class="col-lg-11 col-xl-10">

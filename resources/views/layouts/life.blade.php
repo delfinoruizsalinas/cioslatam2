@@ -43,10 +43,10 @@ $url_site = 'http://188.166.16.108:1337';
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-12 col-lg-9">
-                <h2 class="breadcrumbs-custom-title">CIO’s LATAM - Life</h2>
+                <h2 class="breadcrumbs-custom-title">CIO’s - Life</h2>
                 <ul class="breadcrumbs-custom-path">
                   <li><a href="/">Inicio</a></li>
-                  <li class="active">CIO’s LATAM - Life</li>
+                  <li class="active">CIO’s - Life</li>
                 </ul>
               </div>
             </div>

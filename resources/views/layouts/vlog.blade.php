@@ -43,10 +43,10 @@
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-12 col-lg-9">
-                <h2 class="breadcrumbs-custom-title">CIO’s LATAM - Vlog</h2>
+                <h2 class="breadcrumbs-custom-title">CIO’s - Vlog</h2>
                 <ul class="breadcrumbs-custom-path">
                   <li><a href="/">Inicio</a></li>
-                  <li class="active">CIO’s LATAM - Vlog</li>
+                  <li class="active">CIO’s - Vlog</li>
                 </ul>
               </div>
             </div>
