@@ -151,7 +151,7 @@
       <!-- End Section single-->
 
       <!-- Swiper-->
-      <section class="section swiper-container swiper-slider swiper-slider-1 section-main-bunner section-main-bunner-filter" data-loop="false" data-autoplay="5000" data-simulate-touch="false">
+      <section class="section swiper-container swiper-slider swiper-slider-1 section-main-bunner section-main-bunner-filter" data-loop="false" data-autoplay="6000" data-simulate-touch="false">
         <div class="swiper-wrapper">
           <div class="swiper-slide context-dark" style="background-image: url(&quot;/dash/images/cios/transformacion-digital.jpg&quot;); background-size: cover; animation: bunner-img 7s infinite;">
             <div class="swiper-slide-caption section-lg" style="background: linear-gradient(359.73deg, #50896a 0.9%, rgba(60, 55, 79, 0.45) 107.43%); position: absolute; top: 0; left: 0; bottom: 0; right: 0; content: ''; z-index:1;">
@@ -171,7 +171,7 @@
               </div>
             </div>
           </div>
-          <div class="swiper-slide context-dark" style="background-image: url(&quot;/dash/images/cios/IMG_1308_SMALL.JPG&quot;); background-size: cover; background-position: 50% 50%;">
+          <div class="swiper-slide context-dark" style="background-image: url(&quot;/dash/images/cios/IMG_1308_SMALL1.JPG&quot;); background-size: cover; background-position: 50% 50%;">
             <div class="swiper-slide-caption section-lg">
               <div class="container">
                 <div class="row row-30 justify-content-md-center align-items-md-end">
@@ -183,6 +183,18 @@
               </div>
             </div>
           </div>
+          <div class="swiper-slide context-dark" style="background-image: url(&quot;/dash/images/cios/Cristmas.png&quot;); background-size: cover; background-position: 50% 50%;">
+            <div class="swiper-slide-caption section-lg">
+              <div class="container">
+                <div class="row row-30 justify-content-md-center align-items-md-end">
+                  <div class="col-md-7 order-md-1">
+                    <h5><span data-caption-animate="fadeInLeft" data-caption-delay="150"></span></h5>
+                    <h2 class="text-accent-3"><span data-caption-animate="fadeInLeft" data-caption-delay="350"></span></h2>                  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>          
         </div>
         <!-- Swiper Pagination -->
         <div class="swiper-pagination"></div>
@@ -192,6 +204,7 @@
         <div class="swiper-button-next fa-arrow-right"></div>
       </section>
 
+      @if(count($dataProxEvnts) >= 1)
       <!-- PROXIMOS EVENTOS -->
       <section class="section section-lg bg-default">
         <div class="container">
@@ -205,31 +218,34 @@
                 <div class="tab-content">
                   <div class="tab-pane fade show active" id="tabs-1-1a">
                     <div class="box-event-modern">
-                      
-                      <!-- <div class="event-item-modern event-active"> <span class="event-dot"></span>
-                        <p class="event-time">25 de Julio a las 19 horas </p>
-                        <h4 class="event-item-modern-title">
-                          <a href="https://www.youtube.com/watch?v=LFu8roGtKjI" data-lightgallery="item">"Observabilidad | Garantizando el Valor de la Transformación Digital Primera Parte" | NETjer </a>
-                        </h4>
-                        <div class="event-item-modern-text"> 
-                        </div>
-                      </div>-->
- 
 
-                      <div class="event-item-modern event-active"> <span class="event-dot"></span>
-                        <p class="event-time">Diciembre 9 2023 </p>
-                        <div class="gallery-item-classic">
-                          <h4 class="event-item-modern-title">
-                            <a href="https://www.youtube.com/watch?v=nqYEXOIh5jY" data-lightgallery="item">
-                            CHRISTMAS NIGHT CIO's LATAM | CDMX Diciembre 9 2023
-                            </a>
-                          </h4>
-                        </div>
-                        <div class="event-item-modern-text"> 
-                          <p>Promo SANTA "Rubén Cerda" CIO's LATAM Christmas Night el 9 de Diciembre en CDMX</p>
-                        </div>
-                      </div>
-                      
+                    @foreach($dataProxEvnts as $dataposts)
+                      @if(isset($dataposts[0]['id']))
+                        <div class="event-item-modern event-active"> <span class="event-dot"></span>
+                          <p class="event-time">{{ $dataposts[0]['fecha'] }} </p>
+                          <div class="gallery-item-classic">
+                            <h4 class="event-item-modern-title">
+                              <a href="cios-connect-detalle/{{ $dataposts[0]['id'] }}" target="_blank">
+                              {{ $dataposts[0]['titulo'] }}
+                              </a>
+                            </h4>
+                          </div>
+                        </div>  
+                      @else
+                        <div class="event-item-modern event-active"> <span class="event-dot"></span>
+                          <p class="event-time">{{ $dataposts[0]['fecha'] }} </p>
+                          <div class="gallery-item-classic">
+                            <h4 class="event-item-modern-title">
+                            <a href="{{ $dataposts[0]['youtube'] }}" data-lightgallery="item">
+                              {{ $dataposts[0]['titulo'] }}
+                              </a>
+                            </h4>
+                          </div>
+
+                        </div>  
+                      @endif
+
+                    @endforeach
                     </div>
                   </div>
                   
@@ -239,11 +255,12 @@
           </div>
         </div>
       </section>
+      @endif
 
       <!-- Lo mas reciente en CIOSLATAM -->
       <section class="section-lg bg-default">
         <div class="container wow-outer">
-          <h3 class="text-center wow slideInDown header-border">Lo más reciente en CIOSLATAM</h3>
+          <h3 class="text-center wow slideInDown header-border">Lo más Reciente</h3>
           <!-- Owl Carousel-->
           
           @if(count($dataCollage) >=3)
@@ -381,7 +398,7 @@
                   <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3" data-toggle="tab">CIO’s Life</a></li>
                   <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-4" data-toggle="tab">Programa “Entre Amigos”</a></li>
                   <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-5" data-toggle="tab">Mesa de Debate</a></li>
-                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-6" data-toggle="tab">Master class</a></li>                                    
+                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-6" data-toggle="tab">Master Class</a></li>                                    
                 </ul>
               </div>
             </div>

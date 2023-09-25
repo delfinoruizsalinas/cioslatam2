@@ -65,6 +65,13 @@ class Controller extends BaseController
             $i++;
         }
 
+        $dataVlog1 = array();
+        $dataPres1 = array();
+        $dataLife1 = array();
+        $dataAmigos1 = array();
+        $dataDebate1 = array();
+        $dataMaster1 = array();
+        
         //VLOG
         $url_site = 'http://188.166.16.108:1337';
         $urlVlog = $url_site.'/api/evento-virtuals?populate=imagen&sort[5]=fecha%3Adesc';
@@ -80,13 +87,14 @@ class Controller extends BaseController
                     $urlImg = $valuevlog->attributes->imagen->data->attributes->formats->small->url;
                 }
                 
+                //Carbon::parse($valuevlog->attributes->fecha)->format('m')
                 $dataVlog[] = array('titulo'=>$valuevlog->attributes->titulo,
-                                    'fecha'=> Carbon::parse($valuevlog->attributes->fecha)->translatedFormat('d F, Y'), 
-                                    'fecha1'=> Carbon::parse($valuevlog->attributes->fecha)->format('m'), 
-                                    'hora'=> substr($valuevlog->attributes->hora, 0, 5),                                     
-                                    'youtube' => $valuevlog->attributes->youtube,
-                                    'url_img' => $urlImg,                                    
-                                );
+                                'fecha'=> Carbon::parse($valuevlog->attributes->fecha)->translatedFormat('d F, Y'), 
+                                'fecha1'=> Carbon::parse($valuevlog->attributes->fecha)->format('m'), 
+                                'hora'=> substr($valuevlog->attributes->hora, 0, 5),                                     
+                                'youtube' => $valuevlog->attributes->youtube,
+                                'url_img' => $urlImg,                                    
+                            );
             }
             if($i <=9){
                 if(empty($valuevlog->attributes->imagen->data->attributes->formats->small)){
@@ -95,13 +103,16 @@ class Controller extends BaseController
                     $urlImg = $valuevlog->attributes->imagen->data->attributes->formats->small->url;
                 }
                 
-                $dataVlog1[] = array('titulo'=>$valuevlog->attributes->titulo,
-                                    'fecha'=> Carbon::parse($valuevlog->attributes->fecha)->translatedFormat('d F, Y'), 
-                                    'fecha1'=> Carbon::parse($valuevlog->attributes->fecha)->format('m'), 
-                                    'hora'=> substr($valuevlog->attributes->hora, 0, 5),                                     
-                                    'youtube' => $valuevlog->attributes->youtube,
-                                    'url_img' => $urlImg,                                    
-                                );
+                if(Carbon::parse($valuevlog->attributes->fecha)->format('y') == Carbon::now()->format('y')){
+                    $dataVlog1[] = array('titulo'=>$valuevlog->attributes->titulo,
+                        'fecha'=> Carbon::parse($valuevlog->attributes->fecha)->translatedFormat('d F, Y'), 
+                        'fecha1'=> Carbon::parse($valuevlog->attributes->fecha)->format('m'),
+                        'fecha2'=> Carbon::parse($valuevlog->attributes->fecha)->format('y-m-d'), 
+                        'hora'=> substr($valuevlog->attributes->hora, 0, 5),                                     
+                        'youtube' => $valuevlog->attributes->youtube,
+                        'url_img' => $urlImg,                                    
+                    );
+                }                
             }
             $i++;
         }
@@ -133,14 +144,16 @@ class Controller extends BaseController
                 }else{
                     $urlImg = $valuepres->attributes->imagen->data->attributes->formats->small->url;
                 }
-
-                $dataPres1[] = array('id'=> $valuepres->id,
+                if(Carbon::parse($valuepres->attributes->fecha)->format('y') == Carbon::now()->format('y')){
+                    $dataPres1[] = array('id'=> $valuepres->id,
                                     'titulo'=>$valuepres->attributes->titulo,
                                     'fecha'=> Carbon::parse($valuepres->attributes->fecha)->translatedFormat('d F, Y'),
-                                    'fecha1'=> Carbon::parse($valuepres->attributes->fecha)->format('m'),                                    
+                                    'fecha1'=> Carbon::parse($valuepres->attributes->fecha)->format('m'), 
+                                    'fecha2'=> Carbon::parse($valuepres->attributes->fecha)->format('y-m-d'),
                                     'ubicacion' => $valuepres->attributes->ubicacion,
                                     'url_img' => $urlImg,                                    
                                 );
+                }                     
             }
             $i++;
         }
@@ -173,13 +186,15 @@ class Controller extends BaseController
                 }else{
                     $urlImg = $valuelife->attributes->imagen->data->attributes->formats->small->url;
                 }
-        
-                $dataLife1[] = array('titulo'=>$valuelife->attributes->titulo,
+                if(Carbon::parse($valuelife->attributes->fecha)->format('y') == Carbon::now()->format('y')){
+                    $dataLife1[] = array('titulo'=>$valuelife->attributes->titulo,
                                     'fecha'=> Carbon::parse($valuelife->attributes->fecha)->translatedFormat('d F, Y'),
-                                    'fecha1'=> Carbon::parse($valuelife->attributes->fecha)->format('m'),                                    
+                                    'fecha1'=> Carbon::parse($valuelife->attributes->fecha)->format('m'),
+                                    'fecha2'=> Carbon::parse($valuelife->attributes->fecha)->format('y-m-d'),                                    
                                     'youtube' => $valuelife->attributes->youtube,
                                     'url_img' => $urlImg,                                    
                                 );
+                }                
             }
             $i++;
         }
@@ -211,13 +226,15 @@ class Controller extends BaseController
                 }else{
                     $urlImg = $valueamigos->attributes->imagen->data->attributes->formats->small->url;
                 }
-        
-                $dataAmigos1[] = array('titulo'=>$valueamigos->attributes->titulo,
+                if(Carbon::parse($valueamigos->attributes->fecha)->format('y') == Carbon::now()->format('y')){
+                    $dataAmigos1[] = array('titulo'=>$valueamigos->attributes->titulo,
                                     'fecha'=> Carbon::parse($valueamigos->attributes->fecha)->translatedFormat('d F, Y'),  
-                                    'fecha1'=> Carbon::parse($valueamigos->attributes->fecha)->format('m'),                                     
+                                    'fecha1'=> Carbon::parse($valueamigos->attributes->fecha)->format('m'),  
+                                    'fecha2'=> Carbon::parse($valueamigos->attributes->fecha)->format('y-m-d'),                                     
                                     'youtube' => $valueamigos->attributes->youtube,
                                     'url_img' => $urlImg,                                    
                                 );
+                }                
             }
             $i++;
         }
@@ -235,13 +252,12 @@ class Controller extends BaseController
                 }else{
                     $urlImg = $valuedebate->attributes->imagen->data->attributes->formats->small->url;
                 }
-        
-                $dataDebate[] = array('titulo'=>$valuedebate->attributes->titulo,
-                                    'fecha'=> Carbon::parse($valuedebate->attributes->fecha)->translatedFormat('d F, Y'),  
-                                    'fecha1'=> Carbon::parse($valuedebate->attributes->fecha)->format('m'),                                    
-                                    'youtube' => $valuedebate->attributes->youtube,
-                                    'url_img' => $urlImg,                                    
-                                );
+                    $dataDebate[] = array('titulo'=>$valuedebate->attributes->titulo,
+                        'fecha'=> Carbon::parse($valuedebate->attributes->fecha)->translatedFormat('d F, Y'),  
+                        'fecha1'=> Carbon::parse($valuedebate->attributes->fecha)->format('m'),                                    
+                        'youtube' => $valuedebate->attributes->youtube,
+                        'url_img' => $urlImg,                                    
+                    );                 
             }
             if($i <=9){
                 if(empty($valuedebate->attributes->imagen->data->attributes->formats->small)){
@@ -249,13 +265,16 @@ class Controller extends BaseController
                 }else{
                     $urlImg = $valuedebate->attributes->imagen->data->attributes->formats->small->url;
                 }
-        
-                $dataDebate1[] = array('titulo'=>$valuedebate->attributes->titulo,
-                                    'fecha'=> Carbon::parse($valuedebate->attributes->fecha)->translatedFormat('d F, Y'),  
-                                    'fecha1'=> Carbon::parse($valuedebate->attributes->fecha)->format('m'),                                    
-                                    'youtube' => $valuedebate->attributes->youtube,
-                                    'url_img' => $urlImg,                                    
-                                );
+                
+                if(Carbon::parse($valuedebate->attributes->fecha)->format('y') == Carbon::now()->format('y')){
+                    $dataDebate1[] = array('titulo'=>$valuedebate->attributes->titulo,
+                        'fecha'=> Carbon::parse($valuedebate->attributes->fecha)->translatedFormat('d F, Y'),  
+                        'fecha1'=> Carbon::parse($valuedebate->attributes->fecha)->format('m'),
+                        'fecha2'=> Carbon::parse($valuedebate->attributes->fecha)->format('y-m-d'),                                    
+                        'youtube' => $valuedebate->attributes->youtube,
+                        'url_img' => $urlImg,                                    
+                    );
+                }                  
             }
             $i++;
         }        
@@ -275,11 +294,12 @@ class Controller extends BaseController
                 }
         
                 $dataMaster[] = array('titulo'=>$valuemaster->attributes->titulo,
-                                    'fecha'=> Carbon::parse($valuemaster->attributes->fecha)->translatedFormat('d F, Y'),
-                                    'fecha1'=> Carbon::parse($valuemaster->attributes->fecha)->format('m'),                                      
-                                    'youtube' => $valuemaster->attributes->youtube,
-                                    'url_img' => $urlImg,                                    
-                                );
+                    'fecha'=> Carbon::parse($valuemaster->attributes->fecha)->translatedFormat('d F, Y'),
+                    'fecha1'=> Carbon::parse($valuemaster->attributes->fecha)->format('m'),                                      
+                    'youtube' => $valuemaster->attributes->youtube,
+                    'url_img' => $urlImg,                                    
+                );
+                        
             }
             if($i <=9){
                 if(empty($valuemaster->attributes->imagen->data->attributes->formats->small)){
@@ -287,13 +307,15 @@ class Controller extends BaseController
                 }else{
                     $urlImg = $valuemaster->attributes->imagen->data->attributes->formats->small->url;
                 }
-        
-                $dataMaster1[] = array('titulo'=>$valuemaster->attributes->titulo,
-                                    'fecha'=> Carbon::parse($valuemaster->attributes->fecha)->translatedFormat('d F, Y'),
-                                    'fecha1'=> Carbon::parse($valuemaster->attributes->fecha)->format('m'),                                      
-                                    'youtube' => $valuemaster->attributes->youtube,
-                                    'url_img' => $urlImg,                                    
-                                );
+                if(Carbon::parse($valuemaster->attributes->fecha)->format('y') == Carbon::now()->format('y')){
+                    $dataMaster1[] = array('titulo'=>$valuemaster->attributes->titulo,
+                        'fecha'=> Carbon::parse($valuemaster->attributes->fecha)->translatedFormat('d F, Y'),
+                        'fecha1'=> Carbon::parse($valuemaster->attributes->fecha)->format('m'),        
+                        'fecha2'=> Carbon::parse($valuemaster->attributes->fecha)->format('y-m-d'),                                      
+                        'youtube' => $valuemaster->attributes->youtube,
+                        'url_img' => $urlImg,                                    
+                    );
+               }                 
             }
             $i++;
         }        
@@ -315,12 +337,14 @@ class Controller extends BaseController
 
         // CIOS Vlog, Connect, Life, Entre amigos, Debate, Master Class
         $dataCollage = array();
-
-        
+        $dataProxEvnts = array();
+        $fechaHoy = Carbon::now()->format('y-m-d');
         foreach ($dataVlog1 as $key => $value) {
-            if($value['fecha1'] == Carbon::now()->format('m')){
-                $dataCollage[] = array($value                                    
-                );
+            if($value['fecha1'] == Carbon::now()->format('m')){ 
+                $dataCollage[] = array($value);
+            }
+            if($value['fecha2'] >= $fechaHoy){
+                $dataProxEvnts[] = array($value);
             }
         }
         foreach ($dataPres1 as $key => $value) {
@@ -328,33 +352,47 @@ class Controller extends BaseController
                 $dataCollage[] = array($value                                    
                 );
             }
+            if($value['fecha2'] >= $fechaHoy){
+                $dataProxEvnts[] = array($value);
+            }
         }
         foreach ($dataLife1 as $key => $value) {
             if($value['fecha1'] == Carbon::now()->format('m')){
                 $dataCollage[] = array($value                                    
                 );
             }
+            if($value['fecha2'] >= $fechaHoy){
+                $dataProxEvnts[] = array($value);
+            }
         }
         foreach ($dataAmigos1 as $key => $value) {
             if($value['fecha1'] == Carbon::now()->format('m')){
-                $dataCollage[] = array($value                                    
-                );
+                $dataCollage[] = array($value);
+            }
+            if($value['fecha2'] >= $fechaHoy){
+                $dataProxEvnts[] = array($value);
             }
         }
+
         foreach ($dataDebate1 as $key => $value) {
             if($value['fecha1'] == Carbon::now()->format('m')){
-                $dataCollage[] = array($value                                    
-                );
+                $dataCollage[] = array($value);
+            }
+            if($value['fecha2'] >= $fechaHoy){
+                $dataProxEvnts[] = array($value);
             }
         }
+
         foreach ($dataMaster1 as $key => $value) {
             if($value['fecha1'] == Carbon::now()->format('m')){
                 $dataCollage[] = array($value                                    
                 );
             }
+            if($value['fecha2'] >= $fechaHoy){
+                $dataProxEvnts[] = array($value);
+            }
         }
-        //dd($dataCollage);
-
+        
         //MIEMBROS POST
         $dataPostMiembro = \DB::table('post_miembro')
         ->join('users', 'post_miembro.id_usuario', '=', 'users.id')
@@ -366,6 +404,6 @@ class Controller extends BaseController
         //$dataPostMiembro = json_decode($publicacion_miembro);
         //dd($dataPostMiembro);
 
-        return view('layouts.home', compact('title','noticias','dataVlog','dataPres','dataLife','dataAmigos','dataDebate','dataMaster','members','dataPostPartner','dataPostMiembro', 'dataCollage'));
+        return view('layouts.home', compact('title','noticias','dataVlog','dataPres','dataLife','dataAmigos','dataDebate','dataMaster','members','dataPostPartner','dataPostMiembro', 'dataCollage','dataProxEvnts'));
     }
 }
