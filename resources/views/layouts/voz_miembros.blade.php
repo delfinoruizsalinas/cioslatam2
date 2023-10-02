@@ -13,14 +13,18 @@
         .event-item-classic{
           flex-direction: row-reverse !important;
         }
-    }
-    .icono_evento{
-          bottom: 20px;
-          width: 60px;
-          left: 20px;
-          position: absolute;
-          transition: .5s ease;
-        }
+      }
+      .icono_evento{
+        bottom: 20px;
+        width: 60px;
+        left: 20px;
+        position: absolute;
+        transition: .5s ease;
+      }
+
+      a[href*='tel'], a[href*='mailto'] {
+        white-space: normal;
+      }
     </style>
   </head>
   <body>
