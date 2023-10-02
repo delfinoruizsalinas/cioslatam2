@@ -108,7 +108,8 @@ class Controller extends BaseController
                         'fecha'=> Carbon::parse($valuevlog->attributes->fecha)->translatedFormat('d F, Y'), 
                         'fecha1'=> Carbon::parse($valuevlog->attributes->fecha)->format('m'),
                         'fecha2'=> Carbon::parse($valuevlog->attributes->fecha)->format('y-m-d'), 
-                        'hora'=> substr($valuevlog->attributes->hora, 0, 5),                                     
+                        'hora'=> substr($valuevlog->attributes->hora, 0, 5),
+                        'fecha3'=> Carbon::parse($valuevlog->attributes->fecha .' '. substr($valuevlog->attributes->hora, 0, 5))->getPreciseTimestamp(3),                
                         'youtube' => $valuevlog->attributes->youtube,
                         'url_img' => $urlImg,                                    
                     );
@@ -150,6 +151,7 @@ class Controller extends BaseController
                                     'fecha'=> Carbon::parse($valuepres->attributes->fecha)->translatedFormat('d F, Y'),
                                     'fecha1'=> Carbon::parse($valuepres->attributes->fecha)->format('m'), 
                                     'fecha2'=> Carbon::parse($valuepres->attributes->fecha)->format('y-m-d'),
+                                    'fecha3'=> Carbon::parse($valuepres->attributes->fecha .' 19:00')->getPreciseTimestamp(3),
                                     'ubicacion' => $valuepres->attributes->ubicacion,
                                     'url_img' => $urlImg,                                    
                                 );
@@ -190,7 +192,8 @@ class Controller extends BaseController
                     $dataLife1[] = array('titulo'=>$valuelife->attributes->titulo,
                                     'fecha'=> Carbon::parse($valuelife->attributes->fecha)->translatedFormat('d F, Y'),
                                     'fecha1'=> Carbon::parse($valuelife->attributes->fecha)->format('m'),
-                                    'fecha2'=> Carbon::parse($valuelife->attributes->fecha)->format('y-m-d'),                                    
+                                    'fecha2'=> Carbon::parse($valuelife->attributes->fecha)->format('y-m-d'), 
+                                    'fecha3'=> Carbon::parse($valuelife->attributes->fecha .' '. substr($valuelife->attributes->hora, 0, 5))->getPreciseTimestamp(3),                                   
                                     'youtube' => $valuelife->attributes->youtube,
                                     'url_img' => $urlImg,                                    
                                 );
@@ -230,7 +233,8 @@ class Controller extends BaseController
                     $dataAmigos1[] = array('titulo'=>$valueamigos->attributes->titulo,
                                     'fecha'=> Carbon::parse($valueamigos->attributes->fecha)->translatedFormat('d F, Y'),  
                                     'fecha1'=> Carbon::parse($valueamigos->attributes->fecha)->format('m'),  
-                                    'fecha2'=> Carbon::parse($valueamigos->attributes->fecha)->format('y-m-d'),                                     
+                                    'fecha2'=> Carbon::parse($valueamigos->attributes->fecha)->format('y-m-d'),  
+                                    'fecha3'=> Carbon::parse($valueamigos->attributes->fecha .' '. substr($valueamigos->attributes->hora, 0, 5))->getPreciseTimestamp(3),                                    
                                     'youtube' => $valueamigos->attributes->youtube,
                                     'url_img' => $urlImg,                                    
                                 );
@@ -270,7 +274,8 @@ class Controller extends BaseController
                     $dataDebate1[] = array('titulo'=>$valuedebate->attributes->titulo,
                         'fecha'=> Carbon::parse($valuedebate->attributes->fecha)->translatedFormat('d F, Y'),  
                         'fecha1'=> Carbon::parse($valuedebate->attributes->fecha)->format('m'),
-                        'fecha2'=> Carbon::parse($valuedebate->attributes->fecha)->format('y-m-d'),                                    
+                        'fecha2'=> Carbon::parse($valuedebate->attributes->fecha)->format('y-m-d'),     
+                        'fecha3'=> Carbon::parse($valuedebate->attributes->fecha .' '. substr($valuedebate->attributes->hora, 0, 5))->getPreciseTimestamp(3),                                                             
                         'youtube' => $valuedebate->attributes->youtube,
                         'url_img' => $urlImg,                                    
                     );
@@ -311,7 +316,8 @@ class Controller extends BaseController
                     $dataMaster1[] = array('titulo'=>$valuemaster->attributes->titulo,
                         'fecha'=> Carbon::parse($valuemaster->attributes->fecha)->translatedFormat('d F, Y'),
                         'fecha1'=> Carbon::parse($valuemaster->attributes->fecha)->format('m'),        
-                        'fecha2'=> Carbon::parse($valuemaster->attributes->fecha)->format('y-m-d'),                                      
+                        'fecha2'=> Carbon::parse($valuemaster->attributes->fecha)->format('y-m-d'),
+                        'fecha3'=> Carbon::parse($valuemaster->attributes->fecha .' '. substr($valuemaster->attributes->hora, 0, 5))->getPreciseTimestamp(3),                                                                           
                         'youtube' => $valuemaster->attributes->youtube,
                         'url_img' => $urlImg,                                    
                     );
@@ -339,8 +345,11 @@ class Controller extends BaseController
         $dataCollage = array();
         $dataProxEvnts = array();
         $fechaHoy = Carbon::now()->format('y-m-d');
+        $mesPasado = Carbon::now()->format('m');
+
         foreach ($dataVlog1 as $key => $value) {
-            if($value['fecha1'] == Carbon::now()->format('m')){ 
+            
+            if($value['fecha1'] >= ($mesPasado-3) && $value['fecha1'] <= $mesPasado){ 
                 $dataCollage[] = array($value);
             }
             if($value['fecha2'] >= $fechaHoy){
@@ -348,7 +357,7 @@ class Controller extends BaseController
             }
         }
         foreach ($dataPres1 as $key => $value) {
-            if($value['fecha1'] == Carbon::now()->format('m')){
+            if($value['fecha1'] >= ($mesPasado-3) && $value['fecha1'] <= $mesPasado){
                 $dataCollage[] = array($value                                    
                 );
             }
@@ -357,7 +366,7 @@ class Controller extends BaseController
             }
         }
         foreach ($dataLife1 as $key => $value) {
-            if($value['fecha1'] == Carbon::now()->format('m')){
+            if($value['fecha1'] >= ($mesPasado-3) && $value['fecha1'] <= $mesPasado){
                 $dataCollage[] = array($value                                    
                 );
             }
@@ -366,7 +375,7 @@ class Controller extends BaseController
             }
         }
         foreach ($dataAmigos1 as $key => $value) {
-            if($value['fecha1'] == Carbon::now()->format('m')){
+            if($value['fecha1'] >= ($mesPasado-3) && $value['fecha1'] <= $mesPasado){
                 $dataCollage[] = array($value);
             }
             if($value['fecha2'] >= $fechaHoy){
@@ -375,7 +384,7 @@ class Controller extends BaseController
         }
 
         foreach ($dataDebate1 as $key => $value) {
-            if($value['fecha1'] == Carbon::now()->format('m')){
+            if($value['fecha1'] >= ($mesPasado-3) && $value['fecha1'] <= $mesPasado){
                 $dataCollage[] = array($value);
             }
             if($value['fecha2'] >= $fechaHoy){
@@ -384,7 +393,7 @@ class Controller extends BaseController
         }
 
         foreach ($dataMaster1 as $key => $value) {
-            if($value['fecha1'] == Carbon::now()->format('m')){
+            if($value['fecha1'] >= ($mesPasado-3) && $value['fecha1'] <= $mesPasado){
                 $dataCollage[] = array($value                                    
                 );
             }
@@ -403,6 +412,20 @@ class Controller extends BaseController
         ->take(8)->get();
         //$dataPostMiembro = json_decode($publicacion_miembro);
         //dd($dataPostMiembro);
+
+        function array_sort_by_mes(&$arrIni, $col, $order = SORT_DESC)
+        {
+            $arrAux = array();
+            foreach ($arrIni as $key=> $row)
+            {
+                $arrAux[$key] = is_object($row[0]) ? $arrAux[$key] = $row[0]->$col : $row[0][$col];
+                $arrAux[$key] = strtolower($arrAux[$key]);
+            }
+            array_multisort($arrAux, $order, $arrIni);
+        }
+        
+        array_sort_by_mes($dataCollage, 'fecha3', $order = SORT_DESC);
+        
 
         return view('layouts.home', compact('title','noticias','dataVlog','dataPres','dataLife','dataAmigos','dataDebate','dataMaster','members','dataPostPartner','dataPostMiembro', 'dataCollage','dataProxEvnts'));
     }

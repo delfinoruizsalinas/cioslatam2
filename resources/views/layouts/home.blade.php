@@ -290,28 +290,27 @@
           <div class="owl-carousel owl-dots-dark wow fadeInUp" data-items="1" data-autoplay="true" data-dots="true" data-nav="false" data-stage-padding="15" data-loop="true" data-margin="30" data-mouse-drag="false">
           @endif
             @foreach($dataCollage as $dataposts)
-
-              @if(isset($dataposts[0]['id']))
-                <div class="post-corporate post-corporate-img-bg">
-                  <div class="post-corporate-bg" style="background-image: url({{ $dataposts[0]['url_img'] }} ); background-size: cover;"></div><a class="badge post-corporate-badge" href="cios-connect-detalle/{{ $dataposts[0]['id'] }}" target="_blank"><!--<img src="news/{{ json_encode($dataposts[0]['url_img']) }}" style="height: 80px;">--></a>
-                  <h4 class="post-corporate-title"><a href="cios-connect-detalle/{{ $dataposts[0]['id'] }}" target="_blank"> {{ Str::limit($dataposts[0]['titulo'], 40) }}</a></h4>
-                  
-                  <ul class="post-classic-meta">
-                    <li style="color: #ffffff;font-size: 12px"> {{ $dataposts[0]['fecha'] }}</li>
-                  </ul>
-                </div>
-              @else
-                <div class="post-corporate post-corporate-img-bg">
-                  <div class="post-corporate-bg" style="background-image: url({{ $dataposts[0]['url_img'] }} ); background-size: cover;"></div><a class="badge post-corporate-badge" href="{{ $dataposts[0]['youtube'] }}" target="_blank"><!--<img src="news/{{ json_encode($dataposts[0]['url_img']) }}" style="height: 80px;">--></a>
-                  <h4 class="post-corporate-title"><a href="{{ $dataposts[0]['youtube'] }}" target="_blank"> {{ Str::limit($dataposts[0]['titulo'], 40) }} </a></h4>
-                  
-                  <ul class="post-classic-meta">
-                    <li style="color: #ffffff;font-size: 12px"> {{ $dataposts[0]['fecha'] }}</li>
-                  </ul>
-                </div>
-              @endif
-
-                            
+              @if ($loop->iteration <= 8)
+                @if(isset($dataposts[0]['id']))
+                  <div class="post-corporate post-corporate-img-bg">
+                    <div class="post-corporate-bg" style="background-image: url({{ $dataposts[0]['url_img'] }} ); background-size: cover;"></div><a class="badge post-corporate-badge" href="cios-connect-detalle/{{ $dataposts[0]['id'] }}" target="_blank"><!--<img src="news/{{ json_encode($dataposts[0]['url_img']) }}" style="height: 80px;">--></a>
+                    <h4 class="post-corporate-title"><a href="cios-connect-detalle/{{ $dataposts[0]['id'] }}" target="_blank"> {{ Str::limit($dataposts[0]['titulo'], 40) }}</a></h4>
+                    
+                    <ul class="post-classic-meta">
+                      <li style="color: #ffffff;font-size: 12px"> {{ $dataposts[0]['fecha'] }}</li>
+                    </ul>
+                  </div>
+                @else
+                  <div class="post-corporate post-corporate-img-bg">
+                    <div class="post-corporate-bg" style="background-image: url({{ $dataposts[0]['url_img'] }} ); background-size: cover;"></div><a class="badge post-corporate-badge" href="{{ $dataposts[0]['youtube'] }}" target="_blank"><!--<img src="news/{{ json_encode($dataposts[0]['url_img']) }}" style="height: 80px;">--></a>
+                    <h4 class="post-corporate-title"><a href="{{ $dataposts[0]['youtube'] }}" target="_blank"> {{ Str::limit($dataposts[0]['titulo'], 40) }} </a></h4>
+                    
+                    <ul class="post-classic-meta">
+                      <li style="color: #ffffff;font-size: 12px"> {{ $dataposts[0]['fecha'] }}</li>
+                    </ul>
+                  </div>
+                @endif
+              @endif           
             @endforeach  
           </div>
         </div>
