@@ -108,7 +108,8 @@ class Controller extends BaseController
                     $urlImg = $valuevlog->attributes->imagen->data->attributes->formats->small->url;
                 }
                 
-                if(Carbon::parse($valuevlog->attributes->fecha)->format('y') == Carbon::now()->format('y')){
+                if(Carbon::parse($valuevlog->attributes->fecha)->getPreciseTimestamp(3) > Carbon::parse(Carbon::now())->getPreciseTimestamp(3)){
+                //if(Carbon::parse($valuevlog->attributes->fecha)->format('y') == Carbon::now()->format('y')){
                     $dataVlog1[] = array('titulo'=>$valuevlog->attributes->titulo,
                         'fecha'=> Carbon::parse($valuevlog->attributes->fecha)->translatedFormat('d F, Y'), 
                         'fecha1'=> Carbon::parse($valuevlog->attributes->fecha)->format('m'),
@@ -118,7 +119,17 @@ class Controller extends BaseController
                         'youtube' => $valuevlog->attributes->youtube,
                         'url_img' => $urlImg,                                    
                     );
-                }                
+                }else{
+                    $dataVlog1[] = array('titulo'=>$valuevlog->attributes->titulo,
+                        'fecha'=> Carbon::parse($valuevlog->attributes->fecha)->translatedFormat('d F, Y'), 
+                        'fecha1'=> Carbon::parse($valuevlog->attributes->fecha)->format('m'),
+                        'fecha2'=> Carbon::parse($valuevlog->attributes->fecha)->format('y-m-d'), 
+                        'hora'=> substr($valuevlog->attributes->hora, 0, 5),
+                        'fecha3'=> Carbon::parse($valuevlog->attributes->fecha .' '. substr($valuevlog->attributes->hora, 0, 5))->getPreciseTimestamp(3),                
+                        'youtube' => $valuevlog->attributes->youtube,
+                        'url_img' => $urlImg,                                    
+                    ); 
+                }               
             }
             $i++;
         }
@@ -150,16 +161,27 @@ class Controller extends BaseController
                 }else{
                     $urlImg = $valuepres->attributes->imagen->data->attributes->formats->small->url;
                 }
-                if(Carbon::parse($valuepres->attributes->fecha)->format('y') == Carbon::now()->format('y')){
+                if(Carbon::parse($valuepres->attributes->fecha)->getPreciseTimestamp(3) > Carbon::parse(Carbon::now())->getPreciseTimestamp(3)){
+                //if(Carbon::parse($valuepres->attributes->fecha)->format('y') >= Carbon::now()->format('y')){
                     $dataPres1[] = array('id'=> $valuepres->id,
-                                    'titulo'=>$valuepres->attributes->titulo,
-                                    'fecha'=> Carbon::parse($valuepres->attributes->fecha)->translatedFormat('d F, Y'),
-                                    'fecha1'=> Carbon::parse($valuepres->attributes->fecha)->format('m'), 
-                                    'fecha2'=> Carbon::parse($valuepres->attributes->fecha)->format('y-m-d'),
-                                    'fecha3'=> Carbon::parse($valuepres->attributes->fecha .' 19:00')->getPreciseTimestamp(3),
-                                    'ubicacion' => $valuepres->attributes->ubicacion,
-                                    'url_img' => $urlImg,                                    
-                                );
+                        'titulo'=>$valuepres->attributes->titulo,
+                        'fecha'=> Carbon::parse($valuepres->attributes->fecha)->translatedFormat('d F, Y'),
+                        'fecha1'=> Carbon::parse($valuepres->attributes->fecha)->format('m'), 
+                        'fecha2'=> Carbon::parse($valuepres->attributes->fecha)->format('y-m-d'),
+                        'fecha3'=> Carbon::parse($valuepres->attributes->fecha .' 19:00')->getPreciseTimestamp(3),
+                        'ubicacion' => $valuepres->attributes->ubicacion,
+                        'url_img' => $urlImg,                                    
+                    );
+                }else{
+                    $dataPres1[] = array('id'=> $valuepres->id,
+                    'titulo'=>$valuepres->attributes->titulo,
+                    'fecha'=> Carbon::parse($valuepres->attributes->fecha)->translatedFormat('d F, Y'),
+                    'fecha1'=> Carbon::parse($valuepres->attributes->fecha)->format('m'), 
+                    'fecha2'=> Carbon::parse($valuepres->attributes->fecha)->format('y-m-d'),
+                    'fecha3'=> Carbon::parse($valuepres->attributes->fecha .' 19:00')->getPreciseTimestamp(3),
+                    'ubicacion' => $valuepres->attributes->ubicacion,
+                    'url_img' => $urlImg,                                    
+                );
                 }                     
             }
             $i++;
@@ -193,16 +215,26 @@ class Controller extends BaseController
                 }else{
                     $urlImg = $valuelife->attributes->imagen->data->attributes->formats->small->url;
                 }
-                if(Carbon::parse($valuelife->attributes->fecha)->format('y') == Carbon::now()->format('y')){
+                if(Carbon::parse($valuelife->attributes->fecha)->getPreciseTimestamp(3) > Carbon::parse(Carbon::now())->getPreciseTimestamp(3)){
+                //if(Carbon::parse($valuelife->attributes->fecha)->format('y') >= Carbon::now()->format('y')){
                     $dataLife1[] = array('titulo'=>$valuelife->attributes->titulo,
-                                    'fecha'=> Carbon::parse($valuelife->attributes->fecha)->translatedFormat('d F, Y'),
-                                    'fecha1'=> Carbon::parse($valuelife->attributes->fecha)->format('m'),
-                                    'fecha2'=> Carbon::parse($valuelife->attributes->fecha)->format('y-m-d'), 
-                                    'fecha3'=> Carbon::parse($valuelife->attributes->fecha .' '. substr($valuelife->attributes->hora, 0, 5))->getPreciseTimestamp(3),                                   
-                                    'youtube' => $valuelife->attributes->youtube,
-                                    'url_img' => $urlImg,                                    
-                                );
-                }                
+                        'fecha'=> Carbon::parse($valuelife->attributes->fecha)->translatedFormat('d F, Y'),
+                        'fecha1'=> Carbon::parse($valuelife->attributes->fecha)->format('m'),
+                        'fecha2'=> Carbon::parse($valuelife->attributes->fecha)->format('y-m-d'), 
+                        'fecha3'=> Carbon::parse($valuelife->attributes->fecha .' '. substr($valuelife->attributes->hora, 0, 5))->getPreciseTimestamp(3),                                   
+                        'youtube' => $valuelife->attributes->youtube,
+                        'url_img' => $urlImg,                                    
+                    );
+                }else{
+                    $dataLife1[] = array('titulo'=>$valuelife->attributes->titulo,
+                        'fecha'=> Carbon::parse($valuelife->attributes->fecha)->translatedFormat('d F, Y'),
+                        'fecha1'=> Carbon::parse($valuelife->attributes->fecha)->format('m'),
+                        'fecha2'=> Carbon::parse($valuelife->attributes->fecha)->format('y-m-d'), 
+                        'fecha3'=> Carbon::parse($valuelife->attributes->fecha .' '. substr($valuelife->attributes->hora, 0, 5))->getPreciseTimestamp(3),                                   
+                        'youtube' => $valuelife->attributes->youtube,
+                        'url_img' => $urlImg,                                    
+                    );
+                }               
             }
             $i++;
         }
@@ -234,16 +266,26 @@ class Controller extends BaseController
                 }else{
                     $urlImg = $valueamigos->attributes->imagen->data->attributes->formats->small->url;
                 }
-                if(Carbon::parse($valueamigos->attributes->fecha)->format('y') == Carbon::now()->format('y')){
+                if(Carbon::parse($valueamigos->attributes->fecha)->getPreciseTimestamp(3) > Carbon::parse(Carbon::now())->getPreciseTimestamp(3)){
+                //if(Carbon::parse($valueamigos->attributes->fecha)->format('y') >= Carbon::now()->format('y')){
                     $dataAmigos1[] = array('titulo'=>$valueamigos->attributes->titulo,
-                                    'fecha'=> Carbon::parse($valueamigos->attributes->fecha)->translatedFormat('d F, Y'),  
-                                    'fecha1'=> Carbon::parse($valueamigos->attributes->fecha)->format('m'),  
-                                    'fecha2'=> Carbon::parse($valueamigos->attributes->fecha)->format('y-m-d'),  
-                                    'fecha3'=> Carbon::parse($valueamigos->attributes->fecha .' '. substr($valueamigos->attributes->hora, 0, 5))->getPreciseTimestamp(3),                                    
-                                    'youtube' => $valueamigos->attributes->youtube,
-                                    'url_img' => $urlImg,                                    
-                                );
-                }                
+                        'fecha'=> Carbon::parse($valueamigos->attributes->fecha)->translatedFormat('d F, Y'),  
+                        'fecha1'=> Carbon::parse($valueamigos->attributes->fecha)->format('m'),  
+                        'fecha2'=> Carbon::parse($valueamigos->attributes->fecha)->format('y-m-d'),  
+                        'fecha3'=> Carbon::parse($valueamigos->attributes->fecha .' '. substr($valueamigos->attributes->hora, 0, 5))->getPreciseTimestamp(3),                                    
+                        'youtube' => $valueamigos->attributes->youtube,
+                        'url_img' => $urlImg,                                    
+                    );
+                }else{
+                    $dataAmigos1[] = array('titulo'=>$valueamigos->attributes->titulo,
+                        'fecha'=> Carbon::parse($valueamigos->attributes->fecha)->translatedFormat('d F, Y'),  
+                        'fecha1'=> Carbon::parse($valueamigos->attributes->fecha)->format('m'),  
+                        'fecha2'=> Carbon::parse($valueamigos->attributes->fecha)->format('y-m-d'),  
+                        'fecha3'=> Carbon::parse($valueamigos->attributes->fecha .' '. substr($valueamigos->attributes->hora, 0, 5))->getPreciseTimestamp(3),                                    
+                        'youtube' => $valueamigos->attributes->youtube,
+                        'url_img' => $urlImg,                                    
+                    );                    
+                }              
             }
             $i++;
         }
@@ -275,7 +317,8 @@ class Controller extends BaseController
                     $urlImg = $valuedebate->attributes->imagen->data->attributes->formats->small->url;
                 }
                 
-                if(Carbon::parse($valuedebate->attributes->fecha)->format('y') == Carbon::now()->format('y')){
+                //if(Carbon::parse($valuedebate->attributes->fecha)->format('y') >= Carbon::now()->format('y')){
+                if(Carbon::parse($valuedebate->attributes->fecha)->getPreciseTimestamp(3) > Carbon::parse(Carbon::now())->getPreciseTimestamp(3)){
                     $dataDebate1[] = array('titulo'=>$valuedebate->attributes->titulo,
                         'fecha'=> Carbon::parse($valuedebate->attributes->fecha)->translatedFormat('d F, Y'),  
                         'fecha1'=> Carbon::parse($valuedebate->attributes->fecha)->format('m'),
@@ -284,7 +327,16 @@ class Controller extends BaseController
                         'youtube' => $valuedebate->attributes->youtube,
                         'url_img' => $urlImg,                                    
                     );
-                }                  
+                }else{
+                    $dataDebate1[] = array('titulo'=>$valuedebate->attributes->titulo,
+                        'fecha'=> Carbon::parse($valuedebate->attributes->fecha)->translatedFormat('d F, Y'),  
+                        'fecha1'=> Carbon::parse($valuedebate->attributes->fecha)->format('m'),
+                        'fecha2'=> Carbon::parse($valuedebate->attributes->fecha)->format('y-m-d'),     
+                        'fecha3'=> Carbon::parse($valuedebate->attributes->fecha .' '. substr($valuedebate->attributes->hora, 0, 5))->getPreciseTimestamp(3),                                                             
+                        'youtube' => $valuedebate->attributes->youtube,
+                        'url_img' => $urlImg,                                    
+                    ); 
+                }                 
             }
             $i++;
         }        
@@ -317,7 +369,7 @@ class Controller extends BaseController
                 }else{
                     $urlImg = $valuemaster->attributes->imagen->data->attributes->formats->small->url;
                 }
-                if(Carbon::parse($valuemaster->attributes->fecha)->format('y') == Carbon::now()->format('y')){
+                if(Carbon::parse($valuemaster->attributes->fecha)->getPreciseTimestamp(3) > Carbon::parse(Carbon::now())->getPreciseTimestamp(3)){
                     $dataMaster1[] = array('titulo'=>$valuemaster->attributes->titulo,
                         'fecha'=> Carbon::parse($valuemaster->attributes->fecha)->translatedFormat('d F, Y'),
                         'fecha1'=> Carbon::parse($valuemaster->attributes->fecha)->format('m'),        
@@ -326,7 +378,16 @@ class Controller extends BaseController
                         'youtube' => $valuemaster->attributes->youtube,
                         'url_img' => $urlImg,                                    
                     );
-               }                 
+                }else{
+                    $dataMaster1[] = array('titulo'=>$valuemaster->attributes->titulo,
+                        'fecha'=> Carbon::parse($valuemaster->attributes->fecha)->translatedFormat('d F, Y'),
+                        'fecha1'=> Carbon::parse($valuemaster->attributes->fecha)->format('m'),        
+                        'fecha2'=> Carbon::parse($valuemaster->attributes->fecha)->format('y-m-d'),
+                        'fecha3'=> Carbon::parse($valuemaster->attributes->fecha .' '. substr($valuemaster->attributes->hora, 0, 5))->getPreciseTimestamp(3),                                                                           
+                        'youtube' => $valuemaster->attributes->youtube,
+                        'url_img' => $urlImg,                                    
+                    );   
+                }               
             }
             $i++;
         }        
