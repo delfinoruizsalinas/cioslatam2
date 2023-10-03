@@ -415,7 +415,7 @@ class Controller extends BaseController
 
         foreach ($dataVlog1 as $key => $value) {
             
-            if($value['fecha1'] >= ($mesPasado-3) && $value['fecha1'] <= $mesPasado){ 
+            if($value['fecha2'] < $fechaHoy){ 
                 $dataCollage[] = array($value);
             }
             if($value['fecha2'] >= $fechaHoy){
@@ -423,7 +423,7 @@ class Controller extends BaseController
             }
         }
         foreach ($dataPres1 as $key => $value) {
-            if($value['fecha1'] >= ($mesPasado-3) && $value['fecha1'] <= $mesPasado){
+            if($value['fecha2'] < $fechaHoy){
                 $dataCollage[] = array($value                                    
                 );
             }
@@ -432,7 +432,7 @@ class Controller extends BaseController
             }
         }
         foreach ($dataLife1 as $key => $value) {
-            if($value['fecha1'] >= ($mesPasado-3) && $value['fecha1'] <= $mesPasado){
+            if($value['fecha2'] < $fechaHoy){
                 $dataCollage[] = array($value                                    
                 );
             }
@@ -441,7 +441,7 @@ class Controller extends BaseController
             }
         }
         foreach ($dataAmigos1 as $key => $value) {
-            if($value['fecha1'] >= ($mesPasado-3) && $value['fecha1'] <= $mesPasado){
+            if($value['fecha2'] < $fechaHoy){
                 $dataCollage[] = array($value);
             }
             if($value['fecha2'] >= $fechaHoy){
@@ -450,7 +450,7 @@ class Controller extends BaseController
         }
 
         foreach ($dataDebate1 as $key => $value) {
-            if($value['fecha1'] >= ($mesPasado-3) && $value['fecha1'] <= $mesPasado){
+            if($value['fecha2'] < $fechaHoy){
                 $dataCollage[] = array($value);
             }
             if($value['fecha2'] >= $fechaHoy){
@@ -459,7 +459,7 @@ class Controller extends BaseController
         }
 
         foreach ($dataMaster1 as $key => $value) {
-            if($value['fecha1'] >= ($mesPasado-3) && $value['fecha1'] <= $mesPasado){
+            if($value['fecha2'] < $fechaHoy){
                 $dataCollage[] = array($value                                    
                 );
             }
