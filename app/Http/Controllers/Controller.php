@@ -491,7 +491,7 @@ class Controller extends BaseController
         }
         
         array_sort_by_mes($dataCollage, 'fecha3', $order = SORT_DESC);
-        
+        array_sort_by_mes($dataProxEvnts, 'fecha3', $order = SORT_ASC);
 
         return view('layouts.home', compact('title','noticias','dataVlog','dataPres','dataLife','dataAmigos','dataDebate','dataMaster','members','dataPostPartner','dataPostMiembro', 'dataCollage','dataProxEvnts'));
     }
