@@ -3,6 +3,7 @@
   <head>
     <title>{{  $title }}</title>
     @include('layouts.css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <style>
       @media (max-width: 400px) {
         #portada {
@@ -75,6 +76,7 @@ Insurgentes San Borja, Ciudad de México, CDMX</a></h4>
           </div>
         </div>
       </section>
+      @include('layouts.alert');
 
       <section class="section section-lg bg-gray-1 text-center">
         <div class="container">
@@ -82,22 +84,23 @@ Insurgentes San Borja, Ciudad de México, CDMX</a></h4>
             <div class="col-md-9 col-lg-7">
               <h3>¿Tiene comentarios o cualquier otra pregunta? ¡Envíanos un mensaje o utiliza el siguiente formulario!</h3>
               
-              <form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+              <form action="/contactanos" method="post" >
+                @csrf
                 <div class="form-wrap">
-                  <input class="form-input" id="contact-name" type="text" name="name" >
-                  <label class="form-label" for="contact-name">Nombre</label>
+                  <input class="form-input" id="nombre" type="text" name="nombre" value="{{ old('nombre') }}">
+                  <label class="form-label" for="nombre">Nombre</label>
                 </div>
                 <div class="form-wrap">
-                  <input class="form-input" id="contact-email" type="email" name="email">
-                  <label class="form-label" for="contact-email">E-mail</label>
+                  <input class="form-input" id="email" type="email" name="email" value="{{ old('email') }}">
+                  <label class="form-label" for="email">E-mail</label>
                 </div>
                 <div class="form-wrap">
-                  <input class="form-input" id="contact-phone" type="text" name="phone" >
-                  <label class="form-label" for="contact-phone">Telefono</label>
+                  <input class="form-input" id="telefono" type="text" name="telefono" value="{{ old('telefono') }}" >
+                  <label class="form-label" for="telefono">Telefono</label>
                 </div>
                 <div class="form-wrap">
-                  <label class="form-label" for="contact-message"> Mensaje</label>
-                  <textarea class="form-input" id="contact-message" name="message" ></textarea>
+                  <label class="form-label" for="mensaje"> Mensaje</label>
+                  <textarea class="form-input" id="mensaje" name="mensaje" value="{{ old('mensaje') }}"></textarea>
                 </div>
                 <div class="row justify-content-center">
                   <div class="col-12 col-sm-7 col-lg-5">
@@ -113,6 +116,9 @@ Insurgentes San Borja, Ciudad de México, CDMX</a></h4>
       <!-- Sidebar -->
       @include('layouts.footer')
       <!-- End of Sidebar -->
+      <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+      <script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+
     </div>
     <div class="snackbars" id="form-output-global"></div>
     @extends('layouts.js')

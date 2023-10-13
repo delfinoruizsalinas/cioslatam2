@@ -51,6 +51,7 @@ Route::controller(ComiteEjecutivoController::class)->group(function(){
 
 Route::controller(ContactoController::class)->group(function(){
     Route::GET('contacto', 'index');
+    Route::POST('contactanos', 'register');
 });
 
 Route::controller(PartnerController::class)->group(function(){

@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Mail;
+
 use App\Mail\ContactanosMail;
 use App\Mail\Activacion_partnerMail;
-
+use App\Mail\Contact_formMail;
 
 class MailController extends Controller
 {
@@ -65,6 +66,12 @@ class MailController extends Controller
         return "Email is sent successfully."; 
     }
 
-    
+    public function mailContacto($data)
+    {
+       //dd($mailData); 
+        Mail::to('contacto@ciosmexicanos.com')->send(new Contact_formMail($data));
+        //Mail::to('delfinoruizsalinas@gmail.com')->send(new ContactanosMail($mailData));
+        return "Email is sent successfully."; 
+    }
 
 }
