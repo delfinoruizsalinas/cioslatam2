@@ -147,27 +147,7 @@
     <div class="page">
       <!-- Page Header-->
         @include('layouts.header')
-      <!-- Swiper-->
-      <!--<section class="section section-lg section-main-bunner section-main-bunner-filter">
-        <div class="main-bunner-img" style="background-image: url(&quot;/dash/images/cios/transformacion-digital.jpg&quot;); background-size: cover;"></div>
-        <div class="main-bunner-inner">
-          <div class="container">
-            <div class="row row-50 justify-content-lg-center align-items-lg-center">
-              <div class="col-lg-12">
-                <div class="bunner-content-modern text-center">
-                  <p class="text-accent-2">CIO's</p>
-                  <div class="box-location">
-                    <h4>Latam</h4>
-                    <h5 class="text-secondary" id="date_now"></h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>-->
-      <!-- End Section single-->
-
+      
       <!-- Swiper-->
       <section class="section swiper-container swiper-slider swiper-slider-1 section-main-bunner section-main-bunner-filter" data-loop="false" data-autoplay="6000" data-simulate-touch="false">
         <div class="swiper-wrapper">
@@ -192,30 +172,23 @@
               </div>
             </div>
           </div>
-          <div class="swiper-slide context-dark" style="background-image: url(&quot;/dash/images/cios/IMG_1308_SMALL1.JPG&quot;); background-size: cover; background-position: 50% 50%;">
+
+          @foreach($carrusel as $carr)
+          <div class="swiper-slide context-dark" style="background-image: url(&quot;https://cioslatam.com/{{ $carr['url_img'] }}&quot;); background-size: cover; background-position: 50% 50%;">
             <div class="swiper-slide-caption section-lg">
               <div class="container">
                 <div class="row row-30 justify-content-md-center align-items-md-end">
                   <div class="col-md-7 order-md-1">
-                    <h5><span data-caption-animate="fadeInLeft" data-caption-delay="150">2023 - 7/10 SEP.</span></h5>
-                    <h2 class="text-accent-3"><span data-caption-animate="fadeInLeft" data-caption-delay="350">TECHNOLOGY RETREAT</span></h2>                  
+                    <h5><span data-caption-animate="fadeInLeft" data-caption-delay="150">{{ $carr['titulo1'] }}</span></h5>
+                    <h2 class="text-accent-3"><span data-caption-animate="fadeInLeft" data-caption-delay="350">{{ $carr['titulo2'] }}</span></h2>                  
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="swiper-slide context-dark" style="background-image: url(&quot;/dash/images/cios/Cristmas.png&quot;); background-size: cover; background-position: 50% 50%;">
-            <div class="swiper-slide-caption section-lg">
-              <div class="container">
-                <div class="row row-30 justify-content-md-center align-items-md-end">
-                  <div class="col-md-7 order-md-1">
-                    <h5><span data-caption-animate="fadeInLeft" data-caption-delay="150"></span></h5>
-                    <h2 class="text-accent-3"><span data-caption-animate="fadeInLeft" data-caption-delay="350"></span></h2>                  
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>          
+          @endforeach 
+        
+                   
         </div>
         <!-- Swiper Pagination -->
         <div class="swiper-pagination"></div>

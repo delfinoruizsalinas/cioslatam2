@@ -23,22 +23,35 @@ class Controller extends BaseController
          
          foreach ($newsPartn->data as $valuepart) {
  
-             $urlImg = $valuepart->attributes->imagen->data->attributes->url;
+            $urlImg = $valuepart->attributes->imagen->data->attributes->url;
+
+            if(empty($valuepart->attributes->link_pange)){
+                $link = '#';
+            }else{
+                $link = $valuepart->attributes->link_pange;                        
+            }
  
-             if(empty($valuepart->attributes->link_pange)){
-                 $link = '#';
-             }else{
-                 $link = $valuepart->attributes->link_pange;                        
-             }
- 
-             $partn[] = array(
-                                 'link'=> $link,                                       
-                                 'imagen' => $urlImg,           
-                             );
+            $partn[] = array(
+                'link'=> $link,                                       
+                'imagen' => $urlImg,           
+            );
          }
- 
+         
          //return view('layouts.partner_slider', compact('partn')); 
-         View::share(['partner_slider' => $partn]);
+        View::share(['partner_slider' => $partn]);
+
+        //HEADER MODO DE PLANTILLA
+        $urlPart1 = $url_site.'/api/efecto-navidad';
+        $responsePart1 = file_get_contents($urlPart1);
+        $efect_template = json_decode($responsePart1);
+        
+        if($efect_template->data->attributes->Navidad === true){
+            $navidad = 1;
+        }else{
+            $navidad = 0;                        
+        }
+      
+        View::share(['header' => $navidad]);
     }
 
     public function index(){
@@ -77,8 +90,39 @@ class Controller extends BaseController
         $dataDebate1 = array();
         $dataMaster1 = array();
         
-        //VLOG
+        //Url EndPoints
         $url_site = 'http://188.166.16.108:1337';
+        
+        $carrusel = array();
+        //GALLERY HOME
+        $urlCarrusel = $url_site.'/api/carrusel-homes?populate=imagen';
+        $responseCarrusel = file_get_contents($urlCarrusel);
+        $newsDataCarrusel = json_decode($responseCarrusel);
+        //dd($newsDataCarrusel);
+
+        
+        foreach ($newsDataCarrusel->data as $carruel) {
+            
+                if(empty($carruel->attributes->imagen->data->attributes->formats->large)){
+                    $urlImg = $carruel->attributes->iamgen;
+                }else{
+                    $urlImg = $carruel->attributes->imagen->data->attributes->formats->large->url;
+                }
+                if(empty($carruel->attributes->Titulo1)){
+                    $titulo1 = "";
+                }else{
+                    $titulo1 = $carruel->attributes->Titulo1;
+                }
+                if(empty($carruel->attributes->Titulo2)){
+                    $titulo2 = "";
+                }else{
+                    $titulo2 = $carruel->attributes->Titulo2;
+                }
+                $carrusel[] = array('url_img' => $urlImg,'titulo1' => $titulo1,'titulo2' => $titulo2);
+        }
+        //dd($carrusel);
+        //VLOG
+       
         $urlVlog = $url_site.'/api/evento-virtuals?populate=imagen&sort[5]=fecha%3Adesc';
         $responseVlog = file_get_contents($urlVlog);
         $newsDataVlog = json_decode($responseVlog);
@@ -493,6 +537,6 @@ class Controller extends BaseController
         array_sort_by_mes($dataCollage, 'fecha3', $order = SORT_DESC);
         array_sort_by_mes($dataProxEvnts, 'fecha3', $order = SORT_ASC);
 
-        return view('layouts.home', compact('title','noticias','dataVlog','dataPres','dataLife','dataAmigos','dataDebate','dataMaster','members','dataPostPartner','dataPostMiembro', 'dataCollage','dataProxEvnts'));
+        return view('layouts.home', compact('title','noticias','dataVlog','dataPres','dataLife','dataAmigos','dataDebate','dataMaster','members','dataPostPartner','dataPostMiembro', 'dataCollage','dataProxEvnts','carrusel'));
     }
 }
