@@ -95,7 +95,7 @@ class Controller extends BaseController
         
         $carrusel = array();
         //GALLERY HOME
-        $urlCarrusel = $url_site.'/api/carrusel-homes?populate=imagen';
+        $urlCarrusel = $url_site.'/api/carrusel-homes?populate=imagen&sort=Order:asc';
         $responseCarrusel = file_get_contents($urlCarrusel);
         $newsDataCarrusel = json_decode($responseCarrusel);
         //dd($newsDataCarrusel);
