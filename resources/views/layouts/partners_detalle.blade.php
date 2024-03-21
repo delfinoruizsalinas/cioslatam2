@@ -10,6 +10,9 @@
             background-attachment: unset;
         }
       }
+      .box-icon-icon{
+        font-size: 60px;
+      }
     </style>
   </head>
   <body>
@@ -69,6 +72,21 @@
                 <br>
                 <h5>Años en el Mercado</h5>
                 <p class="post-classic-meta"> {!! html_entity_decode($info_partner[0]->anios_mercado) !!}</p>
+                <br>
+                
+                @if($info_partner[0]->curriculum === null)
+                    <h5>Sin Curriculum</h5>
+                    <div class="box-icon-icon mdi mdi-cloud-outline-off"></div>
+                     
+                @else
+                  <h5>Descargar Curriculum</h5>
+
+                  <a href="{{ url('cvs/'.$info_partner[0]->curriculum) }}" target="_blank">
+                    <div class="box-icon-icon mdi mdi-cloud-download"></div>
+                    
+                  </a>
+                @endif 
+  
                 <br>
               </div>
             </div>
