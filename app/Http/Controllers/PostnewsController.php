@@ -402,12 +402,22 @@ class PostnewsController extends Controller
 
     public function editarResumen(Request $request)
     {
+        if($request->hasFile('curriculum')){
+            $curriculum = $request-> file('curriculum');
+            $nombreFile = time().'.'.$curriculum->extension(); //20_12_222
+            $destino = public_path('cvs');
+            $request->curriculum->move($destino,$nombreFile);
+        }else{
+            $nombreFile =NULL;
+        }
         $resumen = Free_register_partner::find($request->id_resumen);
         $resumen->resumen = $request->resumen;
         $resumen->clientes = $request->clientes;
         $resumen->servicios = $request->servicios;
         $resumen->anios_mercado = $request->anios_mercado;
+        $resumen->curriculum = $nombreFile;
 
+        //dd($resumen);
         $resumen->save();
         return back()->with('Listo','El registro se actualizo correctamente');
     }

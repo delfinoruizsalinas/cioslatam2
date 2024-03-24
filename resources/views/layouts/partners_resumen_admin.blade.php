@@ -60,7 +60,7 @@
             <div class="col-md-9 col-lg-7">
             <h3>Actualizar Resumen</h3>
               <!-- RD Mailform-->
-              <form class="rd-form rd-form-centered" action="{{ url('update-resumen') }}" method="POST">
+              <form class="rd-form rd-form-centered" action="{{ url('update-resumen') }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="hidden" id="id_resumen" name="id_resumen" value="{{ $info_partner[0]->id }}">
                 <div class="form-wrap">
@@ -79,7 +79,12 @@
                   <label for="imagen">Años en el Mercado </label>
                   <textarea id="anios_mercado" name="anios_mercado">{{$info_partner[0]->anios_mercado}}</textarea>
                 </div>  
-                                            
+                
+                <div class="form-wrap">
+                  <label for="curriculum">Actualizar Curriculum</label>
+                  <input type="file" class="form-control" id="curriculum" name="curriculum">
+                </div> 
+
                 <div class="row row-20 row-gutters-14">
                   <div class="col-sm-4">
                     <button class="button button-block button-gradient button-lg" type="submit">Enviar</button>
