@@ -29,6 +29,7 @@
           a[href*='tel'], a[href*='mailto'] {
       white-space: normal;
     }
+    
     </style>
 
   </head>
@@ -70,11 +71,16 @@
               <div class="wow fadeInUp">
                 <div class="post-modern">
                     <div class="post-modern-caption">
-                        <p class="post-modern-date">{{ $noti['fecha'] }}</p>
-                        <h4 class="post-modern-title" style="color:rgb(8, 71, 90);"><a href="{{ $noti['link'] }}" target="_blank">{{ $noti['titulo'] }}</h4><img src="{{ $noti['img'] }}" alt="" width="370" height="255" /></a>
-                        <div class="post-modern-text">
-                            {!! html_entity_decode(Str::limit($noti['content'], 190)) !!}
-                        </div>
+                      <p class="post-modern-date">{{ $noti['fecha'] }}</p>
+                      <a href="{{ $noti['link'] }}" target="_blank">  
+                        <h4 class="post-modern-title" style="color:rgb(8, 71, 90);">
+                            {{ $noti['titulo'] }}
+                        </h4>
+                        <img src="{{ $noti['img'] }}" alt="" width="370" height="255" />
+                      </a>
+                      <div class="post-modern-text">
+                          {{ $noti['content'] }}...
+                      </div>
                     </div>
                 </div>
               </div>
