@@ -233,7 +233,7 @@
                             @if($dataposts[0]['youtube'] == null)
                               <a href="{{ $dataposts[0]['youtube'] }}" data-lightgallery="item">
                             @else
-                              <a href="{{ $dataposts[0]['imagen'] }}" data-lightgallery="item">
+                              <a href="{{ $dataposts[0]['url_img'] }}" data-lightgallery="item">
                             @endif
                               {{ $dataposts[0]['titulo'] }}
                               </a>
