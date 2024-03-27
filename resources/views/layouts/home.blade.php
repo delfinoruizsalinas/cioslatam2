@@ -230,7 +230,7 @@
                           <p class="event-time">{{ $dataposts[0]['fecha'] }} </p>
                           <div class="gallery-item-classic">
                             <h4 class="event-item-modern-title">
-                            @if($dataposts[0]['youtube'] == null)
+                            @if($dataposts[0]['youtube'] == "null")
                               <a href="{{ $dataposts[0]['youtube'] }}" data-lightgallery="item">
                             @else
                               <a href="{{ $dataposts[0]['url_img'] }}" data-lightgallery="item">
