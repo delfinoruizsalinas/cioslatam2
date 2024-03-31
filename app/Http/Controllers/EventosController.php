@@ -26,6 +26,12 @@ class EventosController extends Controller
         $title="CIO's LATAM - Entre Amigos"; 
         return view('layouts.amigos', compact('title'));
     }
+    public function getShorts()
+    {
+        $title="CIO's LATAM - Shorts"; 
+        return view('layouts.shorts', compact('title'));
+    }    
+
     public function getDebate()
     {
         $title="CIO's LATAM - Mesa de Debate"; 

@@ -67,6 +67,7 @@ Route::controller(EventosController::class)->group(function(){
     Route::GET('cios-master-class', 'getMaster');
     Route::GET('cios-life', 'getLife');
     Route::GET('cios-entre-amigos', 'getAmigos');
+    Route::GET('cios-shorts', 'getShorts');
     Route::GET('cios-mesa-de-debate', 'getDebate');
     Route::GET('cios-connect', 'getConnect'); 
     Route::GET('cios-connect-detalle/{id}', 'getConnectDetalle'); 

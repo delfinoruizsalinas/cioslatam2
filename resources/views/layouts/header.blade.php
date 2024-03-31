@@ -67,6 +67,12 @@
                             <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="{{ url('/cios-master-class') }}">CIO's Master Class</a></li>
                         </ul>
                         </li>
+                        <li class="rd-megamenu-item">
+                        <h6 class="rd-megamenu-title"></h6>
+                        <ul class="rd-megamenu-list">
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="{{ url('/cios-shorts') }}">Shorts</a></li>
+                        </ul>
+                        </li>
                     </ul>
                     </li>
                     <li class="rd-nav-item text-menu"><a class="rd-nav-link" href="{{ url('/noticias') }}">Noticias</a>

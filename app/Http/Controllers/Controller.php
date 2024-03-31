@@ -89,6 +89,7 @@ class Controller extends BaseController
         $dataAmigos1 = array();
         $dataDebate1 = array();
         $dataMaster1 = array();
+        $dataShorts1 = array();
         
         //Url EndPoints
         $url_site = 'http://188.166.16.108:1337';
@@ -436,6 +437,57 @@ class Controller extends BaseController
             $i++;
         }        
         
+        //SHORTS
+        $urlShorts = $url_site.'/api/shorts?populate=imagen&sort[2]=createdAt%3Adesc';
+        $responseShorts = file_get_contents($urlShorts);
+        $newsDataShorts = json_decode($responseShorts);
+        
+        $i=0;
+        foreach ($newsDataShorts->data as $valueshorts) {
+            if($i <=2){
+                if(empty($valueshorts->attributes->imagen->data->attributes->formats->small)){
+                    $urlImg = $valueshorts->attributes->iamgen;
+                }else{
+                    $urlImg = $valueshorts->attributes->imagen->data->attributes->formats->small->url;
+                }
+        
+                $dataShorts[] = array('titulo'=>$valueshorts->attributes->titulo,
+                    'fecha'=> Carbon::parse($valueshorts->attributes->createdAt)->translatedFormat('d F, Y'),
+                    'fecha1'=> Carbon::parse($valueshorts->attributes->createdAt)->format('m'),                                      
+                    'youtube' => $valueshorts->attributes->youtube,
+                    'url_img' => $urlImg,                                    
+                );
+                        
+            }
+            if($i <=9){
+                if(empty($valueshorts->attributes->imagen->data->attributes->formats->small)){
+                    $urlImg = $valueshorts->attributes->iamgen;
+                }else{
+                    $urlImg = $valueshorts->attributes->imagen->data->attributes->formats->small->url;
+                }
+                if(Carbon::parse($valueshorts->attributes->createdAt)->getPreciseTimestamp(3) > Carbon::parse(Carbon::now())->getPreciseTimestamp(3)){
+                    $dataShorts1[] = array('titulo'=>$valueshorts->attributes->titulo,
+                        'fecha'=> Carbon::parse($valueshorts->attributes->createdAt)->translatedFormat('d F, Y'),
+                        'fecha1'=> Carbon::parse($valueshorts->attributes->createdAt)->format('m'),        
+                        'fecha2'=> Carbon::parse($valueshorts->attributes->createdAt)->format('y-m-d'),
+                        'fecha3'=> Carbon::parse($valueshorts->attributes->createdAt .' '. substr($valueshorts->attributes->createdAt, 0, 5))->getPreciseTimestamp(3),                                                                           
+                        'youtube' => $valueshorts->attributes->youtube,
+                        'url_img' => $urlImg,                                    
+                    );
+                }else{
+                    $dataShorts1[] = array('titulo'=>$valueshorts->attributes->titulo,
+                        'fecha'=> Carbon::parse($valueshorts->attributes->createdAt)->translatedFormat('d F, Y'),
+                        'fecha1'=> Carbon::parse($valueshorts->attributes->createdAt)->format('m'),        
+                        'fecha2'=> Carbon::parse($valueshorts->attributes->createdAt)->format('y-m-d'),
+                        'fecha3'=> Carbon::parse($valueshorts->attributes->createdAt),                                                                           
+                        'youtube' => $valueshorts->attributes->youtube,
+                        'url_img' => $urlImg,                                    
+                    );   
+                }               
+            }
+            $i++;
+        }   
+
         //NUM MEMBERS
         $urlMember = $url_site.'/api/miembros-actives/1';
         $responseMem = file_get_contents($urlMember);
@@ -511,6 +563,14 @@ class Controller extends BaseController
                 $dataProxEvnts[] = array($value);
             }
         }
+
+        foreach ($dataShorts1 as $key => $value) {
+            if($value['fecha2'] <= $fechaHoy){
+                $dataCollage[] = array($value                                    
+                );
+            }
+        }
+        
         
         //MIEMBROS POST
         $dataPostMiembro = \DB::table('post_miembro')
@@ -537,6 +597,7 @@ class Controller extends BaseController
         array_sort_by_mes($dataCollage, 'fecha3', $order = SORT_DESC);
         array_sort_by_mes($dataProxEvnts, 'fecha3', $order = SORT_ASC);
 
-        return view('layouts.home', compact('title','noticias','dataVlog','dataPres','dataLife','dataAmigos','dataDebate','dataMaster','members','dataPostPartner','dataPostMiembro', 'dataCollage','dataProxEvnts','carrusel'));
+        //dd($dataCollage);
+        return view('layouts.home', compact('title','noticias','dataVlog','dataPres','dataLife','dataAmigos','dataDebate','dataMaster','dataShorts','members','dataPostPartner','dataPostMiembro', 'dataCollage','dataProxEvnts','carrusel'));
     }
 }

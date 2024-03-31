@@ -395,7 +395,8 @@
                   <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3" data-toggle="tab">CIO’s Life</a></li>
                   <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-4" data-toggle="tab">Programa “Entre Amigos”</a></li>
                   <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-5" data-toggle="tab">Mesa de Debate</a></li>
-                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-6" data-toggle="tab">Master Class</a></li>                                    
+                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-6" data-toggle="tab">Master Class</a></li>  
+                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-7" data-toggle="tab">Shorts</a></li>                                                      
                 </ul>
               </div>
             </div>
@@ -577,6 +578,35 @@
                   @endforeach  
                 </div> 
               </div>              
+
+              <div class="tab-pane fade" id="tabs-1-7">
+              <div class="wow-outer">
+                <div class="wow slideInDown text-center" style="visibility: visible; animation-name: slideInDown;">
+                  <h3 class="title-decorate title-decorate-center"><a href="{{ url('/cios-shorts') }}">Shorts</a></h3>
+                </div>
+              </div>                 
+                <div class="event-item-classic wow slideInleft">
+                  @foreach($dataShorts as $master)
+                  <div class="col-md-6 col-lg-4">
+                    <div class="post-modern">
+                      <div class="post-modern-figure">
+                        <a href="{{ $master['youtube']  }}" target="_blank">
+                          <img src="{{ $master['url_img'] }}" alt="" width="370" height="255">
+                        </a>
+                      </div>
+                      <div class="post-modern-caption">
+                        <p class="post-modern-date">
+                          <span class="icon mdi mdi-calendar"></span>{{ $master['fecha'] }}
+                        </p>
+                        <h4 class="post-modern-title">
+                          <a href="{{ $master['youtube'] }}" target="_blank">{{ $master['titulo'] }}</a>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                  @endforeach  
+                </div> 
+              </div>  
 
             </div>
           </div>
