@@ -438,7 +438,7 @@ class Controller extends BaseController
         }        
         
         //SHORTS
-        $urlShorts = $url_site.'/api/shorts?populate=imagen&sort[2]=createdAt%3Adesc';
+        $urlShorts = $url_site.'/api/shorts?populate=imagen&sort[2]=fecha%3Adesc';
         $responseShorts = file_get_contents($urlShorts);
         $newsDataShorts = json_decode($responseShorts);
         
