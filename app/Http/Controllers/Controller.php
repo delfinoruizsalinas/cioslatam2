@@ -452,8 +452,8 @@ class Controller extends BaseController
                 }
         
                 $dataShorts[] = array('titulo'=>$valueshorts->attributes->titulo,
-                    'fecha'=> Carbon::parse($valueshorts->attributes->createdAt)->translatedFormat('d F, Y'),
-                    'fecha1'=> Carbon::parse($valueshorts->attributes->createdAt)->format('m'),                                      
+                    'fecha'=> Carbon::parse($valueshorts->attributes->fecha)->translatedFormat('d F, Y'),
+                    'fecha1'=> Carbon::parse($valueshorts->attributes->fecha)->format('m'),                                      
                     'youtube' => $valueshorts->attributes->youtube,
                     'url_img' => $urlImg,                                    
                 );
@@ -465,21 +465,21 @@ class Controller extends BaseController
                 }else{
                     $urlImg = $valueshorts->attributes->imagen->data->attributes->formats->small->url;
                 }
-                if(Carbon::parse($valueshorts->attributes->createdAt)->getPreciseTimestamp(3) > Carbon::parse(Carbon::now())->getPreciseTimestamp(3)){
+                if(Carbon::parse($valueshorts->attributes->fecha)->getPreciseTimestamp(3) > Carbon::parse(Carbon::now())->getPreciseTimestamp(3)){
                     $dataShorts1[] = array('titulo'=>$valueshorts->attributes->titulo,
-                        'fecha'=> Carbon::parse($valueshorts->attributes->createdAt)->translatedFormat('d F, Y'),
-                        'fecha1'=> Carbon::parse($valueshorts->attributes->createdAt)->format('m'),        
-                        'fecha2'=> Carbon::parse($valueshorts->attributes->createdAt)->format('y-m-d'),
-                        'fecha3'=> Carbon::parse($valueshorts->attributes->createdAt .' '. substr($valueshorts->attributes->createdAt, 0, 5))->getPreciseTimestamp(3),                                                                           
+                        'fecha'=> Carbon::parse($valueshorts->attributes->fecha)->translatedFormat('d F, Y'),
+                        'fecha1'=> Carbon::parse($valueshorts->attributes->fecha)->format('m'),        
+                        'fecha2'=> Carbon::parse($valueshorts->attributes->fecha)->format('y-m-d'),
+                        'fecha3'=> Carbon::parse($valueshorts->attributes->fecha .' '. substr($valueshorts->attributes->fecha, 0, 5))->getPreciseTimestamp(3),                                                                           
                         'youtube' => $valueshorts->attributes->youtube,
                         'url_img' => $urlImg,                                    
                     );
                 }else{
                     $dataShorts1[] = array('titulo'=>$valueshorts->attributes->titulo,
-                        'fecha'=> Carbon::parse($valueshorts->attributes->createdAt)->translatedFormat('d F, Y'),
-                        'fecha1'=> Carbon::parse($valueshorts->attributes->createdAt)->format('m'),        
-                        'fecha2'=> Carbon::parse($valueshorts->attributes->createdAt)->format('y-m-d'),
-                        'fecha3'=> Carbon::parse($valueshorts->attributes->createdAt),                                                                           
+                        'fecha'=> Carbon::parse($valueshorts->attributes->fecha)->translatedFormat('d F, Y'),
+                        'fecha1'=> Carbon::parse($valueshorts->attributes->fecha)->format('m'),        
+                        'fecha2'=> Carbon::parse($valueshorts->attributes->fecha)->format('y-m-d'),
+                        'fecha3'=> Carbon::parse($valueshorts->attributes->fecha),                                                                           
                         'youtube' => $valueshorts->attributes->youtube,
                         'url_img' => $urlImg,                                    
                     );   
