@@ -18,8 +18,7 @@
             <a class="box-sponsor box-sponsor-modern wow-outer" href="{{ $partners['link'] }}" target="_blank">
                 <div class="wow fadeInUp"> <img src="{{ $partners['imagen'] }}" alt="" style="height: 121px;" /> </div>
             </a>
-            @endif
-
+            @endforeach
         </div>
     </div>
 </section>
