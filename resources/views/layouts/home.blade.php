@@ -267,7 +267,7 @@
           <div class="owl-carousel owl-dots-dark wow fadeInUp" data-items="1" data-autoplay="true" data-dots="true" data-nav="false" data-stage-padding="15" data-loop="true" data-margin="30" data-mouse-drag="false">
           @endif
             @foreach($dataCollage as $dataposts)
-              @if ($loop->iteration <= 9)
+              @if ($loop->iteration <= 7)
                 @if(isset($dataposts[0]['id']))
                   <div class="post-corporate post-corporate-img-bg">
                     <div class="post-corporate-bg" style="background-image: url({{ $dataposts[0]['url_img'] }} ); background-size: cover;"></div><a class="badge post-corporate-badge" href="cios-connect-detalle/{{ $dataposts[0]['id'] }}" target="_blank"><!--<img src="news/{{ json_encode($dataposts[0]['url_img']) }}" style="height: 80px;">--></a>
