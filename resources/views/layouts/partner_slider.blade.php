@@ -11,15 +11,15 @@
         </div>
         </div>
         <!-- Owl Carousel-->
-        <div class="owl-carousel owl-dots-secondary dots-offset-lg" data-items="3" data-autoplay="true" data-dots="true" data-nav="false" data-stage-padding="10" data-loop="true" data-margin="10">
+        <div class="owl-carousel owl-dots-secondary dots-offset-lg" data-items="7" data-autoplay="true" data-dots="true" data-nav="false" data-stage-padding="10" data-loop="true" data-margin="10">
 
             @foreach($partner_slider as $partners)
-            @if ($loop->iteration <= 7)
+            
             <a class="box-sponsor box-sponsor-modern wow-outer" href="{{ $partners['link'] }}" target="_blank">
                 <div class="wow fadeInUp"> <img src="{{ $partners['imagen'] }}" alt="" style="height: 121px;" /> </div>
             </a>
             @endif
-            @endforeach
+
         </div>
     </div>
 </section>
