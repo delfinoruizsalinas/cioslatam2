@@ -366,7 +366,7 @@
           <div class="owl-carousel owl-dots-dark wow fadeInUp" data-items="1" data-autoplay="true" data-dots="true" data-nav="false" data-stage-padding="15" data-loop="true" data-margin="30" data-mouse-drag="false">
           @endif
             @foreach($dataPostPartner as $dataposts)
-           
+            @if ($loop->iteration <= 7)
             <div class="post-corporate post-corporate-img-bg">
               <div class="post-corporate-bg" style="background-image: url(news/{{ $dataposts->imagen }} ); background-size: cover;"></div><a class="badge post-corporate-badge" href="partners-detalle-contenido/{{ str_replace(' ', '-', $dataposts->titulo) }}"><img src="{{ $dataposts->partner }}" style="height: 80px;"></a>
               <h4 class="post-corporate-title"><a href="partners-detalle-contenido/{{ str_replace(' ', '-', $dataposts->titulo) }}" target="_blank"> {{ Str::limit($dataposts->titulo, 40) }}</a></h4>
@@ -375,6 +375,7 @@
                 <li style="color: #ffffff;font-size: 12px"> {{ \Carbon\Carbon::parse($dataposts->updated_at)->translatedFormat('d F, Y') }}</li>
               </ul>
             </div>
+            @endif
             @endforeach  
           </div>
         </div>
