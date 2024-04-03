@@ -143,7 +143,7 @@ class Controller extends BaseController
                                 'fecha1'=> Carbon::parse($valuevlog->attributes->fecha)->format('m'), 
                                 'hora'=> substr($valuevlog->attributes->hora, 0, 5),                                     
                                 'youtube' => $valuevlog->attributes->youtube,
-                                'url_img' => $urlImg,                                    
+                                'url_img' => $urlImg,                                 
                             );
             }
             if($i <=9){
@@ -162,7 +162,9 @@ class Controller extends BaseController
                         'hora'=> substr($valuevlog->attributes->hora, 0, 5),
                         'fecha3'=> Carbon::parse($valuevlog->attributes->fecha .' '. substr($valuevlog->attributes->hora, 0, 5))->getPreciseTimestamp(3),                
                         'youtube' => $valuevlog->attributes->youtube,
-                        'url_img' => $urlImg,                                    
+                        'url_img' => $urlImg,  
+                        'url_seccion' => '/cios-vlog',
+                        'name_seccion' => 'CIO’s Vlog',                                    
                     );
                 }else{
                     $dataVlog1[] = array('titulo'=>$valuevlog->attributes->titulo,
@@ -172,7 +174,9 @@ class Controller extends BaseController
                         'hora'=> substr($valuevlog->attributes->hora, 0, 5),
                         'fecha3'=> Carbon::parse($valuevlog->attributes->fecha .' '. substr($valuevlog->attributes->hora, 0, 5))->getPreciseTimestamp(3),                
                         'youtube' => $valuevlog->attributes->youtube,
-                        'url_img' => $urlImg,                                    
+                        'url_img' => $urlImg,   
+                        'url_seccion' => '/cios-vlog',
+                        'name_seccion' => 'CIO’s Vlog',                                   
                     ); 
                 }               
             }
@@ -209,13 +213,15 @@ class Controller extends BaseController
                 if(Carbon::parse($valuepres->attributes->fecha)->getPreciseTimestamp(3) > Carbon::parse(Carbon::now())->getPreciseTimestamp(3)){
                 //if(Carbon::parse($valuepres->attributes->fecha)->format('y') >= Carbon::now()->format('y')){
                     $dataPres1[] = array('id'=> $valuepres->id,
-                        'titulo'=>$valuepres->attributes->titulo,
-                        'fecha'=> Carbon::parse($valuepres->attributes->fecha)->translatedFormat('d F, Y'),
-                        'fecha1'=> Carbon::parse($valuepres->attributes->fecha)->format('m'), 
-                        'fecha2'=> Carbon::parse($valuepres->attributes->fecha)->format('y-m-d'),
-                        'fecha3'=> Carbon::parse($valuepres->attributes->fecha .' 19:00')->getPreciseTimestamp(3),
-                        'ubicacion' => $valuepres->attributes->ubicacion,
-                        'url_img' => $urlImg,                                    
+                    'titulo'=>$valuepres->attributes->titulo,
+                    'fecha'=> Carbon::parse($valuepres->attributes->fecha)->translatedFormat('d F, Y'),
+                    'fecha1'=> Carbon::parse($valuepres->attributes->fecha)->format('m'), 
+                    'fecha2'=> Carbon::parse($valuepres->attributes->fecha)->format('y-m-d'),
+                    'fecha3'=> Carbon::parse($valuepres->attributes->fecha .' '. substr("19:00:00.000", 0, 5))->getPreciseTimestamp(3),
+                    'ubicacion' => $valuepres->attributes->ubicacion,
+                    'url_img' => $urlImg,      
+                    'url_seccion' => '/cios-connect',
+                    'name_seccion' => 'CIO’s Connect',                                
                     );
                 }else{
                     $dataPres1[] = array('id'=> $valuepres->id,
@@ -223,9 +229,11 @@ class Controller extends BaseController
                     'fecha'=> Carbon::parse($valuepres->attributes->fecha)->translatedFormat('d F, Y'),
                     'fecha1'=> Carbon::parse($valuepres->attributes->fecha)->format('m'), 
                     'fecha2'=> Carbon::parse($valuepres->attributes->fecha)->format('y-m-d'),
-                    'fecha3'=> Carbon::parse($valuepres->attributes->fecha .' 19:00')->getPreciseTimestamp(3),
+                    'fecha3'=> Carbon::parse($valuepres->attributes->fecha .' '. substr("19:00:00.000", 0, 5))->getPreciseTimestamp(3),
                     'ubicacion' => $valuepres->attributes->ubicacion,
-                    'url_img' => $urlImg,                                    
+                    'url_img' => $urlImg,   
+                    'url_seccion' => '/cios-connect',
+                    'name_seccion' => 'CIO’s Connect',                                   
                 );
                 }                     
             }
@@ -251,7 +259,7 @@ class Controller extends BaseController
                                     'fecha'=> Carbon::parse($valuelife->attributes->fecha)->translatedFormat('d F, Y'),
                                     'fecha1'=> Carbon::parse($valuelife->attributes->fecha)->format('m'),                                    
                                     'youtube' => $valuelife->attributes->youtube,
-                                    'url_img' => $urlImg,                                    
+                                    'url_img' => $urlImg,                                       
                                 );
             }
             if($i <=9){
@@ -268,7 +276,9 @@ class Controller extends BaseController
                         'fecha2'=> Carbon::parse($valuelife->attributes->fecha)->format('y-m-d'), 
                         'fecha3'=> Carbon::parse($valuelife->attributes->fecha .' '. substr($valuelife->attributes->hora, 0, 5))->getPreciseTimestamp(3),                                   
                         'youtube' => $valuelife->attributes->youtube,
-                        'url_img' => $urlImg,                                    
+                        'url_img' => $urlImg,
+                        'url_seccion' => '/cios-life',
+                        'name_seccion' => 'CIO’s Life',                                     
                     );
                 }else{
                     $dataLife1[] = array('titulo'=>$valuelife->attributes->titulo,
@@ -277,7 +287,9 @@ class Controller extends BaseController
                         'fecha2'=> Carbon::parse($valuelife->attributes->fecha)->format('y-m-d'), 
                         'fecha3'=> Carbon::parse($valuelife->attributes->fecha .' '. substr($valuelife->attributes->hora, 0, 5))->getPreciseTimestamp(3),                                   
                         'youtube' => $valuelife->attributes->youtube,
-                        'url_img' => $urlImg,                                    
+                        'url_img' => $urlImg,  
+                        'url_seccion' => '/cios-life',
+                        'name_seccion' => 'CIO’s Life',                                   
                     );
                 }               
             }
@@ -302,7 +314,7 @@ class Controller extends BaseController
                                     'fecha'=> Carbon::parse($valueamigos->attributes->fecha)->translatedFormat('d F, Y'),  
                                     'fecha1'=> Carbon::parse($valueamigos->attributes->fecha)->format('m'),                                     
                                     'youtube' => $valueamigos->attributes->youtube,
-                                    'url_img' => $urlImg,                                    
+                                    'url_img' => $urlImg,                                     
                                 );
             }
             if($i <=9){
@@ -319,7 +331,9 @@ class Controller extends BaseController
                         'fecha2'=> Carbon::parse($valueamigos->attributes->fecha)->format('y-m-d'),  
                         'fecha3'=> Carbon::parse($valueamigos->attributes->fecha .' '. substr($valueamigos->attributes->hora, 0, 5))->getPreciseTimestamp(3),                                    
                         'youtube' => $valueamigos->attributes->youtube,
-                        'url_img' => $urlImg,                                    
+                        'url_img' => $urlImg,        
+                        'url_seccion' => '/cios-entre-amigos',
+                        'name_seccion' => 'Programa “Entre Amigos”',                             
                     );
                 }else{
                     $dataAmigos1[] = array('titulo'=>$valueamigos->attributes->titulo,
@@ -328,13 +342,16 @@ class Controller extends BaseController
                         'fecha2'=> Carbon::parse($valueamigos->attributes->fecha)->format('y-m-d'),  
                         'fecha3'=> Carbon::parse($valueamigos->attributes->fecha .' '. substr($valueamigos->attributes->hora, 0, 5))->getPreciseTimestamp(3),                                    
                         'youtube' => $valueamigos->attributes->youtube,
-                        'url_img' => $urlImg,                                    
+                        'url_img' => $urlImg,  
+                        'url_seccion' => '/cios-entre-amigos',
+                        'name_seccion' => 'Programa “Entre Amigos”',                                   
                     );                    
                 }              
             }
             $i++;
         }
-
+        //dd(Carbon::now()->format('Y-m-d'));
+        
         //DEBATE
         $urlDebate = $url_site.'/api/mesa-de-debates?populate=imagen&sort[2]=fecha%3Adesc';
         $responseDebate = file_get_contents($urlDebate);
@@ -370,7 +387,9 @@ class Controller extends BaseController
                         'fecha2'=> Carbon::parse($valuedebate->attributes->fecha)->format('y-m-d'),     
                         'fecha3'=> Carbon::parse($valuedebate->attributes->fecha .' '. substr($valuedebate->attributes->hora, 0, 5))->getPreciseTimestamp(3),                                                             
                         'youtube' => $valuedebate->attributes->youtube,
-                        'url_img' => $urlImg,                                    
+                        'url_img' => $urlImg,  
+                        'url_seccion' => '/cios-mesa-de-debate',
+                        'name_seccion' => 'Mesa de Debate',                                   
                     );
                 }else{
                     $dataDebate1[] = array('titulo'=>$valuedebate->attributes->titulo,
@@ -379,7 +398,9 @@ class Controller extends BaseController
                         'fecha2'=> Carbon::parse($valuedebate->attributes->fecha)->format('y-m-d'),     
                         'fecha3'=> Carbon::parse($valuedebate->attributes->fecha .' '. substr($valuedebate->attributes->hora, 0, 5))->getPreciseTimestamp(3),                                                             
                         'youtube' => $valuedebate->attributes->youtube,
-                        'url_img' => $urlImg,                                    
+                        'url_img' => $urlImg,   
+                        'url_seccion' => '/cios-mesa-de-debate',
+                        'name_seccion' => 'Mesa de Debate',                                  
                     ); 
                 }                 
             }
@@ -404,7 +425,7 @@ class Controller extends BaseController
                     'fecha'=> Carbon::parse($valuemaster->attributes->fecha)->translatedFormat('d F, Y'),
                     'fecha1'=> Carbon::parse($valuemaster->attributes->fecha)->format('m'),                                      
                     'youtube' => $valuemaster->attributes->youtube,
-                    'url_img' => $urlImg,                                    
+                    'url_img' => $urlImg,                                   
                 );
                         
             }
@@ -421,7 +442,9 @@ class Controller extends BaseController
                         'fecha2'=> Carbon::parse($valuemaster->attributes->fecha)->format('y-m-d'),
                         'fecha3'=> Carbon::parse($valuemaster->attributes->fecha .' '. substr($valuemaster->attributes->hora, 0, 5))->getPreciseTimestamp(3),                                                                           
                         'youtube' => $valuemaster->attributes->youtube,
-                        'url_img' => $urlImg,                                    
+                        'url_img' => $urlImg,
+                        'url_seccion' => '/cios-master-class',
+                        'name_seccion' => 'Master Class',                                   
                     );
                 }else{
                     $dataMaster1[] = array('titulo'=>$valuemaster->attributes->titulo,
@@ -430,7 +453,9 @@ class Controller extends BaseController
                         'fecha2'=> Carbon::parse($valuemaster->attributes->fecha)->format('y-m-d'),
                         'fecha3'=> Carbon::parse($valuemaster->attributes->fecha .' '. substr($valuemaster->attributes->hora, 0, 5))->getPreciseTimestamp(3),                                                                           
                         'youtube' => $valuemaster->attributes->youtube,
-                        'url_img' => $urlImg,                                    
+                        'url_img' => $urlImg,
+                        'url_seccion' => '/cios-master-class',
+                        'name_seccion' => 'Master Class',                                     
                     );   
                 }               
             }
@@ -455,7 +480,7 @@ class Controller extends BaseController
                     'fecha'=> Carbon::parse($valueshorts->attributes->fecha)->translatedFormat('d F, Y'),
                     'fecha1'=> Carbon::parse($valueshorts->attributes->fecha)->format('m'),                                      
                     'youtube' => $valueshorts->attributes->youtube,
-                    'url_img' => $urlImg,                                    
+                    'url_img' => $urlImg,                               
                 );
                         
             }
@@ -470,24 +495,28 @@ class Controller extends BaseController
                         'fecha'=> Carbon::parse($valueshorts->attributes->fecha)->translatedFormat('d F, Y'),
                         'fecha1'=> Carbon::parse($valueshorts->attributes->fecha)->format('m'),        
                         'fecha2'=> Carbon::parse($valueshorts->attributes->fecha)->format('y-m-d'),
-                        'fecha3'=> Carbon::parse($valueshorts->attributes->fecha .' '. substr($valueshorts->attributes->fecha, 0, 5))->getPreciseTimestamp(3),                                                                           
+                        'fecha3'=> Carbon::parse($valueshorts->attributes->fecha .' '. substr("19:00:00.000", 0, 5))->getPreciseTimestamp(3),                                                                           
                         'youtube' => $valueshorts->attributes->youtube,
-                        'url_img' => $urlImg,                                    
+                        'url_img' => $urlImg, 
+                        'url_seccion' => '/cios-shorts',
+                        'name_seccion' => 'Shorts',                                     
                     );
                 }else{
                     $dataShorts1[] = array('titulo'=>$valueshorts->attributes->titulo,
                         'fecha'=> Carbon::parse($valueshorts->attributes->fecha)->translatedFormat('d F, Y'),
                         'fecha1'=> Carbon::parse($valueshorts->attributes->fecha)->format('m'),        
                         'fecha2'=> Carbon::parse($valueshorts->attributes->fecha)->format('y-m-d'),
-                        'fecha3'=> Carbon::parse($valueshorts->attributes->fecha),                                                                           
+                        'fecha3'=> Carbon::parse($valueshorts->attributes->fecha .' '. substr("19:00:00.000", 0, 5))->getPreciseTimestamp(3),                                                                           
                         'youtube' => $valueshorts->attributes->youtube,
-                        'url_img' => $urlImg,                                    
+                        'url_img' => $urlImg,     
+                        'url_seccion' => '/cios-shorts',
+                        'name_seccion' => 'Shorts',                                 
                     );   
                 }               
             }
             $i++;
         }   
-
+        
         //NUM MEMBERS
         $urlMember = $url_site.'/api/miembros-actives/1';
         $responseMem = file_get_contents($urlMember);
@@ -509,9 +538,14 @@ class Controller extends BaseController
         $fechaHoy = Carbon::now()->format('y-m-d');
         $mesPasado = Carbon::now()->format('m');
 
+        $recienteDate = now()->subDays(30)->format('y-m-d');
+
+        //dd($recienteDate);  //24-03-19    //24-04-03
+        
+
         foreach ($dataVlog1 as $key => $value) {
             
-            if($value['fecha2'] < $fechaHoy){ 
+            if($value['fecha2'] >= $recienteDate && $value['fecha2'] <= $fechaHoy){ 
                 $dataCollage[] = array($value);
             }
             if($value['fecha2'] >= $fechaHoy){
@@ -519,7 +553,7 @@ class Controller extends BaseController
             }
         }
         foreach ($dataPres1 as $key => $value) {
-            if($value['fecha2'] < $fechaHoy){
+            if($value['fecha2'] >= $recienteDate && $value['fecha2'] <= $fechaHoy){
                 $dataCollage[] = array($value                                    
                 );
             }
@@ -528,7 +562,7 @@ class Controller extends BaseController
             }
         }
         foreach ($dataLife1 as $key => $value) {
-            if($value['fecha2'] < $fechaHoy){
+            if($value['fecha2'] >= $recienteDate && $value['fecha2'] <= $fechaHoy){
                 $dataCollage[] = array($value                                    
                 );
             }
@@ -537,7 +571,7 @@ class Controller extends BaseController
             }
         }
         foreach ($dataAmigos1 as $key => $value) {
-            if($value['fecha2'] < $fechaHoy){
+            if($value['fecha2'] >= $recienteDate && $value['fecha2'] <= $fechaHoy){
                 $dataCollage[] = array($value);
             }
             if($value['fecha2'] >= $fechaHoy){
@@ -546,7 +580,7 @@ class Controller extends BaseController
         }
 
         foreach ($dataDebate1 as $key => $value) {
-            if($value['fecha2'] < $fechaHoy){
+            if($value['fecha2'] >= $recienteDate && $value['fecha2'] <= $fechaHoy){
                 $dataCollage[] = array($value);
             }
             if($value['fecha2'] >= $fechaHoy){
@@ -555,7 +589,7 @@ class Controller extends BaseController
         }
 
         foreach ($dataMaster1 as $key => $value) {
-            if($value['fecha2'] < $fechaHoy){
+            if($value['fecha2'] >= $recienteDate && $value['fecha2'] <= $fechaHoy){
                 $dataCollage[] = array($value                                    
                 );
             }
@@ -563,14 +597,13 @@ class Controller extends BaseController
                 $dataProxEvnts[] = array($value);
             }
         }
-
+        
         foreach ($dataShorts1 as $key => $value) {
-            if($value['fecha2'] <= $fechaHoy){
+            if($value['fecha2'] >= $recienteDate && $value['fecha2'] <= $fechaHoy){
                 $dataCollage[] = array($value                                    
                 );
             }
         }
-        
         
         //MIEMBROS POST
         $dataPostMiembro = \DB::table('post_miembro')
@@ -593,7 +626,7 @@ class Controller extends BaseController
             }
             array_multisort($arrAux, $order, $arrIni);
         }
-        
+        //dd($dataCollage);
         array_sort_by_mes($dataCollage, 'fecha3', $order = SORT_DESC);
         array_sort_by_mes($dataProxEvnts, 'fecha3', $order = SORT_ASC);
 
