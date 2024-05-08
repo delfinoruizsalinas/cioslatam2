@@ -59,7 +59,7 @@ class Controller extends BaseController
         $title = "CIO's LATAM - INICIO";
         Carbon::setLocale('es');
         // NOTICIAS
-        $url = 'https://api.rss2json.com/v1/api.json?rss_url=https://expansion.mx/rss/tecnologia';
+        /*$url = 'https://api.rss2json.com/v1/api.json?rss_url=https://expansion.mx/rss/tecnologia';
         $response = file_get_contents($url);
         $newsData = json_decode($response);
         $i=0;
@@ -82,6 +82,8 @@ class Controller extends BaseController
             }
             $i++;
         }
+        */
+        $noticias ="";
 
         $dataVlog1 = array();
         $dataPres1 = array();

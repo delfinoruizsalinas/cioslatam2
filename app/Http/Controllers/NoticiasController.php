@@ -10,9 +10,9 @@ class NoticiasController extends Controller
 {
     public function index(){
         $title = "CIO's LATAM - NOTICIAS";
-        
+        $noticias =""; 
         // NOTICIAS
-        $url = 'https://api.rss2json.com/v1/api.json?rss_url=https://expansion.mx/rss/tecnologia';
+        /*$url = 'https://api.rss2json.com/v1/api.json?rss_url=https://expansion.mx/rss/tecnologia';
         $response = file_get_contents($url);
         $newsData = json_decode($response);
         $i=0;
@@ -41,7 +41,7 @@ class NoticiasController extends Controller
             }
             
         }
-        
+        */
         return view('layouts.noticias', compact('title','noticias'));
     }
 }

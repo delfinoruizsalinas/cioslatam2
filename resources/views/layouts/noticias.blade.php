@@ -63,32 +63,7 @@
       </section>
       <!-- api eventos master class -->   
       <!-- EVENTOS ENTRE AMIGOS-->
-      <section class="section section-lg bg-gray-600">
-        <div class="container">
-          <div class="row row-50">
-            @foreach($noticias as $noti)
-            <div class="col-md-6 col-lg-4">
-              <div class="wow fadeInUp">
-                <div class="post-modern">
-                    <div class="post-modern-caption">
-                      <p class="post-modern-date">{{ $noti['fecha'] }}</p>
-                      <a href="{{ $noti['link'] }}" target="_blank">  
-                        <h4 class="post-modern-title" style="color:rgb(8, 71, 90);">
-                            {{ $noti['titulo'] }}
-                        </h4>
-                        <img src="{{ $noti['img'] }}" alt="" width="370" height="255" />
-                      </a>
-                      <div class="post-modern-text">
-                          {{ $noti['content'] }}...
-                      </div>
-                    </div>
-                </div>
-              </div>
-            </div>
-            @endforeach 
-          </div>
-        </div>
-      </section>
+      
 
       <!-- Sidebar -->
       @include('layouts.footer')
