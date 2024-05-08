@@ -293,7 +293,67 @@
           </div>
         </div>
       </section>  
-      
+      <section class="bg-gray-200">
+        <div class="container">
+
+          <div class="row row-70 justify-content-xl-between">
+            <div class="col-lg-8">
+              <h3 class="wow slideInDown mobile-center header-border header-border"><a href="{{ url('/noticias') }}">Últimas Noticias</a></h3>
+              <div class="row row-50 justify-content-center">
+                @foreach($noticias as $noti)
+                  <div class="col-md-6">
+                    <div class="post-classic">
+                      <a href="{{ $noti['link'] }}">
+                        <img src="{{ $noti['img'] }}" alt="" width="370" style="height: 255px;">
+                      </a>
+                      <ul class="post-classic-meta">
+                        <li>{{ $noti['fecha'] }}</li>
+                      </ul>
+                    </div>
+
+                    <div class="post-classic-caption">
+                      <h4 class="post-classic-title"><a href="{{ $noti['link'] }}">{{ Str::limit($noti['titulo'], 75) }}...</a></h4>
+                    </div>
+
+                  </div>
+                @endforeach  
+              </div>
+            </div>
+            <div class="col-lg-4 col-xl-4">
+              <div class="block-aside">
+                <div class="block-aside-item">
+                  <h3 class="wow slideInDown header-border" style="margin-bottom: 10px;"><a href="{{ url('/la-voz-de-nuestros-miembros') }}">La voz de nuestros Miembros</a></h3>
+                  <div class="space-mobail"></div>
+                  @foreach($dataPostMiembro as $notiMiembro)
+                    
+                    <div class="post-minimal">
+                      <div class="row">
+                        <div class="col-lg-4">
+                          <a href="miembros-detalle/{{ str_replace(' ', '-', $notiMiembro->titulo) }}" target="_blank">  
+                            <img class="rounded" src="news/{{ $notiMiembro->imagen }}" alt="" width="100%">
+                          </a>
+                          <p class="post-modern-date1">{{ \Carbon\Carbon::parse($notiMiembro->created_at)->translatedFormat('d F, Y') }}</p>
+                        </div>
+                         
+                        <div class="col-lg-8">
+                          <h5 class="post-minimal-title-1">
+                            <a href="miembros-detalle/{{ str_replace(' ', '-', $notiMiembro->titulo) }}" target="_blank">  
+                              {{ Str::limit($notiMiembro->titulo, 75) }}...
+                            </a>
+                          </h5>
+                          <h6 class="post-minimal-title-2">Por {{ $notiMiembro->nom_contacto }} {{ $notiMiembro->ap_contacto }}</h6>
+                        </div>
+                          
+                      </div>
+                    </div>
+                  @endforeach
+
+                </div>
+              </div>
+            </div>
+          <div>
+        </div>
+      </section>
       <section class="section-lg bg-default">
         <div class="container wow-outer">
           <h3 class="text-center wow slideInDown header-border">Contenido de nuestros Partners</h3>
