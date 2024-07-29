@@ -55,7 +55,7 @@ class AgendaController extends Controller
                 }   
 
                 if(empty($value->attributes->MESA_DIA_7->data->attributes->url)){
-                    $dia7_name = 'DÍA 7';
+                    $dia7_name = 'DÍA 5';
                     $dia7_file = '#';
                 }else{
                     $dia7_name = $value->attributes->MESA_DIA_7->data->attributes->name;
@@ -64,7 +64,7 @@ class AgendaController extends Controller
                 }
 
                 if(empty($value->attributes->MESA_DIA_8->data->attributes->url)){
-                    $dia8_name = 'DÍA 8';
+                    $dia8_name = 'DÍA 6';
                     $dia8_file = '#';
                 }else{
                     $dia8_name = $value->attributes->MESA_DIA_8->data->attributes->name;
@@ -73,7 +73,7 @@ class AgendaController extends Controller
                 } 
 
                 if(empty($value->attributes->MESA_DIA_9->data->attributes->url)){
-                    $dia9_name = 'DÍA 9';
+                    $dia9_name = 'DÍA 7';
                     $dia9_file = '#';
                 }else{
                     $dia9_name = $value->attributes->MESA_DIA_9->data->attributes->name;

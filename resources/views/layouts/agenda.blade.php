@@ -65,7 +65,7 @@
       <section id="portada">
         <div class="parallax-content context-dark"> 
           
-            <img src="/dash/images/cios/trd.jpeg" alt="CIO's LATAM Technology Retreat 2023 Hotel Las Brisas" class="img-fluid w-100">
+            <img src="/dash/images/cios/trd.jpeg" alt="CIO's LATAM Technology Retreat 2024 Hotel Las Brisas" class="img-fluid w-100">
 
         </div>
       </section>
@@ -74,7 +74,7 @@
           <div class="row justify-content-center">
             <div class="col-lg-10 col-xl-9 text-center wow-outer">
               <div class="wow slideInLeft">
-                <h3 class="title-decorate title-decorate-center">Agenda <br>CIO’s LATAM Technology Retreat 2023 <br>Hotel Las Brisas</h3>
+                <h3 class="title-decorate title-decorate-center">Agenda <br>CIO’s LATAM Technology Retreat 2024 <br>Hotel Las Brisas</h3>
                 <p>Ixtapa Zihuatanejo</p>
               </div>
             </div>
@@ -84,10 +84,10 @@
               <div class="col-lg-4 col-xl-3 order-lg-2 wow-outer">
                 <div class="wow slideInRight">
                   <ul class="nav nav-tabs nav-tabs-modern">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-1-1" data-toggle="tab">7 Septiembre</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2" data-toggle="tab">8 Septiembre</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3" data-toggle="tab">9 Septiembre</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-4" data-toggle="tab">10 Septiembre</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-1-1" data-toggle="tab">5 Septiembre</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2" data-toggle="tab">6 Septiembre</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3" data-toggle="tab">7 Septiembre</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-4" data-toggle="tab">8 Septiembre</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-5" data-toggle="tab">Ubica tu mesa</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-6" data-toggle="tab">Booking List</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-7" data-toggle="tab">Encuestas Partners</a></li>
