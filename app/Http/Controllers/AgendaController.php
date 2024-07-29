@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 class AgendaController extends Controller
 {
     public function index(){
-        return redirect('/');
+        //return redirect('/');
         
-        $title = "Agenda Technology Retreat 2023 Ixtapa Zihuatanejo";
+        $title = "Agenda Technology Retreat 2024 Ixtapa Zihuatanejo";
               
                                                           
             $json = file_get_contents('http://188.166.16.108:1337/api/technology-retreat-2023s?populate=MESA_DIA_7&populate=MESA_DIA_8&populate=MESA_DIA_9');
