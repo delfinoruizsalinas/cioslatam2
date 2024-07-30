@@ -179,16 +179,16 @@
                       <div class="event-item-classic">
                         <div class="event-item-classic-caption">
                           
-                          <h4 class="event-item-classic-title"><a href="{{  url($BePrime) }}" target="_blank">Be Prime</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($Syniti) }}" target="_blank">Syniti</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($RakenDataGroup) }}" target="_blank">Raken Data Group</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($Nutanix) }}" target="_blank">Nutanix</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($Appsell) }}" target="_blank">Appsell</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($C3ntroTelecom) }}" target="_blank">C3ntro Telecom</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($Equinix) }}" target="_blank">Equinix</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($Linko) }}" target="_blank">Linko</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($NETjer) }}" target="_blank">NETjer</a></h4>
-                          <h4 class="event-item-classic-title"><a href="{{  url($Digital) }}" target="_blank">Digital</a></h4>                                                                                                                                                                                       
+                          <h4 class="event-item-classic-title"><a href="{{  url($BePrime) }}" target="_blank">Voseda</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($Syniti) }}" target="_blank">Equinix</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($RakenDataGroup) }}" target="_blank">Honne</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($Nutanix) }}" target="_blank">Think Care</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($Appsell) }}" target="_blank">Intelligent Networks</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($C3ntroTelecom) }}" target="_blank">Infinyt</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($Equinix) }}" target="_blank">Bambu</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($Linko) }}" target="_blank">Store Age</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($NETjer) }}" target="_blank">Morphisec</a></h4>
+                          <h4 class="event-item-classic-title"><a href="{{  url($Digital) }}" target="_blank">10</a></h4>                                                                                                                                                                                       
 
                         </div>
                       </div>
