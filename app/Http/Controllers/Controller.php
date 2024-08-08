@@ -17,7 +17,7 @@ class Controller extends BaseController
     {
          //FOOTER PARTNERS
          $url_site = 'http://188.166.16.108:1337';
-         $urlPart = $url_site.'/api/partners?populate=imagen';
+         $urlPart = $url_site.'/api/partners?populate=imagen&pagination[limit]=50';
          $responsePart = file_get_contents($urlPart);
          $newsPartn = json_decode($responsePart);
          
