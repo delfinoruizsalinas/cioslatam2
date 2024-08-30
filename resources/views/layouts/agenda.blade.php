@@ -89,7 +89,7 @@
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3" data-toggle="tab">7 Septiembre</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-4" data-toggle="tab">8 Septiembre</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-5" data-toggle="tab">Ubica tu mesa</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-6" data-toggle="tab">Booking List</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-6" data-toggle="tab">Reserva tu Canción</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-7" data-toggle="tab">Encuestas Partners</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-8" data-toggle="tab">Encuesta Final</a></li>                    
                   </ul>
@@ -146,14 +146,14 @@
                         </div>
                       </div>
 
-                      <div class="event-item-classic text-center">
+                      <!--<div class="event-item-classic text-center">
                         
                         <div class="event-item-classic-caption">
                           <h4 class="event-item-classic-title"><a href="{{  url($dia8_file) }}" target="_blank">{{  $dia8_name }}</a></h4>
 
                           </h5>
                         </div>
-                      </div>
+                      </div> -->
                     
                       <div class="event-item-classic text-center">
                         
@@ -179,17 +179,15 @@
                       <div class="event-item-classic">
                         <div class="event-item-classic-caption">
                           
-                          <h4 class="event-item-classic-title"><a href="{{  url($BePrime) }}" target="_blank">Voseda</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($Syniti) }}" target="_blank">Equinix</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($RakenDataGroup) }}" target="_blank">Honne</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($Nutanix) }}" target="_blank">Think Care</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($Appsell) }}" target="_blank">Intelligent Networks</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($C3ntroTelecom) }}" target="_blank">Infinyt</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($Equinix) }}" target="_blank">Bambu</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($Linko) }}" target="_blank">Store Age</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($NETjer) }}" target="_blank">Morphisec</a></h4>
-                          <h4 class="event-item-classic-title"><a href="{{  url($Digital) }}" target="_blank">10</a></h4>                                                                                                                                                                                       
-
+                          <h4 class="event-item-classic-title"><a href="{{  url($BePrime) }}" target="_blank">ENCUESTA VOSEDA</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($Syniti) }}" target="_blank">ENCUESTA EQUINIX</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($RakenDataGroup) }}" target="_blank">ENCUESTA HONNE SERVICES</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($Nutanix) }}" target="_blank">ENCUESTA THINK CARE</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($Appsell) }}" target="_blank">ENCUESTA INTELLIGENT NETWORKS</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($C3ntroTelecom) }}" target="_blank">ENCUESTA INFINYT - MORPHISEC</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($Equinix) }}" target="_blank">ENCUESTA BAMBÚ</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($Linko) }}" target="_blank">ENCUESTA STORE AGE</a></h4> 
+                          <h4 class="event-item-classic-title"><a href="{{  url($NETjer) }}" target="_blank">ENCUESTA HUAWEI</a></h4>
                         </div>
                       </div>
                     </div>

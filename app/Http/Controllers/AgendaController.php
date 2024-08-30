@@ -151,7 +151,7 @@ class AgendaController extends Controller
                     } 
     
                 }               
-            
+                //dd($value->attributes);
                 return view('layouts.agenda', compact('title','sep7','sep8','sep9','sep10','dia7_file','dia7_name','dia8_file','dia8_name','dia9_file','dia9_name','dia7_clase', 'dia8_clase','dia9_clase','encuesta','booking','BePrime','Syniti','RakenDataGroup','Nutanix','Appsell','C3ntroTelecom','Equinix','Linko','NETjer','Digital'));
             }else{
                 return view('layouts.agenda_offline', compact('title'));                
