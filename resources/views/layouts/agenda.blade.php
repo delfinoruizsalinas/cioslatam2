@@ -158,7 +158,7 @@
                       <div class="event-item-classic text-center">
                         
                         <div class="event-item-classic-caption">
-                          <h4 class="event-item-classic-title"><a href="{{  url($dia9_file) }}" target="_blank">{{  $dia9_name }}</a></h4>
+                          <h4 class="event-item-classic-title"><a href="{{  url($dia8_file) }}" target="_blank">{{  $dia8_name }}</a></h4>
 
                           </h5>
                         </div>
