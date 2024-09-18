@@ -541,7 +541,7 @@ class Controller extends BaseController
         $fechaHoy = Carbon::now()->format('y-m-d');
         $mesPasado = Carbon::now()->format('m');
 
-        $recienteDate = now()->subDays(60)->format('y-m-d');
+        $recienteDate = now()->subDays(120)->format('y-m-d');
 
         //dd($recienteDate);  //24-03-19    //24-04-03
         
