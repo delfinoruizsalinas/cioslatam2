@@ -12,8 +12,8 @@ class NoticiasController extends Controller
         $title = "CIO's LATAM - NOTICIAS";
         //$noticias =""; 
         // NOTICIAS
-        $url = 'https://api.rss2json.com/v1/api.json?rss_url=https://expansion.mx/rss/tecnologia';
-        //$url = 'apiNoticias.json';
+        //$url = 'https://api.rss2json.com/v1/api.json?rss_url=https://expansion.mx/rss/tecnologia';
+        $url = 'apiNoticias.json';
         $response = file_get_contents($url);
         $newsData = json_decode($response);
         $i=0;
