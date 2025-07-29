@@ -84,10 +84,10 @@
               <div class="col-lg-4 col-xl-3 order-lg-2 wow-outer">
                 <div class="wow slideInRight">
                   <ul class="nav nav-tabs nav-tabs-modern">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-1-1" data-toggle="tab">5 Septiembre</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2" data-toggle="tab">6 Septiembre</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3" data-toggle="tab">7 Septiembre</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-4" data-toggle="tab">8 Septiembre</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-1-1" data-toggle="tab">4 Septiembre</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2" data-toggle="tab">5 Septiembre</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3" data-toggle="tab">6 Septiembre</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-4" data-toggle="tab">7 Septiembre</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-5" data-toggle="tab">Ubica tu mesa</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-6" data-toggle="tab">Reserva tu Canción</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-7" data-toggle="tab">Encuestas Partners</a></li>
