@@ -7,12 +7,12 @@
   <meta property="og:title" content="{{  $title }}"/>
   <meta property="og:url" content="{{ url()->current() }}" />
   <meta name="keywords" content="{{  $title }}"/>
-  <meta property="og:image" content="https://cioslatam.com/dash/images/cios/trd2.jpeg">
-  <meta property="og:image:url" content="https://cioslatam.com/dash/images/cios/trd2.jpeg">
+  <meta property="og:image" content="https://cioslatam.com/dash/images/cios/trd1h.jpeg">
+  <meta property="og:image:url" content="https://cioslatam.com/dash/images/cios/trd1h.jpeg">
   <meta property="og:image:width" content="300" />
   <meta property="og:image:height" content="300" />
 
-  <link rel="apple-touch-icon" href="https://cioslatam.com/dash/images/cios/trd2.jpeg">
+  <link rel="apple-touch-icon" href="https://cioslatam.com/dash/images/cios/trd1h.jpeg">
   <meta name="apple-mobile-web-app-title" content="{{ $title }}">
 
 
