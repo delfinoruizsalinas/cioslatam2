@@ -34,7 +34,8 @@ use App\Http\Controllers\AgendaController;
 Route::get('/', [Controller::class, 'index']);
 
 Route::controller(AgendaController::class)->group(function(){
-    Route::GET('agenda-technology-retreat-2024-ixtapa-zihuatanejo', 'index');
+    //Route::GET('agenda-technology-retreat-2024-ixtapa-zihuatanejo', 'index');
+    Route::GET('agenda-technology-retreat-2025-huatulco', 'index');
 });
 
 Route::controller(NoticiasController::class)->group(function(){
