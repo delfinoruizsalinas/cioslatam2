@@ -65,7 +65,7 @@
       <section id="portada">
         <div class="parallax-content context-dark"> 
           
-            <img src="/dash/images/cios/trd2.jpeg" alt="CIO's LATAM Technology Retreat 2024 Huatulco" class="img-fluid w-100">
+            <img src="/dash/images/cios/trd1h.jpeg" alt="CIO's LATAM Technology Retreat 2025 Huatulco" class="img-fluid w-100">
 
         </div>
       </section>
