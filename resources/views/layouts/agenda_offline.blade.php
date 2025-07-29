@@ -20,7 +20,7 @@
     <style>
       @media (max-width: 400px) {
         #portada {
-            background-image: url(/dash/images/cios/trd2.jpeg) !important;
+            background-image: url(/dash/images/cios/trd1h.jpeg) !important;
             background-size: cover;
         }
         .event-item-classic{
@@ -65,7 +65,7 @@
       <section id="portada">
         <div class="parallax-content context-dark"> 
           
-            <img src="/dash/images/cios/trd2.jpeg" alt="CIO's LATAM Technology Retreat 2024 Hotel Las Brisas" class="img-fluid w-100">
+            <img src="/dash/images/cios/trd2.jpeg" alt="CIO's LATAM Technology Retreat 2024 Huatulco" class="img-fluid w-100">
 
         </div>
       </section>
