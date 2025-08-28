@@ -33,9 +33,15 @@ use App\Http\Controllers\AgendaController;
 
 Route::get('/', [Controller::class, 'index']);
 
-Route::controller(AgendaController::class)->group(function(){
-    //Route::GET('agenda-technology-retreat-2024-ixtapa-zihuatanejo', 'index');
-    Route::GET('agenda-technology-retreat-2025-huatulco', 'index');
+// Route::controller(AgendaController::class)->group(function(){
+//     //Route::GET('agenda-technology-retreat-2024-ixtapa-zihuatanejo', 'index');
+//     Route::GET('agenda-technology-retreat-2025-huatulco', 'index'); 
+// });
+
+
+Route::controller(AgendaController::class)->group(function () {
+    Route::get('agenda-technology-retreat-2025-huatulco', 'index')->name('agenda.index');
+    Route::post('agenda-technology-retreat-2025-huatulco/ubica-mesa', 'buscarMesaAjax')->name('mesa.buscar'); // AJAX
 });
 
 Route::controller(NoticiasController::class)->group(function(){

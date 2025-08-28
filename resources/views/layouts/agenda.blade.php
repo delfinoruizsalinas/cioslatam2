@@ -48,6 +48,108 @@
       color: #dc3545!important;
     }
     
+
+    /* layout */
+.mesa-wrapper { max-width: 560px; margin: 0 auto; }
+.mesa-title { font-size: 1.25rem; letter-spacing: .2px; }
+
+/* formulario */
+.mesa-form { max-width: 560px; margin: 0 auto; }
+.mesa-input {
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb; /* gris claro */
+  box-shadow: none !important;
+}
+.mesa-input:focus {
+  border-color: #80bdff; outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.1);
+}
+.mesa-btn {
+  min-width: 120px;
+  border-radius: 999px;
+  padding: .5rem 1.25rem;
+}
+
+/* mensajes */
+#mesa-msg .alert {
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  padding: .6rem .9rem;
+  display: inline-block;
+  margin: .75rem auto 0;
+}
+
+/* tarjeta resultado (minimal) */
+.card-mesa {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: none;
+  margin-top: 1rem;
+}
+.card-mesa .card-body { padding: 1rem 1rem; }
+.card-mesa .mesa-id {
+  font-size: .85rem; color: #6b7280; /* gris medio */
+  margin-bottom: .25rem;
+}
+.card-mesa .mesa-id strong { color: #111827; }
+
+/* lista de días/mesas como chips */
+.mesa-list { list-style: none; padding-left: 0; margin: 0; }
+.mesa-list li { display: flex; justify-content: space-between; align-items: center; padding: .35rem 0; }
+.chip {
+  display: inline-block;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  font-size: .85rem;
+  color: #374151;
+  background: #fff;
+}
+
+/* responsive tweaks */
+@media (max-width: 480px) {
+  .mesa-input { height: 44px; }
+  .mesa-btn { width: 100%; }
+}
+
+/* Ajusta el ancho del recuadro blanco */
+#tabs-1-5 .event-item-classic {
+  max-width: 700px;   /* más ancho que los demás */
+  margin: 0 auto;     /* centra horizontalmente */
+  padding: 2rem 1.5rem;
+}
+
+/* Centrar internamente el caption */
+#tabs-1-5 .event-item-classic-caption {
+  text-align: center;
+  width: 100%;
+}
+
+/* Opcional: darle un fondo más blanco al recuadro (si se ve gris) */
+#tabs-1-5 .event-item-classic {
+  background: #fff;
+  border-radius: 12px;
+}
+/* fila de día/mesa con línea inferior */
+.mesa-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5rem .25rem;
+  border-bottom: 1px solid #e5e7eb; /* línea gris clara */
+}
+
+/* quita línea al último */
+.mesa-list li:last-child {
+  border-bottom: none;
+}
+.mesa-list .chip {
+  min-width: 90px;
+  text-align: center;
+  font-weight: 500;
+}
+
     </style>
   </head>
   <body>
@@ -135,36 +237,46 @@
                       </div>
 
                     </div>
-                    <div class="tab-pane fade" id="tabs-1-5">
+<div class="tab-pane fade" id="tabs-1-5">
+  <div class="event-item-classic">
+    <div class="event-item-classic-caption">
 
-                      <div class="event-item-classic text-center">
-                        
-                        <div class="event-item-classic-caption">
-                          <h4 class="event-item-classic-title"><a href="{{  url($dia7_file) }}" target="_blank">{{  $dia7_name }}</a></h4>
+      <div class="mesa-wrapper d-flex flex-column align-items-center justify-content-start py-3">
 
-                          </h5>
-                        </div>
-                      </div>
+        <h4 class="mb-3 text-center font-weight-semibold mesa-title">Ubica tu mesa</h4>
 
-                      <!--<div class="event-item-classic text-center">
-                        
-                        <div class="event-item-classic-caption">
-                          <h4 class="event-item-classic-title"><a href="{{  url($dia8_file) }}" target="_blank">{{  $dia8_name }}</a></h4>
+        {{-- Formulario (AJAX) --}}
+        <form id="form-ubica-mesa" class="w-100 mesa-form" method="post" action="#" data-action="{{ route('mesa.buscar') }}">
+          @csrf
+          <div class="form-group mb-2">
+            <label for="folio" class="sr-only">Ingresa tu ID</label>
+            <input
+              type="text"
+              id="folio"
+              name="folio"
+              class="form-control text-center mesa-input"
+              placeholder="Ej. ID-CTR64"
+              required
+            >
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary mesa-btn" id="btn-buscar-mesa">
+              Buscar
+            </button>
+          </div>
+        </form>
 
-                          </h5>
-                        </div>
-                      </div> -->
-                    
-                      <div class="event-item-classic text-center">
-                        
-                        <div class="event-item-classic-caption">
-                          <h4 class="event-item-classic-title"><a href="{{  url($dia8_file) }}" target="_blank">{{  $dia8_name }}</a></h4>
+        {{-- Mensajes / Resultado (centrados y dentro del área blanca) --}}
+        <div id="mesa-msg" class="w-100 text-center" style="max-width:560px;"></div>
+        <div id="mesa-result" class="w-100" style="max-width:560px;"></div>
 
-                          </h5>
-                        </div>
-                      </div>
-                    </div> 
-                    
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
                     <div class="tab-pane fade" id="tabs-1-6">
                       <div class="event-item-classic">
                         <div class="event-item-classic-caption">
@@ -214,5 +326,101 @@
     </div>
     <div class="snackbars" id="form-output-global"></div>
     @extends('layouts.js')
+    {{-- Script AJAX (usa Fetch nativo) --}}
+<script>
+(function () {
+  function setMsg(html, cls = 'alert-info') {
+    const msgBox = document.getElementById('mesa-msg');
+    msgBox.classList.add('text-center');
+    msgBox.innerHTML = html ? `<div class="alert ${cls}" role="alert">${html}</div>` : '';
+  }
+ function setResultHTML(result) {
+  const resBox = document.getElementById('mesa-result');
+  if (!result) { resBox.innerHTML = ''; return; }
+
+  const idInv  = result.idInvitado || '';
+  const nombre = result.nombreInvitado ? result.nombreInvitado : null;
+
+  const agenda = Array.isArray(result.agendaInvitado) ? result.agendaInvitado : [];
+  const items  = agenda.length
+    ? `<ul class="mesa-list">
+        ${agenda.map(it => {
+          const dia  = (it && it.dia)  ? it.dia  : 'Día';
+          const mesa = (it && (it.mesa || it.mesa === 0)) ? it.mesa : '-';
+          return `
+            <li>
+              <span class="chip">${dia}</span>
+              <span class="chip">Mesa ${mesa}</span>
+            </li>`;
+        }).join('')}
+      </ul>`
+    : `<p class="mb-0 text-muted">Sin agenda registrada.</p>`;
+
+  resBox.innerHTML = `
+    <div class="card card-mesa mx-auto">
+      <div class="card-body">
+        <div class="mesa-id">ID: <strong>${idInv}</strong></div>
+        ${ nombre ? `<div class="mb-3">Nombre: <strong>${nombre}</strong></div>` : '' }
+        ${items}
+      </div>
+    </div>
+  `;
+}
+
+
+  const form = document.getElementById('form-ubica-mesa');
+  if (!form) return;
+
+  const btn    = document.getElementById('btn-buscar-mesa');
+  const resBox = document.getElementById('mesa-result');
+  const msgBox = document.getElementById('mesa-msg');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault(); // <- evita navegación
+    msgBox.innerHTML = '';
+    resBox.innerHTML = '';
+
+    const folio = (document.getElementById('folio').value || '').trim();
+    if (!folio) { setMsg('Por favor ingresa tu ID.', 'alert-danger'); return; }
+
+    const url = form.getAttribute('data-action'); // route('mesa.buscar')
+
+    btn.disabled = true;
+    btn.textContent = 'Buscando...';
+
+    try {
+      const resp = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+          'X-CSRF-TOKEN': '{{ csrf_token() }}',
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ folio })
+      });
+
+      const data = await resp.json().catch(() => ({}));
+      if (!resp.ok || data.ok === false) {
+        setMsg(data?.message || 'Error al consultar.', 'alert-danger');
+        return;
+      }
+      if (data.found === false) {
+        setMsg('No encontramos información para ese ID.', 'alert-warning');
+        return;
+      }
+      setMsg('Resultado encontrado ✅', 'alert-success');
+      setResultHTML(data.result);
+    } catch (err) {
+      setMsg('Error de red o servidor. Intenta de nuevo.', 'alert-danger');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Buscar';
+    }
+  });
+})();
+</script>
+
+
   </body>
 </html>
