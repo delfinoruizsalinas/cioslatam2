@@ -255,7 +255,7 @@
               id="folio"
               name="folio"
               class="form-control text-center mesa-input"
-              placeholder="Ej. ID-CTR64"
+              placeholder="Ej. ID-CTR00"
               required
             >
           </div>
