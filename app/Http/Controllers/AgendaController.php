@@ -77,17 +77,16 @@ class AgendaController extends Controller
         }
     }
 
-    /**
-     * AJAX: Busca idInvitado en Strapi y devuelve JSON.
-     * NO recarga vista, NO vuelve a pedir la agenda base.
+
+     /* POST /mesa/buscar (AJAX)
      */
-    public function buscarMesaAjax(Request $request)
+    public function buscar(Request $request)
     {
-        $folio = trim((string)$request->input('folio', ''));
+        $folio = trim((string) $request->input('folio', ''));
 
         if ($folio === '') {
             return response()->json([
-                'ok' => false,
+                'ok'      => false,
                 'message' => 'Por favor ingresa tu ID.',
             ], 422);
         }
@@ -104,9 +103,9 @@ class AgendaController extends Controller
 
             if (!$response->ok()) {
                 return response()->json([
-                    'ok' => false,
+                    'ok'      => false,
                     'message' => 'Servicio no disponible (Strapi).',
-                    'status' => $response->status(),
+                    'status'  => $response->status(),
                 ], 502);
             }
 
@@ -114,41 +113,44 @@ class AgendaController extends Controller
             $data    = $payload['data'] ?? [];
 
             if (empty($data)) {
-                // No encontrado
                 return response()->json([
-                    'ok'    => true,
-                    'found' => false,
-                    'result'=> null,
+                    'ok'     => true,
+                    'found'  => false,
+                    'result' => null,
                 ]);
             }
 
-            // Evita "Undefined array key 0"
             $item = $data[0] ?? null;
             if (!$item || empty($item['attributes'])) {
                 return response()->json([
-                    'ok'    => true,
-                    'found' => false,
-                    'result'=> null,
+                    'ok'     => true,
+                    'found'  => false,
+                    'result' => null,
                 ]);
             }
 
-            $attr   = $item['attributes'];
+            $attr = $item['attributes'] ?? [];
+
+            // agendaInvitado ya llega como arreglo de objetos con { id, mesa }
+            $agenda = $attr['agendaInvitado'] ?? [];
+            if (!is_array($agenda)) $agenda = [];
+
             $result = [
                 'idInvitado'     => $attr['idInvitado']     ?? $folio,
                 'nombreInvitado' => $attr['nombreInvitado'] ?? null,
-                'agendaInvitado' => $attr['agendaInvitado'] ?? [],
+                'agendaInvitado' => $agenda,
             ];
 
             return response()->json([
-                'ok'    => true,
-                'found' => true,
-                'result'=> $result,
+                'ok'     => true,
+                'found'  => true,
+                'result' => $result,
             ]);
         } catch (\Throwable $e) {
             return response()->json([
-                'ok' => false,
+                'ok'      => false,
                 'message' => 'Error al consultar.',
-                'error' => $e->getMessage(),
+                'error'   => $e->getMessage(),
             ], 500);
         }
     }
