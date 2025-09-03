@@ -265,52 +265,63 @@
                     </form>
 
 
-        {{-- Mensajes / Resultado (centrados y dentro del área blanca) --}}
-        <div id="mesa-msg" class="w-100 text-center" style="max-width:560px;"></div>
-        <div id="mesa-result" class="w-100" style="max-width:560px;"></div>
+                            {{-- Mensajes / Resultado (centrados y dentro del área blanca) --}}
+                            <div id="mesa-msg" class="w-100 text-center" style="max-width:560px;"></div>
+                            <div id="mesa-result" class="w-100" style="max-width:560px;"></div>
 
-      </div>
+                          </div>
 
-    </div>
-  </div>
-</div>
+                        </div>
+                      </div>
+                    </div>
 
 
                     <div class="tab-pane fade" id="tabs-1-6">
                       <div class="event-item-classic">
                         <div class="event-item-classic-caption">
-                          
-                        <h4 class="event-item-classic-title"><a href="{{  url($booking) }}" target="_blank">{{  $booking }}</a></h4> 
-
+                          <h4 class="event-item-classic-title">
+                            <a href="{{ $booking_url ? url($booking_url) : '#' }}" target="_blank">
+                              {{ $booking_title }}
+                            </a>
+                          </h4>
                         </div>
                       </div>
                     </div>
 
-                    <div class="tab-pane fade" id="tabs-1-7">
+
+                   <div class="tab-pane fade" id="tabs-1-7">
                       <div class="event-item-classic">
                         <div class="event-item-classic-caption">
-                          
-                          <h4 class="event-item-classic-title"><a href="{{  url($BePrime) }}" target="_blank">ENCUESTA VOSEDA</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($Syniti) }}" target="_blank">ENCUESTA EQUINIX</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($RakenDataGroup) }}" target="_blank">ENCUESTA HONNE SERVICES</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($Nutanix) }}" target="_blank">ENCUESTA THINK CARE</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($Appsell) }}" target="_blank">ENCUESTA INTELLIGENT NETWORKS</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($C3ntroTelecom) }}" target="_blank">ENCUESTA INFINYT - MORPHISEC</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($Equinix) }}" target="_blank">ENCUESTA BAMBÚ</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($Linko) }}" target="_blank">ENCUESTA STORE AGE</a></h4> 
-                          <h4 class="event-item-classic-title"><a href="{{  url($NETjer) }}" target="_blank">ENCUESTA HUAWEI</a></h4>
+                          @if(!empty($partners))
+                            @foreach($partners as $p)
+                              @php
+                                $t = $p['Titulo'] ?? 'ENCUESTA';
+                                $u = $p['Url']    ?? '#';
+                              @endphp
+                              <h4 class="event-item-classic-title">
+                                <a href="{{ $u ? url($u) : '#' }}" target="_blank">{{ $t }}</a>
+                              </h4>
+                            @endforeach
+                          @else
+                            <p class="text-muted mb-0">No hay encuestas disponibles por el momento.</p>
+                          @endif
                         </div>
                       </div>
                     </div>
+
 
                     <div class="tab-pane fade" id="tabs-1-8">
                       <div class="event-item-classic">
                         <div class="event-item-classic-caption">
-                          
-                          <h4 class="event-item-classic-title"><a href="{{  url($encuesta) }}" target="_blank">{{  $encuesta }}</a></h4> 
+                          <h4 class="event-item-classic-title">
+                            <a href="{{ $encuesta_url ? url($encuesta_url) : '#' }}" target="_blank">
+                              {{ $encuesta_title }}
+                            </a>
+                          </h4>
                         </div>
                       </div>
                     </div>
+
 
                   </div>
                 </div>
