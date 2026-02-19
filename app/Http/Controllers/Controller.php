@@ -60,29 +60,34 @@ class Controller extends BaseController
         Carbon::setLocale('es');
         // NOTICIAS
         //$url = 'https://api.rss2json.com/v1/api.json?rss_url=https://expansion.mx/rss/tecnologia';
-        $url = 'apiNoticias.json';
-        $response = file_get_contents($url);
-        $newsData = json_decode($response);
-        $i=0;
-        foreach ($newsData->items as $value) {
-            if($i <=3){
-                $img = "";
-                if(empty($value->enclosure->link)){
-                    $img = "https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg";
-                }else{
-                    if($value->enclosure->link){
-                        $img = $value->enclosure->link;
-                    }else{
-                        $img = $value->thumbnail;
+        // --- INICIO BLOQUE NOTICIAS ACTUALIZADO ---
+        $noticias = [];
+        $path = public_path('apiNoticias.json');
+
+        if (file_exists($path)) {
+            $response = file_get_contents($path);
+            $newsData = json_decode($response);
+
+            if (isset($newsData->items)) {
+                $i = 0;
+                foreach ($newsData->items as $value) {
+                    if ($i <= 3) {
+                        // Usamos los campos que genera tu script update_news.php
+                        // Nota: El script ya nos da la imagen (img) y la fecha lista
+                        $noticias[] = array(
+                            'titulo'      => $value->titulo, 
+                            'link'        => $value->link,
+                            'description' => $value->description,
+                            'img'         => $value->img ?: "https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg", 
+                            'fecha'       => $value->fecha, // El cron ya la trae formateada como "19 Febrero, 2026"
+                            'hora'        => date('H:i', strtotime($value->fecha)) 
+                        );
                     }
+                    $i++;
                 }
-                
-                $fecha = Carbon::parse($value->pubDate)->translatedFormat('d F, Y');
-                $hora =  Carbon::parse($value->pubDate)->format('h:m');
-                $noticias[] = array('titulo' => $value->title, 'link'=> $value->link,'description'=> $value->description,'img'=>$img, 'fecha' =>$fecha,'hora' =>$hora);
             }
-            $i++;
         }
+        // --- FIN BLOQUE NOTICIAS ACTUALIZADO ---
         
         //$noticias ="";
 
