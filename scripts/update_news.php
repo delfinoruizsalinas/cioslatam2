@@ -41,8 +41,21 @@ try {
         ];
     }
 
-    file_put_contents($output_file, json_encode($noticias, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-    echo "JSON actualizado con éxito.\n";
+// ESTA ES LA PARTE QUE DEBES CAMBIAR:
+$finalStructure = [
+    "status" => "ok",
+    "feed" => [
+        "url" => $rss_url,
+        "title" => (string)$xml->channel->title,
+        "link" => (string)$xml->channel->link,
+        "description" => (string)$xml->channel->description,
+    ],
+    "items" => $noticias // Aquí metemos el array que generamos
+];
+
+// Guardamos con la estructura de objeto que Laravel espera
+file_put_contents($output_file, json_encode($finalStructure, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+echo "JSON actualizado con estructura compatible.\n";
 
 } catch (Exception $e) {
     error_log("Error en cron de noticias: " . $e->getMessage());
