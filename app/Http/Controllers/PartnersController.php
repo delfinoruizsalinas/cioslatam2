@@ -112,26 +112,26 @@ class PartnersController extends Controller
     
     public function detalleContenido($titulo)
     {
+        // Reemplazamos guiones por espacios
         $tituloNote = str_replace('-', ' ', $titulo);
-        
         $title = $tituloNote;
-        //$title = "CIO's LATAM - PARTNERS DETALLE CONTENIDO";
 
+        // Usamos first() para obtener un solo registro directamente
         $publicacion = \DB::table('post_partner')
-        ->join('users', 'post_partner.id_usuario', '=', 'users.id')
-        ->select('post_partner.*','users.partner')
-        ->orderBy('updated_at','DESC')
-        ->where('post_partner.titulo', 'like', $tituloNote.'%')
-        ->get();
-       //dd($publicacion);
-       
-       if(sizeof($publicacion) ==1 ){
-        $detalle_contenido = json_decode($publicacion);
-              
-        return view('layouts.partners_detalle_contenido', compact('title','detalle_contenido'));   
-        }else{
+            ->join('users', 'post_partner.id_usuario', '=', 'users.id')
+            ->select('post_partner.*', 'users.partner')
+            // Cambiamos 'like' por '=' para evitar ambigüedad
+            ->where('post_partner.titulo', '=', $tituloNote) 
+            ->first(); // Trae el primer resultado o null
+
+        if ($publicacion) {
+            // Al usar first(), $publicacion ya es el objeto, no necesitas [0]
+            $detalle_contenido = $publicacion; 
+                
+            return view('layouts.partners_detalle_contenido', compact('title', 'detalle_contenido'));   
+        } else {
             return redirect('/');
-        }  
+        }   
     }
 
 }
