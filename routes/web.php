@@ -33,12 +33,12 @@ use App\Http\Controllers\AgendaController;
 
 Route::get('/', [Controller::class, 'index']);
 
-// Route::controller(AgendaController::class)->group(function () {
-//   Route::get('agenda-technology-retreat-2025-huatulco', 'index')->name('agenda.index');
-//   Route::post('agenda-technology-retreat-2025-huatulco/ubica-mesa', 'buscar')->name('mesa.buscar');
-// });
-Route::permanentRedirect('agenda-technology-retreat-2025-huatulco', '/')->name('agenda.index');
+Route::controller(AgendaController::class)->group(function () {
+  Route::get('agenda-technology-retreat-2026-huatulco', 'index')->name('agenda.index');
+  Route::post('agenda-technology-retreat-2026-huatulco/ubica-mesa', 'buscar')->name('mesa.buscar');
+});
 
+////# Route::permanentRedirect('agenda-technology-retreat-2026-huatulco', '/')->name('agenda.index');
 
 
 Route::controller(NoticiasController::class)->group(function(){
