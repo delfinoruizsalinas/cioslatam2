@@ -11,7 +11,7 @@
         </div>
         </div>
         <!-- Owl Carousel-->
-        <div class="owl-carousel owl-dots-secondary dots-offset-lg" data-items="1" data-sm-items="2" data-md-items="4" data-lg-items="6" data-autoplay="true" data-dots="true" data-nav="false" data-stage-padding="10" data-loop="true" data-margin="10">
+        <div class="owl-carousel owl-dots-secondary dots-offset-lg" data-items="1" data-sm-items="2" data-md-items="4" data-lg-items="6" data-autoplay="true" data-dots="true" data-dots-each="4" data-nav="false" data-stage-padding="10" data-loop="true" data-margin="10">
 
             @foreach($partner_slider as $partners)
             
@@ -42,5 +42,25 @@
     max-height: 120px;
     height: auto;
     width: auto;
+}
+.partner-slider-section .owl-dots{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-top: 18px;
+}
+.partner-slider-section .owl-dot{ 
+    width:10px; 
+    height:10px; 
+    border-radius:50%; 
+    background:#e6e6e6; 
+    opacity:1;
+}
+.partner-slider-section .owl-dot.active{ 
+    background:#6e9380; 
+}
+@media (max-width: 420px){
+    /* Hide dots on very small screens to avoid visual clutter */
+    .partner-slider-section .owl-dots{display:none}
 }
 </style>
