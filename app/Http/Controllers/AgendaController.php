@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 class AgendaController extends Controller
 {
     public function index(){
-        $title = "Agenda Technology Retreat 2025 huatulco";
+        $title = "Agenda Technology Retreat 2026 huatulco";
 
         // Traemos también ELIGETUCANCION, ENCUESTASPARTNERS y ENCUESTATECHNOLOGYRETREAT
         $json = file_get_contents('http://188.166.16.108:1337/api/technology-retreat-2023s?populate=MESA_DIA_7&populate=MESA_DIA_8&populate=MESA_DIA_9&populate=MESA_DIA_10&populate=ELIGETUCANCION&populate=ENCUESTASPARTNERS&populate=ENCUESTATECHNOLOGYRETREAT');
@@ -22,51 +22,51 @@ class AgendaController extends Controller
         $value = $obj->data[0];
 
         // ====== Días (HTML ya listo para render) ======
-        $sep7  = $value->attributes->SEP7  ?? '';
-        $sep8  = $value->attributes->SEP8  ?? '';
-        $sep9  = $value->attributes->SEP9  ?? '';
-        $sep10 = $value->attributes->SEP10 ?? '';
+        $sep7  = $value->attributes->SEP3  ?? '';
+        $sep8  = $value->attributes->SEP4  ?? '';
+        $sep9  = $value->attributes->SEP5  ?? '';
+        $sep10 = $value->attributes->SEP6 ?? '';
 
         // ====== MESA_DIA_7 (NO mover) ======
         if (empty($value->attributes->MESA_DIA_7->data->attributes->url ?? '')) {
-            $dia7_name  = 'DÍA 4';
+            $dia7_name  = 'DÍA 3';
             $dia7_file  = '#';
             $dia7_clase = 'bi-red';
         } else {
-            $dia7_name  = $value->attributes->MESA_DIA_7->data->attributes->name ?? 'MESA DÍA 4';
+            $dia7_name  = $value->attributes->MESA_DIA_7->data->attributes->name ?? 'MESA DÍA 3';
             $dia7_file  = $value->attributes->MESA_DIA_7->data->attributes->url  ?? '#';
             $dia7_clase = 'bi-green';
         }
 
         // ====== MESA_DIA_8 ======
         if (empty($value->attributes->MESA_DIA_8->data->attributes->url ?? '')) {
-            $dia8_name  = 'DÍA 5';
+            $dia8_name  = 'DÍA 4';
             $dia8_file  = '#';
             $dia8_clase = 'bi-red';
         } else {
-            $dia8_name  = $value->attributes->MESA_DIA_8->data->attributes->name ?? 'MESA DÍA 5';
+            $dia8_name  = $value->attributes->MESA_DIA_8->data->attributes->name ?? 'MESA DÍA 4';
             $dia8_file  = $value->attributes->MESA_DIA_8->data->attributes->url  ?? '#';
             $dia8_clase = 'bi-green';
         }
 
         // ====== MESA_DIA_9 ======
         if (empty($value->attributes->MESA_DIA_9->data->attributes->url ?? '')) {
-            $dia9_name  = 'DÍA 6';
+            $dia9_name  = 'DÍA 5';
             $dia9_file  = '#';
             $dia9_clase = 'bi-red';
         } else {
-            $dia9_name  = $value->attributes->MESA_DIA_9->data->attributes->name ?? 'MESA DÍA 6';
+            $dia9_name  = $value->attributes->MESA_DIA_9->data->attributes->name ?? 'MESA DÍA 5';
             $dia9_file  = $value->attributes->MESA_DIA_9->data->attributes->url  ?? '#';
             $dia9_clase = 'bi-green';
         }
 
         // ====== MESA_DIA_10 (corrección: antes leías MESA_DIA_9 por error) ======
         if (empty($value->attributes->MESA_DIA_10->data->attributes->url ?? '')) {
-            $dia10_name  = 'DÍA 7';
+            $dia10_name  = 'DÍA 6';
             $dia10_file  = '#';
             $dia10_clase = 'bi-red';
         } else {
-            $dia10_name  = $value->attributes->MESA_DIA_10->data->attributes->name ?? 'MESA DÍA 7';
+            $dia10_name  = $value->attributes->MESA_DIA_10->data->attributes->name ?? 'MESA DÍA 6';
             $dia10_file  = $value->attributes->MESA_DIA_10->data->attributes->url  ?? '#';
             $dia10_clase = 'bi-green';
         }
@@ -76,7 +76,7 @@ class AgendaController extends Controller
         $booking_url   = $value->attributes->ELIGETUCANCION->Url    ?? '#';
 
         // ====== ENCUESTATECHNOLOGYRETREAT -> encuesta final ======
-        $encuesta_title = $value->attributes->ENCUESTATECHNOLOGYRETREAT->Titulo ?? 'ENCUESTA TECHNOLOGY RETREAT 2025';
+        $encuesta_title = $value->attributes->ENCUESTATECHNOLOGYRETREAT->Titulo ?? 'ENCUESTA TECHNOLOGY RETREAT 2026';
         $encuesta_url   = $value->attributes->ENCUESTATECHNOLOGYRETREAT->Url    ?? '#';
 
         // ====== ENCUESTASPARTNERS dinámico (Título/Url) ======
