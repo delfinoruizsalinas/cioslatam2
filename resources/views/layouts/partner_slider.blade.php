@@ -54,7 +54,7 @@
 
 .partner-slider-section .partner-logo {
     max-width: 100%;
-    max-height: 80px; /* Limita la altura máxima para que no rompan filas */
+    max-height: 100px; /* Limita la altura máxima para que no rompan filas */
     width: auto;
     height: auto;
     object-fit: contain; /* Evita que la imagen se deforme */
