@@ -253,7 +253,7 @@
                           id="folio"
                           name="folio"
                           class="form-control text-center mesa-input"
-                          placeholder="Ej. ID-CTR00"
+                          placeholder="Ej. CTR00"
                           required
                         >
                       </div>
@@ -372,7 +372,7 @@ const items = agenda.length > 0
     resBox.innerHTML = `
       <div class="card card-mesa mx-auto">
         <div class="card-body">
-          ${ idInv ? `<div class="mesa-id">ID: <strong>${idInv}</strong></div>` : '' }
+          ${ idInv ? `<div class="mesa-id"><strong>${idInv.substring(3)}</strong></div>` : '' }
           ${ nombre ? `<div class="mb-3">Nombre: <strong>${nombre}</strong></div>` : '' }
           ${items}
         </div>
@@ -392,7 +392,16 @@ const items = agenda.length > 0
     msgBox.innerHTML = '';
     resBox.innerHTML = '';
 
-    const folio = (document.getElementById('folio').value || '').trim();
+    let folio = (document.getElementById('folio').value || '').trim();
+
+    // Antepone 'ID-' automáticamente si el usuario no lo escribió
+    if (folio) {
+        // Si no comienza con "ID-" (ignorando mayúsculas/minúsculas), se lo agregamos
+        if (!folio.toUpperCase().startsWith('ID-')) {
+            folio = 'ID-' + folio;
+        }
+    }
+
     if (!folio) { setMsg('Por favor ingresa tu ID.', 'alert-danger'); return; }
 
     // Toma URL de data-action o, de respaldo, de action
